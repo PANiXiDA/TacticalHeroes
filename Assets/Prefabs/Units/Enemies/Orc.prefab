@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e06ea617ecff94091326e7583133a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: Orc
+  UnitName: "\u041E\u0440\u043A"
   OccupiedTile: {fileID: 0}
   Faction: 1
   UnitAttack: 10
@@ -175,8 +175,8 @@ MonoBehaviour:
   UnitMaxDamage: 20
   UnitInitiative: 12
   UnitSpeed: 3
-  UnitRangeAttack: 6
-  abilities: []
+  UnitRange: 0
+  abilities: 01000000
   animator: {fileID: -6099265815298606442}
   UnitResponse: 1
   UnitATB: 0

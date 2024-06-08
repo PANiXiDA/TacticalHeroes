@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.Helpers;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
@@ -162,13 +163,13 @@ public class MenuManager : MonoBehaviour
 
                 if (GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x - 1, enemyPos.y)) != null)
                 {
-                    if (GameObject.Find("Arrow(Clone)") is null && (UnitManager.Instance.SelectedHero.UnitRangeAttack >= distance))
+                    if (GameObject.Find("Arrow(Clone)") is null && (UnitManager.Instance.SelectedHero.UnitRange >= distance))
                     {
                         DeleteArrows();
                         var arrow = arrowsList.Find(e => e.name == "Arrow");
                         Instantiate(arrow, new Vector3(enemyPos.x - (float)0.75, enemyPos.y), Quaternion.identity);
                     }
-                    else if (GameObject.Find("BreakArrow(Clone)") is null && (UnitManager.Instance.SelectedHero.UnitRangeAttack < distance))
+                    else if (GameObject.Find("BreakArrow(Clone)") is null && (UnitManager.Instance.SelectedHero.UnitRange < distance))
                     {
                         DeleteArrows();
                         var arrow = arrowsList.Find(e => e.name == "BreakArrow");
@@ -232,19 +233,34 @@ public class MenuManager : MonoBehaviour
 
         if (tile.OccupiedUnit)
         {
-            string abilitiesText = "Умения: \n";
+            string abilitiesText = "";
             foreach (var ability in tile.OccupiedUnit.abilities)
             {
-                abilitiesText += EnumHelper.GetDescription(ability) + "\n";
+                abilitiesText += EnumHelper.GetDescription(ability) + ". ";
             }
-            _tileUnitObject.GetComponentInChildren<Text>().text = tile.OccupiedUnit.UnitName + "\n" + 
-                "Атака: " + tile.OccupiedUnit.UnitAttack.ToString() + "\n" +
-                "Защита: " + tile.OccupiedUnit.UnitDefence.ToString() + "\n" +
-                "Здоровье: " + tile.OccupiedUnit.UnitHealth.ToString() + "\n" +
-                "Урон: " + tile.OccupiedUnit.UnitMinDamage.ToString() + "-" + tile.OccupiedUnit.UnitMaxDamage.ToString() + "\n" +
-                "Инициатива: " + tile.OccupiedUnit.UnitInitiative.ToString() + "\n" +
-                "Скорость: " + tile.OccupiedUnit.UnitSpeed.ToString() + "\n" +
-                abilitiesText;
+            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
+                .Where(item => item.name == "UnitName").FirstOrDefault().text = tile.OccupiedUnit.UnitName;
+            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
+                .Where(item => item.name == "AttackValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitAttack}";
+            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
+                .Where(item => item.name == "DefenceValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitDefence}";
+            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
+                .Where(item => item.name == "HealthValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitHealth}";
+            //_tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
+            //    .Where(item => item.name == "ArrowsValue").FirstOrDefault().text = $"{tile.OccupiedUnit.ArrowsValue}";
+            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
+                .Where(item => item.name == "RangeValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitRange}";
+            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
+                .Where(item => item.name == "DamageValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitMinDamage} - {tile.OccupiedUnit.UnitMaxDamage}";
+            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
+                .Where(item => item.name == "InitiativeValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitInitiative.ToString().Replace(',', '.')}";
+            //_tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
+            //    .Where(item => item.name == "MoraleValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitMorale}";
+            //_tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
+            //    .Where(item => item.name == "LuckValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitLuck}";
+            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
+                .Where(item => item.name == "Abilities").FirstOrDefault().text = abilitiesText;
+
             _tileUnitObject.SetActive(true);
         }
     }

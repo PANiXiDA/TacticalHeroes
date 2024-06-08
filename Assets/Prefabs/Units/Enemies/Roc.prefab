@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a3999f4ed41524d914fa1b1bb6e10e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: Roc
+  UnitName: "\u041F\u0442\u0438\u0446\u0430 \u0440\u0443\u0445"
   OccupiedTile: {fileID: 0}
   Faction: 1
   UnitAttack: 17
@@ -175,8 +175,8 @@ MonoBehaviour:
   UnitMaxDamage: 40
   UnitInitiative: 17
   UnitSpeed: 8
-  UnitRangeAttack: 0
-  abilities: []
+  UnitRange: 0
+  abilities: 0000000002000000
   animator: {fileID: 5370533235504420483}
   UnitResponse: 1
   UnitATB: 0

@@ -21,7 +21,7 @@ public class BaseUnit : MonoBehaviour
     public int UnitMaxDamage;
     public double UnitInitiative;
     public int UnitSpeed;
-    public int UnitRangeAttack;
+    public int UnitRange;
 
     public List<Abilities> abilities;
     public Animator animator;

@@ -168,15 +168,15 @@ MonoBehaviour:
   UnitName: "\u041A\u0443\u0442\u044E\u0440\u044C\u0435"
   OccupiedTile: {fileID: 0}
   Faction: 0
-  UnitAttack: 30
+  UnitAttack: 300
   UnitDefence: 15
   UnitHealth: 5
   UnitMinDamage: 25
   UnitMaxDamage: 45
-  UnitInitiative: 15
+  UnitInitiative: 15.2
   UnitSpeed: 7
-  UnitRangeAttack: 0
-  abilities: []
+  UnitRange: 0
+  abilities: 00000000
   animator: {fileID: -7878754606840086160}
   UnitResponse: 1
   UnitATB: 0

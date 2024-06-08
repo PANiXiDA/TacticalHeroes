@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb21ce97c6411fc4ba6a22d14fee8fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: Misha
+  UnitName: "\u041C\u0438\u0448\u0430"
   OccupiedTile: {fileID: 0}
   Faction: 1
   UnitAttack: 20
@@ -176,7 +176,7 @@ MonoBehaviour:
   UnitInitiative: 10
   UnitSpeed: 5
   UnitRangeAttack: 0
-  abilities: []
+  abilities: 
   animator: {fileID: -7908724923508095379}
   UnitResponse: 1
   UnitATB: 0

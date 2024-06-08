@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158fc4c0aac4e1c489d29adb03b4848a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: Kseona
+  UnitName: "\u041A\u0441\u0435\u043E\u043D\u0430"
   OccupiedTile: {fileID: 0}
   Faction: 1
   UnitAttack: 20
@@ -176,7 +176,7 @@ MonoBehaviour:
   UnitInitiative: 5
   UnitSpeed: 5
   UnitRangeAttack: 0
-  abilities: []
+  abilities: 
   animator: {fileID: 1986504707264567658}
   UnitResponse: 1
   UnitATB: 0

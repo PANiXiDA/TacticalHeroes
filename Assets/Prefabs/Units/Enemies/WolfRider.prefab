@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff6e5b7a1eda3c41bd1fef4cd5ff0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: WolfRider
+  UnitName: "\u041D\u0430\u0435\u0437\u0434\u043D\u0438\u043A \u043D\u0430 \u0432\u043E\u043B\u043A\u0435"
   OccupiedTile: {fileID: 0}
   Faction: 1
   UnitAttack: 5

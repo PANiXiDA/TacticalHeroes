@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d5492b2ddd7fa45adb7d7e62ed30f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: Faust
+  UnitName: "\u0424\u0430\u0443\u0441\u0442"
   OccupiedTile: {fileID: 0}
   Faction: 0
   UnitAttack: 15
@@ -176,7 +176,7 @@ MonoBehaviour:
   UnitInitiative: 30
   UnitSpeed: 5
   UnitRangeAttack: 6
-  abilities: []
+  abilities: 
   animator: {fileID: 4261549734538747020}
   UnitResponse: 0
   UnitATB: 0

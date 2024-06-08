@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3089ddf9475cbc4488c6c62e3909b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: Goblin
+  UnitName: "\u0413\u043E\u0431\u043B\u0438\u043D"
   OccupiedTile: {fileID: 0}
   Faction: 1
   UnitAttack: 3
@@ -176,7 +176,7 @@ MonoBehaviour:
   UnitInitiative: 7
   UnitSpeed: 4
   UnitRangeAttack: 0
-  abilities: []
+  abilities: 
   animator: {fileID: 2010931594052763889}
   UnitResponse: 1
   UnitATB: 0
