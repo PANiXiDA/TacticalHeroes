@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using Unity.VisualScripting;
+using Assets.Scripts.Enumeration;
 
 public class PathFinder : MonoBehaviour
 {
@@ -10,15 +12,17 @@ public class PathFinder : MonoBehaviour
     public List<Vector2> PathToTarget;
     List<Tile> CheckedNodes = new List<Tile>();
     List<Tile> WaitingNodes = new List<Tile>();
+    BaseUnit Unit;
     private void Awake()
     {
         Instance = this;
     }
-    public List<Vector2> GetPath(Vector2 start, Vector2 target)
+    public List<Vector2> GetPath(Vector2 start, Vector2 target, BaseUnit unit)
     {
         PathToTarget = new List<Vector2>();
         CheckedNodes = new List<Tile>();
         WaitingNodes = new List<Tile>();
+        Unit = unit;
 
         Vector2 StartPosition = start;
         Vector2 TargetPosition = target;
@@ -39,7 +43,7 @@ public class PathFinder : MonoBehaviour
                 return CalculatePathFromNode(nodeToCheck);
             }
             var walkable = nodeToCheck.Walkable;
-            if (!walkable && nodeToCheck.Position != StartPosition)
+            if ((!walkable && !Unit.abilities.Contains(Abilities.Fly))  && nodeToCheck.Position != StartPosition)
             {
                 WaitingNodes.Remove(nodeToCheck);
                 CheckedNodes.Add(nodeToCheck);
@@ -71,7 +75,7 @@ public class PathFinder : MonoBehaviour
 
         Tile node1 = GridManager.Instance.GetTileAtPosition(new Vector2(node.Position.x + 1, node.Position.y));
 
-        if (node1 != null && node1.Walkable && (!CheckedNodes.Contains(node1) || node.G + 1 < node1.G))
+        if (node1 != null && (node1.Walkable || Unit.abilities.Contains(Abilities.Fly)) && (!CheckedNodes.Contains(node1) || node.G + 1 < node1.G))
         {
             node1.SetTile(node.G + 1, new Vector2(node.Position.x + 1, node.Position.y), node.TargetPosition, node);
             if (!WaitingNodes.Contains(node1))
@@ -80,7 +84,7 @@ public class PathFinder : MonoBehaviour
 
         Tile node2 = GridManager.Instance.GetTileAtPosition(new Vector2(node.Position.x, node.Position.y + 1));
 
-        if (node2 != null && node2.Walkable && (!CheckedNodes.Contains(node2) || node.G + 1 < node2.G))
+        if (node2 != null && (node2.Walkable || Unit.abilities.Contains(Abilities.Fly)) && (!CheckedNodes.Contains(node2) || node.G + 1 < node2.G))
         {
             node2.SetTile(node.G + 1, new Vector2(node.Position.x, node.Position.y + 1), node.TargetPosition, node);
             if (!WaitingNodes.Contains(node2))
@@ -89,7 +93,7 @@ public class PathFinder : MonoBehaviour
 
         Tile node3 = GridManager.Instance.GetTileAtPosition(new Vector2(node.Position.x, node.Position.y - 1));
 
-        if (node3 != null && node3.Walkable && (!CheckedNodes.Contains(node3) || node.G + 1 < node3.G))
+        if (node3 != null && (node3.Walkable || Unit.abilities.Contains(Abilities.Fly)) && (!CheckedNodes.Contains(node3) || node.G + 1 < node3.G))
         {
             node3.SetTile(node.G + 1, new Vector2(node.Position.x, node.Position.y - 1), node.TargetPosition, node);
             if (!WaitingNodes.Contains(node3))
@@ -98,7 +102,7 @@ public class PathFinder : MonoBehaviour
 
         Tile node4 = GridManager.Instance.GetTileAtPosition(new Vector2(node.Position.x - 1, node.Position.y));
 
-        if (node4 != null && node4.Walkable && (!CheckedNodes.Contains(node4) || node.G + 1 < node4.G))
+        if (node4 != null && (node4.Walkable || Unit.abilities.Contains(Abilities.Fly)) && (!CheckedNodes.Contains(node4) || node.G + 1 < node4.G))
         {
             node4.SetTile(node.G + 1, new Vector2(node.Position.x - 1, node.Position.y), node.TargetPosition, node);
             if (!WaitingNodes.Contains(node4))
@@ -107,7 +111,7 @@ public class PathFinder : MonoBehaviour
 
         Tile node5 = GridManager.Instance.GetTileAtPosition(new Vector2(node.Position.x + 1, node.Position.y + 1));
 
-        if (node5 != null && node5.Walkable && (!CheckedNodes.Contains(node5) || node.G + (float)Math.Sqrt(2) < node5.G))
+        if (node5 != null && (node5.Walkable || Unit.abilities.Contains(Abilities.Fly)) && (!CheckedNodes.Contains(node5) || node.G + (float)Math.Sqrt(2) < node5.G))
         {
             node5.SetTile(node.G + (float)Math.Sqrt(2), new Vector2(node.Position.x + 1, node.Position.y + 1), node.TargetPosition, node);
             if (!WaitingNodes.Contains(node5))
@@ -116,7 +120,7 @@ public class PathFinder : MonoBehaviour
 
         Tile node6 = GridManager.Instance.GetTileAtPosition(new Vector2(node.Position.x + 1, node.Position.y - 1));
 
-        if (node6 != null && node6.Walkable && (!CheckedNodes.Contains(node6) || node.G + (float)Math.Sqrt(2) < node6.G))
+        if (node6 != null && (node6.Walkable || Unit.abilities.Contains(Abilities.Fly)) && (!CheckedNodes.Contains(node6) || node.G + (float)Math.Sqrt(2) < node6.G))
         {
             node6.SetTile(node.G + (float)Math.Sqrt(2), new Vector2(node.Position.x + 1, node.Position.y - 1), node.TargetPosition, node);
             if (!WaitingNodes.Contains(node6))
@@ -125,7 +129,7 @@ public class PathFinder : MonoBehaviour
 
         Tile node7 = GridManager.Instance.GetTileAtPosition(new Vector2(node.Position.x - 1, node.Position.y - 1));
 
-        if (node7 != null && node7.Walkable && (!CheckedNodes.Contains(node7) || node.G + (float)Math.Sqrt(2) < node7.G))
+        if (node7 != null && (node7.Walkable || Unit.abilities.Contains(Abilities.Fly)) && (!CheckedNodes.Contains(node7) || node.G + (float)Math.Sqrt(2) < node7.G))
         {
             node7.SetTile(node.G + (float)Math.Sqrt(2), new Vector2(node.Position.x - 1, node.Position.y - 1), node.TargetPosition, node);
             if (!WaitingNodes.Contains(node7))
@@ -134,7 +138,7 @@ public class PathFinder : MonoBehaviour
 
         Tile node8 = GridManager.Instance.GetTileAtPosition(new Vector2(node.Position.x - 1, node.Position.y + 1));
 
-        if (node8 != null && node8.Walkable && (!CheckedNodes.Contains(node8) || node.G + (float)Math.Sqrt(2) < node8.G))
+        if (node8 != null && (node8.Walkable || Unit.abilities.Contains(Abilities.Fly)) && (!CheckedNodes.Contains(node8) || node.G + (float)Math.Sqrt(2) < node8.G))
         {
             node8.SetTile(node.G + (float)Math.Sqrt(2), new Vector2(node.Position.x - 1, node.Position.y + 1), node.TargetPosition, node);
             if (!WaitingNodes.Contains(node8))

@@ -4,21 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using DG.Tweening;
+using Assets.Scripts.Enumeration;
 
-//Назначение абстрактного класса заключается в предоставлении
-//общего определения для базового класса, которое могут совместно использовать несколько производных классов.
 public class Tile : MonoBehaviour
 {
     public static Tile Instance;
 
     public string TileName;
-    //public - доступ не ограничен;
-    //protected - доступ ограничен только наследуемыми классами;
-    //internal - доступ ограничен рамками текущего проекта;
-    //private - доступ ограничен рамками данного класса.
+
     [SerializeField] protected SpriteRenderer _renderer;
-    [SerializeField] private GameObject _highlight, _highlight_for_attack;
-    [SerializeField] private bool _isWalkable; //можно ли по этой плитке ходить
+    [SerializeField] private GameObject _highlight, _highlight_for_attack, _highlight_hero;
+    [SerializeField] private bool _isWalkable; 
 
     public BaseUnit OccupiedUnit;
     public bool Walkable => _isWalkable && OccupiedUnit == null;
@@ -50,8 +46,6 @@ public class Tile : MonoBehaviour
     {
         Instance = this;
     }
-
-    ////методы и свойства, которые мы хотим сделать доступными для переопределения, в базовом классе помечается модификатором virtual.
     public virtual void Init(int x, int y)
     {
 
@@ -64,7 +58,9 @@ public class Tile : MonoBehaviour
 
             TileForAttackMove = ShowTileForAttack(GridManager.Instance.GetTileCoordinate(this));
             if (TileForAttackMove != null)
+            {
                 TileForAttackMove._highlight_for_attack.SetActive(true);
+            }
         }
     }
     void OnMouseEnter()
@@ -89,6 +85,7 @@ public class Tile : MonoBehaviour
         MenuManager.Instance.ShowTileInfo(null);
         flag = false;
         MenuManager.Instance.DeleteSwords();
+        MenuManager.Instance.DeleteArrows();
         DeleteHighlightForAttack();
     }
     private void OnMouseDown()
@@ -96,19 +93,17 @@ public class Tile : MonoBehaviour
         if (GameManager.Instance.GameState != GameState.HeroesTurn) return;
         if (OccupiedUnit != null)
         {
-            if (OccupiedUnit.Faction == Faction.Hero && UnitManager.Instance.SelectedHero == null)
+            if (UnitManager.Instance.SelectedHero != null && OccupiedUnit.Faction != Faction.Hero &&
+                OccupiedUnit != UnitManager.Instance.SelectedHero)
             {
-                UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
-                SetHighlight(UnitManager.Instance.SelectedHero); // Создаем подсветку для выбранного нами героя
-            }
-            else
-            {
-                if (UnitManager.Instance.SelectedHero != null && OccupiedUnit.Faction != Faction.Hero)
+                if (!UnitManager.Instance.SelectedHero.abilities.Contains(Abilities.Archer))
                 {
                     TileForAttackMove = ShowTileForAttack(GridManager.Instance.GetTileCoordinate(this));
                     StartCoroutine(UnitManager.Instance.SelectedHero.Attack(this, TileForAttackMove));
-                    // Атака вражеского юнита в пределах досегаемости
-                    //DeleteHighlight();// Убираем подсветку после атаки вражеского юнита
+                }
+                else
+                {
+                    UnitManager.Instance.SelectedHero.RangeAttack(UnitManager.Instance.SelectedHero.OccupiedTile, this);
                 }
             }
         }
@@ -116,8 +111,7 @@ public class Tile : MonoBehaviour
         {
             if (UnitManager.Instance.SelectedHero != null)
             {
-                UnitManager.Instance.SelectedHero.Move(this, true); // Перемещаем выбранного юнита на клетку, на которую нажимаем
-                //DeleteHighlight(); // Убираем подсветку после перемещения юнита
+                UnitManager.Instance.SelectedHero.Move(this, true);
             }
         }
     }
@@ -169,6 +163,7 @@ public class Tile : MonoBehaviour
     }
     public void SetHighlight(BaseUnit unit)
     {
+        unit.OccupiedTile._highlight_hero.SetActive(true);
         var tilesForMove = UnitManager.Instance.GetTilesForMove(unit);
         foreach (var t in tilesForMove)
         {
@@ -185,6 +180,7 @@ public class Tile : MonoBehaviour
         {
             t.Value._highlight.SetActive(false);
             t.Value._highlight_for_attack.SetActive(false);
+            t.Value._highlight_hero.SetActive(false);
         }
     }
     public void DeleteHighlightForAttack()

@@ -206,15 +206,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6100307046655619645, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_Color.b
-      value: 0.04435684
-      objectReference: {fileID: 0}
-    - target: {fileID: 6100307046655619645, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
-      propertyPath: m_Color.g
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6100307046655619645, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100307046655619645, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_Color.r
-      value: 0.9622642
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6100307046655619645, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_SortingLayer
@@ -299,6 +299,11 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 956774835688774002, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
   m_PrefabInstance: {fileID: 6749875398038439528}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6079329077950105481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 716708406916907489, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
+  m_PrefabInstance: {fileID: 6749875398038439528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6788839294590534041 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 259681243697940465, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
@@ -325,6 +330,7 @@ MonoBehaviour:
   _renderer: {fileID: 5830888615059250970}
   _highlight: {fileID: 6788839294590534041}
   _highlight_for_attack: {fileID: 5095252190131725840}
+  _highlight_hero: {fileID: 6079329077950105481}
   _isWalkable: 1
   OccupiedUnit: {fileID: 0}
   Position: {x: 0, y: 0}
@@ -334,3 +340,4 @@ MonoBehaviour:
   G: 0
   H: 0
   flag: 0
+  TileForAttackMove: {fileID: 0}

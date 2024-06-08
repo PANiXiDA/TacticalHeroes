@@ -116,6 +116,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1086535581
       objectReference: {fileID: 0}
+    - target: {fileID: 7562789952525221959, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -145,6 +149,7 @@ MonoBehaviour:
   _renderer: {fileID: 4566013279618442770}
   _highlight: {fileID: 3566864035086219409}
   _highlight_for_attack: {fileID: 2955274433456201496}
+  _highlight_hero: {fileID: 4316941283677257345}
   _isWalkable: 0
   OccupiedUnit: {fileID: 0}
   Position: {x: 0, y: 0}
@@ -154,6 +159,7 @@ MonoBehaviour:
   G: 0
   H: 0
   flag: 0
+  TileForAttackMove: {fileID: 0}
 --- !u!1 &2955274433456201496 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1952775766025429112, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
@@ -162,6 +168,11 @@ GameObject:
 --- !u!1 &3566864035086219409 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 259681243697940465, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
+  m_PrefabInstance: {fileID: 3610366577219518304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4316941283677257345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 716708406916907489, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
   m_PrefabInstance: {fileID: 3610366577219518304}
   m_PrefabAsset: {fileID: 0}
 --- !u!212 &4566013279618442770 stripped
