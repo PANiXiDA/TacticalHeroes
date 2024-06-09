@@ -179,6 +179,6 @@ MonoBehaviour:
   UnitLuck: 0
   abilities: 01000000
   animator: {fileID: 4261549734538747020}
-  UnitResponse: 0
+  UnitResponse: 1
   UnitATB: 0
   UnitTime: 0

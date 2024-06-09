@@ -28,7 +28,6 @@ public class ArtificialIntelligence : MonoBehaviour
             randomNumberEnemy = random.Next(0, EnemyUnits.Count());
             randomNumberPlayer = random.Next(0, PlayerUnits.Count());
             var player = PlayerUnits[randomNumberPlayer];
-            enemy.UnitResponse = true;
             if (!enemy.abilities.Contains(Abilities.Archer))
             {
                 AIaction(randomNumberEnemy, randomNumberPlayer);
@@ -63,7 +62,7 @@ public class ArtificialIntelligence : MonoBehaviour
         {
             yield return new WaitForSecondsRealtime(2);
         }
-        UnitManager.Instance.UpdateATB(enemy);
+        UnitManager.Instance.UpdateATB();
     }
     public void AIaction(int randomNumberEnemy, int randomNumberPlayer)
     {

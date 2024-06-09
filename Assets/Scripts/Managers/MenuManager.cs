@@ -73,7 +73,7 @@ public class MenuManager : MonoBehaviour
             }
         }
     }
-    private void ShowArrowAttack(Vector2 enemyPos, BaseHero selectedHero)
+    private void ShowArrowAttack(Vector2 enemyPos, BaseUnit selectedHero)
     {
         var arrowsList = Resources.LoadAll<GameObject>("Arrows").ToList();
 

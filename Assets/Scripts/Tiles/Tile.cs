@@ -98,38 +98,27 @@ public class Tile : MonoBehaviour
     }
     public Tile ShowTileForAttack(Vector3 enemyPos)
     {
-        if (GameObject.Find("Bottom(Clone)"))
+        Dictionary<string, Vector2Int> directions = new Dictionary<string, Vector2Int>()
         {
-            return GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x, enemyPos.y + 1));
-        }
-        if (GameObject.Find("BottomLeft(Clone)"))
+            { "Bottom", new Vector2Int(0, 1) },
+            { "BottomLeft", new Vector2Int(1, 1) },
+            { "Left", new Vector2Int(1, 0) },
+            { "TopLeft", new Vector2Int(1, -1) },
+            { "Top", new Vector2Int(0, -1) },
+            { "TopRight", new Vector2Int(-1, -1) },
+            { "Right", new Vector2Int(-1, 0) },
+            { "BottomRight", new Vector2Int(-1, 1) }
+        };
+
+        foreach (var direction in directions)
         {
-            return GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x + 1, enemyPos.y + 1));
+            if (GameObject.Find($"{direction.Key}(Clone)"))
+            {
+                Vector2 tilePos = new Vector2(enemyPos.x + direction.Value.x, enemyPos.y + direction.Value.y);
+                return GridManager.Instance.GetTileAtPosition(tilePos);
+            }
         }
-        if (GameObject.Find("Left(Clone)"))
-        {
-            return GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x + 1, enemyPos.y));
-        }
-        if (GameObject.Find("TopLeft(Clone)"))
-        {
-            return GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x + 1, enemyPos.y - 1));
-        }
-        if (GameObject.Find("Top(Clone)"))
-        {
-            return GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x, enemyPos.y - 1));
-        }
-        if (GameObject.Find("TopRight(Clone)"))
-        {
-            return GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x - 1, enemyPos.y - 1));
-        }
-        if (GameObject.Find("Right(Clone)"))
-        {
-            return GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x - 1, enemyPos.y));
-        }
-        if (GameObject.Find("BottomRight(Clone)"))
-        {
-            return GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x - 1, enemyPos.y + 1));
-        }
+
         return null;
     }
     public void SetUnit(BaseUnit unit, Tile tile)
