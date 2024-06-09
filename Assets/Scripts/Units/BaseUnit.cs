@@ -21,7 +21,11 @@ public class BaseUnit : MonoBehaviour
     public int UnitMaxDamage;
     public double UnitInitiative;
     public int UnitSpeed;
-    public int UnitRange;
+    public int? UnitRange;
+    public int? UnitArrows;
+
+    public int UnitMorale;
+    public int UnitLuck;
 
     public List<Abilities> abilities;
     public Animator animator;
@@ -32,6 +36,15 @@ public class BaseUnit : MonoBehaviour
 
     void Awake()
     {
+        if (abilities.Contains(Abilities.Fly))
+        {
+            GetComponent<SpriteRenderer>().sortingOrder = 2;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sortingOrder = 1;
+        }
+        UnitMorale = 1;
         UnitATB = random.NextDouble() * (15 - 0) + 0;
         UnitTime = (100-UnitATB)/UnitInitiative;
     }

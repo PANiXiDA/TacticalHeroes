@@ -14,6 +14,7 @@ public class UnitManager : MonoBehaviour
 
     public List<BaseUnit> PlayerUnits = new List<BaseUnit>();
     public List<BaseUnit> EnemyUnits = new List<BaseUnit>();
+    public List<BaseUnit> allUnits = new List<BaseUnit>();
 
     public List<BaseUnit> ATB = new List<BaseUnit>();
 
@@ -67,9 +68,30 @@ public class UnitManager : MonoBehaviour
     }
     public void SetATB()
     {
-        ATB.AddRange(PlayerUnits);
-        ATB.AddRange(EnemyUnits);
-        ATB.Sort((x, y) => x.UnitTime.CompareTo(y.UnitTime));
+        //ATB.AddRange(PlayerUnits);
+        //ATB.AddRange(EnemyUnits);
+        //ATB.Sort((x, y) => x.UnitTime.CompareTo(y.UnitTime));
+
+        int count = 0;
+        allUnits.AddRange(PlayerUnits);
+        allUnits.AddRange(EnemyUnits);
+        allUnits.Sort((x, y) => x.UnitTime.CompareTo(y.UnitTime));
+        while (count < 100)
+        {
+            var time = allUnits.FirstOrDefault().UnitTime;
+            foreach (var unit in allUnits)
+            {
+                unit.UnitATB += unit.UnitInitiative * time;
+                if (unit.UnitATB >= 100)
+                {
+                    unit.UnitATB -= 100;
+                    ATB.Add(unit);
+                    count++;
+                }
+                unit.UnitTime = (100 - unit.UnitATB) / unit.UnitInitiative;
+            }
+            allUnits.Sort((x, y) => x.UnitTime.CompareTo(y.UnitTime));
+        }
         MenuManager.Instance.ShowUnitsPortraits();
         if (ATB.First().Faction == Faction.Hero)
         {
@@ -84,17 +106,19 @@ public class UnitManager : MonoBehaviour
     }
     public void UpdateATB(BaseUnit unit)
     {
-        var unitTime = unit.UnitTime;
-        foreach (var ATBunit in ATB)
+        var unitTime = allUnits.FirstOrDefault().UnitTime;
+        ATB.Remove(unit);
+        foreach (var ATBunit in allUnits)
         {
             ATBunit.UnitATB += ATBunit.UnitInitiative * unitTime;
             if (ATBunit.UnitATB >= 100)
             {
                 ATBunit.UnitATB -= 100;
+                ATB.Add(ATBunit);
             }
             ATBunit.UnitTime = (100 - ATBunit.UnitATB) / ATBunit.UnitInitiative;
         }
-        ATB.Sort((x, y) => x.UnitTime.CompareTo(y.UnitTime));
+        allUnits.Sort((x, y) => x.UnitTime.CompareTo(y.UnitTime));
         MenuManager.Instance.ShowUnitsPortraits();
         if (EnemyUnits.Count == 0)
         {
@@ -159,26 +183,34 @@ public class UnitManager : MonoBehaviour
             {
                 if (responseAttack == false)
                 {
+                    enemy.GetComponent<SpriteRenderer>().sortingOrder = -1;
                     EnemyUnits.Remove(enemy);
-                    ATB.Remove(enemy);
+                    allUnits.Remove(enemy);
+                    ATB.RemoveAll(item => item == enemy);
                 }
                 else
                 {
+                    enemy.GetComponent<SpriteRenderer>().sortingOrder = -1;
                     PlayerUnits.Remove(enemy);
-                    ATB.Remove(enemy);
+                    allUnits.Remove(enemy);
+                    ATB.RemoveAll(item => item == enemy);
                 }
             }
             else
             {
                 if (responseAttack == false)
                 {
+                    enemy.GetComponent<SpriteRenderer>().sortingOrder = -1;
                     PlayerUnits.Remove(enemy);
-                    ATB.Remove(enemy);
+                    allUnits.Remove(enemy);
+                    ATB.RemoveAll(item => item == enemy);
                 }
                 else
                 {
+                    enemy.GetComponent<SpriteRenderer>().sortingOrder = -1;
                     EnemyUnits.Remove(enemy);
-                    ATB.Remove(enemy);
+                    allUnits.Remove(enemy);
+                    ATB.RemoveAll(item => item == enemy);
                 }
             }
         }

@@ -2909,7 +2909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1073756665
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2949,7 +2949,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -1762.9, y: -197.46}
-  m_SizeDelta: {x: 314.18, y: 685.08}
+  m_SizeDelta: {x: 314.17, y: 685.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1073756666
 MonoBehaviour:
@@ -3021,10 +3021,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1073756665}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.044267636, y: 0.86783874}
-  m_AnchorMax: {x: 0.92589384, y: 0.9377581}
-  m_AnchoredPosition: {x: 4.5, y: -276}
-  m_SizeDelta: {x: -77, y: 2}
+  m_AnchorMin: {x: 0.060182992, y: 0.86783874}
+  m_AnchorMax: {x: 0.92589384, y: 0.9333791}
+  m_AnchoredPosition: {x: 2, y: -274.5}
+  m_SizeDelta: {x: -72, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1113511444
 MonoBehaviour:
@@ -3073,7 +3073,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 35.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3109,7 +3109,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -44.324066, y: -270.52972, z: -38.210434, w: 276.6433}
+  m_margin: {x: -39.738754, y: -270.52972, z: -38.210434, w: 276.6433}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3890,7 +3890,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 4.5852127, y: 3.0568428, z: -61.13701, w: 6.1136875}
+  m_margin: {x: 7.074745, y: 3.0568428, z: -61.13701, w: 6.1136875}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5997,7 +5997,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.25
+  m_fontSize: 23.2
   m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6033,7 +6033,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 202.68661, y: 1.2721537, z: -53.495514, w: 6.1136875}
+  m_margin: {x: 206.8358, y: 1.2721537, z: -53.495514, w: 6.1136875}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

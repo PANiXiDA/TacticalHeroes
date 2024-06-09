@@ -246,18 +246,18 @@ public class MenuManager : MonoBehaviour
                 .Where(item => item.name == "DefenceValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitDefence}";
             _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
                 .Where(item => item.name == "HealthValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitHealth}";
-            //_tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-            //    .Where(item => item.name == "ArrowsValue").FirstOrDefault().text = $"{tile.OccupiedUnit.ArrowsValue}";
             _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-                .Where(item => item.name == "RangeValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitRange}";
+                .Where(item => item.name == "ArrowsValue").FirstOrDefault().text = $"{(tile.OccupiedUnit.UnitArrows != null ? tile.OccupiedUnit.UnitArrows : "-")}";
+            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
+                .Where(item => item.name == "RangeValue").FirstOrDefault().text = $"{(tile.OccupiedUnit.UnitRange != null ? tile.OccupiedUnit.UnitRange : "-")}";
             _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
                 .Where(item => item.name == "DamageValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitMinDamage} - {tile.OccupiedUnit.UnitMaxDamage}";
             _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
                 .Where(item => item.name == "InitiativeValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitInitiative.ToString().Replace(',', '.')}";
-            //_tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-            //    .Where(item => item.name == "MoraleValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitMorale}";
-            //_tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-            //    .Where(item => item.name == "LuckValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitLuck}";
+            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
+                .Where(item => item.name == "MoraleValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitMorale}";
+            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
+                .Where(item => item.name == "LuckValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitLuck}";
             _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
                 .Where(item => item.name == "Abilities").FirstOrDefault().text = abilitiesText;
 
