@@ -27,6 +27,11 @@ public class BaseUnit : MonoBehaviour
     public int UnitMorale;
     public int UnitLuck;
 
+    public int UnitFailedMorale;
+    public int UnitSuccessfulMorale;
+    public int UnitFailedLuck;
+    public int UnitSuccessfulLuck;
+
     public List<Abilities> abilities;
     public Animator animator;
 
@@ -36,6 +41,7 @@ public class BaseUnit : MonoBehaviour
 
     void Awake()
     {
+        UnitFailedMorale = UnitSuccessfulMorale = UnitFailedLuck = UnitSuccessfulLuck = 0;
         if (abilities.Contains(Abilities.Fly))
         {
             GetComponent<SpriteRenderer>().sortingOrder = 2;
@@ -44,9 +50,17 @@ public class BaseUnit : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sortingOrder = 1;
         }
+        _ = abilities.Contains(Abilities.Archer) ? UnitRange = 6 : UnitRange = null;
         UnitMorale = 1;
         UnitATB = random.NextDouble() * (15 - 0) + 0;
         UnitTime = (100-UnitATB)/UnitInitiative;
+    }
+
+    public virtual void ProbabilityLuckMorale()
+    {
+        var probabilityLuck = Math.Pow(UnitLuck / 10.0, 1 + UnitSuccessfulLuck - UnitFailedLuck * (UnitLuck / 10.0 / (1 - UnitLuck / 10.0)));
+        var probabilityMorale = Math.Pow(UnitMorale / 10.0, 1 + UnitSuccessfulMorale - UnitFailedMorale * (UnitMorale / 10.0 / (1 - UnitMorale / 10.0)));
+        UnitFailedMorale++;
     }
 
     public virtual IEnumerator Attack(Tile enemyTile, Tile tileForAttack)

@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
             case GameState.EnemiesTurn:
                 StartCoroutine(ArtificialIntelligence.Instance.Waiter());
                 break;
+            case GameState.GameOver:
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
@@ -51,5 +53,6 @@ public enum GameState
     SpawnEnemies = 2,
     SetATB = 3,
     HeroesTurn = 4,
-    EnemiesTurn = 5
+    EnemiesTurn = 5,
+    GameOver = 6
 }

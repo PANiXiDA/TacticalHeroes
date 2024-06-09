@@ -39,7 +39,6 @@ public class ArtificialIntelligence : MonoBehaviour
                 if (EnemyUnits.Count == 0 || PlayerUnits.Count == 0)
                 {
                     yield return new WaitForSecondsRealtime(2);
-                    MenuManager.Instance.LosePanel();
                 }
                 yield break;
             }
@@ -63,7 +62,6 @@ public class ArtificialIntelligence : MonoBehaviour
         if (EnemyUnits.Count == 0 || PlayerUnits.Count == 0)
         {
             yield return new WaitForSecondsRealtime(2);
-            MenuManager.Instance.LosePanel();
         }
         UnitManager.Instance.UpdateATB(enemy);
     }

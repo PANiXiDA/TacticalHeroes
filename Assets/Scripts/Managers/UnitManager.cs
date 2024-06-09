@@ -123,12 +123,14 @@ public class UnitManager : MonoBehaviour
         if (EnemyUnits.Count == 0)
         {
             MenuManager.Instance.WinPanel();
+            GameManager.Instance.ChangeState(GameState.GameOver);
         }
         else if (PlayerUnits.Count == 0)
         {
             MenuManager.Instance.LosePanel();
+            GameManager.Instance.ChangeState(GameState.GameOver);
         }
-        if (ATB.First().Faction == Faction.Hero)
+        else if (ATB.First().Faction == Faction.Hero)
         {
             SetSelectedHero((BaseHero)ATB.First());
             Tile.Instance.SetHighlight(SelectedHero);

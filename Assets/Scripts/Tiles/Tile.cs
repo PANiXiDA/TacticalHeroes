@@ -59,6 +59,7 @@ public class Tile : MonoBehaviour
             TileForAttackMove = ShowTileForAttack(GridManager.Instance.GetTileCoordinate(this));
             if (TileForAttackMove != null)
             {
+                DeleteHighlightForAttack();
                 TileForAttackMove._highlight_for_attack.SetActive(true);
             }
         }

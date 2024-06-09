@@ -20,6 +20,83 @@ public class MenuManager : MonoBehaviour
     {
         Instance = this;
     }
+    public void ShowOrientationOfAttack(Tile tile)
+    {
+        var enemyPos = GridManager.Instance.GetTileCoordinate(tile);
+        var cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float normalizedAngle = Mathf.Atan2(cursorPos.y - enemyPos.y, cursorPos.x - enemyPos.x) * Mathf.Rad2Deg;
+        normalizedAngle = (normalizedAngle + 360) % 360;
+
+        var selectedHero = UnitManager.Instance.SelectedHero;
+        var tilesForMove = UnitManager.Instance.GetTilesForMove(selectedHero);
+
+        if (selectedHero != null)
+        {
+            if (!selectedHero.abilities.Contains(Abilities.Archer))
+            {
+                ShowSwordAttack(enemyPos, normalizedAngle, tilesForMove);
+            }
+            else
+            {
+                ShowArrowAttack(enemyPos, selectedHero);
+            }
+        }
+    }
+    private void ShowSwordAttack(Vector2 enemyPos, float normalizedAngle, Dictionary<Vector2, Tile> tilesForMove)
+    {
+        var swordsList = Resources.LoadAll<GameObject>("Swords").ToList();
+        var swordPositions = new Dictionary<string, (Vector2 position, float angleRangeStart, float angleRangeEnd)>
+        {
+            {"Bottom", (new Vector2(enemyPos.x, enemyPos.y + 0.75f), 67.5f, 112.5f)},
+            {"BottomLeft", (new Vector2(enemyPos.x + 0.75f, enemyPos.y + 0.75f), 22.5f, 67.5f)},
+            {"Left", (new Vector2(enemyPos.x + 0.75f, enemyPos.y), 0f, 22.5f)},
+            {"TopLeft", (new Vector2(enemyPos.x + 0.75f, enemyPos.y - 0.75f), 292.5f, 337.5f)},
+            {"Top", (new Vector2(enemyPos.x, enemyPos.y - 0.75f), 247.5f, 292.5f)},
+            {"TopRight", (new Vector2(enemyPos.x - 0.75f, enemyPos.y - 0.75f), 202.5f, 247.5f)},
+            {"Right", (new Vector2(enemyPos.x - 0.75f, enemyPos.y), 157.5f, 202.5f)},
+            {"BottomRight", (new Vector2(enemyPos.x - 0.75f, enemyPos.y + 0.75f), 112.5f, 157.5f)},
+        };
+
+        foreach (var (swordName, (position, angleStart, angleEnd)) in swordPositions)
+        {
+            var tilePos = new Vector2(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.y));
+            var tile = GridManager.Instance.GetTileAtPosition(tilePos);
+
+            if (tile != null &&
+                normalizedAngle >= angleStart && normalizedAngle < angleEnd &&
+                GameObject.Find($"{swordName}(Clone)") is null &&
+                (tilesForMove.ContainsKey(tilePos) || tile.OccupiedUnit == UnitManager.Instance.SelectedHero))
+            {
+                DeleteSwords();
+                var sword = swordsList.Find(e => e.name == swordName);
+                Instantiate(sword, position, Quaternion.identity);
+            }
+        }
+    }
+    private void ShowArrowAttack(Vector2 enemyPos, BaseHero selectedHero)
+    {
+        var arrowsList = Resources.LoadAll<GameObject>("Arrows").ToList();
+
+        var distance = (int)Math.Ceiling(Math.Sqrt(Math.Pow(enemyPos.x - selectedHero.OccupiedTile.Position.x, 2) +
+            Math.Pow(enemyPos.y - selectedHero.OccupiedTile.Position.y, 2)));
+
+        var tilePos = new Vector2(enemyPos.x - 1, enemyPos.y);
+        var tile = GridManager.Instance.GetTileAtPosition(tilePos);
+
+        if (tile != null && GameObject.Find("Arrow(Clone)") is null && selectedHero.UnitRange >= distance)
+        {
+            DeleteArrows();
+            var arrow = arrowsList.Find(e => e.name == "Arrow");
+            Instantiate(arrow, new Vector3(tilePos.x + 0.25f, tilePos.y), Quaternion.identity);
+        }
+        else if (tile != null && GameObject.Find("BreakArrow(Clone)") is null && selectedHero.UnitRange < distance)
+        {
+            DeleteArrows();
+            var arrow = arrowsList.Find(e => e.name == "BreakArrow");
+            Instantiate(arrow, new Vector3(tilePos.x + 0.15f, tilePos.y), Quaternion.identity);
+        }
+    }
+
     public void DeleteSwords()
     {
         var swordsList = Resources.LoadAll<GameObject>("Swords").ToList();
@@ -31,6 +108,7 @@ public class MenuManager : MonoBehaviour
             }
         }
     }
+
     public void DeleteArrows()
     {
         var arrowsList = Resources.LoadAll<GameObject>("Arrows").ToList();
@@ -42,143 +120,7 @@ public class MenuManager : MonoBehaviour
             }
         }
     }
-    public void ShowOrientationOfAttack(Tile tile)
-    {
-        var swordsList = Resources.LoadAll<GameObject>("Swords").ToList();
-        Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var enemyPos = new Vector3(GridManager.Instance.GetTileCoordinate(tile).x, GridManager.Instance.GetTileCoordinate(tile).y);
 
-        float angle = Mathf.Atan2(cursorPos.y - enemyPos.y, cursorPos.x - enemyPos.x) * Mathf.Rad2Deg;
-        float normalizedAngle = (angle + 360) % 360;
-
-        Dictionary<Vector2, Tile> tilesForMove = UnitManager.Instance.GetTilesForMove(UnitManager.Instance.SelectedHero);
-        if (UnitManager.Instance.SelectedHero != null)
-        {
-            if (!UnitManager.Instance.SelectedHero.abilities.Contains(Abilities.Archer))
-            {
-                if (GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x, enemyPos.y + 1)) != null)
-                {
-                    if (normalizedAngle >= 67.5 && normalizedAngle < 112.5 && GameObject.Find("Bottom(Clone)") is null
-                        && (tilesForMove.ContainsKey(new Vector2(enemyPos.x, enemyPos.y + 1))
-                        || GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x, enemyPos.y + 1)).OccupiedUnit == UnitManager.Instance.SelectedHero))
-                    {
-                        DeleteSwords();
-                        sword = swordsList.Find(e => e.name == "Bottom");
-                        Instantiate(sword, new Vector3(enemyPos.x, enemyPos.y + (float)0.75), Quaternion.identity);
-                        Tile.Instance.DeleteHighlightForAttack();
-                    }
-                }
-                if (GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x + 1, enemyPos.y + 1)) != null)
-                {
-                    if (normalizedAngle >= 22.5 && normalizedAngle < 67.5 && GameObject.Find("BottomLeft(Clone)") is null
-                    && (tilesForMove.ContainsKey(new Vector2(enemyPos.x + 1, enemyPos.y + 1))
-                    || GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x + 1, enemyPos.y + 1)).OccupiedUnit == UnitManager.Instance.SelectedHero))
-                    {
-                        DeleteSwords();
-                        sword = swordsList.Find(e => e.name == "BottomLeft");
-                        Instantiate(sword, new Vector3(enemyPos.x + (float)0.75, enemyPos.y + (float)0.75), Quaternion.identity);
-                        Tile.Instance.DeleteHighlightForAttack();
-                    }
-                }
-
-                if (GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x + 1, enemyPos.y)) != null)
-                {
-                    if ((normalizedAngle >= 0 && normalizedAngle < 22.5 || normalizedAngle >= 337.5 && normalizedAngle <= 360) &&
-                    GameObject.Find("Left(Clone)") is null && (tilesForMove.ContainsKey(new Vector2(enemyPos.x + 1, enemyPos.y))
-                    || GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x + 1, enemyPos.y)).OccupiedUnit == UnitManager.Instance.SelectedHero))
-                    {
-                        DeleteSwords();
-                        sword = swordsList.Find(e => e.name == "Left");
-                        Instantiate(sword, new Vector3(enemyPos.x + (float)0.75, enemyPos.y), Quaternion.identity);
-                        Tile.Instance.DeleteHighlightForAttack();
-                    }
-                }
-
-                if (GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x + 1, enemyPos.y - 1)) != null)
-                {
-                    if (normalizedAngle >= 292.5 && normalizedAngle < 337.5 && GameObject.Find("TopLeft(Clone)") is null
-                    && (tilesForMove.ContainsKey(new Vector2(enemyPos.x + 1, enemyPos.y - 1))
-                    || GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x + 1, enemyPos.y - 1)).OccupiedUnit == UnitManager.Instance.SelectedHero))
-                    {
-                        DeleteSwords();
-                        sword = swordsList.Find(e => e.name == "TopLeft");
-                        Instantiate(sword, new Vector3(enemyPos.x + (float)0.75, enemyPos.y - (float)0.75), Quaternion.identity);
-                        Tile.Instance.DeleteHighlightForAttack();
-                    }
-                }
-                if (GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x, enemyPos.y - 1)) != null)
-                {
-                    if (normalizedAngle >= 247.5 && normalizedAngle < 292.5 && GameObject.Find("Top(Clone)") is null
-                    && (tilesForMove.ContainsKey(new Vector2(enemyPos.x, enemyPos.y - 1))
-                    || GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x, enemyPos.y - 1)).OccupiedUnit == UnitManager.Instance.SelectedHero))
-                    {
-                        DeleteSwords();
-                        sword = swordsList.Find(e => e.name == "Top");
-                        Instantiate(sword, new Vector3(enemyPos.x, enemyPos.y - (float)0.75), Quaternion.identity);
-                        Tile.Instance.DeleteHighlightForAttack();
-                    }
-                }
-                if (GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x - 1, enemyPos.y - 1)) != null)
-                {
-                    if (normalizedAngle >= 202.5 && normalizedAngle < 247.5 && GameObject.Find("TopRight(Clone)") is null
-                    && (tilesForMove.ContainsKey(new Vector2(enemyPos.x - 1, enemyPos.y - 1))
-                    || GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x - 1, enemyPos.y - 1)).OccupiedUnit == UnitManager.Instance.SelectedHero))
-                    {
-                        DeleteSwords();
-                        sword = swordsList.Find(e => e.name == "TopRight");
-                        Instantiate(sword, new Vector3(enemyPos.x - (float)0.75, enemyPos.y - (float)0.75), Quaternion.identity);
-                        Tile.Instance.DeleteHighlightForAttack();
-                    }
-                }
-                if (GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x - 1, enemyPos.y)) != null)
-                {
-                    if (normalizedAngle >= 157.5 && normalizedAngle < 202.5 && GameObject.Find("Right(Clone)") is null
-                    && (tilesForMove.ContainsKey(new Vector2(enemyPos.x - 1, enemyPos.y))
-                    || GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x - 1, enemyPos.y)).OccupiedUnit == UnitManager.Instance.SelectedHero))
-                    {
-                        DeleteSwords();
-                        sword = swordsList.Find(e => e.name == "Right");
-                        Instantiate(sword, new Vector3(enemyPos.x - (float)0.75, enemyPos.y), Quaternion.identity);
-                        Tile.Instance.DeleteHighlightForAttack();
-                    }
-                }
-                if (GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x - 1, enemyPos.y + 1)) != null)
-                {
-                    if (normalizedAngle >= 112.5 && normalizedAngle < 157.5 && GameObject.Find("BottomRight(Clone)") is null
-                    && (tilesForMove.ContainsKey(new Vector2(enemyPos.x - 1, enemyPos.y + 1))
-                    || GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x - 1, enemyPos.y + 1)).OccupiedUnit == UnitManager.Instance.SelectedHero))
-                    {
-                        DeleteSwords();
-                        sword = swordsList.Find(e => e.name == "BottomRight");
-                        Instantiate(sword, new Vector3(enemyPos.x - (float)0.75, enemyPos.y + (float)0.75), Quaternion.identity);
-                        Tile.Instance.DeleteHighlightForAttack();
-                    }
-                }
-            }
-            else
-            {
-                var arrowsList = Resources.LoadAll<GameObject>("Arrows").ToList();
-                int distance = (int)Math.Ceiling(Math.Sqrt(Math.Pow(enemyPos.x - UnitManager.Instance.SelectedHero.OccupiedTile.Position.x, 2) +
-                    Math.Pow(enemyPos.y - UnitManager.Instance.SelectedHero.OccupiedTile.Position.y, 2)));
-
-                if (GridManager.Instance.GetTileAtPosition(new Vector2(enemyPos.x - 1, enemyPos.y)) != null)
-                {
-                    if (GameObject.Find("Arrow(Clone)") is null && (UnitManager.Instance.SelectedHero.UnitRange >= distance))
-                    {
-                        DeleteArrows();
-                        var arrow = arrowsList.Find(e => e.name == "Arrow");
-                        Instantiate(arrow, new Vector3(enemyPos.x - (float)0.75, enemyPos.y), Quaternion.identity);
-                    }
-                    else if (GameObject.Find("BreakArrow(Clone)") is null && (UnitManager.Instance.SelectedHero.UnitRange < distance))
-                    {
-                        DeleteArrows();
-                        var arrow = arrowsList.Find(e => e.name == "BreakArrow");
-                        Instantiate(arrow, new Vector3(enemyPos.x - (float)0.85, enemyPos.y), Quaternion.identity);
-                    }
-                }
-            }
-        }
-    }
     public void ShowDamage(BaseUnit hero, BaseUnit enemy, int damage)
     {
         _consoleObject.GetComponentInChildren<Text>().text += hero.UnitName + 
