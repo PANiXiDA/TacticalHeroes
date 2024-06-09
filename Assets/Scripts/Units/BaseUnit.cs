@@ -27,10 +27,10 @@ public class BaseUnit : MonoBehaviour
     public int UnitMorale;
     public int UnitLuck;
 
-    public int UnitFailedMorale;
-    public int UnitSuccessfulMorale;
-    public int UnitFailedLuck;
-    public int UnitSuccessfulLuck;
+    private int UnitFailedMorale;
+    private int UnitSuccessfulMorale;
+    private int UnitFailedLuck;
+    private int UnitSuccessfulLuck;
 
     public List<Abilities> abilities;
     public Animator animator;

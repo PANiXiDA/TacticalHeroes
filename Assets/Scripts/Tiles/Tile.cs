@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using DG.Tweening;
 using Assets.Scripts.Enumeration;
 
 public class Tile : MonoBehaviour
@@ -30,25 +26,9 @@ public class Tile : MonoBehaviour
 
     public Tile TileForAttackMove = null; //  летка, в которую мы должны переместитьс€ при атаке
 
-    public void SetTile(float g, Vector2 nodePosition, Vector2 targetPosition, Tile previousNode)
-    {
-        Position = nodePosition;
-        TargetPosition = targetPosition;
-        PreviousNode = previousNode;
-        G = g;
-        float _min = Math.Min(Math.Abs(TargetPosition.x - Position.x), Math.Abs(TargetPosition.y - Position.y));
-        float _max = Math.Max(Math.Abs(TargetPosition.x - Position.x), Math.Abs(TargetPosition.y - Position.y));
-        H = (float)Math.Sqrt(2) * _min + _max - _min;
-        F = G + H;
-    }
-
     private void Awake()
     {
         Instance = this;
-    }
-    public virtual void Init(int x, int y)
-    {
-
     }
     void Update()
     {

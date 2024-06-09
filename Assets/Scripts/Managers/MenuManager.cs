@@ -192,6 +192,7 @@ public class MenuManager : MonoBehaviour
         SetUnitInfoText("ArrowsValue", unit.UnitArrows != null ? unit.UnitArrows.ToString() : "-");
         SetUnitInfoText("RangeValue", unit.UnitRange != null ? unit.UnitRange.ToString() : "-");
         SetUnitInfoText("DamageValue", $"{unit.UnitMinDamage} - {unit.UnitMaxDamage}");
+        SetUnitInfoText("SpeedValue", $"{unit.UnitSpeed}");
         SetUnitInfoText("InitiativeValue", unit.UnitInitiative.ToString().Replace(',', '.'));
         SetUnitInfoText("MoraleValue", unit.UnitMorale.ToString());
         SetUnitInfoText("LuckValue", unit.UnitLuck.ToString());

@@ -170,17 +170,13 @@ MonoBehaviour:
   Faction: 0
   UnitAttack: 15
   UnitDefence: 5
-  UnitHealth: 1
+  UnitHealth: 1000
   UnitMinDamage: 25
   UnitMaxDamage: 40
   UnitInitiative: 30
   UnitSpeed: 5
   UnitMorale: 0
   UnitLuck: 0
-  UnitFailedMorale: 0
-  UnitSuccessfulMorale: 0
-  UnitFailedLuck: 0
-  UnitSuccessfulLuck: 0
   abilities: 01000000
   animator: {fileID: 4261549734538747020}
   UnitResponse: 0
