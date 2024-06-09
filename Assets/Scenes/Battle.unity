@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 65497296}
   - component: {fileID: 65497295}
   m_Layer: 5
-  m_Name: Console
+  m_Name: Chat Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1793,7 +1793,7 @@ GameObject:
   - component: {fileID: 573045988}
   - component: {fileID: 573045987}
   m_Layer: 5
-  m_Name: ATB
+  m_Name: ATB Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2904,7 +2904,7 @@ GameObject:
   - component: {fileID: 1073756667}
   - component: {fileID: 1073756666}
   m_Layer: 5
-  m_Name: 'Tile Unit info '
+  m_Name: 'Unit Info Panel '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3136,7 +3136,7 @@ GameObject:
   - component: {fileID: 1133038925}
   - component: {fileID: 1133038924}
   m_Layer: 5
-  m_Name: Viewport
+  m_Name: ATB Visible Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3572,7 +3572,7 @@ GameObject:
   - component: {fileID: 1328554824}
   - component: {fileID: 1328554823}
   m_Layer: 5
-  m_Name: Tile info
+  m_Name: Tile Info Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5029,7 +5029,7 @@ GameObject:
   - component: {fileID: 1660133075}
   - component: {fileID: 1660133076}
   m_Layer: 5
-  m_Name: Icons
+  m_Name: ATB Icons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5104,7 +5104,7 @@ GameObject:
   - component: {fileID: 1674200206}
   - component: {fileID: 1674200205}
   m_Layer: 5
-  m_Name: Win
+  m_Name: Win Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5306,7 +5306,7 @@ GameObject:
   - component: {fileID: 1785930305}
   - component: {fileID: 1785930304}
   m_Layer: 5
-  m_Name: Lose
+  m_Name: Lose Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5518,7 +5518,7 @@ GameObject:
   - component: {fileID: 1847617672}
   - component: {fileID: 1847617671}
   m_Layer: 5
-  m_Name: Console info
+  m_Name: Chat Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5639,13 +5639,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432477398c58de742956e00375258439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tileObject: {fileID: 1328554821}
-  _tileUnitObject: {fileID: 1073756664}
-  _consoleObject: {fileID: 65497293}
-  sword: {fileID: 1660133073}
-  _winObject: {fileID: 1674200203}
-  _loseObject: {fileID: 1785930302}
-  _contentRectTransform: {fileID: 1660133074}
+  _tileInfoPanel: {fileID: 1328554821}
+  _unitInfoPanel: {fileID: 1073756664}
+  _chatPanel: {fileID: 65497293}
+  _winPanel: {fileID: 1674200203}
+  _losePanel: {fileID: 1785930302}
+  _ATBIcons: {fileID: 1660133074}
 --- !u!1 &1921615544
 GameObject:
   m_ObjectHideFlags: 0

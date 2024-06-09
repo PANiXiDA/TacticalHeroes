@@ -13,8 +13,8 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
-    [SerializeField] private GameObject _tileObject, _tileUnitObject, _consoleObject, sword, _winObject, _loseObject;
-    [SerializeField] private RectTransform _contentRectTransform;
+    [SerializeField] private GameObject _tileInfoPanel, _unitInfoPanel, _chatPanel, _winPanel, _losePanel;
+    [SerializeField] private RectTransform _ATBIcons;
 
     private void Awake()
     {
@@ -96,7 +96,6 @@ public class MenuManager : MonoBehaviour
             Instantiate(arrow, new Vector3(tilePos.x + 0.15f, tilePos.y), Quaternion.identity);
         }
     }
-
     public void DeleteSwords()
     {
         var swordsList = Resources.LoadAll<GameObject>("Swords").ToList();
@@ -108,7 +107,6 @@ public class MenuManager : MonoBehaviour
             }
         }
     }
-
     public void DeleteArrows()
     {
         var arrowsList = Resources.LoadAll<GameObject>("Arrows").ToList();
@@ -120,98 +118,100 @@ public class MenuManager : MonoBehaviour
             }
         }
     }
-
     public void ShowDamage(BaseUnit hero, BaseUnit enemy, int damage)
     {
-        _consoleObject.GetComponentInChildren<Text>().text += hero.UnitName + 
+        _chatPanel.GetComponentInChildren<Text>().text += hero.UnitName + 
             " нанес " + damage.ToString() + " урона по " + enemy.UnitName + "\n";
     }
     public void ShowUnitsPortraits()
     {
-        for (int i = _contentRectTransform.childCount - 1; i >= 0; i--)
+        foreach (Transform child in _ATBIcons)
         {
-            Destroy(_contentRectTransform.GetChild(i).gameObject);
+            Destroy(child.gameObject);
         }
+
         foreach (var ATBunit in UnitManager.Instance.ATB)
         {
             string unitName = ATBunit.name.Replace("(Clone)", "");
-            GameObject newImage = new GameObject(unitName);
-            Image image = newImage.AddComponent<Image>();
-            image.sprite = Resources.Load<Sprite>("Icons/" + unitName);
-            newImage.transform.SetParent(_contentRectTransform, false);
 
-            GameObject countour = new GameObject("Countour");
-            countour.transform.SetParent(newImage.transform, false);
+            GameObject portrait = new GameObject(unitName);
+            portrait.transform.SetParent(_ATBIcons, false);
 
+            Image image = portrait.AddComponent<Image>();
+            image.sprite = Resources.Load<Sprite>($"Icons/{unitName}");
 
-            countour.transform.localPosition = new Vector3(190, -180, 0);
-            countour.transform.localScale = new Vector3(180, 170, 1);
+            GameObject contour = new GameObject("Countour");
+            contour.transform.SetParent(portrait.transform, false);
+            contour.transform.localPosition = new Vector3(190, -180, 0);
+            contour.transform.localScale = new Vector3(180, 170, 1);
 
-            SpriteRenderer spriteRenderer = countour.AddComponent<SpriteRenderer>();
+            SpriteRenderer spriteRenderer = contour.AddComponent<SpriteRenderer>();
             spriteRenderer.sprite = Resources.Load<Sprite>("Countour");
             spriteRenderer.sortingOrder = 1;
-
-            if (ATBunit.Faction == Faction.Hero)
-            {
-                spriteRenderer.color = Color.red;
-            }
-            else
-            {
-                spriteRenderer.color = Color.blue;
-            }
+            spriteRenderer.color = ATBunit.Faction == Faction.Hero ? Color.red : Color.blue;
         }
     }
     public void ShowTileInfo(Tile tile)
     {
         if (tile == null)
         {
-            _tileObject.SetActive(false);
-            _tileUnitObject.SetActive(false);
+            HideTileInfoPanels();
             return;
         }
-        _tileObject.GetComponentInChildren<Text>().text = "x = " + GridManager.Instance.GetTileCoordinate(tile).x + "\n" +
-            "y = " + GridManager.Instance.GetTileCoordinate(tile).y;
-        _tileObject.SetActive(true);
 
-        if (tile.OccupiedUnit)
+        UpdateTileInfoPanel(tile);
+
+        if (tile.OccupiedUnit != null)
         {
-            string abilitiesText = "";
-            foreach (var ability in tile.OccupiedUnit.abilities)
-            {
-                abilitiesText += EnumHelper.GetDescription(ability) + ". ";
-            }
-            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-                .Where(item => item.name == "UnitName").FirstOrDefault().text = tile.OccupiedUnit.UnitName;
-            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-                .Where(item => item.name == "AttackValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitAttack}";
-            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-                .Where(item => item.name == "DefenceValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitDefence}";
-            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-                .Where(item => item.name == "HealthValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitHealth}";
-            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-                .Where(item => item.name == "ArrowsValue").FirstOrDefault().text = $"{(tile.OccupiedUnit.UnitArrows != null ? tile.OccupiedUnit.UnitArrows : "-")}";
-            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-                .Where(item => item.name == "RangeValue").FirstOrDefault().text = $"{(tile.OccupiedUnit.UnitRange != null ? tile.OccupiedUnit.UnitRange : "-")}";
-            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-                .Where(item => item.name == "DamageValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitMinDamage} - {tile.OccupiedUnit.UnitMaxDamage}";
-            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-                .Where(item => item.name == "InitiativeValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitInitiative.ToString().Replace(',', '.')}";
-            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-                .Where(item => item.name == "MoraleValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitMorale}";
-            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-                .Where(item => item.name == "LuckValue").FirstOrDefault().text = $"{tile.OccupiedUnit.UnitLuck}";
-            _tileUnitObject.GetComponentsInChildren<TextMeshProUGUI>(true)
-                .Where(item => item.name == "Abilities").FirstOrDefault().text = abilitiesText;
-
-            _tileUnitObject.SetActive(true);
+            UpdateUnitInfoPanel(tile.OccupiedUnit);
         }
+        else
+        {
+            _unitInfoPanel.SetActive(false);
+        }
+    }
+    private void HideTileInfoPanels()
+    {
+        _tileInfoPanel.SetActive(false);
+        _unitInfoPanel.SetActive(false);
+    }
+    private void UpdateTileInfoPanel(Tile tile)
+    {
+        var tileCoordinate = GridManager.Instance.GetTileCoordinate(tile);
+        _tileInfoPanel.GetComponentInChildren<Text>().text = $"x = {tileCoordinate.x}\ny = {tileCoordinate.y}";
+        _tileInfoPanel.SetActive(true);
+    }
+    private void UpdateUnitInfoPanel(BaseUnit unit)
+    {
+        string abilitiesText = string.Join(". ", unit.abilities.Select(ability => EnumHelper.GetDescription(ability)));
+
+        SetUnitInfoText("UnitName", unit.UnitName);
+        SetUnitInfoText("AttackValue", unit.UnitAttack.ToString());
+        SetUnitInfoText("DefenceValue", unit.UnitDefence.ToString());
+        SetUnitInfoText("HealthValue", unit.UnitHealth.ToString());
+        SetUnitInfoText("ArrowsValue", unit.UnitArrows != null ? unit.UnitArrows.ToString() : "-");
+        SetUnitInfoText("RangeValue", unit.UnitRange != null ? unit.UnitRange.ToString() : "-");
+        SetUnitInfoText("DamageValue", $"{unit.UnitMinDamage} - {unit.UnitMaxDamage}");
+        SetUnitInfoText("InitiativeValue", unit.UnitInitiative.ToString().Replace(',', '.'));
+        SetUnitInfoText("MoraleValue", unit.UnitMorale.ToString());
+        SetUnitInfoText("LuckValue", unit.UnitLuck.ToString());
+        SetUnitInfoText("Abilities", abilitiesText);
+
+        _unitInfoPanel.SetActive(true);
+    }
+    private void SetUnitInfoText(string parameterName, string textValue)
+    {
+        _unitInfoPanel.GetComponentsInChildren<TextMeshProUGUI>(true)
+            .Where(item => item.name == parameterName)
+            .FirstOrDefault()
+            .text = textValue;
     }
     public void WinPanel()
     {
-        _winObject.SetActive(true);
+        _winPanel.SetActive(true);
     }
     public void LosePanel()
     {
-        _loseObject.SetActive(true);
+        _losePanel.SetActive(true);
     }
 }
