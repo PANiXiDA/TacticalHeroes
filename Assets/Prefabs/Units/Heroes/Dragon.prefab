@@ -168,19 +168,15 @@ MonoBehaviour:
   UnitName: "\u041A\u0443\u0442\u044E\u0440\u044C\u0435"
   OccupiedTile: {fileID: 0}
   Faction: 0
-  UnitAttack: 300
+  UnitAttack: 30
   UnitDefence: 15
   UnitHealth: 500
-  UnitMinDamage: 25
-  UnitMaxDamage: 45
+  UnitMinDamage: 1
+  UnitMaxDamage: 1
   UnitInitiative: 15.2
   UnitSpeed: 7
   UnitMorale: 0
   UnitLuck: 0
-  UnitFailedMorale: 0
-  UnitSuccessfulMorale: 0
-  UnitFailedLuck: 0
-  UnitSuccessfulLuck: 0
   abilities: 00000000
   animator: {fileID: -7878754606840086160}
   UnitResponse: 1

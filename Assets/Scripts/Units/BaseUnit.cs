@@ -6,6 +6,7 @@ using UnityEngine;
 using DG.Tweening;
 using Unity.Mathematics;
 using Assets.Scripts.Enumeration;
+using Cysharp.Threading.Tasks;
 
 public class BaseUnit : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class BaseUnit : MonoBehaviour
     public bool UnitResponse;
     public double UnitATB;
     public double UnitTime;
+
+    public bool isBusy;
 
     protected virtual void Awake()
     {
@@ -77,21 +80,26 @@ public class BaseUnit : MonoBehaviour
         var probabilityMorale = Math.Pow(UnitMorale / 10.0, 1 + UnitSuccessfulMorale - UnitFailedMorale * (UnitMorale / 10.0 / (1 - UnitMorale / 10.0)));
     }
 
-    public virtual IEnumerator Attack(Tile enemyTile, Tile tileForAttack)
+    public virtual async UniTask Attack(Tile enemyTile, Tile tileForAttack)
     {
+        isBusy = true;
+
         if (tileForAttack != null)
         {
             if (OccupiedTile != tileForAttack)
             {
-                Move(tileForAttack, false);
-                yield return new WaitForSecondsRealtime(1);
+                await Move(tileForAttack, false);
             }
-            MeleeAttack(enemyTile, true, false);
+            await MeleeAttack(enemyTile, true);
         }
+
+        isBusy = false;
     }
 
-    public virtual void Move(Tile tile, bool changeState)
+    public virtual async UniTask Move(Tile tile, bool changeState)
     {
+        isBusy = true;
+
         Dictionary<Vector2, Tile> tilesForMove = UnitManager.Instance.GetTilesForMove(this);
         if (tilesForMove.ContainsValue(tile))
         {
@@ -104,7 +112,7 @@ public class BaseUnit : MonoBehaviour
             Vector3[] path_ = path.Select(p => new Vector3(p.x, p.y, 0)).ToArray();
 
             animator.Play("Move");
-            transform.DOPath(path_, 1, PathType.Linear, PathMode.TopDown2D).SetEase(Ease.Linear);
+            await transform.DOPath(path_, 1, PathType.Linear, PathMode.TopDown2D).SetEase(Ease.Linear);
 
             if (OccupiedTile != null)
             {
@@ -119,11 +127,15 @@ public class BaseUnit : MonoBehaviour
                 UnitManager.Instance.SetSelectedHero(null);
                 UnitManager.Instance.UpdateATB();
             }
+
+            isBusy = false;
         }
     }
 
-    public virtual void MeleeAttack(Tile enemyTile, bool changeState, bool changeHighlight)
+    public virtual async UniTask MeleeAttack(Tile enemyTile, bool changeState)
     {
+        isBusy = true;
+
         var enemy = enemyTile.OccupiedUnit;
         var enemy_tile = GridManager.Instance.GetTileCoordinate(enemy.OccupiedTile);
         var hero_tile = GridManager.Instance.GetTileCoordinate(OccupiedTile);
@@ -131,7 +143,7 @@ public class BaseUnit : MonoBehaviour
         Tile.Instance.DeleteHighlight();
         if (Math.Abs(enemy_tile.x - hero_tile.x) <= 1 && Math.Abs(enemy_tile.y - hero_tile.y) <= 1)
         {
-            StartCoroutine(UnitManager.Instance.Attack(this, enemy, true, false));
+            await UnitManager.Instance.Attack(this, enemy, true, false);
 
             if (changeState)
             {
@@ -139,15 +151,17 @@ public class BaseUnit : MonoBehaviour
                 UnitManager.Instance.UpdateATB();
             }
         }
+
+        isBusy = false;
     }
 
-    public virtual void RangeAttack(Tile myTile, Tile enemyTile)
+    public virtual async UniTask RangeAttack(Tile myTile, Tile enemyTile)
     {
         var enemyUnit = enemyTile.OccupiedUnit;
         var myUnit = myTile.OccupiedUnit;
 
         Tile.Instance.DeleteHighlight();
-        StartCoroutine(UnitManager.Instance.Attack(myUnit, enemyUnit, false, false));
+        await UnitManager.Instance.Attack(myUnit, enemyUnit, false, false);
 
         if (GameManager.Instance.GameState == GameState.HeroesTurn)
         {

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Enumeration;
+using Cysharp.Threading.Tasks;
 
 public class Tile : MonoBehaviour
 {
@@ -71,7 +72,7 @@ public class Tile : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (GameManager.Instance.GameState != GameState.HeroesTurn) return;
+        if (GameManager.Instance.GameState != GameState.HeroesTurn || UnitManager.Instance.SelectedHero.isBusy) return;
         if (OccupiedUnit != null)
         {
             if (UnitManager.Instance.SelectedHero != null && OccupiedUnit.Faction != Faction.Hero &&
@@ -80,11 +81,11 @@ public class Tile : MonoBehaviour
                 if (!UnitManager.Instance.SelectedHero.abilities.Contains(Abilities.Archer))
                 {
                     TileForAttackMove = ShowTileForAttack(GridManager.Instance.GetTileCoordinate(this));
-                    StartCoroutine(UnitManager.Instance.SelectedHero.Attack(this, TileForAttackMove));
+                    _ = UnitManager.Instance.SelectedHero.Attack(this, TileForAttackMove);
                 }
                 else
                 {
-                    UnitManager.Instance.SelectedHero.RangeAttack(UnitManager.Instance.SelectedHero.OccupiedTile, this);
+                    _ = UnitManager.Instance.SelectedHero.RangeAttack(UnitManager.Instance.SelectedHero.OccupiedTile, this);
                 }
             }
         }
@@ -92,7 +93,7 @@ public class Tile : MonoBehaviour
         {
             if (UnitManager.Instance.SelectedHero != null)
             {
-                UnitManager.Instance.SelectedHero.Move(this, true);
+                _ = UnitManager.Instance.SelectedHero.Move(this, true);
             }
         }
     }

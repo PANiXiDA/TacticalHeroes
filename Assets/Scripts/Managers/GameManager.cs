@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Unity;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,9 +12,12 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        //var container = new UnityContainer();
+        //container.RegisterType<IWeapon, Sword>();
+
         ChangeState(GameState.GenerateGrid);
     }
-    public void ChangeState(GameState newState)
+    public async void ChangeState(GameState newState)
     {
         GameState = newState;
 
@@ -36,7 +38,7 @@ public class GameManager : MonoBehaviour
             case GameState.HeroesTurn:
                 break;
             case GameState.EnemiesTurn:
-                StartCoroutine(ArtificialIntelligence.Instance.Waiter());
+                await ArtificialIntelligence.Instance.Waiter();
                 break;
             case GameState.GameOver:
                 break;

@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using System.Threading;
 using UnityEngine.SceneManagement;
+using Cysharp.Threading.Tasks;
 
 public class UnitManager : MonoBehaviour
 {
@@ -156,7 +157,7 @@ public class UnitManager : MonoBehaviour
         SelectedHero = hero;
     }
 
-    public IEnumerator Attack(BaseUnit attacker, BaseUnit defender, bool meleeAttack, bool responseAttack)
+    public async UniTask Attack(BaseUnit attacker, BaseUnit defender, bool meleeAttack, bool responseAttack)
     {
         attacker.animator.Play(meleeAttack ? "MeleeAttack" : "RangeAttack");
         defender.animator.Play("TakeDamage");
@@ -175,12 +176,12 @@ public class UnitManager : MonoBehaviour
         else if (defender.UnitResponse && meleeAttack && !responseAttack)
         {
             defender.UnitResponse = false;
-            yield return new WaitForSecondsRealtime(1);
-            StartCoroutine(Attack(defender, attacker, true, true));
+            await UniTask.Delay(1000);
+            await Attack(defender, attacker, true, true);
 
             if (GameManager.Instance.GameState == GameState.HeroesTurn && responseAttack)
             {
-                yield return new WaitForSecondsRealtime(1);
+                await UniTask.Delay(1000);
             }
         }
     }

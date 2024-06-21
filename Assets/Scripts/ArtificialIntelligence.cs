@@ -6,6 +6,8 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 using System;
 using Assets.Scripts.Enumeration;
+using Cysharp.Threading.Tasks;
+using Unity.VisualScripting;
 
 public class ArtificialIntelligence : MonoBehaviour
 {
@@ -14,9 +16,9 @@ public class ArtificialIntelligence : MonoBehaviour
     {
         Instance = this;
     }
-    public IEnumerator Waiter()
+    public async UniTask Waiter()
     {
-        yield return new WaitForSecondsRealtime(1);
+        await UniTask.Delay(1000);
         List<BaseUnit> PlayerUnits = UnitManager.Instance.PlayerUnits;
         List<BaseUnit> EnemyUnits = UnitManager.Instance.EnemyUnits;
         int randomNumberEnemy = 0;
@@ -34,14 +36,14 @@ public class ArtificialIntelligence : MonoBehaviour
             }
             else
             {
-                enemy.RangeAttack(enemy.OccupiedTile, player.OccupiedTile);
+                await enemy.RangeAttack(enemy.OccupiedTile, player.OccupiedTile);
                 if (EnemyUnits.Count == 0 || PlayerUnits.Count == 0)
                 {
-                    yield return new WaitForSecondsRealtime(2);
+                    await UniTask.Delay(2000);
                 }
-                yield break;
+                return;
             }
-            yield return new WaitForSecondsRealtime(1);
+            await UniTask.Delay(1000);
         }
         if (EnemyUnits.Count > 0 && PlayerUnits.Count > 0)
         {
@@ -50,21 +52,21 @@ public class ArtificialIntelligence : MonoBehaviour
             var player_tile = GridManager.Instance.GetTileCoordinate(player.OccupiedTile);
             if (Mathf.Abs(enemy_tile.x - player_tile.x) <= 1 && Mathf.Abs(enemy_tile.y - player_tile.y) <= 1)
             {
-                StartCoroutine(UnitManager.Instance.Attack(enemy, player, true, false));
-                yield return new WaitForSecondsRealtime(1);
+                await UnitManager.Instance.Attack(enemy, player, true, false);
+                await UniTask.Delay(1000);
                 if (enemy.abilities.Contains(Abilities.Archer) && EnemyUnits.Contains(enemy))
                 {
-                    StartCoroutine(UnitManager.Instance.Attack(enemy, player, true, false));
+                    await UnitManager.Instance.Attack(enemy, player, true, false);
                 }
             }
         }
         if (EnemyUnits.Count == 0 || PlayerUnits.Count == 0)
         {
-            yield return new WaitForSecondsRealtime(2);
+            await UniTask.Delay(2000);
         }
         UnitManager.Instance.UpdateATB();
     }
-    public void AIaction(int randomNumberEnemy, int randomNumberPlayer)
+    public async void AIaction(int randomNumberEnemy, int randomNumberPlayer)
     {
         if (GameManager.Instance.GameState != GameState.EnemiesTurn) return;
 
@@ -99,7 +101,7 @@ public class ArtificialIntelligence : MonoBehaviour
                             path_[i] = new Vector3(path[i].x, path[i].y, 0);
                         }
                         enemy.animator.Play("Move");
-                        enemy.transform.DOPath(path_, 1, PathType.Linear, PathMode.TopDown2D)
+                        await enemy.transform.DOPath(path_, 1, PathType.Linear, PathMode.TopDown2D)
                             .SetEase(Ease.Linear);
 
                         if (enemy.OccupiedTile != null)
@@ -130,7 +132,7 @@ public class ArtificialIntelligence : MonoBehaviour
                             path_[i] = new Vector3(path[i].x, path[i].y, 0);
                         }
                         enemy.animator.Play("Move");
-                        enemy.transform.DOPath(path_, 1, PathType.Linear, PathMode.TopDown2D)
+                        await enemy.transform.DOPath(path_, 1, PathType.Linear, PathMode.TopDown2D)
                             .SetEase(Ease.Linear);
 
                         if (enemy.OccupiedTile != null)
