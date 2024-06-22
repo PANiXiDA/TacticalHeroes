@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Scripts.Actions.Attack
+namespace Assets.Scripts.Actions.Attack.MeleeAttack
 {
     public class DefaultMeleeAttack : IMeleeAttack
     {
@@ -25,7 +25,10 @@ namespace Assets.Scripts.Actions.Attack
             {
                 await UnitManager.Instance.Attack(myUnit, enemy, true, false);
 
-                UnitManager.Instance.SetSelectedHero(null);
+                if (GameManager.Instance.GameState == GameState.HeroesTurn)
+                {
+                    UnitManager.Instance.SetSelectedHero(null);
+                }
                 UnitManager.Instance.UpdateATB();
             }
 

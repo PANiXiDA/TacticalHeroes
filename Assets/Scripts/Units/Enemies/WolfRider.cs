@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Units.Enemies
 {
-    public class WolfRider : BaseEnemy
+    public class WolfRider : BaseUnit
     {
     }
 }

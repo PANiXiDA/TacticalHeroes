@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
         ChangeState(GameState.GenerateGrid);
     }
-    public async void ChangeState(GameState newState)
+    public void ChangeState(GameState newState)
     {
         GameState = newState;
 
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
             case GameState.HeroesTurn:
                 break;
             case GameState.EnemiesTurn:
-                await ArtificialIntelligence.Instance.Waiter();
+                _ = ArtificialIntelligence.Instance.Waiter();
                 break;
             case GameState.GameOver:
                 break;

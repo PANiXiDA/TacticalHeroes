@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Units.Heroes
 {
-    public class Lich : BaseHero
+    public class Lich : BaseUnit
     {
     }
 }

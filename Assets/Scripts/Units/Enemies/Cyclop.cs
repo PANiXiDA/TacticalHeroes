@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Units.Enemies
 {
-    public class Cyclop : BaseEnemy
+    public class Cyclop : BaseUnit
     {
     }
 }

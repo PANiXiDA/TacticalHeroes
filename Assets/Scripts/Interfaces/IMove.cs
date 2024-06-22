@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Scripts.Units.Heroes
+namespace Assets.Scripts.Interfaces
 {
-    public class Dragon : BaseUnit
+    public interface IMove
     {
+        public void Move(Tile tile);
     }
 }
