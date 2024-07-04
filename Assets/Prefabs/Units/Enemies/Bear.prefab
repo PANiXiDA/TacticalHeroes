@@ -175,10 +175,11 @@ MonoBehaviour:
   UnitMaxDamage: 50
   UnitInitiative: 10
   UnitSpeed: 5
-  UnitMorale: 1
+  UnitMorale: 0
   UnitLuck: 0
   abilities: 
   animator: {fileID: -7908724923508095379}
   UnitResponse: 1
   UnitATB: 0
   UnitTime: 0
+  isBusy: 0

@@ -1,14 +1,15 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using System.Threading;
-using UnityEngine.SceneManagement;
 using Cysharp.Threading.Tasks;
+using Assets.Scripts.Enumerations;
+using Assets.Scripts.Enumeration;
+using System;
 
 public class UnitManager : MonoBehaviour
 {
+    private System.Random random = new System.Random();
+
     public static UnitManager Instance;
     public List<ScriptableUnit> _units;
     public BaseUnit SelectedHero;
@@ -98,7 +99,14 @@ public class UnitManager : MonoBehaviour
 
     public void UpdateATB()
     {
-        var unitTime = allUnits.FirstOrDefault().UnitTime;
+        if (GameManager.Instance.GameState == GameState.HeroesTurn)
+        {
+            SetSelectedHero(null);
+        }
+
+        BaseUnit currentUnit = allUnits.FirstOrDefault();
+        currentUnit.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        var unitTime = currentUnit.UnitTime;
         ATB.RemoveAt(0);
 
         foreach (var ATBunit in allUnits)
@@ -135,6 +143,8 @@ public class UnitManager : MonoBehaviour
     private void StartTurn(BaseUnit unit)
     {
         unit.UnitResponse = true;
+        unit.GetComponent<SpriteRenderer>().sortingOrder = 2;
+
         if (unit.Faction == Faction.Hero)
         {
             SetSelectedHero(unit);
@@ -160,43 +170,70 @@ public class UnitManager : MonoBehaviour
     public async UniTask Attack(BaseUnit attacker, BaseUnit defender, bool meleeAttack, bool responseAttack)
     {
         attacker.animator.Play(meleeAttack ? "MeleeAttack" : "RangeAttack");
-        defender.animator.Play("TakeDamage");
 
         int damage = CalculateDamage(attacker, defender);
-        MenuManager.Instance.ShowDamage(attacker, defender, damage);
-        defender.UnitHealth -= damage;
 
-        if (defender.UnitHealth <= 0)
-        {
-            defender.animator.Play("Death");
-            defender.OccupiedTile.OccupiedUnit = null;
+        defender.TakeMeleeDamage(attacker, defender);
+        bool death = IsDeath(defender);
 
-            RemoveUnit(defender, responseAttack);
-        }
-        else if (defender.UnitResponse && meleeAttack && !responseAttack)
+        if (death) defender.Death(responseAttack);
+
+        if (!death && defender.UnitResponse && meleeAttack && !responseAttack)
         {
-            defender.UnitResponse = false;
             await UniTask.Delay(1000);
+            defender.UnitResponse = false;
             await Attack(defender, attacker, true, true);
-
-            if (GameManager.Instance.GameState == GameState.HeroesTurn && responseAttack)
+        }
+    }
+    public bool IsDeath(BaseUnit unit)
+    {
+        if (unit.UnitHealth <= 0)
+        {
+            return true;
+        }
+        return false;
+    }
+    public virtual bool IsResponseAttack(BaseUnit unit)
+    {
+        if (GameManager.Instance.GameState == GameState.HeroesTurn)
+        {
+            if (unit.Faction == Faction.Hero)
             {
-                await UniTask.Delay(1000);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else
+        {
+            if (unit.Faction == Faction.Enemy)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }
 
-    private int CalculateDamage(BaseUnit attacker, BaseUnit defender)
+    public int CalculateDamage(BaseUnit attacker, BaseUnit defender)
     {
         double baseDamage = UnityEngine.Random.Range(attacker.UnitMinDamage, attacker.UnitMaxDamage);
         double damageModifier = attacker.UnitAttack > defender.UnitDefence ?
             (1 + 0.05 * (attacker.UnitAttack - defender.UnitDefence)) :
             (1 / (1 + 0.05 * (defender.UnitDefence - attacker.UnitAttack)));
 
-        return (int)(baseDamage * damageModifier);
+        int damage = (int)(baseDamage * damageModifier);
+
+        MenuManager.Instance.ShowDamage(attacker, defender, damage);
+
+        return damage;
     }
 
-    private void RemoveUnit(BaseUnit unit, bool responseAttack)
+    public void RemoveUnit(BaseUnit unit, bool responseAttack)
     {
         unit.GetComponent<SpriteRenderer>().sortingOrder = -1;
         if (GameManager.Instance.GameState == GameState.HeroesTurn)
@@ -244,5 +281,25 @@ public class UnitManager : MonoBehaviour
         }
 
         return tilesForMove;
+    }
+
+    public virtual void ProbabilityLuckMorale(BaseUnit unit)
+    {
+        var probabilityLuck = Math.Pow(unit.UnitLuck / 10.0, 1 + unit.UnitSuccessfulLuck - unit.UnitFailedLuck * (unit.UnitLuck / 10.0 / (1 - unit.UnitLuck / 10.0)));
+        var probabilityMorale = Math.Pow(unit.UnitMorale / 10.0, 1 + unit.UnitSuccessfulMorale - unit.UnitFailedMorale * (unit.UnitMorale / 10.0 / (1 - unit.UnitMorale / 10.0)));
+    }
+
+    public virtual void SetArcherParameters(BaseUnit unit)
+    {
+        if (unit.abilities.Contains(Abilities.Archer))
+        {
+            unit.UnitRange = 6;
+            unit.UnitArrows = 10;
+        }
+    }
+    public virtual void InitializeATB(BaseUnit unit)
+    {
+        unit.UnitATB = random.NextDouble() * (15 - 0) + 0;
+        unit.UnitTime = (100 - unit.UnitATB) / unit.UnitInitiative;
     }
 }

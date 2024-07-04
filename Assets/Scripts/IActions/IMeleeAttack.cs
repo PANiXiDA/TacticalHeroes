@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Assets.Scripts.Interfaces
 {
     public interface IMeleeAttack
     {
-        public void MeleeAttack(Tile myTile, Tile enemyTile);
+        public UniTask MeleeAttack(BaseUnit attacker, BaseUnit defender);
     }
 }

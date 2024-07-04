@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Enumeration;
 using Cysharp.Threading.Tasks;
+using Assets.Scripts.Enumerations;
 
 public class Tile : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class Tile : MonoBehaviour
 
     public bool flag = false; // проверка наведен ли курсор мыши на врага
 
-    public Tile TileForAttackMove = null; // Клетка, в которую мы должны переместиться при атаке
+    public Tile targetTile = null; // Клетка, в которую мы должны переместиться при атаке
 
     private void Awake()
     {
@@ -37,11 +38,11 @@ public class Tile : MonoBehaviour
         {
             MenuManager.Instance.ShowOrientationOfAttack(this);
 
-            TileForAttackMove = ShowTileForAttack(GridManager.Instance.GetTileCoordinate(this));
-            if (TileForAttackMove != null)
+            targetTile = ShowTileForAttack(GridManager.Instance.GetTileCoordinate(this));
+            if (targetTile != null)
             {
                 DeleteHighlightForAttack();
-                TileForAttackMove._highlight_for_attack.SetActive(true);
+                targetTile._highlight_for_attack.SetActive(true);
             }
         }
     }
@@ -70,30 +71,34 @@ public class Tile : MonoBehaviour
         MenuManager.Instance.DeleteArrows();
         DeleteHighlightForAttack();
     }
-    private void OnMouseDown()
+    private async void OnMouseDown()
     {
-        if (GameManager.Instance.GameState != GameState.HeroesTurn || UnitManager.Instance.SelectedHero.isBusy) return;
-        if (OccupiedUnit != null)
+        BaseUnit attacker = UnitManager.Instance.SelectedHero;
+        BaseUnit defender = OccupiedUnit;
+
+        if (GameManager.Instance.GameState != GameState.HeroesTurn || attacker.isBusy) return;
+
+        if (defender != null)
         {
-            if (UnitManager.Instance.SelectedHero != null && OccupiedUnit.Faction != Faction.Hero &&
-                OccupiedUnit != UnitManager.Instance.SelectedHero)
+            if (attacker != null && defender.Faction != Faction.Hero &&
+                defender != attacker)
             {
-                if (!UnitManager.Instance.SelectedHero.abilities.Contains(Abilities.Archer))
+                if (!attacker.abilities.Contains(Abilities.Archer))
                 {
-                    TileForAttackMove = ShowTileForAttack(GridManager.Instance.GetTileCoordinate(this));
-                    _ = UnitManager.Instance.SelectedHero.Attack(this, TileForAttackMove);
+                    targetTile = ShowTileForAttack(GridManager.Instance.GetTileCoordinate(this));
+                    await attacker.Attack(attacker, defender, targetTile);
                 }
                 else
                 {
-                    _ = UnitManager.Instance.SelectedHero.RangeAttack(UnitManager.Instance.SelectedHero.OccupiedTile, this);
+                    await attacker.RangeAttack(attacker, defender);
                 }
             }
         }
         else
         {
-            if (UnitManager.Instance.SelectedHero != null)
+            if (attacker != null && Walkable)
             {
-                _ = UnitManager.Instance.SelectedHero.Move(this, true);
+                await attacker.Move(attacker, this);
             }
         }
     }

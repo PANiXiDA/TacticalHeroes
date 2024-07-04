@@ -1,13 +1,12 @@
 using Assets.Scripts.Enumeration;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.Helpers;
 using TMPro;
+using Assets.Scripts.Enumerations;
 
 public class MenuManager : MonoBehaviour
 {

@@ -10,23 +10,24 @@ namespace Assets.Scripts.Actions.Attack.RangeAttack
 {
     public class DefaultRangeAttack : IRangeAttack
     {
-        public async void RangeAttack(Tile myTile, Tile enemyTile)
+        public async UniTask RangeAttack(BaseUnit attacker, BaseUnit defender)
         {
-            var enemyUnit = enemyTile.OccupiedUnit;
-            var myUnit = myTile.OccupiedUnit;
-
-            myUnit.isBusy = true;
-
             Tile.Instance.DeleteHighlight();
-            await UnitManager.Instance.Attack(myUnit, enemyUnit, false, false);
+            attacker.isBusy = true;
 
-            if (GameManager.Instance.GameState == GameState.HeroesTurn)
+            attacker.animator.Play("RangeAttack");
+
+            bool responseAttack = UnitManager.Instance.IsResponseAttack(attacker);
+
+            defender.TakeRangeDamage(attacker, defender);
+            bool death = UnitManager.Instance.IsDeath(defender);
+            if (death)
             {
-                UnitManager.Instance.SetSelectedHero(null);
+                defender.Death(responseAttack);
             }
-            UnitManager.Instance.UpdateATB();
 
-            myUnit.isBusy = false;
+            await UniTask.Delay(1000);
+            attacker.isBusy = false;
         }
     }
 }

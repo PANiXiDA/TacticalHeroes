@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Scripts.Interfaces
+namespace Assets.Scripts.Enumerations
 {
-    public interface IRangeAttack
+    public enum Faction
     {
-        public void RangeAttack(Tile myTile, Tile enemyTile);
+        Hero = 0,
+        Enemy = 1
     }
 }

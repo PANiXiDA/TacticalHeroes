@@ -3510,6 +3510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameState: 0
+  CurrentFaction: 0
 --- !u!4 &1260686254
 Transform:
   m_ObjectHideFlags: 0

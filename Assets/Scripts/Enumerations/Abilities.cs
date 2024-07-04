@@ -15,7 +15,5 @@ namespace Assets.Scripts.Enumeration
         Archer = 1,
         [Description("Двойной удар")]
         DoubleAttack = 2,
-
-
     }
 }

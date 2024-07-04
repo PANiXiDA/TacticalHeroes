@@ -8,6 +8,7 @@ using System;
 using Assets.Scripts.Enumeration;
 using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
+using Assets.Scripts.Enumerations;
 
 public class ArtificialIntelligence : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class ArtificialIntelligence : MonoBehaviour
             }
             else
             {
-                await enemy.RangeAttack(enemy.OccupiedTile, player.OccupiedTile);
+                await enemy.RangeAttack(enemy, player);
                 if (EnemyUnits.Count == 0 || PlayerUnits.Count == 0)
                 {
                     await UniTask.Delay(2000);

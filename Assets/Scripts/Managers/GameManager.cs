@@ -1,23 +1,21 @@
 using UnityEngine;
 using System;
-using Unity;
+using Assets.Scripts.Enumerations;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameState GameState;
+    public Faction CurrentFaction;
     private void Awake()
     {
         Instance = this;
     }
     void Start()
     {
-        //var container = new UnityContainer();
-        //container.RegisterType<IWeapon, Sword>();
-
         ChangeState(GameState.GenerateGrid);
     }
-    public void ChangeState(GameState newState)
+    public async void ChangeState(GameState newState)
     {
         GameState = newState;
 
@@ -36,9 +34,11 @@ public class GameManager : MonoBehaviour
                 UnitManager.Instance.SetATB();
                 break;
             case GameState.HeroesTurn:
+                CurrentFaction = Faction.Hero;
                 break;
             case GameState.EnemiesTurn:
-                _ = ArtificialIntelligence.Instance.Waiter();
+                CurrentFaction = Faction.Enemy;
+                await ArtificialIntelligence.Instance.Waiter();
                 break;
             case GameState.GameOver:
                 break;
@@ -47,14 +47,4 @@ public class GameManager : MonoBehaviour
         }
     }
 
-}
-public enum GameState
-{
-    GenerateGrid = 0,
-    SpawnHeroes = 1,
-    SpawnEnemies = 2,
-    SetATB = 3,
-    HeroesTurn = 4,
-    EnemiesTurn = 5,
-    GameOver = 6
 }

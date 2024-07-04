@@ -1,20 +1,21 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using DG.Tweening;
-using Unity.Mathematics;
 using Assets.Scripts.Enumeration;
 using Cysharp.Threading.Tasks;
+using Assets.Scripts.Interfaces;
+using Assets.Scripts.Actions.Move;
+using Assets.Scripts.Actions.Attack.MeleeAttack;
+using Assets.Scripts.Actions.Attack.RangeAttack;
+using Assets.Scripts.Actions.Damage;
+using Assets.Scripts.Enumerations;
 
 public class BaseUnit : MonoBehaviour
 {
-    private System.Random random = new System.Random();
-
     public string UnitName;
+    [HideInInspector]
     public Tile OccupiedTile;
     public Faction Faction;
+
     public int UnitAttack;
     public int UnitDefence;
     public int UnitHealth;
@@ -22,163 +23,102 @@ public class BaseUnit : MonoBehaviour
     public int UnitMaxDamage;
     public double UnitInitiative;
     public int UnitSpeed;
+
+    [HideInInspector]
     public int? UnitRange;
+    [HideInInspector]
     public int? UnitArrows;
 
+    [HideInInspector]
     public int UnitMorale;
+    [HideInInspector]
     public int UnitLuck;
 
-    private int UnitFailedMorale;
-    private int UnitSuccessfulMorale;
-    private int UnitFailedLuck;
-    private int UnitSuccessfulLuck;
+    [HideInInspector]
+    public int UnitFailedMorale;
+    [HideInInspector]
+    public int UnitSuccessfulMorale;
+    [HideInInspector]
+    public int UnitFailedLuck;
+    [HideInInspector]
+    public int UnitSuccessfulLuck;
 
     public List<Abilities> abilities;
     public Animator animator;
 
+    [HideInInspector]
     public bool UnitResponse;
+    [HideInInspector]
     public double UnitATB;
+    [HideInInspector]
     public double UnitTime;
 
+    [HideInInspector]
     public bool isBusy;
+
+    private IMove _move;
+    private IMeleeAttack _meleeAttack;
+    private IRangeAttack _rangeAttack;
+    private ITakeDamage _takeDamage;
 
     protected virtual void Awake()
     {
-        UnitFailedMorale = UnitSuccessfulMorale = UnitFailedLuck = UnitSuccessfulLuck = 0;
-        SetSortingOrder();
-        SetRange();
-        InitializeATB();
-    }
-
-    protected virtual void SetSortingOrder()
-    {
-        if (abilities.Contains(Abilities.Fly))
-        {
-            GetComponent<SpriteRenderer>().sortingOrder = 2;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().sortingOrder = 1;
-        }
-    }
-
-    protected virtual void SetRange()
-    {
-        UnitRange = abilities.Contains(Abilities.Archer) ? 6 : null;
-    }
-
-    protected virtual void InitializeATB()
-    {
         UnitMorale = 1;
-        UnitATB = random.NextDouble() * (15 - 0) + 0;
-        UnitTime = (100 - UnitATB) / UnitInitiative;
+        UnitLuck = 0;
+        UnitFailedMorale = UnitSuccessfulMorale = UnitFailedLuck = UnitSuccessfulLuck = 0;
+
+        UnitManager.Instance.SetArcherParameters(this);
+        UnitManager.Instance.InitializeATB(this);
     }
 
-    public virtual void ProbabilityLuckMorale()
+    protected virtual void Start()
     {
-        var probabilityLuck = Math.Pow(UnitLuck / 10.0, 1 + UnitSuccessfulLuck - UnitFailedLuck * (UnitLuck / 10.0 / (1 - UnitLuck / 10.0)));
-        var probabilityMorale = Math.Pow(UnitMorale / 10.0, 1 + UnitSuccessfulMorale - UnitFailedMorale * (UnitMorale / 10.0 / (1 - UnitMorale / 10.0)));
+        _move = new DefaultMove();
+        _meleeAttack = new DefaultMeleeAttack();
+        _rangeAttack = new DefaultRangeAttack();
+        _takeDamage = new DefaultTakeDamage();
     }
 
-    public virtual async UniTask Attack(Tile enemyTile, Tile tileForAttack)
+    public virtual async UniTask Attack(BaseUnit attacker, BaseUnit defender, Tile targetTile)
     {
-        isBusy = true;
-
-        if (tileForAttack != null)
+        await _move.Move(attacker, targetTile);
+        await _meleeAttack.MeleeAttack(attacker, defender);
+        if (attacker.Faction == GameManager.Instance.CurrentFaction)
         {
-            if (OccupiedTile != tileForAttack)
-            {
-                await Move(tileForAttack, false);
-            }
-            await MeleeAttack(enemyTile, true);
-        }
-
-        isBusy = false;
-    }
-
-    public virtual async UniTask Move(Tile tile, bool changeState)
-    {
-        isBusy = true;
-
-        Dictionary<Vector2, Tile> tilesForMove = UnitManager.Instance.GetTilesForMove(this);
-        if (tilesForMove.ContainsValue(tile))
-        {
-            Tile.Instance.DeleteHighlight();
-            var path = PathFinder.Instance.GetPath(GridManager.Instance.GetTileCoordinate(OccupiedTile),
-                GridManager.Instance.GetTileCoordinate(tile), this);
-            path.Reverse();
-            path.RemoveAt(0);
-
-            Vector3[] path_ = path.Select(p => new Vector3(p.x, p.y, 0)).ToArray();
-
-            animator.Play("Move");
-            await transform.DOPath(path_, 1, PathType.Linear, PathMode.TopDown2D).SetEase(Ease.Linear);
-
-            if (OccupiedTile != null)
-            {
-                OccupiedTile.OccupiedUnit = null;
-            }
-
-            tile.OccupiedUnit = this;
-            OccupiedTile = tile;
-
-            if (changeState)
-            {
-                UnitManager.Instance.SetSelectedHero(null);
-                UnitManager.Instance.UpdateATB();
-            }
-
-            isBusy = false;
+            UnitManager.Instance.UpdateATB();
         }
     }
-
-    public virtual async UniTask MeleeAttack(Tile enemyTile, bool changeState)
+    public virtual async UniTask Move(BaseUnit unit, Tile targetTile)
     {
-        isBusy = true;
-
-        var enemy = enemyTile.OccupiedUnit;
-        var enemy_tile = GridManager.Instance.GetTileCoordinate(enemy.OccupiedTile);
-        var hero_tile = GridManager.Instance.GetTileCoordinate(OccupiedTile);
-
-        Tile.Instance.DeleteHighlight();
-        if (Math.Abs(enemy_tile.x - hero_tile.x) <= 1 && Math.Abs(enemy_tile.y - hero_tile.y) <= 1)
-        {
-            await UnitManager.Instance.Attack(this, enemy, true, false);
-
-            if (changeState)
-            {
-                UnitManager.Instance.SetSelectedHero(null);
-                UnitManager.Instance.UpdateATB();
-            }
-        }
-
-        isBusy = false;
-    }
-
-    public virtual async UniTask RangeAttack(Tile myTile, Tile enemyTile)
-    {
-        var enemyUnit = enemyTile.OccupiedUnit;
-        var myUnit = myTile.OccupiedUnit;
-
-        Tile.Instance.DeleteHighlight();
-        await UnitManager.Instance.Attack(myUnit, enemyUnit, false, false);
-
-        if (GameManager.Instance.GameState == GameState.HeroesTurn)
-        {
-            UnitManager.Instance.SetSelectedHero(null);
-        }
+        await _move.Move(unit, targetTile);
         UnitManager.Instance.UpdateATB();
     }
 
-    public virtual void TakeDamage(int damage)
+    public virtual async UniTask RangeAttack(BaseUnit attacker, BaseUnit defender)
     {
-        UnitHealth -= damage;
-        animator.Play("TakeDamage");
+        await _rangeAttack.RangeAttack(attacker, defender);
+        if (attacker.Faction == GameManager.Instance.CurrentFaction)
+        {
+            UnitManager.Instance.UpdateATB();
+        }
     }
 
-    public virtual void Die()
+    public virtual void TakeMeleeDamage(BaseUnit attacker, BaseUnit defender)
+    {
+        _takeDamage.TakeMeleeDamage(attacker, defender);
+    }
+    public virtual void TakeRangeDamage(BaseUnit attacker, BaseUnit defender)
+    {
+        _takeDamage.TakeRangeDamage(attacker, defender);
+    }
+
+    public virtual void Death(bool responseAttack)
     {
         animator.Play("Death");
         OccupiedTile.OccupiedUnit = null;
+
+        GetComponent<SpriteRenderer>().sortingOrder = 0;
+
+        UnitManager.Instance.RemoveUnit(this, responseAttack);
     }
 }
