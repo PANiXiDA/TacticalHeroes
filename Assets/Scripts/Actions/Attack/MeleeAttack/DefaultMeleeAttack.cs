@@ -20,17 +20,17 @@ namespace Assets.Scripts.Actions.Attack.MeleeAttack
             bool responseAttack = UnitManager.Instance.IsResponseAttack(attacker);
 
             defender.TakeMeleeDamage(attacker, defender);
-            bool death = UnitManager.Instance.IsDeath(defender);
+            bool death = UnitManager.Instance.IsDead(defender);
             if (death)
             {
-                defender.Death(responseAttack);
+                defender.Death();
             }
 
             if (!death && !responseAttack && defender.UnitResponse)
             {
                 await UniTask.Delay(1000);
                 defender.UnitResponse = false;
-                await defender.Attack(defender, attacker, defender.OccupiedTile);
+                await defender.MeleeAttack(defender, attacker, defender.OccupiedTile);
             }
 
             attacker.isBusy = false;

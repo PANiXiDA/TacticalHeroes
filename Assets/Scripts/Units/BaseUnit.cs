@@ -6,8 +6,9 @@ using Assets.Scripts.Interfaces;
 using Assets.Scripts.Actions.Move;
 using Assets.Scripts.Actions.Attack.MeleeAttack;
 using Assets.Scripts.Actions.Attack.RangeAttack;
-using Assets.Scripts.Actions.Damage;
+using Assets.Scripts.Actions.TakeDamage;
 using Assets.Scripts.Enumerations;
+using Assets.Scripts.Managers;
 
 public class BaseUnit : MonoBehaviour
 {
@@ -63,35 +64,36 @@ public class BaseUnit : MonoBehaviour
 
     protected virtual void Awake()
     {
-        UnitMorale = 1;
-        UnitLuck = 0;
-        UnitFailedMorale = UnitSuccessfulMorale = UnitFailedLuck = UnitSuccessfulLuck = 0;
-
-        UnitManager.Instance.SetArcherParameters(this);
-        UnitManager.Instance.InitializeATB(this);
-    }
-
-    protected virtual void Start()
-    {
         _move = new DefaultMove();
         _meleeAttack = new DefaultMeleeAttack();
         _rangeAttack = new DefaultRangeAttack();
         _takeDamage = new DefaultTakeDamage();
+
+        UnitMorale = 1;
+        UnitLuck = 0;
+        UnitFailedMorale = UnitSuccessfulMorale = UnitFailedLuck = UnitSuccessfulLuck = 0;
     }
 
-    public virtual async UniTask Attack(BaseUnit attacker, BaseUnit defender, Tile targetTile)
+    protected virtual void Start()
+    {
+        UnitInitializationManager.Instance.SetArcherParameters(this);
+        UnitInitializationManager.Instance.InitializeATB(this);
+    }
+
+    public virtual async UniTask Move(BaseUnit unit, Tile targetTile)
+    {
+        await _move.Move(unit, targetTile);
+        TurnManager.Instance.EndTurn(this);
+    }
+
+    public virtual async UniTask MeleeAttack(BaseUnit attacker, BaseUnit defender, Tile targetTile)
     {
         await _move.Move(attacker, targetTile);
         await _meleeAttack.MeleeAttack(attacker, defender);
         if (attacker.Faction == GameManager.Instance.CurrentFaction)
         {
-            UnitManager.Instance.UpdateATB();
+            TurnManager.Instance.EndTurn(this);
         }
-    }
-    public virtual async UniTask Move(BaseUnit unit, Tile targetTile)
-    {
-        await _move.Move(unit, targetTile);
-        UnitManager.Instance.UpdateATB();
     }
 
     public virtual async UniTask RangeAttack(BaseUnit attacker, BaseUnit defender)
@@ -99,7 +101,7 @@ public class BaseUnit : MonoBehaviour
         await _rangeAttack.RangeAttack(attacker, defender);
         if (attacker.Faction == GameManager.Instance.CurrentFaction)
         {
-            UnitManager.Instance.UpdateATB();
+            TurnManager.Instance.EndTurn(this);
         }
     }
 
@@ -112,13 +114,13 @@ public class BaseUnit : MonoBehaviour
         _takeDamage.TakeRangeDamage(attacker, defender);
     }
 
-    public virtual void Death(bool responseAttack)
+    public virtual void Death()
     {
         animator.Play("Death");
         OccupiedTile.OccupiedUnit = null;
 
         GetComponent<SpriteRenderer>().sortingOrder = 0;
 
-        UnitManager.Instance.RemoveUnit(this, responseAttack);
+        SpawnManager.Instance.RemoveUnit(this);
     }
 }

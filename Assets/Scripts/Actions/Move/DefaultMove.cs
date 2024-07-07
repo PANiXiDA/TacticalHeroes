@@ -16,12 +16,12 @@ namespace Assets.Scripts.Actions.Move
         {
             unit.isBusy = true;
 
-            Dictionary<Vector2, Tile> tilesForMove = UnitManager.Instance.GetTilesForMove(unit);
-            if (tilesForMove.ContainsValue(targetTile))
+            Tile.Instance.DeleteHighlight();
+            var path = PathFinder.Instance.GetPath(GridManager.Instance.GetTileCoordinate(unit.OccupiedTile),
+                GridManager.Instance.GetTileCoordinate(targetTile), unit);
+
+            if (path.Count > 0)
             {
-                Tile.Instance.DeleteHighlight();
-                var path = PathFinder.Instance.GetPath(GridManager.Instance.GetTileCoordinate(unit.OccupiedTile),
-                    GridManager.Instance.GetTileCoordinate(targetTile), unit);
                 path.Reverse();
                 path.RemoveAt(0);
 
@@ -33,8 +33,8 @@ namespace Assets.Scripts.Actions.Move
                 unit.OccupiedTile.OccupiedUnit = null;
                 targetTile.OccupiedUnit = unit;
                 unit.OccupiedTile = targetTile;
-
             }
+
             unit.isBusy = false;
         }
     }

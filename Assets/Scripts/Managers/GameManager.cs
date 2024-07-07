@@ -1,6 +1,8 @@
 using UnityEngine;
 using System;
 using Assets.Scripts.Enumerations;
+using Assets.Scripts.Managers;
+using Assets.Scripts.Controllers;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,20 +27,20 @@ public class GameManager : MonoBehaviour
                 GridManager.Instance.GenerateGrid();
                 break;
             case GameState.SpawnHeroes:
-                UnitManager.Instance.SpawnHeroes();
+                SpawnManager.Instance.SpawnHeroes();
                 break;
             case GameState.SpawnEnemies:
-                UnitManager.Instance.SpawnEnemies();
+                SpawnManager.Instance.SpawnEnemies();
                 break;
             case GameState.SetATB:
-                UnitManager.Instance.SetATB();
+                TurnManager.Instance.SetATB();
                 break;
             case GameState.HeroesTurn:
                 CurrentFaction = Faction.Hero;
                 break;
             case GameState.EnemiesTurn:
                 CurrentFaction = Faction.Enemy;
-                await ArtificialIntelligence.Instance.Waiter();
+                await AIController.Instance.ExecuteAITurn();
                 break;
             case GameState.GameOver:
                 break;

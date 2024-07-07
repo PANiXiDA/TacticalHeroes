@@ -2,6 +2,7 @@
 using Assets.Scripts.Actions.Attack.RangeAttack;
 using Assets.Scripts.Actions.Move;
 using Assets.Scripts.Interfaces;
+using Assets.Scripts.Managers;
 using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
@@ -17,31 +18,26 @@ namespace Assets.Scripts.Units.Heroes
         private IMeleeAttack _meleeAttack;
         private IRangeAttack _rangeAttack;
 
-        protected override void Awake()
-        {
-            base.Awake();
-            UnitMorale = 0;
-            UnitRange = 7;
-        }
-
         protected override void Start()
         {
             _move = new DefaultMove();
             _meleeAttack = new DefaultMeleeAttack();
             _rangeAttack = new DefaultRangeAttack();
+            UnitMorale = 0;
+            UnitRange = 7;
         }
 
-        public override async UniTask Attack(BaseUnit attacker, BaseUnit defender, Tile targetTile)
+        public override async UniTask MeleeAttack(BaseUnit attacker, BaseUnit defender, Tile targetTile)
         {
             await _move.Move(attacker, targetTile);
             await _meleeAttack.MeleeAttack(attacker, defender);
-            UnitManager.Instance.UpdateATB();
+            TurnManager.Instance.EndTurn(this);
         }
 
         public override async UniTask RangeAttack(BaseUnit attacker, BaseUnit defender)
         {
             await _rangeAttack.RangeAttack(attacker, defender);
-            UnitManager.Instance.UpdateATB();
+            TurnManager.Instance.EndTurn(this);
         }
     }
 }

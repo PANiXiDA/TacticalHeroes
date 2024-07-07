@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Enumeration;
-using Cysharp.Threading.Tasks;
 using Assets.Scripts.Enumerations;
 
 public class Tile : MonoBehaviour
@@ -12,7 +11,7 @@ public class Tile : MonoBehaviour
 
     [SerializeField] protected SpriteRenderer _renderer;
     [SerializeField] private GameObject _highlight, _highlight_for_attack, _highlight_hero;
-    [SerializeField] private bool _isWalkable; 
+    [SerializeField] private bool _isWalkable;
 
     public BaseUnit OccupiedUnit;
     public bool Walkable => _isWalkable && OccupiedUnit == null;
@@ -75,6 +74,7 @@ public class Tile : MonoBehaviour
     {
         BaseUnit attacker = UnitManager.Instance.SelectedHero;
         BaseUnit defender = OccupiedUnit;
+        Dictionary<Vector2, Tile> tilesForMove = UnitManager.Instance.GetTilesForMove(attacker);
 
         if (GameManager.Instance.GameState != GameState.HeroesTurn || attacker.isBusy) return;
 
@@ -83,20 +83,23 @@ public class Tile : MonoBehaviour
             if (attacker != null && defender.Faction != Faction.Hero &&
                 defender != attacker)
             {
-                if (!attacker.abilities.Contains(Abilities.Archer))
+                if (attacker.abilities.Contains(Abilities.Archer))
                 {
-                    targetTile = ShowTileForAttack(GridManager.Instance.GetTileCoordinate(this));
-                    await attacker.Attack(attacker, defender, targetTile);
+                    await attacker.RangeAttack(attacker, defender);
                 }
                 else
                 {
-                    await attacker.RangeAttack(attacker, defender);
+                    targetTile = ShowTileForAttack(GridManager.Instance.GetTileCoordinate(this));
+                    if (targetTile != null)
+                    {
+                        await attacker.MeleeAttack(attacker, defender, targetTile);
+                    }
                 }
             }
         }
         else
         {
-            if (attacker != null && Walkable)
+            if (attacker != null && Walkable && tilesForMove.ContainsValue(this))
             {
                 await attacker.Move(attacker, this);
             }

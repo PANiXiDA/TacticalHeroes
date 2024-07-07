@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using Assets.Scripts.Helpers;
 using TMPro;
 using Assets.Scripts.Enumerations;
+using Assets.Scripts.Managers;
 
 public class MenuManager : MonoBehaviour
 {
@@ -129,7 +130,7 @@ public class MenuManager : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        foreach (var ATBunit in UnitManager.Instance.ATB)
+        foreach (var ATBunit in TurnManager.Instance.ATB)
         {
             string unitName = ATBunit.name.Replace("(Clone)", "");
 
