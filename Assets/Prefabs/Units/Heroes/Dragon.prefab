@@ -173,10 +173,14 @@ MonoBehaviour:
   UnitHealth: 500
   UnitMinDamage: 1
   UnitMaxDamage: 1
-  UnitInitiative: 15.3
+  UnitInitiative: 30
   UnitSpeed: 7
   UnitMorale: 0
   UnitLuck: 0
+  UnitFailedMorale: 0
+  UnitSuccessfulMorale: 0
+  UnitFailedLuck: 0
+  UnitSuccessfulLuck: 0
   abilities: 00000000
   animator: {fileID: -7878754606840086160}
   UnitResponse: 1

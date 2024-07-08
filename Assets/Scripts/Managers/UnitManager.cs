@@ -4,6 +4,7 @@ using Assets.Scripts.Enumerations;
 using Assets.Scripts.Enumeration;
 using System;
 using DG.Tweening.Core.Easing;
+using UnityEditor.Experimental.GraphView;
 
 public class UnitManager : MonoBehaviour
 {
@@ -54,5 +55,34 @@ public class UnitManager : MonoBehaviour
         }
 
         return tilesForMove;
+    }
+    public void ChangeUnitFlip(BaseUnit attacker, Tile targetTile)
+    {
+        if (!IsUnitFlip(attacker))
+        {
+            if (attacker.Faction == Faction.Hero && attacker.OccupiedTile.Position.x > targetTile.Position.x
+                || attacker.Faction == Faction.Enemy && attacker.OccupiedTile.Position.x < targetTile.Position.x)
+            {
+                var spriteRenderer = attacker.GetComponent<SpriteRenderer>();
+                spriteRenderer.flipX = !spriteRenderer.flipX;
+            }
+        }
+    }
+    public void SetOriginalUnitFlip(BaseUnit unit)
+    {
+        if (IsUnitFlip(unit))
+        {
+            var spriteRenderer = unit.GetComponent<SpriteRenderer>();
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+        }
+    }
+    public bool IsUnitFlip(BaseUnit unit)
+    {
+        var spriteRenderer = unit.GetComponent<SpriteRenderer>();
+        if (unit.Faction == Faction.Hero && spriteRenderer.flipX || unit.Faction == Faction.Enemy && !spriteRenderer.flipX)
+        {
+            return true;
+        }
+        return false;
     }
 }

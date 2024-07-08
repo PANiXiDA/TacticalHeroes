@@ -105,20 +105,21 @@ public class BaseUnit : MonoBehaviour
         }
     }
 
-    public virtual void TakeMeleeDamage(BaseUnit attacker, BaseUnit defender)
+    public virtual async UniTask TakeMeleeDamage(BaseUnit attacker, BaseUnit defender)
     {
-        _takeDamage.TakeMeleeDamage(attacker, defender);
+        await _takeDamage.TakeMeleeDamage(attacker, defender);
     }
-    public virtual void TakeRangeDamage(BaseUnit attacker, BaseUnit defender)
+    public virtual async UniTask TakeRangeDamage(BaseUnit attacker, BaseUnit defender)
     {
-        _takeDamage.TakeRangeDamage(attacker, defender);
+        await _takeDamage.TakeRangeDamage(attacker, defender);
     }
 
-    public virtual void Death()
+    public virtual async UniTask Death()
     {
         animator.Play("Death");
-        OccupiedTile.OccupiedUnit = null;
+        await UniTask.Delay(1000);
 
+        OccupiedTile.OccupiedUnit = null;
         GetComponent<SpriteRenderer>().sortingOrder = 0;
 
         SpawnManager.Instance.RemoveUnit(this);

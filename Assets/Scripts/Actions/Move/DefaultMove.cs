@@ -1,11 +1,8 @@
 ﻿using Assets.Scripts.Interfaces;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using UnityEngine;
 
 namespace Assets.Scripts.Actions.Move
@@ -15,6 +12,8 @@ namespace Assets.Scripts.Actions.Move
         public virtual async UniTask Move(BaseUnit unit, Tile targetTile)
         {
             unit.isBusy = true;
+
+            UnitManager.Instance.ChangeUnitFlip(unit, targetTile);
 
             Tile.Instance.DeleteHighlight();
             var path = PathFinder.Instance.GetPath(GridManager.Instance.GetTileCoordinate(unit.OccupiedTile),
@@ -34,6 +33,8 @@ namespace Assets.Scripts.Actions.Move
                 targetTile.OccupiedUnit = unit;
                 unit.OccupiedTile = targetTile;
             }
+
+            UnitManager.Instance.SetOriginalUnitFlip(unit);
 
             unit.isBusy = false;
         }

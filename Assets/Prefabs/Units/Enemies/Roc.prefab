@@ -173,7 +173,7 @@ MonoBehaviour:
   UnitHealth: 50
   UnitMinDamage: 25
   UnitMaxDamage: 40
-  UnitInitiative: 17
+  UnitInitiative: 35
   UnitSpeed: 8
   UnitMorale: 0
   UnitLuck: 0

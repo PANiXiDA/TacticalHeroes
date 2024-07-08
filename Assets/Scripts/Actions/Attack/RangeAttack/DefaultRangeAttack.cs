@@ -17,11 +17,11 @@ namespace Assets.Scripts.Actions.Attack.RangeAttack
 
             attacker.animator.Play("RangeAttack");
 
-            defender.TakeRangeDamage(attacker, defender);
+            await defender.TakeRangeDamage(attacker, defender);
             bool death = UnitManager.Instance.IsDead(defender);
             if (death)
             {
-                defender.Death();
+                await defender.Death();
             }
 
             await UniTask.Delay(1000);

@@ -50,7 +50,6 @@ namespace Assets.Scripts.Managers
         public void UpdateATB()
         {
             BaseUnit currentUnit = allUnits.FirstOrDefault();
-            currentUnit.GetComponent<SpriteRenderer>().sortingOrder = 1;
             var unitTime = currentUnit.UnitTime;
             ATB.RemoveAt(0);
 
@@ -89,6 +88,8 @@ namespace Assets.Scripts.Managers
 
         public void EndTurn(BaseUnit unit)
         {
+            unit.GetComponent<SpriteRenderer>().sortingOrder = 1;
+
             if (GameManager.Instance.GameState == GameState.HeroesTurn)
             {
                 UnitManager.Instance.SetSelectedHero(null);

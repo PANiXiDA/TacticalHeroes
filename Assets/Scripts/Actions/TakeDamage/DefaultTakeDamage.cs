@@ -1,22 +1,33 @@
 ﻿using Assets.Scripts.Interfaces;
+using Cysharp.Threading.Tasks;
 
 namespace Assets.Scripts.Actions.TakeDamage
 {
     public class DefaultTakeDamage : ITakeDamage
     {
-        public virtual void TakeMeleeDamage(BaseUnit attacker, BaseUnit defender)
+        public async UniTask TakeMeleeDamage(BaseUnit attacker, BaseUnit defender)
         {
             int damage = CalculateDamage(attacker, defender);
 
             defender.UnitHealth -= damage;
             defender.animator.Play("TakeDamage");
+
+            if (defender.UnitHealth > 0)
+            {
+                await UniTask.Delay(1000);
+            }
         }
-        public virtual void TakeRangeDamage(BaseUnit attacker, BaseUnit defender)
+        public async UniTask TakeRangeDamage(BaseUnit attacker, BaseUnit defender)
         {
             int damage = CalculateDamage(attacker, defender);
 
             defender.UnitHealth -= damage;
             defender.animator.Play("TakeDamage");
+
+            if (defender.UnitHealth > 0)
+            {
+                await UniTask.Delay(1000);
+            }
         }
 
         public int CalculateDamage(BaseUnit attacker, BaseUnit defender)

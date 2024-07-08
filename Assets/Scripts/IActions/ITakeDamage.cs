@@ -9,8 +9,8 @@ namespace Assets.Scripts.Interfaces
 {
     public interface ITakeDamage
     {
-        public void TakeMeleeDamage(BaseUnit attacker, BaseUnit defender);
-        public void TakeRangeDamage(BaseUnit attacker, BaseUnit defender);
+        public UniTask TakeMeleeDamage(BaseUnit attacker, BaseUnit defender);
+        public UniTask TakeRangeDamage(BaseUnit attacker, BaseUnit defender);
         public int CalculateDamage(BaseUnit attacker, BaseUnit defender);
     }
 }
