@@ -85,4 +85,19 @@ public class UnitManager : MonoBehaviour
         }
         return false;
     }
+    public void PlayAttackAnimation(BaseUnit attacker, BaseUnit defender)
+    {
+        if (attacker.OccupiedTile.Position.y > defender.OccupiedTile.Position.y)
+        {
+            attacker.animator.Play("BottomMeleeAttack");
+        }
+        else if (attacker.OccupiedTile.Position.y == defender.OccupiedTile.Position.y)
+        {
+            attacker.animator.Play("FrontMeleeAttack");
+        }
+        else if (attacker.OccupiedTile.Position.y < defender.OccupiedTile.Position.y)
+        {
+            attacker.animator.Play("TopMeleeAttack");
+        }
+    }
 }

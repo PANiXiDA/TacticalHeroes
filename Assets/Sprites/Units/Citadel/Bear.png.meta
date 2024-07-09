@@ -1018,7 +1018,7 @@ TextureImporter:
         width: 60
         height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1026,6 +1026,258 @@ TextureImporter:
       bones: []
       spriteID: 03502ffdd5ba5d049b0cdcf8c91c99ca
       internalID: 1260473925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 831
+        width: 107
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ce3d0bf1fda28846acc20e8156b2636
+      internalID: 1054408869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_1
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 828
+        width: 117
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4107225468afae243a774f5dc5af32ee
+      internalID: -381813959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_2
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 818
+        width: 156
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d38fcf8602275e34ca675e9b657dd6d0
+      internalID: 1924403811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_3
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 830
+        width: 136
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b32f3f3aaae0e449a57651e4a61a7f5
+      internalID: 247670864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_4
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 834
+        width: 136
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c189898f24ba75346baa53f0e1df676e
+      internalID: 1366073726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_5
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 834
+        width: 128
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e9af0aa99ed95f43944e0af1706039b
+      internalID: 519141379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_6
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 416
+        width: 155
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b6820c1b36bb644ebaf31d15fda0a10
+      internalID: 737613701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_7
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 418
+        width: 179
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5574d935ae363914abbb98aa491e772e
+      internalID: 2068747541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_8
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 405
+        width: 147
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8049e7d3f712ea34caa1213b45a4ad89
+      internalID: -1583925617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_9
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 401
+        width: 141
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1cdb591f6b5f954bbc9f5d6ef16d4c9
+      internalID: 267277970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_10
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 410
+        width: 127
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 981982b52225c434bafb46ac35c2348c
+      internalID: 1793966355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bear_11
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 412
+        width: 124
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c29babbaf4474459ac824a917e59b2
+      internalID: 330110975
       vertices: []
       indices: 
       edges: []
@@ -1041,6 +1293,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Bear_0: 1054408869
+      Bear_1: -381813959
+      Bear_10: 1793966355
+      Bear_11: 330110975
+      Bear_2: 1924403811
+      Bear_3: 247670864
+      Bear_4: 1366073726
+      Bear_5: 519141379
+      Bear_6: 737613701
+      Bear_7: 2068747541
+      Bear_8: -1583925617
+      Bear_9: 267277970
       "\u0431\u0435\u0433\u0435\u043C\u043E\u0442_0": 113551834
       "\u0431\u0435\u0433\u0435\u043C\u043E\u0442_1": -1609905277
       "\u0431\u0435\u0433\u0435\u043C\u043E\u0442_10": -1711406249

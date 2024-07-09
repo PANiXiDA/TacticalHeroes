@@ -12,7 +12,7 @@ namespace Assets.Scripts.Actions.Attack.MeleeAttack
 
             UnitManager.Instance.ChangeUnitFlip(attacker, defender.OccupiedTile);
 
-            attacker.animator.Play("MeleeAttack");
+            UnitManager.Instance.PlayAttackAnimation(attacker, defender);
 
             bool responseAttack = UnitManager.Instance.IsResponseAttack(attacker);
 
