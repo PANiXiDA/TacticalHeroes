@@ -49,7 +49,7 @@ namespace Assets.Scripts.Managers
 
         public void UpdateATB()
         {
-            BaseUnit currentUnit = allUnits.FirstOrDefault();
+            BaseUnit currentUnit = ATB.FirstOrDefault();
             var unitTime = currentUnit.UnitTime;
             ATB.RemoveAt(0);
 

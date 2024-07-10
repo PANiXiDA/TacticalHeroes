@@ -120,7 +120,6 @@ public class BaseUnit : MonoBehaviour
         await UniTask.Delay(1000);
 
         OccupiedTile.OccupiedUnit = null;
-        GetComponent<SpriteRenderer>().sortingOrder = 0;
 
         SpawnManager.Instance.RemoveUnit(this);
     }

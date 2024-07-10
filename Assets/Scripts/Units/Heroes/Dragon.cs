@@ -29,7 +29,10 @@ namespace Assets.Scripts.Units.Heroes
         {
             await _move.Move(attacker, targetTile);
             await _meleeAttack.MeleeAttack(attacker, defender);
-            TurnManager.Instance.EndTurn(this);
+            if (attacker.Faction == GameManager.Instance.CurrentFaction)
+            {
+                TurnManager.Instance.EndTurn(this);
+            }
         }
     }
 }

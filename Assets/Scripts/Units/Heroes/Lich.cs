@@ -31,13 +31,19 @@ namespace Assets.Scripts.Units.Heroes
         {
             await _move.Move(attacker, targetTile);
             await _meleeAttack.MeleeAttack(attacker, defender);
-            TurnManager.Instance.EndTurn(this);
+            if (attacker.Faction == GameManager.Instance.CurrentFaction)
+            {
+                TurnManager.Instance.EndTurn(this);
+            }
         }
 
         public override async UniTask RangeAttack(BaseUnit attacker, BaseUnit defender)
         {
             await _rangeAttack.RangeAttack(attacker, defender);
-            TurnManager.Instance.EndTurn(this);
+            if (attacker.Faction == GameManager.Instance.CurrentFaction)
+            {
+                TurnManager.Instance.EndTurn(this);
+            }
         }
     }
 }
