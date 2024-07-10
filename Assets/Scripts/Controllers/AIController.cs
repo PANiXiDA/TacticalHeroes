@@ -25,7 +25,7 @@ namespace Assets.Scripts.Controllers
             var enemy = TurnManager.Instance.ATB.First();
             var player = SelectRandomPlayer(SpawnManager.Instance.PlayerUnits);
 
-            if (enemy.abilities.Contains(Abilities.Archer))
+            if (UnitManager.Instance.IsRangeAttackPossible(enemy))
             {
                 await enemy.RangeAttack(enemy, player);
             }
@@ -40,8 +40,16 @@ namespace Assets.Scripts.Controllers
                 var pathToEnemy = GetPathToEnemy(enemyCoordinates, playerCoordinates, enemy);
 
                 // Разворачиваем, чтобы путь шел от enemy к player и удаляем enemy из пути
-                pathToEnemy.Reverse();
-                pathToEnemy.RemoveAt(0);
+                if (pathToEnemy.Count > 0)
+                {
+                    pathToEnemy.Reverse();
+                    pathToEnemy.RemoveAt(0);
+                }
+                else
+                {
+                    Debug.Log("Путь меньше нуля");
+                    Debug.Log(pathToEnemy);
+                }
 
                 if (enemyTilesForMove.ContainsKey(pathToEnemy[pathToEnemy.Count-1]))
                 {

@@ -99,13 +99,13 @@ namespace Assets.Scripts.Managers
 
             if (SpawnManager.Instance.EnemyUnits.Count == 0)
             {
-                MenuManager.Instance.WinPanel();
                 GameManager.Instance.ChangeState(GameState.GameOver);
+                MenuManager.Instance.WinPanel();
             }
             else if (SpawnManager.Instance.PlayerUnits.Count == 0)
             {
-                MenuManager.Instance.LosePanel();
                 GameManager.Instance.ChangeState(GameState.GameOver);
+                MenuManager.Instance.LosePanel();
             }
             else
             {

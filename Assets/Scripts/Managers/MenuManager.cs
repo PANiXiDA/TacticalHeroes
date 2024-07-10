@@ -32,13 +32,13 @@ public class MenuManager : MonoBehaviour
 
         if (selectedHero != null)
         {
-            if (!selectedHero.abilities.Contains(Abilities.Archer))
+            if (UnitManager.Instance.IsRangeAttackPossible(selectedHero))
             {
-                ShowSwordAttack(enemyPos, normalizedAngle, tilesForMove);
+                ShowArrowAttack(enemyPos, selectedHero);
             }
             else
             {
-                ShowArrowAttack(enemyPos, selectedHero);
+                ShowSwordAttack(enemyPos, normalizedAngle, tilesForMove);
             }
         }
     }

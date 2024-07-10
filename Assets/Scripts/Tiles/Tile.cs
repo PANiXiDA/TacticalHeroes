@@ -52,7 +52,10 @@ public class Tile : MonoBehaviour
         {
             if (OccupiedUnit.Faction == Faction.Enemy && UnitManager.Instance.SelectedHero != null)
             {
-                flag = true;
+                if (!UnitManager.Instance.SelectedHero.isBusy)
+                {
+                    flag = true;
+                }
             }
         }
         if (UnitManager.Instance.SelectedHero != null)
@@ -72,18 +75,22 @@ public class Tile : MonoBehaviour
     }
     private async void OnMouseDown()
     {
+
+        if (GameManager.Instance.GameState != GameState.HeroesTurn) return;
+
         BaseUnit attacker = UnitManager.Instance.SelectedHero;
         BaseUnit defender = OccupiedUnit;
+        var rangeAttack = UnitManager.Instance.IsRangeAttackPossible(attacker);
         Dictionary<Vector2, Tile> tilesForMove = UnitManager.Instance.GetTilesForMove(attacker);
 
-        if (GameManager.Instance.GameState != GameState.HeroesTurn || attacker.isBusy) return;
+        if (attacker.isBusy) return;
 
         if (defender != null)
         {
             if (attacker != null && defender.Faction != Faction.Hero &&
                 defender != attacker)
             {
-                if (attacker.abilities.Contains(Abilities.Archer))
+                if (rangeAttack)
                 {
                     await attacker.RangeAttack(attacker, defender);
                 }

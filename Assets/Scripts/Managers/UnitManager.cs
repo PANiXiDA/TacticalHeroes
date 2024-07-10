@@ -100,4 +100,49 @@ public class UnitManager : MonoBehaviour
             attacker.animator.Play("TopMeleeAttack");
         }
     }
+    public bool IsEnemyAround(BaseUnit unit)
+    {
+        List<Vector2Int> directions = new List<Vector2Int>()
+        {
+            { new Vector2Int(0, 1) },
+            { new Vector2Int(1, 1) },
+            { new Vector2Int(1, 0) },
+            { new Vector2Int(1, -1) },
+            { new Vector2Int(0, -1) },
+            { new Vector2Int(-1, -1) },
+            { new Vector2Int(-1, 0) },
+            { new Vector2Int(-1, 1) }
+        };
+        foreach (var direction in directions)
+        {
+            var neighbourTile = GridManager.Instance.GetTileAtPosition(unit.OccupiedTile.Position + direction);
+            if (neighbourTile != null)
+            {
+                if (neighbourTile.OccupiedUnit != null)
+                {
+                    if (neighbourTile.OccupiedUnit.Faction != unit.Faction)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public bool IsRangeAttackPossible(BaseUnit unit)
+    {
+        if (!unit.abilities.Contains(Abilities.Archer))
+        {
+            return false;
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            return false;
+        }
+        if (IsEnemyAround(unit))
+        {
+            return false;
+        }
+        return true;
+    }
 }
