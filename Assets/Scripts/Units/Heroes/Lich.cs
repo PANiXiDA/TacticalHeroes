@@ -25,6 +25,7 @@ namespace Assets.Scripts.Units.Heroes
             _rangeAttack = new DefaultRangeAttack();
             UnitMorale = 0;
             UnitRange = 7;
+            UnitArrows = 10;
         }
 
         public override async UniTask MeleeAttack(BaseUnit attacker, BaseUnit defender, Tile targetTile)

@@ -15,6 +15,7 @@ namespace Assets.Scripts.Actions.Attack.RangeAttack
             Tile.Instance.DeleteHighlight();
             attacker.isBusy = true;
 
+            attacker.UnitArrows -= 1;
             attacker.animator.Play("RangeAttack");
 
             await defender.TakeRangeDamage(attacker, defender);

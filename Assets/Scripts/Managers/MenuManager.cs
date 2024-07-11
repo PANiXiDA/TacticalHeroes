@@ -1,5 +1,3 @@
-using Assets.Scripts.Enumeration;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,6 +6,7 @@ using Assets.Scripts.Helpers;
 using TMPro;
 using Assets.Scripts.Enumerations;
 using Assets.Scripts.Managers;
+using Unity.Mathematics;
 
 public class MenuManager : MonoBehaviour
 {
@@ -77,8 +76,8 @@ public class MenuManager : MonoBehaviour
     {
         var arrowsList = Resources.LoadAll<GameObject>("Arrows").ToList();
 
-        var distance = (int)Math.Ceiling(Math.Sqrt(Math.Pow(enemyPos.x - selectedHero.OccupiedTile.Position.x, 2) +
-            Math.Pow(enemyPos.y - selectedHero.OccupiedTile.Position.y, 2)));
+        var distance = math.ceil(math.sqrt(math.pow(enemyPos.x - selectedHero.OccupiedTile.Position.x, 2) +
+            math.pow(enemyPos.y - selectedHero.OccupiedTile.Position.y, 2)));
 
         var tilePos = new Vector2(enemyPos.x - 1, enemyPos.y);
         var tile = GridManager.Instance.GetTileAtPosition(tilePos);

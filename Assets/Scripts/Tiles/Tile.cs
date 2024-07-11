@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Scripts.Enumeration;
 using Assets.Scripts.Enumerations;
 
 public class Tile : MonoBehaviour
@@ -33,6 +32,13 @@ public class Tile : MonoBehaviour
     }
     void Update()
     {
+        if (UnitManager.Instance.SelectedHero != null)
+        {
+            if (UnitManager.Instance.SelectedHero.isBusy)
+            {
+                flag = false;
+            }
+        }
         if (flag == true)
         {
             MenuManager.Instance.ShowOrientationOfAttack(this);
@@ -52,10 +58,7 @@ public class Tile : MonoBehaviour
         {
             if (OccupiedUnit.Faction == Faction.Enemy && UnitManager.Instance.SelectedHero != null)
             {
-                if (!UnitManager.Instance.SelectedHero.isBusy)
-                {
-                    flag = true;
-                }
+                flag = true;
             }
         }
         if (UnitManager.Instance.SelectedHero != null)

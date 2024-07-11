@@ -139,6 +139,10 @@ public class UnitManager : MonoBehaviour
         {
             return false;
         }
+        if (unit.UnitArrows <= 0 || unit.UnitArrows == null)
+        {
+            return false;
+        }
         if (IsEnemyAround(unit))
         {
             return false;

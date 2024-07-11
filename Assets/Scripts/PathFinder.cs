@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using System;
 using Assets.Scripts.Enumeration;
+using Unity.Mathematics;
 
 public class PathFinder : MonoBehaviour
 {
@@ -92,7 +91,7 @@ public class PathFinder : MonoBehaviour
 
     private bool IsNeighbourValid(Tile node, Tile neighbour, BaseUnit unit, Vector2Int direction, Vector2 neighbourPosition)
     {
-        float distance = direction.x == 0 || direction.y == 0 ? 1 : (float)Math.Sqrt(2);
+        float distance = direction.x == 0 || direction.y == 0 ? 1 : math.sqrt(2);
         if (neighbour != null && (neighbour.Walkable || unit.abilities.Contains(Abilities.Fly))
             && (!CheckedNodes.Contains(neighbour) || node.G + distance < neighbour.G))
         {
@@ -110,10 +109,10 @@ public class PathFinder : MonoBehaviour
         node.PreviousNode = previousNode;
         node.G = g;
 
-        float dx = Mathf.Abs(node.TargetPosition.x - node.Position.x);
-        float dy = Mathf.Abs(node.TargetPosition.y - node.Position.y);
-
-        node.H = (float)Math.Sqrt(2) * Math.Min(dx, dy) + Math.Max(dx, dy) - Math.Min(dx, dy);
+        float dx = math.abs(node.TargetPosition.x - node.Position.x);
+        float dy = math.abs(node.TargetPosition.y - node.Position.y);
+        
+        node.H = math.sqrt(2) * math.min(dx, dy) + math.max(dx, dy) - math.min(dx, dy);
 
         node.F = node.G + node.H;
     }

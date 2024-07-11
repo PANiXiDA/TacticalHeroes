@@ -1,10 +1,7 @@
 ﻿using Assets.Scripts.Enumeration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
+using Unity.Mathematics;
+
 
 namespace Assets.Scripts.Managers
 {
@@ -32,8 +29,8 @@ namespace Assets.Scripts.Managers
 
         public void CalculateProbabilityStats(BaseUnit unit)
         {
-            var probabilityLuck = Math.Pow(unit.UnitLuck / 10.0, 1 + unit.UnitSuccessfulLuck - unit.UnitFailedLuck * (unit.UnitLuck / 10.0 / (1 - unit.UnitLuck / 10.0)));
-            var probabilityMorale = Math.Pow(unit.UnitMorale / 10.0, 1 + unit.UnitSuccessfulMorale - unit.UnitFailedMorale * (unit.UnitMorale / 10.0 / (1 - unit.UnitMorale / 10.0)));
+            var probabilityLuck = math.pow(unit.UnitLuck / 10.0, 1 + unit.UnitSuccessfulLuck - unit.UnitFailedLuck * (unit.UnitLuck / 10.0 / (1 - unit.UnitLuck / 10.0)));
+            var probabilityMorale = math.pow(unit.UnitMorale / 10.0, 1 + unit.UnitSuccessfulMorale - unit.UnitFailedMorale * (unit.UnitMorale / 10.0 / (1 - unit.UnitMorale / 10.0)));
         }
     }
 }
