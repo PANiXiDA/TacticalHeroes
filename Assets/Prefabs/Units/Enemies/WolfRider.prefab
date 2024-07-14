@@ -175,9 +175,16 @@ MonoBehaviour:
   UnitMaxDamage: 30
   UnitInitiative: 12
   UnitSpeed: 5
-  UnitRangeAttack: 0
+  UnitCount: 50
+  UnitMorale: 0
+  UnitLuck: 0
+  UnitFailedMorale: 0
+  UnitSuccessfulMorale: 0
+  UnitFailedLuck: 0
+  UnitSuccessfulLuck: 0
   abilities: 02000000
   animator: {fileID: -4152468541956137369}
   UnitResponse: 1
   UnitATB: 0
   UnitTime: 0
+  isBusy: 0

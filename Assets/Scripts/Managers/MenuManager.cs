@@ -124,31 +124,72 @@ public class MenuManager : MonoBehaviour
     }
     public void ShowUnitsPortraits()
     {
-        foreach (Transform child in _ATBIcons)
-        {
-            Destroy(child.gameObject);
-        }
-
         foreach (var ATBunit in TurnManager.Instance.ATB)
         {
-            string unitName = ATBunit.name.Replace("(Clone)", "");
-
-            GameObject portrait = new GameObject(unitName);
-            portrait.transform.SetParent(_ATBIcons, false);
-
-            Image image = portrait.AddComponent<Image>();
-            image.sprite = Resources.Load<Sprite>($"Icons/{unitName}");
-
-            GameObject contour = new GameObject("Countour");
-            contour.transform.SetParent(portrait.transform, false);
-            contour.transform.localPosition = new Vector3(190, -180, 0);
-            contour.transform.localScale = new Vector3(180, 170, 1);
-
-            SpriteRenderer spriteRenderer = contour.AddComponent<SpriteRenderer>();
-            spriteRenderer.sprite = Resources.Load<Sprite>("Countour");
-            spriteRenderer.sortingOrder = 1;
-            spriteRenderer.color = ATBunit.Faction == Faction.Hero ? Color.red : Color.blue;
+            CreatePortrait(ATBunit);
         }
+    }
+
+    public void ClearExistingIcons(BaseUnit unit)
+    {
+        var name = unit.name.Replace("(Clone)", "");
+        foreach (Transform child in _ATBIcons)
+        {
+            if (child.name == name)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+    }
+
+    private void CreatePortrait(BaseUnit ATBunit)
+    {
+        string unitName = ATBunit.name.Replace("(Clone)", "");
+
+        GameObject portrait = new GameObject(unitName);
+        portrait.transform.SetParent(_ATBIcons, false);
+
+        Image image = portrait.AddComponent<Image>();
+        image.sprite = Resources.Load<Sprite>($"Icons/{unitName}");
+
+        CreateUnitCountText(portrait.transform, ATBunit.UnitCount);
+        CreateContour(portrait.transform, ATBunit.Faction);
+    }
+    public void UpdatePortraits(BaseUnit newUnit)
+    {
+        if (_ATBIcons.childCount > 0)
+        {
+            Destroy(_ATBIcons.GetChild(0).gameObject);
+        }
+
+        CreatePortrait(newUnit);
+    }
+
+    public void CreateUnitCountText(Transform parent, int unitCount)
+    {
+        GameObject unitCountObject = new GameObject("UnitCount");
+        unitCountObject.transform.SetParent(parent, false);
+
+        TextMeshProUGUI unitCountTextMeshPro = unitCountObject.AddComponent<TextMeshProUGUI>();
+        unitCountTextMeshPro.rectTransform.localPosition = new Vector3(-3, -60, 0);
+        unitCountTextMeshPro.rectTransform.sizeDelta = new Vector2(170, 40);
+        unitCountTextMeshPro.text = unitCount.ToString();
+        unitCountTextMeshPro.fontSize = 48;
+        unitCountTextMeshPro.alignment = TextAlignmentOptions.Right;
+        unitCountTextMeshPro.color = Color.yellow;
+    }
+
+    private void CreateContour(Transform parent, Faction faction)
+    {
+        GameObject contour = new GameObject("Contour");
+        contour.transform.SetParent(parent, false);
+        contour.transform.localPosition = new Vector3(190, -180, 0);
+        contour.transform.localScale = new Vector3(180, 170, 1);
+
+        SpriteRenderer spriteRenderer = contour.AddComponent<SpriteRenderer>();
+        spriteRenderer.sprite = Resources.Load<Sprite>("Contour");
+        spriteRenderer.sortingOrder = 1;
+        spriteRenderer.color = faction == Faction.Hero ? Color.red : Color.blue;
     }
     public void ShowTileInfo(Tile tile)
     {

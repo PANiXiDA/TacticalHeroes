@@ -175,6 +175,7 @@ MonoBehaviour:
   UnitMaxDamage: 40
   UnitInitiative: 17
   UnitSpeed: 8
+  UnitCount: 15
   UnitMorale: 0
   UnitLuck: 0
   UnitFailedMorale: 0

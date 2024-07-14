@@ -63,7 +63,7 @@ namespace Assets.Scripts.Managers
 
             allUnits.Sort((x, y) => x.UnitTime.CompareTo(y.UnitTime));
 
-            MenuManager.Instance.ShowUnitsPortraits();
+            MenuManager.Instance.UpdatePortraits(ATB.Last());
         }
 
         public void StartTurn(BaseUnit unit)

@@ -1,9 +1,7 @@
 ﻿using Assets.Scripts.Enumerations;
-using System;
+using Assets.Scripts.UI;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets.Scripts.Managers
@@ -26,10 +24,14 @@ namespace Assets.Scripts.Managers
         public void SpawnHeroes()
         {
             var heroUnits = _units.Where(u => u.Faction == Faction.Hero).Select(u => u.UnitPrefab).ToList();
+
             foreach (var unit in heroUnits)
             {
                 var spawnedHero = Instantiate(unit);
                 var randomSpawnTile = GridManager.Instance.GetHeroSpawnTile();
+
+                UnitFactory.Instance.CreateOrUpdateUnitVisuals(spawnedHero);
+
                 randomSpawnTile.SetUnit(spawnedHero, randomSpawnTile);
             }
             GameManager.Instance.ChangeState(GameState.SpawnEnemies);
@@ -38,10 +40,14 @@ namespace Assets.Scripts.Managers
         public void SpawnEnemies()
         {
             var enemyUnits = _units.Where(u => u.Faction == Faction.Enemy).Select(u => u.UnitPrefab).ToList();
+
             foreach (var unit in enemyUnits)
             {
                 var spawnedEnemy = Instantiate(unit);
                 var randomSpawnTile = GridManager.Instance.GetEnemySpawnTile();
+
+                UnitFactory.Instance.CreateOrUpdateUnitVisuals(spawnedEnemy);
+
                 randomSpawnTile.SetUnit(spawnedEnemy, randomSpawnTile);
             }
             SetUnits();
@@ -72,6 +78,12 @@ namespace Assets.Scripts.Managers
             var responseAttack = UnitManager.Instance.IsResponseAttack(unit);
 
             unit.GetComponent<SpriteRenderer>().sortingOrder = -1;
+
+            foreach (Transform child in unit.transform)
+            {
+                Destroy(child.gameObject);
+            }
+
             if (GameManager.Instance.GameState == GameState.HeroesTurn)
             {
                 if (responseAttack)

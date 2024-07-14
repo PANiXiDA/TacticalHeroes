@@ -25,6 +25,8 @@ public class BaseUnit : MonoBehaviour
     public double UnitInitiative;
     public int UnitSpeed;
 
+    public int UnitCount;
+
     [HideInInspector]
     public int? UnitRange;
     [HideInInspector]
@@ -122,5 +124,6 @@ public class BaseUnit : MonoBehaviour
         OccupiedTile.OccupiedUnit = null;
 
         SpawnManager.Instance.RemoveUnit(this);
+        MenuManager.Instance.ClearExistingIcons(this);
     }
 }
