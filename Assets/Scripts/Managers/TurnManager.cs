@@ -44,26 +44,29 @@ namespace Assets.Scripts.Managers
             StartTurn(ATB.First());
         }
 
-        public void UpdateATB()
+        public void UpdateATB(BaseUnit unit)
         {
             BaseUnit currentUnit = ATB.FirstOrDefault();
-            var unitTime = currentUnit.UnitTime;
-            ATB.RemoveAt(0);
-
-            foreach (var ATBunit in allUnits)
+            if (currentUnit == unit)
             {
-                ATBunit.UnitATB += ATBunit.UnitInitiative * unitTime;
-                if (ATBunit.UnitATB >= 100)
+                var unitTime = currentUnit.UnitTime;
+                ATB.RemoveAt(0);
+
+                foreach (var ATBunit in allUnits)
                 {
-                    ATBunit.UnitATB -= 100;
-                    ATB.Add(ATBunit);
+                    ATBunit.UnitATB += ATBunit.UnitInitiative * unitTime;
+                    if (ATBunit.UnitATB >= 100)
+                    {
+                        ATBunit.UnitATB -= 100;
+                        ATB.Add(ATBunit);
+                    }
+                    ATBunit.UnitTime = (100 - ATBunit.UnitATB) / ATBunit.UnitInitiative;
                 }
-                ATBunit.UnitTime = (100 - ATBunit.UnitATB) / ATBunit.UnitInitiative;
+
+                allUnits.Sort((x, y) => x.UnitTime.CompareTo(y.UnitTime));
+
+                MenuManager.Instance.UpdatePortraits(ATB.Last());
             }
-
-            allUnits.Sort((x, y) => x.UnitTime.CompareTo(y.UnitTime));
-
-            MenuManager.Instance.UpdatePortraits(ATB.Last());
         }
 
         public void StartTurn(BaseUnit unit)
@@ -92,7 +95,7 @@ namespace Assets.Scripts.Managers
                 UnitManager.Instance.SetSelectedHero(null);
             }
 
-            UpdateATB();
+            UpdateATB(unit);
 
             if (SpawnManager.Instance.EnemyUnits.Count == 0)
             {

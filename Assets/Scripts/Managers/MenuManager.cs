@@ -164,6 +164,21 @@ public class MenuManager : MonoBehaviour
 
         CreatePortrait(newUnit);
     }
+    public void UpdatePortraitsInfo(BaseUnit unit)
+    {
+        if (unit.UnitCount > 0)
+        {
+            var name = unit.name.Replace("(Clone)", "");
+            foreach (Transform child in _ATBIcons)
+            {
+                if (child.name == name)
+                {
+                    Transform unitCountChild = child.Find("UnitCount");
+                    unitCountChild.GetComponent<TextMeshProUGUI>().text = unit.UnitCount.ToString();
+                }
+            }
+        }
+    }
 
     public void CreateUnitCountText(Transform parent, int unitCount)
     {
@@ -228,7 +243,7 @@ public class MenuManager : MonoBehaviour
         SetUnitInfoText("UnitName", unit.UnitName);
         SetUnitInfoText("AttackValue", unit.UnitAttack.ToString());
         SetUnitInfoText("DefenceValue", unit.UnitDefence.ToString());
-        SetUnitInfoText("HealthValue", unit.UnitHealth.ToString());
+        SetUnitInfoText("HealthValue", unit.UnitCurrentHealth.ToString());
         SetUnitInfoText("ArrowsValue", unit.UnitArrows != null ? unit.UnitArrows.ToString() : "-");
         SetUnitInfoText("RangeValue", unit.UnitRange != null ? unit.UnitRange.ToString() : "-");
         SetUnitInfoText("DamageValue", $"{unit.UnitMinDamage} - {unit.UnitMaxDamage}");

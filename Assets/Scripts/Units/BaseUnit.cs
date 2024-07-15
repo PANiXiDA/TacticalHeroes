@@ -19,7 +19,7 @@ public class BaseUnit : MonoBehaviour
 
     public int UnitAttack;
     public int UnitDefence;
-    public int UnitHealth;
+    public int UnitFullHealth;
     public int UnitMinDamage;
     public int UnitMaxDamage;
     public double UnitInitiative;
@@ -27,6 +27,8 @@ public class BaseUnit : MonoBehaviour
 
     public int UnitCount;
 
+    [HideInInspector]
+    public int UnitCurrentHealth;
     [HideInInspector]
     public int? UnitRange;
     [HideInInspector]
@@ -71,6 +73,7 @@ public class BaseUnit : MonoBehaviour
         _rangeAttack = new DefaultRangeAttack();
         _takeDamage = new DefaultTakeDamage();
 
+        UnitCurrentHealth = UnitFullHealth;
         UnitMorale = 1;
         UnitLuck = 0;
         UnitFailedMorale = UnitSuccessfulMorale = UnitFailedLuck = UnitSuccessfulLuck = 0;
@@ -118,12 +121,14 @@ public class BaseUnit : MonoBehaviour
 
     public virtual async UniTask Death()
     {
+        SpawnManager.Instance.DestroyUnitChildrenObjects(this);
+
         animator.Play("Death");
         await UniTask.Delay(1000);
 
         OccupiedTile.OccupiedUnit = null;
 
-        SpawnManager.Instance.RemoveUnit(this);
         MenuManager.Instance.ClearExistingIcons(this);
+        SpawnManager.Instance.RemoveUnit(this);
     }
 }

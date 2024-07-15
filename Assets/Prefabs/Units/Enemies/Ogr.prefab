@@ -170,7 +170,8 @@ MonoBehaviour:
   Faction: 1
   UnitAttack: 20
   UnitDefence: 20
-  UnitHealth: 100
+  UnitFullHealth: 40
+  UnitCurrentHealth: 40
   UnitMinDamage: 15
   UnitMaxDamage: 35
   UnitInitiative: 5

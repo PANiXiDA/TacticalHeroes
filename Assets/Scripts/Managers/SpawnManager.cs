@@ -79,11 +79,6 @@ namespace Assets.Scripts.Managers
 
             unit.GetComponent<SpriteRenderer>().sortingOrder = -1;
 
-            foreach (Transform child in unit.transform)
-            {
-                Destroy(child.gameObject);
-            }
-
             if (GameManager.Instance.GameState == GameState.HeroesTurn)
             {
                 if (responseAttack)
@@ -108,6 +103,13 @@ namespace Assets.Scripts.Managers
             }
             TurnManager.Instance.allUnits.Remove(unit);
             TurnManager.Instance.ATB.RemoveAll(item => item == unit);
+        }
+        public void DestroyUnitChildrenObjects(BaseUnit unit)
+        {
+            foreach (Transform child in unit.transform)
+            {
+                Destroy(child.gameObject);
+            }
         }
     }
 }

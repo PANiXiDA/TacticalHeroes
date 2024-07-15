@@ -1,6 +1,8 @@
 ﻿using Assets.Scripts.Interfaces;
+using Assets.Scripts.UI;
 using Cysharp.Threading.Tasks;
 using Unity.Mathematics;
+using UnityEngine.Analytics;
 
 namespace Assets.Scripts.Actions.TakeDamage
 {
@@ -10,10 +12,22 @@ namespace Assets.Scripts.Actions.TakeDamage
         {
             int damage = CalculateDamage(attacker, defender);
 
-            defender.UnitHealth -= damage;
             defender.animator.Play("TakeDamage");
 
-            if (defender.UnitHealth > 0)
+            if (defender.UnitCurrentHealth > damage)
+            {
+                defender.UnitCurrentHealth -= damage;
+            }
+            else
+            {
+                int countDeathUnits = (damage - defender.UnitCurrentHealth) / defender.UnitFullHealth + 1;
+                defender.UnitCount = defender.UnitCount - countDeathUnits > 0 ? defender.UnitCount - countDeathUnits : 0;
+                defender.UnitCurrentHealth = defender.UnitFullHealth - ((damage - defender.UnitCurrentHealth) - defender.UnitFullHealth * (countDeathUnits - 1));
+                UnitFactory.Instance.CreateOrUpdateUnitVisuals(defender);
+                MenuManager.Instance.UpdatePortraitsInfo(defender);
+            }
+
+            if (defender.UnitCount > 0)
             {
                 await UniTask.Delay(1000);
             }
@@ -22,10 +36,22 @@ namespace Assets.Scripts.Actions.TakeDamage
         {
             int damage = CalculateDamage(attacker, defender);
 
-            defender.UnitHealth -= damage;
             defender.animator.Play("TakeDamage");
 
-            if (defender.UnitHealth > 0)
+            if (defender.UnitCurrentHealth > damage)
+            {
+                defender.UnitCurrentHealth -= damage;
+            }
+            else
+            {
+                int countDeathUnits = (damage - defender.UnitCurrentHealth) / defender.UnitFullHealth + 1;
+                defender.UnitCount = defender.UnitCount - countDeathUnits > 0 ? defender.UnitCount - countDeathUnits : 0;
+                defender.UnitCurrentHealth = defender.UnitFullHealth - ((damage - defender.UnitCurrentHealth) - defender.UnitFullHealth * (countDeathUnits -1));
+                UnitFactory.Instance.CreateOrUpdateUnitVisuals(defender);
+                MenuManager.Instance.UpdatePortraitsInfo(defender);
+            }
+
+            if (defender.UnitCount > 0)
             {
                 await UniTask.Delay(1000);
             }
@@ -38,7 +64,7 @@ namespace Assets.Scripts.Actions.TakeDamage
                 (1 + 0.05 * (attacker.UnitAttack - defender.UnitDefence)) :
                 (1 / (1 + 0.05 * (defender.UnitDefence - attacker.UnitAttack)));
 
-            int damage = (int)(baseDamage * damageModifier);
+            int damage = (int)(baseDamage * damageModifier * attacker.UnitCount);
 
             var distance = math.ceil(math.sqrt(math.pow(GridManager.Instance.GetTileCoordinate(defender.OccupiedTile).x - attacker.OccupiedTile.Position.x, 2) +
                 math.pow(GridManager.Instance.GetTileCoordinate(defender.OccupiedTile).y - attacker.OccupiedTile.Position.y, 2)));

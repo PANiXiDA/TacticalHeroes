@@ -24,7 +24,7 @@ public class UnitManager : MonoBehaviour
 
     public bool IsDead(BaseUnit unit)
     {
-        if (unit.UnitHealth <= 0)
+        if (unit.UnitCount <= 0)
         {
             return true;
         }
