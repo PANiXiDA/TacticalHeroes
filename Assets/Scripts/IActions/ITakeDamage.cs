@@ -11,6 +11,5 @@ namespace Assets.Scripts.Interfaces
     {
         public UniTask TakeMeleeDamage(BaseUnit attacker, BaseUnit defender);
         public UniTask TakeRangeDamage(BaseUnit attacker, BaseUnit defender);
-        public int CalculateDamage(BaseUnit attacker, BaseUnit defender);
     }
 }

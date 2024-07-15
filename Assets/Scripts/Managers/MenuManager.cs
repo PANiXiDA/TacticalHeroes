@@ -117,10 +117,10 @@ public class MenuManager : MonoBehaviour
             }
         }
     }
-    public void ShowDamage(BaseUnit hero, BaseUnit enemy, int damage)
+    public void DisplayDamageWithDeathCountInChat(BaseUnit hero, BaseUnit enemy, int damage, int countDeaths)
     {
-        _chatPanel.GetComponentInChildren<Text>().text += hero.UnitName + 
-            " нанес " + damage.ToString() + " урона по " + enemy.UnitName + "\n";
+        _chatPanel.GetComponentInChildren<Text>().text += $" {hero.UnitName} нанес {damage} урона по {enemy.UnitName}." +
+            $"{(countDeaths > 0 ? $" ѕогибло {countDeaths}." : $"\n")}";
     }
     public void ShowUnitsPortraits()
     {

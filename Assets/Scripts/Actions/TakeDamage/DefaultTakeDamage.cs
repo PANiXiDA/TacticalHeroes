@@ -10,7 +10,7 @@ namespace Assets.Scripts.Actions.TakeDamage
     {
         public async UniTask TakeMeleeDamage(BaseUnit attacker, BaseUnit defender)
         {
-            int damage = CalculateDamage(attacker, defender);
+            (int damage, int countDeathUnits) = CalculateDamageAndDeathUnit(attacker, defender);
 
             defender.animator.Play("TakeDamage");
 
@@ -20,7 +20,6 @@ namespace Assets.Scripts.Actions.TakeDamage
             }
             else
             {
-                int countDeathUnits = (damage - defender.UnitCurrentHealth) / defender.UnitFullHealth + 1;
                 defender.UnitCount = defender.UnitCount - countDeathUnits > 0 ? defender.UnitCount - countDeathUnits : 0;
                 defender.UnitCurrentHealth = defender.UnitFullHealth - ((damage - defender.UnitCurrentHealth) - defender.UnitFullHealth * (countDeathUnits - 1));
                 UnitFactory.Instance.CreateOrUpdateUnitVisuals(defender);
@@ -34,7 +33,7 @@ namespace Assets.Scripts.Actions.TakeDamage
         }
         public async UniTask TakeRangeDamage(BaseUnit attacker, BaseUnit defender)
         {
-            int damage = CalculateDamage(attacker, defender);
+            (int damage, int countDeathUnits) = CalculateDamageAndDeathUnit(attacker, defender);
 
             defender.animator.Play("TakeDamage");
 
@@ -44,7 +43,6 @@ namespace Assets.Scripts.Actions.TakeDamage
             }
             else
             {
-                int countDeathUnits = (damage - defender.UnitCurrentHealth) / defender.UnitFullHealth + 1;
                 defender.UnitCount = defender.UnitCount - countDeathUnits > 0 ? defender.UnitCount - countDeathUnits : 0;
                 defender.UnitCurrentHealth = defender.UnitFullHealth - ((damage - defender.UnitCurrentHealth) - defender.UnitFullHealth * (countDeathUnits -1));
                 UnitFactory.Instance.CreateOrUpdateUnitVisuals(defender);
@@ -57,7 +55,7 @@ namespace Assets.Scripts.Actions.TakeDamage
             }
         }
 
-        public int CalculateDamage(BaseUnit attacker, BaseUnit defender)
+        public (int, int) CalculateDamageAndDeathUnit(BaseUnit attacker, BaseUnit defender)
         {
             double baseDamage = UnityEngine.Random.Range(attacker.UnitMinDamage, attacker.UnitMaxDamage);
             double damageModifier = attacker.UnitAttack > defender.UnitDefence ?
@@ -74,9 +72,11 @@ namespace Assets.Scripts.Actions.TakeDamage
                 damage /= 2;
             }
 
-            MenuManager.Instance.ShowDamage(attacker, defender, damage);
+            int countDeathUnits = (damage - defender.UnitCurrentHealth) / defender.UnitFullHealth + 1;
 
-            return damage;
+            MenuManager.Instance.DisplayDamageWithDeathCountInChat(attacker, defender, damage, countDeathUnits);
+
+            return (damage, countDeathUnits);
         }
     }
 }
