@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Enumerations;
+using Cysharp.Threading.Tasks;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
@@ -8,6 +9,7 @@ namespace Assets.Scripts.UI
 {
     public class UnitFactory : MonoBehaviour
     {
+        public float duration = 5f;
         public static UnitFactory Instance;
         void Awake()
         {
@@ -76,13 +78,58 @@ namespace Assets.Scripts.UI
             int fontSize = 5;
             float widthSquare = 0.2f + 0.1f * countNumbersInCountUnits;
             Color color = unit.Faction == Faction.Hero ? Color.red : Color.blue;
-            float widthText = countNumbersInCountUnits < 3 ? countNumbersInCountUnits == 1? 2.5f : 2f : 1.5f;
+            float widthText = countNumbersInCountUnits < 3 ? countNumbersInCountUnits == 1 ? 2.5f : 2f : 1.5f;
 
             GameObject square = CreateOrUpdateSquare("Square", unit.transform, new Vector3(0.23f, -0.3f, 0),
                                              new Vector2(widthSquare, 0.3f), color, "Square", menuLayerId);
 
             GameObject unitCount = CreateOrUpdateUnitCountText("UnitCount", square.transform, menuLayerId, fontSize, Vector3.zero,
                                                        new Vector2(0.28f * countNumbersInCountUnits, 0.45f), new Vector2(widthText, 3f), unit.UnitCount.ToString());
+        }
+
+        public void CreateDamageVisuals(BaseUnit attacker, BaseUnit defender, int damage, int countDeath)
+        {
+            var menuLayerId = SortingLayer.NameToID("Menu");
+
+            var swordsList = Resources.LoadAll<GameObject>("Square").ToList();
+
+            GameObject damageVisual = new GameObject("DamageVisual");
+            damageVisual.AddComponent<TextMeshPro>();
+
+            TextMeshPro damageVisualTextMeshPro = damageVisual.GetComponent<TextMeshPro>();
+            damageVisualTextMeshPro.sortingLayerID = menuLayerId;
+            damageVisualTextMeshPro.sortingOrder = 1;
+            damageVisualTextMeshPro.fontSize = 6;
+            damageVisualTextMeshPro.rectTransform.transform.position = defender.transform.position;
+            damageVisualTextMeshPro.rectTransform.sizeDelta = new Vector2(3, 1);
+            damageVisualTextMeshPro.alignment = GridManager.Instance.GetTileCoordinate(attacker.OccupiedTile).x < GridManager.Instance.GetTileCoordinate(defender.OccupiedTile).x ?
+                TextAlignmentOptions.Left : TextAlignmentOptions.Right;
+            damageVisualTextMeshPro.text = $"{damage}\n{countDeath}";
+
+            if (swordsList.Count > 0)
+            {
+                GameObject sword = Instantiate(swordsList[0], damageVisual.transform);
+                sword.transform.localPosition = new Vector3(0, 1, 0); 
+                sword.transform.localScale = Vector3.one * 0.5f; 
+            }
+
+            FadeOutAndDestroy(damageVisualTextMeshPro).Forget();
+        }
+
+        private async UniTaskVoid FadeOutAndDestroy(TextMeshPro textMeshPro)
+        {
+            Color originalColor = textMeshPro.color;
+            float elapsedTime = 0f;
+
+            while (elapsedTime < duration)
+            {
+                elapsedTime += Time.deltaTime;
+                float alpha = Mathf.Lerp(1f, 0f, elapsedTime / duration);
+                textMeshPro.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+                await UniTask.Yield();
+            }
+
+            Destroy(textMeshPro.gameObject);
         }
     }
 }

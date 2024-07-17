@@ -76,6 +76,7 @@ namespace Assets.Scripts.Actions.TakeDamage
             countDeathUnits = countDeathUnits > defender.UnitCount ? defender.UnitCount : countDeathUnits;
 
             MenuManager.Instance.DisplayDamageWithDeathCountInChat(attacker, defender, damage, countDeathUnits);
+            UnitFactory.Instance.CreateDamageVisuals(attacker, defender, damage, countDeathUnits);
 
             return (damage, countDeathUnits);
         }
