@@ -119,7 +119,7 @@ public class MenuManager : MonoBehaviour
     }
     public void DisplayDamageWithDeathCountInChat(BaseUnit hero, BaseUnit enemy, int damage, int countDeaths)
     {
-        _chatPanel.GetComponentInChildren<Text>().text += $" {hero.UnitName} нанес {damage} урона по {enemy.UnitName}." +
+        _chatPanel.GetComponentInChildren<TextMeshProUGUI>().text += $" {hero.UnitName} нанес {damage} урона по {enemy.UnitName}." +
             $"{(countDeaths > 0 ? $" ѕогибло {countDeaths}." : $"\n")}";
     }
     public void ShowUnitsPortraits()
@@ -233,7 +233,7 @@ public class MenuManager : MonoBehaviour
     private void UpdateTileInfoPanel(Tile tile)
     {
         var tileCoordinate = GridManager.Instance.GetTileCoordinate(tile);
-        _tileInfoPanel.GetComponentInChildren<Text>().text = $"x = {tileCoordinate.x}\ny = {tileCoordinate.y}";
+        _tileInfoPanel.GetComponentInChildren<TextMeshProUGUI>().text = $"x = {tileCoordinate.x}\ny = {tileCoordinate.y}";
         _tileInfoPanel.SetActive(true);
     }
     private void UpdateUnitInfoPanel(BaseUnit unit)

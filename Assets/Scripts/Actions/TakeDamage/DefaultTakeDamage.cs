@@ -73,6 +73,7 @@ namespace Assets.Scripts.Actions.TakeDamage
             }
 
             int countDeathUnits = (damage - defender.UnitCurrentHealth) / defender.UnitFullHealth + 1;
+            countDeathUnits = countDeathUnits > defender.UnitCount ? defender.UnitCount : countDeathUnits;
 
             MenuManager.Instance.DisplayDamageWithDeathCountInChat(attacker, defender, damage, countDeathUnits);
 
