@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Enumerations;
 using Cysharp.Threading.Tasks;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,7 +11,6 @@ namespace Assets.Scripts.UI
 {
     public class UnitFactory : MonoBehaviour
     {
-        public float duration = 5f;
         public static UnitFactory Instance;
         void Awake()
         {
@@ -92,8 +92,6 @@ namespace Assets.Scripts.UI
         {
             var menuLayerId = SortingLayer.NameToID("Menu");
 
-            var swordsList = Resources.Load<Sprite>("Square");
-
             GameObject damageVisual = new GameObject("DamageVisual");
             damageVisual.AddComponent<TextMeshPro>();
 
@@ -105,7 +103,8 @@ namespace Assets.Scripts.UI
             damageVisualTextMeshPro.rectTransform.sizeDelta = new Vector2(3, 1);
             damageVisualTextMeshPro.alignment = GridManager.Instance.GetTileCoordinate(attacker.OccupiedTile).x < GridManager.Instance.GetTileCoordinate(defender.OccupiedTile).x ?
                 TextAlignmentOptions.Left : TextAlignmentOptions.Right;
-            damageVisualTextMeshPro.text = $"<sprite=\"Damage\" index=0>{damage}\n<sprite=\"Death\" index=0>{countDeath}";
+            damageVisualTextMeshPro.text = $"<sprite=\"Damage\" index=0>{damage}\n " +
+                $"{(countDeath > 0 ? $"<sprite=\"Death\" index=0>{countDeath}" : "")}";
 
             FadeOutAndDestroy(damageVisualTextMeshPro).Forget();
         }
@@ -113,13 +112,19 @@ namespace Assets.Scripts.UI
         private async UniTaskVoid FadeOutAndDestroy(TextMeshPro textMeshPro)
         {
             Color originalColor = textMeshPro.color;
+            Vector3 originalPosition = textMeshPro.transform.position;
             float elapsedTime = 0f;
+            float duration = 5f;
+            float riseSpeed = 6f; // Увеличенная скорость подъема текста
 
             while (elapsedTime < duration)
             {
                 elapsedTime += Time.deltaTime;
                 float alpha = Mathf.Lerp(1f, 0f, elapsedTime / duration);
                 textMeshPro.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+
+                textMeshPro.transform.position = originalPosition + Vector3.up * (elapsedTime / duration) * riseSpeed;
+
                 await UniTask.Yield();
             }
 

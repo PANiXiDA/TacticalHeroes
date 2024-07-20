@@ -7,6 +7,8 @@ using TMPro;
 using Assets.Scripts.Enumerations;
 using Assets.Scripts.Managers;
 using Unity.Mathematics;
+using Cysharp.Threading.Tasks;
+using System.Collections;
 
 public class MenuManager : MonoBehaviour
 {
@@ -119,9 +121,21 @@ public class MenuManager : MonoBehaviour
     }
     public void DisplayDamageWithDeathCountInChat(BaseUnit hero, BaseUnit enemy, int damage, int countDeaths)
     {
-        _chatPanel.GetComponentInChildren<TextMeshProUGUI>().text += $" {hero.UnitName} нанес {damage} урона по {enemy.UnitName}." +
-            $"{(countDeaths > 0 ? $" Погибло {countDeaths}." : $"\n")}";
+        _chatPanel.GetComponentInChildren<TextMeshProUGUI>().text += $"{hero.UnitName} нанес {damage} урона по {enemy.UnitName}." +
+            $"{(countDeaths > 0 ? $" Погибло {countDeaths}.\n" : $"\n")}";
+
+        Scrollbar scrollbar = _chatPanel.GetComponentInChildren<Scrollbar>(true);
+        AutoScrollToBottom(scrollbar).Forget();
     }
+
+    private async UniTaskVoid AutoScrollToBottom(Scrollbar scrollbar)
+    {
+        await UniTask.Yield(PlayerLoopTiming.LastPostLateUpdate);
+        await UniTask.DelayFrame(2);
+
+        scrollbar.value = 0f;
+    }
+
     public void ShowUnitsPortraits()
     {
         foreach (var ATBunit in TurnManager.Instance.ATB)
@@ -243,7 +257,7 @@ public class MenuManager : MonoBehaviour
         SetUnitInfoText("UnitName", unit.UnitName);
         SetUnitInfoText("AttackValue", unit.UnitAttack.ToString());
         SetUnitInfoText("DefenceValue", unit.UnitDefence.ToString());
-        SetUnitInfoText("HealthValue", unit.UnitCurrentHealth.ToString());
+        SetUnitInfoText("HealthValue", $"{unit.UnitCurrentHealth}/{unit.UnitFullHealth}");
         SetUnitInfoText("ArrowsValue", unit.UnitArrows != null ? unit.UnitArrows.ToString() : "-");
         SetUnitInfoText("RangeValue", unit.UnitRange != null ? unit.UnitRange.ToString() : "-");
         SetUnitInfoText("DamageValue", $"{unit.UnitMinDamage} - {unit.UnitMaxDamage}");
