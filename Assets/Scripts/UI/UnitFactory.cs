@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 namespace Assets.Scripts.UI
 {
@@ -91,7 +92,7 @@ namespace Assets.Scripts.UI
         {
             var menuLayerId = SortingLayer.NameToID("Menu");
 
-            var swordsList = Resources.LoadAll<GameObject>("Square").ToList();
+            var swordsList = Resources.Load<Sprite>("Square");
 
             GameObject damageVisual = new GameObject("DamageVisual");
             damageVisual.AddComponent<TextMeshPro>();
@@ -104,14 +105,7 @@ namespace Assets.Scripts.UI
             damageVisualTextMeshPro.rectTransform.sizeDelta = new Vector2(3, 1);
             damageVisualTextMeshPro.alignment = GridManager.Instance.GetTileCoordinate(attacker.OccupiedTile).x < GridManager.Instance.GetTileCoordinate(defender.OccupiedTile).x ?
                 TextAlignmentOptions.Left : TextAlignmentOptions.Right;
-            damageVisualTextMeshPro.text = $"{damage}\n{countDeath}";
-
-            if (swordsList.Count > 0)
-            {
-                GameObject sword = Instantiate(swordsList[0], damageVisual.transform);
-                sword.transform.localPosition = new Vector3(0, 1, 0); 
-                sword.transform.localScale = Vector3.one * 0.5f; 
-            }
+            damageVisualTextMeshPro.text = $"<sprite=\"Damage\" index=0>{damage}\n<sprite=\"Death\" index=0>{countDeath}";
 
             FadeOutAndDestroy(damageVisualTextMeshPro).Forget();
         }

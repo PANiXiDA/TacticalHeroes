@@ -12,7 +12,7 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
-    [SerializeField] private GameObject _tileInfoPanel, _unitInfoPanel, _chatPanel, _winPanel, _losePanel;
+    [SerializeField] private GameObject _tileInfoPanel, _unitInfoPanel, _chatPanel, _endBattlePanel;
     [SerializeField] private RectTransform _ATBIcons;
 
     private void Awake()
@@ -262,12 +262,34 @@ public class MenuManager : MonoBehaviour
             .FirstOrDefault()
             .text = textValue;
     }
+    public void SetPanelTexts(GameObject panel, string battleResultText, string winSideInfoText, string loseSideInfoText)
+    {
+        var texts = panel.GetComponentsInChildren<TextMeshPro>(true);
+
+        texts.FirstOrDefault(item => item.name == "BattleResultText").text = battleResultText;
+        texts.FirstOrDefault(item => item.name == "WinSideInfoText").text = winSideInfoText;
+        texts.FirstOrDefault(item => item.name == "LoseSideInfoText").text = loseSideInfoText;
+
+        panel.SetActive(true);
+    }
+
     public void WinPanel()
     {
-        _winPanel.SetActive(true);
+        SetPanelTexts(
+            _endBattlePanel,
+            "Победа",
+            "<color=#FF6666>Человеческий разум</color> победил!",
+            "<color=#10CEEB>Искусственный интеллект</color> сегодня потерпел поражение!"
+        );
     }
+
     public void LosePanel()
     {
-        _losePanel.SetActive(true);
+        SetPanelTexts(
+            _unitInfoPanel,
+            "Поражение",
+            "<color=#FF6666>Искусственный интеллект</color> победил!",
+            "<color=#10CEEB>Человеческий разум</color> сегодня потерпел поражение!"
+        );
     }
 }
