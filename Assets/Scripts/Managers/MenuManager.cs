@@ -121,13 +121,18 @@ public class MenuManager : MonoBehaviour
     }
     public void DisplayDamageWithDeathCountInChat(BaseUnit hero, BaseUnit enemy, int damage, int countDeaths)
     {
-        _chatPanel.GetComponentInChildren<TextMeshProUGUI>().text += $"{hero.UnitName} нанес {damage} урона по {enemy.UnitName}." +
+        _chatPanel.GetComponentInChildren<TextMeshProUGUI>().text += $"<color=red>{hero.UnitName}</color> нанес {damage} урона по <color=blue>{enemy.UnitName}</color>." +
             $"{(countDeaths > 0 ? $" Погибло {countDeaths}.\n" : $"\n")}";
 
         Scrollbar scrollbar = _chatPanel.GetComponentInChildren<Scrollbar>(true);
         AutoScrollToBottom(scrollbar).Forget();
     }
-
+    public void SendMessageToChat()
+    {
+        TMP_InputField inputField = _chatPanel.GetComponentInChildren<TMP_InputField>();
+        _chatPanel.GetComponentInChildren<TextMeshProUGUI>().text += $"<color=red>[Человеческий разум]</color>: {inputField.text}\n";
+        inputField.text = "";
+    }
     private async UniTaskVoid AutoScrollToBottom(Scrollbar scrollbar)
     {
         await UniTask.Yield(PlayerLoopTiming.LastPostLateUpdate);
