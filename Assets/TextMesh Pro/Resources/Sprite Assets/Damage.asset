@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 6ef89d81cb226014bbf7e1cde46d6aa7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2b72ccb6e7239f240b7a511125c8d751, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -79,17 +79,11 @@ MonoBehaviour:
     m_StrikethroughOffset: 0
     m_StrikethroughThickness: 0
     m_TabWidth: 0
-  spriteSheet: {fileID: 2800000, guid: 6ef89d81cb226014bbf7e1cde46d6aa7, type: 3}
+  spriteSheet: {fileID: 2800000, guid: 2b72ccb6e7239f240b7a511125c8d751, type: 3}
   m_SpriteCharacterTable:
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 0
-    m_Scale: 1
-    m_Name: Damage
-    m_HashCode: -1671533397
-  - m_ElementType: 2
-    m_Unicode: 65534
-    m_GlyphIndex: 1
     m_Scale: 1
     m_Name: Damage
     m_HashCode: -1671533397
@@ -99,32 +93,16 @@ MonoBehaviour:
       m_Width: 953
       m_Height: 972
       m_HorizontalBearingX: -476.5
-      m_HorizontalBearingY: 486
+      m_HorizontalBearingY: 800
       m_HorizontalAdvance: 953
     m_GlyphRect:
       m_X: 0
       m_Y: 0
-      m_Width: 953
-      m_Height: 1280
+      m_Width: 628
+      m_Height: 628
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
-    sprite: {fileID: 21300000, guid: 6ef89d81cb226014bbf7e1cde46d6aa7, type: 3}
-  - m_Index: 1
-    m_Metrics:
-      m_Width: 953
-      m_Height: 1280
-      m_HorizontalBearingX: -476.5
-      m_HorizontalBearingY: 640
-      m_HorizontalAdvance: 953
-    m_GlyphRect:
-      m_X: 0
-      m_Y: 0
-      m_Width: 953
-      m_Height: 1280
-    m_Scale: 1
-    m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
-    sprite: {fileID: 21300000, guid: 6ef89d81cb226014bbf7e1cde46d6aa7, type: 3}
+    sprite: {fileID: 21300000, guid: 2b72ccb6e7239f240b7a511125c8d751, type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []
