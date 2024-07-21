@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Enumerations;
+using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
@@ -78,6 +79,7 @@ public class Tile : MonoBehaviour
     }
     private async void OnMouseDown()
     {
+        if (IsPointerOverUIObject()) return;
 
         if (GameManager.Instance.GameState != GameState.HeroesTurn) return;
 
@@ -179,5 +181,19 @@ public class Tile : MonoBehaviour
         {
             t.Value._highlight_for_attack.SetActive(false);
         }
+    }
+    private bool IsPointerOverUIObject()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return true;
+        }
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            return EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
+        }
+
+        return false;
     }
 }

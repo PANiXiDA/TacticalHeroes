@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
-    [SerializeField] private GameObject _tileInfoPanel, _unitInfoPanel, _chatPanel, _endBattlePanel;
+    [SerializeField] private GameObject _tileInfoPanel, _unitInfoPanel, _chatPanel, _endBattlePanel, _surrenderPanel, _exitBtn;
     [SerializeField] private RectTransform _ATBIcons;
 
     private void Awake()
@@ -294,6 +294,7 @@ public class MenuManager : MonoBehaviour
 
     public void WinPanel()
     {
+        _exitBtn.SetActive(false);
         SetPanelTexts(
             _endBattlePanel,
             "Победа",
@@ -304,11 +305,20 @@ public class MenuManager : MonoBehaviour
 
     public void LosePanel()
     {
+        _exitBtn.SetActive(false);
         SetPanelTexts(
             _unitInfoPanel,
             "Поражение",
             "<color=#FF6666>Искусственный интеллект</color> победил!",
             "<color=#10CEEB>Человеческий разум</color> сегодня потерпел поражение!"
         );
+    }
+    public void ShowSurrenderPanel()
+    {
+        _surrenderPanel.SetActive(true);
+    }
+    public void CloseSurrenderPanel()
+    {
+        _surrenderPanel.SetActive(false);
     }
 }

@@ -2,9 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Enumerations;
 using Assets.Scripts.Enumeration;
-using System;
-using DG.Tweening.Core.Easing;
-using UnityEditor.Experimental.GraphView;
 
 public class UnitManager : MonoBehaviour
 {
