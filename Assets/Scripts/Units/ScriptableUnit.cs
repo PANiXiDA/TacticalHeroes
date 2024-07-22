@@ -5,6 +5,5 @@ using UnityEngine;
 
 public class ScriptableUnit : ScriptableObject
 {
-    public Faction Faction;
     public BaseUnit UnitPrefab;
 }

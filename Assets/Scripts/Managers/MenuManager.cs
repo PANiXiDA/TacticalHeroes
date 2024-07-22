@@ -307,7 +307,7 @@ public class MenuManager : MonoBehaviour
     {
         _exitBtn.SetActive(false);
         SetPanelTexts(
-            _unitInfoPanel,
+            _endBattlePanel,
             "Поражение",
             "<color=#FF6666>Искусственный интеллект</color> победил!",
             "<color=#10CEEB>Человеческий разум</color> сегодня потерпел поражение!"

@@ -2,6 +2,7 @@
 using Assets.Scripts.UI;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace Assets.Scripts.Managers
@@ -23,7 +24,7 @@ namespace Assets.Scripts.Managers
 
         public void SpawnHeroes()
         {
-            var heroUnits = _units.Where(u => u.Faction == Faction.Hero).Select(u => u.UnitPrefab).ToList();
+            var heroUnits = _units.Where(u => u.UnitPrefab.Faction == Faction.Hero).Select(u => u.UnitPrefab).ToList();
 
             foreach (var unit in heroUnits)
             {
@@ -39,7 +40,7 @@ namespace Assets.Scripts.Managers
 
         public void SpawnEnemies()
         {
-            var enemyUnits = _units.Where(u => u.Faction == Faction.Enemy).Select(u => u.UnitPrefab).ToList();
+            var enemyUnits = _units.Where(u => u.UnitPrefab.Faction == Faction.Enemy).Select(u => u.UnitPrefab).ToList();
 
             foreach (var unit in enemyUnits)
             {
@@ -47,6 +48,9 @@ namespace Assets.Scripts.Managers
                 var randomSpawnTile = GridManager.Instance.GetEnemySpawnTile();
 
                 UnitFactory.Instance.CreateOrUpdateUnitVisuals(spawnedEnemy);
+
+                var spriteRenderer = spawnedEnemy.GetComponent<SpriteRenderer>();
+                spriteRenderer.flipX = !spriteRenderer.flipX;
 
                 randomSpawnTile.SetUnit(spawnedEnemy, randomSpawnTile);
             }

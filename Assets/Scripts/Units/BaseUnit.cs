@@ -9,6 +9,8 @@ using Assets.Scripts.Actions.Attack.RangeAttack;
 using Assets.Scripts.Actions.TakeDamage;
 using Assets.Scripts.Enumerations;
 using Assets.Scripts.Managers;
+using Assets.Scripts.IActions;
+using Assets.Scripts.Actions.Damage;
 
 public class BaseUnit : MonoBehaviour
 {
@@ -61,6 +63,7 @@ public class BaseUnit : MonoBehaviour
     [HideInInspector]
     public bool isBusy;
 
+    private IDamage _damageCalculator;
     private IMove _move;
     private IMeleeAttack _meleeAttack;
     private IRangeAttack _rangeAttack;
@@ -68,9 +71,10 @@ public class BaseUnit : MonoBehaviour
 
     protected virtual void Awake()
     {
+        _damageCalculator = new DefaultDamage();
         _move = new DefaultMove();
-        _meleeAttack = new DefaultMeleeAttack();
-        _rangeAttack = new DefaultRangeAttack();
+        _meleeAttack = new DefaultMeleeAttack(_damageCalculator);
+        _rangeAttack = new DefaultRangeAttack(_damageCalculator);
         _takeDamage = new DefaultTakeDamage();
 
         UnitCurrentHealth = UnitFullHealth;
@@ -110,13 +114,13 @@ public class BaseUnit : MonoBehaviour
         }
     }
 
-    public virtual async UniTask TakeMeleeDamage(BaseUnit attacker, BaseUnit defender)
+    public virtual async UniTask TakeMeleeDamage(BaseUnit attacker, BaseUnit defender, IDamage damageCalculator)
     {
-        await _takeDamage.TakeMeleeDamage(attacker, defender);
+        await _takeDamage.TakeMeleeDamage(attacker, defender, damageCalculator);
     }
-    public virtual async UniTask TakeRangeDamage(BaseUnit attacker, BaseUnit defender)
+    public virtual async UniTask TakeRangeDamage(BaseUnit attacker, BaseUnit defender, IDamage damageCalculator)
     {
-        await _takeDamage.TakeRangeDamage(attacker, defender);
+        await _takeDamage.TakeRangeDamage(attacker, defender, damageCalculator);
     }
 
     public virtual async UniTask Death()

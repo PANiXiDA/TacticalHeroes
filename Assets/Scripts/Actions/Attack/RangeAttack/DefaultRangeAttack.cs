@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Interfaces;
+﻿using Assets.Scripts.IActions;
+using Assets.Scripts.Interfaces;
 using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,11 @@ namespace Assets.Scripts.Actions.Attack.RangeAttack
 {
     public class DefaultRangeAttack : IRangeAttack
     {
+        private IDamage _damageCalculator;
+        public DefaultRangeAttack(IDamage damageCalculator)
+        {
+            _damageCalculator = damageCalculator;
+        }
         public async UniTask RangeAttack(BaseUnit attacker, BaseUnit defender)
         {
             Tile.Instance.DeleteHighlight();
@@ -18,7 +24,7 @@ namespace Assets.Scripts.Actions.Attack.RangeAttack
             attacker.UnitArrows -= 1;
             attacker.animator.Play("RangeAttack");
 
-            await defender.TakeRangeDamage(attacker, defender);
+            await defender.TakeRangeDamage(attacker, defender, _damageCalculator);
             bool death = UnitManager.Instance.IsDead(defender);
             if (death)
             {

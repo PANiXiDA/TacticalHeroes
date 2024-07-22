@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 1334585770, guid: 84b7365eaa473cc4093a35b9fffe4f13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
   m_Size: {x: 1.5, y: 1.2}
@@ -171,12 +171,12 @@ MonoBehaviour:
   UnitAttack: 20
   UnitDefence: 20
   UnitFullHealth: 80
-  UnitCurrentHealth: 80
   UnitMinDamage: 20
   UnitMaxDamage: 50
   UnitInitiative: 13
   UnitSpeed: 5
   UnitCount: 12
+  UnitCurrentHealth: 80
   UnitMorale: 1
   UnitLuck: 0
   UnitFailedMorale: 0

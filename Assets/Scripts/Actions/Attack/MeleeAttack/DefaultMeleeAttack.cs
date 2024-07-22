@@ -1,10 +1,16 @@
-﻿using Assets.Scripts.Interfaces;
+﻿using Assets.Scripts.IActions;
+using Assets.Scripts.Interfaces;
 using Cysharp.Threading.Tasks;
 
 namespace Assets.Scripts.Actions.Attack.MeleeAttack
 {
     public class DefaultMeleeAttack : IMeleeAttack
     {
+        private IDamage _damageCalculator;
+        public DefaultMeleeAttack(IDamage damageCalculator) 
+        {
+            _damageCalculator = damageCalculator;
+        }
         public async UniTask MeleeAttack(BaseUnit attacker, BaseUnit defender)
         {
             Tile.Instance.DeleteHighlight();
@@ -16,7 +22,7 @@ namespace Assets.Scripts.Actions.Attack.MeleeAttack
 
             bool responseAttack = UnitManager.Instance.IsResponseAttack(attacker);
 
-            await defender.TakeMeleeDamage(attacker, defender);
+            await defender.TakeMeleeDamage(attacker, defender, _damageCalculator);
             bool death = UnitManager.Instance.IsDead(defender);
             if (death)
             {

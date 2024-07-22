@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 259681243697940465, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 956774835688774002, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5882353
+      objectReference: {fileID: 0}
     - target: {fileID: 956774835688774002, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_Color.b
       value: 0.5019608
@@ -230,15 +238,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7475095460453581246, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_Color.b
-      value: 0.12522252
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7475095460453581246, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_Color.g
-      value: 0.12522252
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7475095460453581246, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_Color.r
-      value: 0.13207549
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7475095460453581246, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_SortingLayer
@@ -340,4 +348,4 @@ MonoBehaviour:
   G: 0
   H: 0
   flag: 0
-  TileForAttackMove: {fileID: 0}
+  targetTile: {fileID: 0}
