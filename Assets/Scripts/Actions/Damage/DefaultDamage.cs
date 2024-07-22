@@ -17,7 +17,7 @@ namespace Assets.Scripts.Actions.Damage
             return (damage, deathCount);
         }
 
-        public int CalculateDamage(BaseUnit attacker, BaseUnit defender)
+        public virtual int CalculateDamage(BaseUnit attacker, BaseUnit defender)
         {
             double baseDamage = UnityEngine.Random.Range(attacker.UnitMinDamage, attacker.UnitMaxDamage);
             double damageModifier = attacker.UnitAttack > defender.UnitDefence

@@ -10,5 +10,4 @@ namespace Assets.Scripts.Units.Enemies
     {
 
     }
-
 }
