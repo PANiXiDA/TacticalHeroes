@@ -9,12 +9,14 @@ using Assets.Scripts.Managers;
 using Unity.Mathematics;
 using Cysharp.Threading.Tasks;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
-    [SerializeField] private GameObject _tileInfoPanel, _unitInfoPanel, _chatPanel, _endBattlePanel, _surrenderPanel, _exitBtn;
+    [SerializeField] private GameObject _tileInfoPanel, _unitInfoPanel, _chatPanel, _endBattlePanel, _surrenderPanel, _exitBtn,
+        _waitBtn, _defBtn, _shiftBtn;
     [SerializeField] private RectTransform _ATBIcons;
 
     private void Awake()
@@ -320,5 +322,9 @@ public class MenuManager : MonoBehaviour
     public void CloseSurrenderPanel()
     {
         _surrenderPanel.SetActive(false);
+    }
+    public void DeselectButton()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
     }
 }

@@ -68,6 +68,10 @@ namespace Assets.Scripts.Managers
                 MenuManager.Instance.UpdatePortraits(ATB.Last());
             }
         }
+        public void Wait()
+        {
+
+        }
 
         public void StartTurn(BaseUnit unit)
         {
