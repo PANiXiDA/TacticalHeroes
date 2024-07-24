@@ -8,7 +8,6 @@ using Assets.Scripts.Enumerations;
 using Assets.Scripts.Managers;
 using Unity.Mathematics;
 using Cysharp.Threading.Tasks;
-using System.Collections;
 using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour

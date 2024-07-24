@@ -132,7 +132,7 @@ public class UnitManager : MonoBehaviour
         {
             return false;
         }
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (ShiftButtonHandler.Instance.isLeftShiftPressed)
         {
             return false;
         }
