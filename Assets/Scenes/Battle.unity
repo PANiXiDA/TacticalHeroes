@@ -870,7 +870,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.837, y: 0.683}
   m_AnchorMax: {x: 0.8985209, y: 0.77833337}
-  m_AnchoredPosition: {x: 0.5501709, y: -11.699997}
+  m_AnchoredPosition: {x: 0.5501709, y: -11.700012}
   m_SizeDelta: {x: -117.30995, y: -102.100006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &135232300
@@ -2305,9 +2305,9 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 36
   m_fontStyle: 0
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
@@ -2531,7 +2531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.837, y: 0.5406297}
   m_AnchorMax: {x: 0.887, y: 0.623}
-  m_AnchoredPosition: {x: 24.200012, y: 26}
+  m_AnchoredPosition: {x: 24.199951, y: 26}
   m_SizeDelta: {x: -9.8299, y: -1.6}
   m_Pivot: {x: 0.99999994, y: 0.6391214}
 --- !u!114 &573925917
@@ -2581,6 +2581,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1850338120}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: DeselectButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1556179406}
+        m_TargetAssemblyTypeName: UnitManager, Assembly-CSharp
+        m_MethodName: SetAdditionalDefend
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3119,7 +3131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.84845835, y: 0.106000006}
   m_AnchorMax: {x: 0.8985209, y: 0.20033333}
-  m_AnchoredPosition: {x: 2.7999878, y: -11.26001}
+  m_AnchoredPosition: {x: 2.8000488, y: -11.26001}
   m_SizeDelta: {x: 24.799, y: 4.77}
   m_Pivot: {x: 1, y: -0.000000014901161}
 --- !u!114 &858596346
@@ -4181,7 +4193,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.837, y: 0.897815}
   m_AnchorMax: {x: 0.8985209, y: 1}
-  m_AnchoredPosition: {x: 4.6536255, y: -5.1700134}
+  m_AnchoredPosition: {x: 4.6535645, y: -5.170044}
   m_SizeDelta: {x: -9.98, y: 2.23}
   m_Pivot: {x: 0.533708, y: 0.55060244}
 --- !u!114 &1087051791
@@ -5387,7 +5399,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.837, y: 0.20033333}
   m_AnchorMax: {x: 0.887, y: 0.29562965}
-  m_AnchoredPosition: {x: 13.413025, y: -4.7411194}
+  m_AnchoredPosition: {x: 13.413086, y: -4.74115}
   m_SizeDelta: {x: 26.825, y: 10.19}
   m_Pivot: {x: 0.5, y: 0.20783356}
 --- !u!114 &1354192726
@@ -5901,7 +5913,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.837, y: 0.42700002}
   m_AnchorMax: {x: 0.8985209, y: 0.53900003}
-  m_AnchoredPosition: {x: 1.039978, y: 0.21737671}
+  m_AnchoredPosition: {x: 1.0400391, y: 0.21737671}
   m_SizeDelta: {x: 2.0799, y: 0.15}
   m_Pivot: {x: 0.49999994, y: -0.19034952}
 --- !u!114 &1402867303
@@ -6707,7 +6719,7 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -7737,7 +7749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.84845835, y: 0.795}
   m_AnchorMax: {x: 0.8985209, y: 0.87733334}
-  m_AnchoredPosition: {x: 2.080017, y: -17.200012}
+  m_AnchoredPosition: {x: 2.0800781, y: -17.200012}
   m_SizeDelta: {x: 25.070007, y: 28.730011}
   m_Pivot: {x: 1, y: -0.000000014901161}
 --- !u!114 &1647405430

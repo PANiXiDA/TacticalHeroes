@@ -30,6 +30,8 @@ public class BaseUnit : MonoBehaviour
     public int UnitCount;
 
     [HideInInspector]
+    public int UnitAdditionalDefence;
+    [HideInInspector]
     public int UnitCurrentHealth;
     [HideInInspector]
     public int? UnitRange;
@@ -77,6 +79,7 @@ public class BaseUnit : MonoBehaviour
         _rangeAttack = new DefaultRangeAttack(_damageCalculator);
         _takeDamage = new DefaultTakeDamage();
 
+        UnitAdditionalDefence = 0;
         UnitCurrentHealth = UnitFullHealth;
         UnitMorale = 1;
         UnitLuck = 0;

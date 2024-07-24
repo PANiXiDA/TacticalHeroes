@@ -20,9 +20,9 @@ namespace Assets.Scripts.Actions.Damage
         public virtual int CalculateDamage(BaseUnit attacker, BaseUnit defender)
         {
             double baseDamage = UnityEngine.Random.Range(attacker.UnitMinDamage, attacker.UnitMaxDamage);
-            double damageModifier = attacker.UnitAttack > defender.UnitDefence
-                ? 1 + 0.05 * (attacker.UnitAttack - defender.UnitDefence)
-                : 1 / (1 + 0.05 * (defender.UnitDefence - attacker.UnitAttack));
+            double damageModifier = attacker.UnitAttack > (defender.UnitDefence + defender.UnitAdditionalDefence)
+                ? 1 + 0.05 * (attacker.UnitAttack - (defender.UnitDefence + defender.UnitAdditionalDefence))
+                : 1 / (1 + 0.05 * ((defender.UnitDefence + defender.UnitAdditionalDefence) - attacker.UnitAttack));
 
             int damage = (int)(baseDamage * damageModifier * attacker.UnitCount);
 

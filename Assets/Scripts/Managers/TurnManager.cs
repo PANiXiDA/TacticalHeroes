@@ -76,6 +76,7 @@ namespace Assets.Scripts.Managers
         public void StartTurn(BaseUnit unit)
         {
             unit.UnitResponse = true;
+            unit.UnitAdditionalDefence = 0;
             unit.GetComponent<SpriteRenderer>().sortingOrder = 2;
 
             if (unit.Faction == Faction.Hero)

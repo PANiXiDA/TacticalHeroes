@@ -128,6 +128,13 @@ public class MenuManager : MonoBehaviour
         Scrollbar scrollbar = _chatPanel.GetComponentInChildren<Scrollbar>(true);
         AutoScrollToBottom(scrollbar).Forget();
     }
+    public void AddMessageToChat(string message)
+    {
+        _chatPanel.GetComponentInChildren<TextMeshProUGUI>().text += $"{message}.\n";
+
+        Scrollbar scrollbar = _chatPanel.GetComponentInChildren<Scrollbar>(true);
+        AutoScrollToBottom(scrollbar).Forget();
+    }
     public void SendMessageToChat()
     {
         TMP_InputField inputField = _chatPanel.GetComponentInChildren<TMP_InputField>();
@@ -262,7 +269,7 @@ public class MenuManager : MonoBehaviour
 
         SetUnitInfoText("UnitName", unit.UnitName);
         SetUnitInfoText("AttackValue", unit.UnitAttack.ToString());
-        SetUnitInfoText("DefenceValue", unit.UnitDefence.ToString());
+        SetUnitInfoText("DefenceValue", $"{unit.UnitDefence} {(unit.UnitAdditionalDefence > 0 ? $"(+{unit.UnitAdditionalDefence})" : "")}");
         SetUnitInfoText("HealthValue", $"{unit.UnitCurrentHealth}/{unit.UnitFullHealth}");
         SetUnitInfoText("ArrowsValue", unit.UnitArrows != null ? unit.UnitArrows.ToString() : "-");
         SetUnitInfoText("RangeValue", unit.UnitRange != null ? unit.UnitRange.ToString() : "-");

@@ -1,3 +1,4 @@
+using Assets.Scripts.Enumerations;
 using Assets.Scripts.Managers;
 using System.Linq;
 using UnityEngine;
@@ -33,7 +34,7 @@ public class ShiftButtonHandler : MonoBehaviour
 
     void Update()
     {
-        if (TurnManager.Instance.ATB.FirstOrDefault().Faction == GameManager.Instance.CurrentFaction)
+        if (GameManager.Instance.CurrentFaction == Faction.Hero)
         {
             if (!UIShiftBtnPressed)
             {
@@ -64,10 +65,16 @@ public class ShiftButtonHandler : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            UIShiftBtnPressed = false;
+            isLeftShiftPressed = false;
+            shiftBtnImage.sprite = shiftBtn;
+        }
     }
     public void PressShift()
     {
-        if (TurnManager.Instance.ATB.FirstOrDefault().Faction == GameManager.Instance.CurrentFaction)
+        if (GameManager.Instance.CurrentFaction == Faction.Hero)
         {
             if (shiftBtnImage.sprite != shiftOffBtn)
             {
@@ -81,6 +88,12 @@ public class ShiftButtonHandler : MonoBehaviour
                 isLeftShiftPressed = false;
                 shiftBtnImage.sprite = shiftBtn;
             }
+        }
+        else
+        {
+            UIShiftBtnPressed = false;
+            isLeftShiftPressed = false;
+            shiftBtnImage.sprite = shiftBtn;
         }
     }
 }

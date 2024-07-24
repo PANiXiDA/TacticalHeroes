@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Enumerations;
 using Assets.Scripts.Enumeration;
+using Assets.Scripts.Managers;
+using System.Linq;
 
 public class UnitManager : MonoBehaviour
 {
@@ -145,5 +147,17 @@ public class UnitManager : MonoBehaviour
             return false;
         }
         return true;
+    }
+    public void SetAdditionalDefend()
+    {
+        if (GameManager.Instance.CurrentFaction == Faction.Hero)
+        {
+            BaseUnit unit = TurnManager.Instance.ATB.FirstOrDefault();
+            unit.UnitAdditionalDefence = (int)(unit.UnitDefence * 0.3);
+            string message = $"<color=red>{unit.UnitName}</color> оборона.";
+            MenuManager.Instance.AddMessageToChat(message);
+            Tile.Instance.DeleteHighlight();
+            TurnManager.Instance.EndTurn(unit);
+        }
     }
 }
