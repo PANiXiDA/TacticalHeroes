@@ -214,6 +214,18 @@ public class MenuManager : MonoBehaviour
             }
         }
     }
+    public void DeletePortrait(BaseUnit unit)
+    {
+        var name = unit.name.Replace("(Clone)", "");
+        foreach (Transform child in _ATBIcons)
+        {
+            if (child.name == name)
+            {
+                Destroy(child.gameObject);
+                break;
+            }
+        }
+    }
 
     public void CreateUnitCountText(Transform parent, int unitCount)
     {

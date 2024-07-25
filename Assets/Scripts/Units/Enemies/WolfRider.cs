@@ -24,7 +24,7 @@ namespace Assets.Scripts.Units.Enemies
         {
             await _move.Move(attacker, targetTile);
             await _meleeAttack.MeleeAttack(attacker, defender);
-            if (defender.UnitCount > 0 && attacker.Faction == GameManager.Instance.CurrentFaction)
+            if (defender.UnitCount > 0 && attacker.UnitCount > 0 && attacker.Faction == GameManager.Instance.CurrentFaction) 
             {
                 await _meleeAttack.MeleeAttack(attacker, defender);
             }

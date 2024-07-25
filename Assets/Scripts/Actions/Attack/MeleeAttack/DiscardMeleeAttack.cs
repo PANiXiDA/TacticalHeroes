@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.IActions;
 using Assets.Scripts.Interfaces;
+using Assets.Scripts.Managers;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -61,6 +62,10 @@ namespace Assets.Scripts.Actions.Attack.MeleeAttack
                         defender.OccupiedTile.OccupiedUnit = null;
                         tile.OccupiedUnit = defender;
                         defender.OccupiedTile = tile;
+
+                        MenuManager.Instance.DeletePortrait(defender);
+                        int index = TurnManager.Instance.ATB.FindIndex(pair => pair.Value == defender);
+                        TurnManager.Instance.ATB.RemoveAt(index);
 
                         return true;
                     }
