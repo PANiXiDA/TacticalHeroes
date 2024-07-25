@@ -162,20 +162,23 @@ public class UnitManager : MonoBehaviour
     }
     public void Wait()
     {
-        BaseUnit unit = TurnManager.Instance.ATB.FirstOrDefault().Value;
-
-        string message = $"<color=red>{unit.UnitName}</color> ќжидает.";
-        Tile.Instance.DeleteHighlight();
-        MenuManager.Instance.AddMessageToChat(message);
-
-        TurnManager.Instance.WaitUnit(unit);
-
-        unit.GetComponent<SpriteRenderer>().sortingOrder = 1;
-        if (GameManager.Instance.GameState == GameState.HeroesTurn)
+        if (GameManager.Instance.CurrentFaction == Faction.Hero)
         {
-            SetSelectedHero(null);
-        }
+            BaseUnit unit = TurnManager.Instance.ATB.FirstOrDefault().Value;
 
-        TurnManager.Instance.StartTurn(TurnManager.Instance.ATB.FirstOrDefault().Value);
+            string message = $"<color=red>{unit.UnitName}</color> ќжидает.";
+            Tile.Instance.DeleteHighlight();
+            MenuManager.Instance.AddMessageToChat(message);
+
+            TurnManager.Instance.WaitUnit(unit);
+
+            unit.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            if (GameManager.Instance.GameState == GameState.HeroesTurn)
+            {
+                SetSelectedHero(null);
+            }
+
+            TurnManager.Instance.StartTurn(TurnManager.Instance.ATB.FirstOrDefault().Value);
+        }
     }
 }
