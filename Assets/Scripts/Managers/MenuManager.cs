@@ -151,9 +151,14 @@ public class MenuManager : MonoBehaviour
 
     public void ShowUnitsPortraits()
     {
+        foreach (Transform child in _ATBIcons)
+        {
+            Destroy(child.gameObject);
+        }
+
         foreach (var ATBunit in TurnManager.Instance.ATB)
         {
-            CreatePortrait(ATBunit);
+            CreatePortrait(ATBunit.Value);
         }
     }
 
@@ -182,14 +187,17 @@ public class MenuManager : MonoBehaviour
         CreateUnitCountText(portrait.transform, ATBunit.UnitCount);
         CreateContour(portrait.transform, ATBunit.Faction);
     }
-    public void UpdatePortraits(BaseUnit newUnit)
+    public void UpdatePortraits(List<BaseUnit> newUnitsInATB)
     {
         if (_ATBIcons.childCount > 0)
         {
             Destroy(_ATBIcons.GetChild(0).gameObject);
         }
 
-        CreatePortrait(newUnit);
+        foreach (var newUnit in newUnitsInATB)
+        {
+            CreatePortrait(newUnit);
+        }
     }
     public void UpdatePortraitsInfo(BaseUnit unit)
     {
@@ -223,14 +231,17 @@ public class MenuManager : MonoBehaviour
 
     private void CreateContour(Transform parent, Faction faction)
     {
+        var sortingLayerID = SortingLayer.NameToID("Menu");
+
         GameObject contour = new GameObject("Contour");
         contour.transform.SetParent(parent, false);
-        contour.transform.localPosition = new Vector3(190, -180, 0);
-        contour.transform.localScale = new Vector3(180, 170, 1);
+        contour.transform.localPosition = new Vector3(180, -180, 0);
+        contour.transform.localScale = new Vector3(170, 170, 1);
 
         SpriteRenderer spriteRenderer = contour.AddComponent<SpriteRenderer>();
         spriteRenderer.sprite = Resources.Load<Sprite>("Contour");
         spriteRenderer.sortingOrder = 1;
+        spriteRenderer.sortingLayerID = sortingLayerID;
         spriteRenderer.color = faction == Faction.Hero ? Color.red : Color.blue;
     }
     public void ShowTileInfo(Tile tile)

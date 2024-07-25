@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Enumerations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,8 +11,8 @@ namespace Assets.Scripts.Managers
         public static TurnManager Instance;
 
         public List<BaseUnit> allUnits = new List<BaseUnit>();
+        public List<KeyValuePair<double, BaseUnit>> ATB = new List<KeyValuePair<double, BaseUnit>>();
 
-        public List<BaseUnit> ATB = new List<BaseUnit>();
         private void Awake()
         {
             Instance = this;
@@ -32,45 +33,88 @@ namespace Assets.Scripts.Managers
                     if (unit.UnitATB >= 100)
                     {
                         unit.UnitATB -= 100;
-                        ATB.Add(unit);
+                        ATB.Add(KeyValuePair.Create(0d, unit));
                     }
                     unit.UnitTime = (100 - unit.UnitATB) / unit.UnitInitiative;
+                }
+                for (int i = 0; i < ATB.Count; i++)
+                {
+                    ATB[i] = new KeyValuePair<double, BaseUnit>(ATB[i].Key + time, ATB[i].Value);
                 }
                 allUnits.Sort((x, y) => x.UnitTime.CompareTo(y.UnitTime));
             }
 
             MenuManager.Instance.ShowUnitsPortraits();
 
-            StartTurn(ATB.First());
+            StartTurn(ATB.FirstOrDefault().Value);
         }
 
         public void UpdateATB(BaseUnit unit)
         {
-            BaseUnit currentUnit = ATB.FirstOrDefault();
+            BaseUnit currentUnit = ATB.FirstOrDefault().Value;
             if (currentUnit == unit)
             {
-                var unitTime = currentUnit.UnitTime;
+                var time = currentUnit.UnitTime;
                 ATB.RemoveAt(0);
+
+                List<BaseUnit> newUnitsInATB = new List<BaseUnit>();
 
                 foreach (var ATBunit in allUnits)
                 {
-                    ATBunit.UnitATB += ATBunit.UnitInitiative * unitTime;
+                    for (int i = 0; i < ATB.Count; i++)
+                    {
+                        ATB[i] = new KeyValuePair<double, BaseUnit>(ATB[i].Key + time, ATB[i].Value);
+                    }
+
+                    ATBunit.UnitATB += ATBunit.UnitInitiative * time;
                     if (ATBunit.UnitATB >= 100)
                     {
                         ATBunit.UnitATB -= 100;
-                        ATB.Add(ATBunit);
+                        ATB.Add(KeyValuePair.Create(0d, ATBunit));
+                        newUnitsInATB.Add(ATBunit);
                     }
                     ATBunit.UnitTime = (100 - ATBunit.UnitATB) / ATBunit.UnitInitiative;
                 }
-
                 allUnits.Sort((x, y) => x.UnitTime.CompareTo(y.UnitTime));
 
-                MenuManager.Instance.UpdatePortraits(ATB.Last());
+                MenuManager.Instance.UpdatePortraits(newUnitsInATB);
             }
         }
-        public void Wait()
+        public void WaitUnit(BaseUnit unit)
         {
+            BaseUnit currentUnit = ATB.FirstOrDefault().Value;
+            if (currentUnit == unit)
+            {
+                var time = currentUnit.UnitTime;
+                ATB.RemoveAt(0);
 
+                for (int i = 0; i < ATB.Count; i++)
+                {
+                    ATB[i] = new KeyValuePair<double, BaseUnit>(ATB[i].Key + time, ATB[i].Value);
+                }
+                foreach (var ATBunit in allUnits)
+                {
+                    ATBunit.UnitATB += ATBunit.UnitInitiative * time;
+                    if (ATBunit.UnitATB >= 100)
+                    {
+                        ATBunit.UnitATB -= 100;
+                        ATB.Add(KeyValuePair.Create(0d, ATBunit));
+                    }
+                    ATBunit.UnitTime = (100 - ATBunit.UnitATB) / ATBunit.UnitInitiative;
+                }
+                for (int i = 0; i < ATB.Count; i++)
+                {
+                    if (ATB[i].Value == unit)
+                    {
+                        ATB[i] = new KeyValuePair<double, BaseUnit>(ATB[i].Key + 50 / unit.UnitInitiative, ATB[i].Value);
+                    }
+                }
+                var x = ATB.FirstOrDefault();
+                ATB.Sort((x, y) => y.Key.CompareTo(x.Key));
+                allUnits.Sort((x, y) => x.UnitTime.CompareTo(y.UnitTime));
+
+                MenuManager.Instance.ShowUnitsPortraits();
+            }
         }
 
         public void StartTurn(BaseUnit unit)
@@ -114,7 +158,7 @@ namespace Assets.Scripts.Managers
             }
             else
             {
-                StartTurn(ATB.First());
+                StartTurn(ATB.FirstOrDefault().Value);
             }
         }
     }

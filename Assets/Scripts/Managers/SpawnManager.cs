@@ -106,7 +106,7 @@ namespace Assets.Scripts.Managers
                 }
             }
             TurnManager.Instance.allUnits.Remove(unit);
-            TurnManager.Instance.ATB.RemoveAll(item => item == unit);
+            TurnManager.Instance.ATB.RemoveAll(item => item.Value == unit);
         }
         public void DestroyUnitChildrenObjects(BaseUnit unit)
         {

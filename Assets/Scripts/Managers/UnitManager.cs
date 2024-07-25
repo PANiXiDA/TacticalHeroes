@@ -152,12 +152,30 @@ public class UnitManager : MonoBehaviour
     {
         if (GameManager.Instance.CurrentFaction == Faction.Hero)
         {
-            BaseUnit unit = TurnManager.Instance.ATB.FirstOrDefault();
+            BaseUnit unit = TurnManager.Instance.ATB.FirstOrDefault().Value;
             unit.UnitAdditionalDefence = (int)(unit.UnitDefence * 0.3);
             string message = $"<color=red>{unit.UnitName}</color> оборона.";
             MenuManager.Instance.AddMessageToChat(message);
             Tile.Instance.DeleteHighlight();
             TurnManager.Instance.EndTurn(unit);
         }
+    }
+    public void Wait()
+    {
+        BaseUnit unit = TurnManager.Instance.ATB.FirstOrDefault().Value;
+
+        string message = $"<color=red>{unit.UnitName}</color> ќжидает.";
+        Tile.Instance.DeleteHighlight();
+        MenuManager.Instance.AddMessageToChat(message);
+
+        TurnManager.Instance.WaitUnit(unit);
+
+        unit.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        if (GameManager.Instance.GameState == GameState.HeroesTurn)
+        {
+            SetSelectedHero(null);
+        }
+
+        TurnManager.Instance.StartTurn(TurnManager.Instance.ATB.FirstOrDefault().Value);
     }
 }

@@ -19,7 +19,7 @@ namespace Assets.Scripts.Controllers
         {
             await UniTask.Delay(1000);
 
-            var enemy = TurnManager.Instance.ATB.First();
+            var enemy = TurnManager.Instance.ATB.First().Value;
             var player = SelectRandomPlayer(SpawnManager.Instance.PlayerUnits);
 
             if (UnitManager.Instance.IsRangeAttackPossible(enemy))
