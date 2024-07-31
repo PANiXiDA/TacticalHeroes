@@ -4,6 +4,7 @@ using Assets.Scripts.Enumerations;
 using Assets.Scripts.Enumeration;
 using Assets.Scripts.Managers;
 using System.Linq;
+using Unity.Mathematics;
 
 public class UnitManager : MonoBehaviour
 {
@@ -170,7 +171,7 @@ public class UnitManager : MonoBehaviour
             Tile.Instance.DeleteHighlight();
             MenuManager.Instance.AddMessageToChat(message);
 
-            TurnManager.Instance.WaitUnit(unit);
+            TurnManager.Instance.WaitOrMoraleUnit(unit);
 
             unit.GetComponent<SpriteRenderer>().sortingOrder = 1;
             if (GameManager.Instance.GameState == GameState.HeroesTurn)
@@ -179,6 +180,39 @@ public class UnitManager : MonoBehaviour
             }
 
             TurnManager.Instance.StartTurn(TurnManager.Instance.ATB.FirstOrDefault().Value);
+        }
+    }
+    public void CalculateProbabilityStats(BaseUnit unit)
+    {
+        unit.UnitProbabilityLuck = math.pow(unit.UnitLuck / 10.0, 1 + unit.UnitSuccessfulLuck - unit.UnitFailedLuck * (unit.UnitLuck / 10.0 / (1 - unit.UnitLuck / 10.0)));
+        unit.UnitProbabilityMorale = math.pow(unit.UnitMorale / 10.0, 1 + unit.UnitSuccessfulMorale - unit.UnitFailedMorale * (unit.UnitMorale / 10.0 / (1 - unit.UnitMorale / 10.0)));
+    }
+    public bool Morale(BaseUnit unit)
+    {
+        var randomValue = UnityEngine.Random.Range(0f, 1f);
+        if (randomValue < unit.UnitProbabilityMorale)
+        {
+            string color = unit.Faction == Faction.Hero ? "red" : "blue";
+            string message = $"<color={color}>{unit.UnitName}</color> рвtтся в бой!";
+            MenuManager.Instance.AddMessageToChat(message);
+
+            unit.UnitSuccessfulMorale += 1;
+            TurnManager.Instance.WaitOrMoraleUnit(unit);
+
+            unit.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            if (GameManager.Instance.GameState == GameState.HeroesTurn)
+            {
+                SetSelectedHero(null);
+            }
+
+            TurnManager.Instance.StartTurn(TurnManager.Instance.ATB.FirstOrDefault().Value);
+
+            return true;
+        }
+        else
+        {
+            unit.UnitFailedMorale += 1;
+            return false;
         }
     }
 }

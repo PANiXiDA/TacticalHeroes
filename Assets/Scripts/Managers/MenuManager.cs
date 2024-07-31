@@ -130,7 +130,7 @@ public class MenuManager : MonoBehaviour
     }
     public void AddMessageToChat(string message)
     {
-        _chatPanel.GetComponentInChildren<TextMeshProUGUI>().text += $"{message}.\n";
+        _chatPanel.GetComponentInChildren<TextMeshProUGUI>().text += $"{message}\n";
 
         Scrollbar scrollbar = _chatPanel.GetComponentInChildren<Scrollbar>(true);
         AutoScrollToBottom(scrollbar).Forget();

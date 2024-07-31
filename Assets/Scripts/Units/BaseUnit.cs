@@ -51,6 +51,10 @@ public class BaseUnit : MonoBehaviour
     public int UnitFailedLuck;
     [HideInInspector]
     public int UnitSuccessfulLuck;
+    [HideInInspector]
+    public double UnitProbabilityMorale;
+    [HideInInspector]
+    public double UnitProbabilityLuck;
 
     public List<Abilities> abilities;
     public Animator animator;

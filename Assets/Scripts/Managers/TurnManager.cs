@@ -39,7 +39,7 @@ namespace Assets.Scripts.Managers
                 }
                 for (int i = 0; i < ATB.Count; i++)
                 {
-                    ATB[i] = new KeyValuePair<double, BaseUnit>(ATB[i].Key + time, ATB[i].Value);
+                    ATB[i] = new KeyValuePair<double, BaseUnit>(ATB[i].Key - time, ATB[i].Value);
                 }
                 allUnits.Sort((x, y) => x.UnitTime.CompareTo(y.UnitTime));
             }
@@ -63,7 +63,7 @@ namespace Assets.Scripts.Managers
                 {
                     for (int i = 0; i < ATB.Count; i++)
                     {
-                        ATB[i] = new KeyValuePair<double, BaseUnit>(ATB[i].Key + time, ATB[i].Value);
+                        ATB[i] = new KeyValuePair<double, BaseUnit>(ATB[i].Key - time, ATB[i].Value);
                     }
 
                     ATBunit.UnitATB += ATBunit.UnitInitiative * time;
@@ -80,17 +80,17 @@ namespace Assets.Scripts.Managers
                 MenuManager.Instance.UpdatePortraits(newUnitsInATB);
             }
         }
-        public void WaitUnit(BaseUnit unit)
+        public void WaitOrMoraleUnit(BaseUnit unit)
         {
             BaseUnit currentUnit = ATB.FirstOrDefault().Value;
             if (currentUnit == unit)
             {
                 var time = currentUnit.UnitTime;
-                ATB.RemoveAt(0);
+                //ATB.RemoveAt(0);
 
                 for (int i = 0; i < ATB.Count; i++)
                 {
-                    ATB[i] = new KeyValuePair<double, BaseUnit>(ATB[i].Key + time, ATB[i].Value);
+                    ATB[i] = new KeyValuePair<double, BaseUnit>(ATB[i].Key - time, ATB[i].Value);
                 }
                 foreach (var ATBunit in allUnits)
                 {
@@ -110,7 +110,7 @@ namespace Assets.Scripts.Managers
                     }
                 }
                 var x = ATB.FirstOrDefault();
-                ATB.Sort((x, y) => y.Key.CompareTo(x.Key));
+                ATB.Sort((x, y) => -y.Key.CompareTo(x.Key));
                 allUnits.Sort((x, y) => x.UnitTime.CompareTo(y.UnitTime));
 
                 MenuManager.Instance.ShowUnitsPortraits();
@@ -122,6 +122,8 @@ namespace Assets.Scripts.Managers
             unit.UnitResponse = true;
             unit.UnitAdditionalDefence = 0;
             unit.GetComponent<SpriteRenderer>().sortingOrder = 2;
+
+            UnitManager.Instance.CalculateProbabilityStats(unit);
 
             if (unit.Faction == Faction.Hero)
             {
@@ -143,22 +145,28 @@ namespace Assets.Scripts.Managers
             {
                 UnitManager.Instance.SetSelectedHero(null);
             }
-
-            UpdateATB(unit);
-
-            if (SpawnManager.Instance.EnemyUnits.Count == 0)
+            bool morale = false;
+            if (unit.UnitAdditionalDefence == 0)
             {
-                GameManager.Instance.ChangeState(GameState.GameOver);
-                MenuManager.Instance.WinPanel();
+                morale = UnitManager.Instance.Morale(unit);
             }
-            else if (SpawnManager.Instance.PlayerUnits.Count == 0)
+            if (!morale)
             {
-                GameManager.Instance.ChangeState(GameState.GameOver);
-                MenuManager.Instance.LosePanel();
-            }
-            else
-            {
-                StartTurn(ATB.FirstOrDefault().Value);
+                UpdateATB(unit);
+                if (SpawnManager.Instance.EnemyUnits.Count == 0)
+                {
+                    GameManager.Instance.ChangeState(GameState.GameOver);
+                    MenuManager.Instance.WinPanel();
+                }
+                else if (SpawnManager.Instance.PlayerUnits.Count == 0)
+                {
+                    GameManager.Instance.ChangeState(GameState.GameOver);
+                    MenuManager.Instance.LosePanel();
+                }
+                else
+                {
+                    StartTurn(ATB.FirstOrDefault().Value);
+                }
             }
         }
     }
