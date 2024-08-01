@@ -4,11 +4,12 @@ using Assets.Scripts.Actions.Move;
 using Assets.Scripts.IActions;
 using Assets.Scripts.Interfaces;
 using Assets.Scripts.Managers;
+using Assets.Scripts.Units.Citadel;
 using Cysharp.Threading.Tasks;
 
 namespace Assets.Scripts.Units.Enemies
 {
-    public class Ogr : BaseUnit
+    public class Ogr : BaseCitadelUnit
     {
         private IDamage _damageCalculator;
         private IMove _move;
@@ -16,6 +17,7 @@ namespace Assets.Scripts.Units.Enemies
 
         protected override void Start()
         {
+            base.Start();
             _damageCalculator = new DefaultDamage();
             _move = new DefaultMove();
             _meleeAttack = new DiscardMeleeAttack(_damageCalculator);

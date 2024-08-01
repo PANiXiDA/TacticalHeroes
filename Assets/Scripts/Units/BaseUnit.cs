@@ -18,6 +18,7 @@ public class BaseUnit : MonoBehaviour
     [HideInInspector]
     public Tile OccupiedTile;
     public Side Side;
+    public Factions Faction;
 
     public int UnitAttack;
     public int UnitDefence;

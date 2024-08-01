@@ -5,11 +5,12 @@ using Assets.Scripts.Actions.Move;
 using Assets.Scripts.IActions;
 using Assets.Scripts.Interfaces;
 using Assets.Scripts.Managers;
+using Assets.Scripts.Units.Neutral;
 using Cysharp.Threading.Tasks;
 
-namespace Assets.Scripts.Units.Enemies
+namespace Assets.Scripts.Units.Heroes
 {
-    public class Cyclop : BaseUnit
+    public class Lich : BaseNeutralUnit
     {
         private IDamage _damageMeleeCalculator;
         private IDamage _damageRangeCalculator;
@@ -19,6 +20,7 @@ namespace Assets.Scripts.Units.Enemies
 
         protected override void Start()
         {
+            base.Start();
             _damageRangeCalculator = new DefaultDamage();
             _damageMeleeCalculator = new HalfDamage(_damageRangeCalculator);
             _move = new DefaultMove();
