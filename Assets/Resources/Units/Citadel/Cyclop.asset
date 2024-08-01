@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2620eed6f239e294ea16355ce4f0d3e4, type: 3}
   m_Name: Cyclop
   m_EditorClassIdentifier: 
-  Faction: 1
   UnitPrefab: {fileID: -144600817570573379, guid: 0f0d74369545a0f438d50ab459b6d859, type: 3}
+  IsActive: 1

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2620eed6f239e294ea16355ce4f0d3e4, type: 3}
   m_Name: Roc
   m_EditorClassIdentifier: 
-  Faction: 1
   UnitPrefab: {fileID: -6896997698985624179, guid: 89d160995f538fe45a30ec06068c8162, type: 3}
+  IsActive: 1

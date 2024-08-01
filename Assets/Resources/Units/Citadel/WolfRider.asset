@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2620eed6f239e294ea16355ce4f0d3e4, type: 3}
   m_Name: WolfRider
   m_EditorClassIdentifier: 
-  Faction: 1
   UnitPrefab: {fileID: 8597783331488348341, guid: a7f6d0d19b26f84489c5157d917d1283, type: 3}
+  IsActive: 1

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2620eed6f239e294ea16355ce4f0d3e4, type: 3}
   m_Name: Lich
   m_EditorClassIdentifier: 
-  Faction: 0
   UnitPrefab: {fileID: -3568245931418224617, guid: 14f3565d4a4b7514ca61e6107659079c, type: 3}
+  IsActive: 1

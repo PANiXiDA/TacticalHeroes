@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2620eed6f239e294ea16355ce4f0d3e4, type: 3}
   m_Name: Bear
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableUnits
-  Faction: 1
   UnitPrefab: {fileID: -6840999944750072676, guid: 7274f6bcee402af40ab73402e545ca24, type: 3}
+  IsActive: 1
