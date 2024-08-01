@@ -1,7 +1,10 @@
 ﻿using Assets.Scripts.Enumerations;
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using TMPro;
 using UnityEngine;
 
 namespace Assets.Scripts.Managers
@@ -119,6 +122,8 @@ namespace Assets.Scripts.Managers
 
         public void StartTurn(BaseUnit unit)
         {
+            MenuManager.Instance.SetTimer(unit);
+
             unit.UnitResponse = true;
             unit.UnitAdditionalDefence = 0;
             unit.GetComponent<SpriteRenderer>().sortingOrder = 2;
@@ -139,6 +144,8 @@ namespace Assets.Scripts.Managers
 
         public void EndTurn(BaseUnit unit)
         {
+            Tile.Instance.DeleteHighlight();
+
             unit.GetComponent<SpriteRenderer>().sortingOrder = 1;
 
             if (GameManager.Instance.GameState == GameState.HeroesTurn)
@@ -167,6 +174,24 @@ namespace Assets.Scripts.Managers
                 {
                     StartTurn(ATB.FirstOrDefault().Value);
                 }
+            }
+        }
+
+        public async UniTaskVoid TimeCounter(TextMeshProUGUI text, BaseUnit unit, CancellationToken token)
+        {
+            int startTime = 30;
+            while (!token.IsCancellationRequested)
+            {
+                startTime -= 1;
+                text.text = startTime.ToString();
+
+                if (startTime <= 0)
+                {
+                    EndTurn(unit);
+                    break;
+                }
+
+                await UniTask.Delay(TimeSpan.FromSeconds(1));
             }
         }
     }

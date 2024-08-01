@@ -9,14 +9,16 @@ using Assets.Scripts.Managers;
 using Unity.Mathematics;
 using Cysharp.Threading.Tasks;
 using UnityEngine.EventSystems;
+using System.Threading;
 
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
     [SerializeField] private GameObject _tileInfoPanel, _unitInfoPanel, _chatPanel, _endBattlePanel, _surrenderPanel, _exitBtn,
-        _waitBtn, _defBtn, _shiftBtn;
+        _waitBtn, _defBtn, _shiftBtn, _timer;
     [SerializeField] private RectTransform _ATBIcons;
+    private CancellationTokenSource _cancellationTokenSource;
 
     private void Awake()
     {
@@ -355,5 +357,14 @@ public class MenuManager : MonoBehaviour
     public void DeselectButton()
     {
         EventSystem.current.SetSelectedGameObject(null);
+    }
+    public void SetTimer(BaseUnit unit)
+    {
+        _cancellationTokenSource?.Cancel();
+        _cancellationTokenSource = new CancellationTokenSource();
+
+        TextMeshProUGUI textMeshProUGUI = _timer.GetComponentInChildren<TextMeshProUGUI>();
+        textMeshProUGUI.text = "30";
+        TurnManager.Instance.TimeCounter(textMeshProUGUI, unit, _cancellationTokenSource.Token).Forget();
     }
 }
