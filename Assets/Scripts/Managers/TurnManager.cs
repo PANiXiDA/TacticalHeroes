@@ -146,7 +146,7 @@ namespace Assets.Scripts.Managers
                 UnitManager.Instance.SetSelectedHero(null);
             }
             bool morale = false;
-            if (unit.UnitAdditionalDefence == 0)
+            if (unit.UnitAdditionalDefence == 0 && unit.UnitCount > 0)
             {
                 morale = UnitManager.Instance.Morale(unit);
             }

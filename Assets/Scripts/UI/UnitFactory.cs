@@ -130,5 +130,49 @@ namespace Assets.Scripts.UI
 
             Destroy(textMeshPro.gameObject);
         }
+
+        public async UniTaskVoid CreateMoraleEffect(BaseUnit unit)
+        {
+            var menuLayerId = SortingLayer.NameToID("Menu");
+            var unitPosition = unit.transform.position;
+
+            GameObject morale = new GameObject("Morale");
+            morale.transform.position = new Vector3(unitPosition.x, unitPosition.y + 1, unitPosition.z);
+
+            SpriteRenderer spriteRenderer = morale.AddComponent<SpriteRenderer>();
+            spriteRenderer.sortingLayerID = menuLayerId;
+            spriteRenderer.sortingOrder = 2;
+
+            Animator animator = morale.AddComponent<Animator>();
+            RuntimeAnimatorController controller = Resources.Load<RuntimeAnimatorController>("Animations/BattleEffects/Morale/Morale");
+            animator.runtimeAnimatorController = controller;
+
+            animator.Play("Morale");
+            await UniTask.Delay(500);
+
+            Destroy(animator.gameObject);
+        }
+
+        public async UniTaskVoid CreateLuckEffect(BaseUnit unit)
+        {
+            var menuLayerId = SortingLayer.NameToID("Menu");
+            var unitPosition = unit.transform.position;
+
+            GameObject morale = new GameObject("Luck");
+            morale.transform.position = new Vector3(unitPosition.x, unitPosition.y + 1, unitPosition.z);
+
+            SpriteRenderer spriteRenderer = morale.AddComponent<SpriteRenderer>();
+            spriteRenderer.sortingLayerID = menuLayerId;
+            spriteRenderer.sortingOrder = 2;
+
+            Animator animator = morale.AddComponent<Animator>();
+            RuntimeAnimatorController controller = Resources.Load<RuntimeAnimatorController>("Animations/BattleEffects/Luck/Luck");
+            animator.runtimeAnimatorController = controller;
+
+            animator.Play("Luck");
+            await UniTask.Delay(500);
+
+            Destroy(animator.gameObject);
+        }
     }
 }

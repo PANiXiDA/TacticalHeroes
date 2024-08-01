@@ -5,6 +5,7 @@ using Assets.Scripts.Enumeration;
 using Assets.Scripts.Managers;
 using System.Linq;
 using Unity.Mathematics;
+using Assets.Scripts.UI;
 
 public class UnitManager : MonoBehaviour
 {
@@ -190,8 +191,10 @@ public class UnitManager : MonoBehaviour
     public bool Morale(BaseUnit unit)
     {
         var randomValue = UnityEngine.Random.Range(0f, 1f);
-        if (randomValue < unit.UnitProbabilityMorale)
+        if (randomValue <= unit.UnitProbabilityMorale)
         {
+            UnitFactory.Instance.CreateMoraleEffect(unit).Forget();
+
             string color = unit.Faction == Faction.Hero ? "red" : "blue";
             string message = $"<color={color}>{unit.UnitName}</color> рвtтся в бой!";
             MenuManager.Instance.AddMessageToChat(message);
@@ -212,6 +215,26 @@ public class UnitManager : MonoBehaviour
         else
         {
             unit.UnitFailedMorale += 1;
+            return false;
+        }
+    }
+    public bool Luck(BaseUnit unit)
+    {
+        var randomValue = UnityEngine.Random.Range(0f, 1f);
+        if (randomValue <= unit.UnitProbabilityLuck)
+        {
+            UnitFactory.Instance.CreateLuckEffect(unit).Forget();
+
+            string color = unit.Faction == Faction.Hero ? "red" : "blue";
+            string message = $"<color={color}>{unit.UnitName}</color> посетила удача!";
+            MenuManager.Instance.AddMessageToChat(message);
+
+            unit.UnitSuccessfulLuck += 1;
+            return true;
+        }
+        else
+        {
+            unit.UnitFailedLuck += 1;
             return false;
         }
     }

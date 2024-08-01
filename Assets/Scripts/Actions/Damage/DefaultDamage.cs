@@ -35,6 +35,12 @@ namespace Assets.Scripts.Actions.Damage
                 damage /= 2;
             }
 
+            bool isLuck = UnitManager.Instance.Luck(attacker);
+            if (isLuck)
+            {
+                damage *= 2;
+            }
+
             return damage;
         }
 
