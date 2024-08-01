@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: "\u041E\u0440\u043A"
   OccupiedTile: {fileID: 0}
-  Faction: 1
+  Side: 1
   UnitAttack: 10
   UnitDefence: 5
   UnitFullHealth: 20
@@ -176,6 +176,7 @@ MonoBehaviour:
   UnitInitiative: 12
   UnitSpeed: 3
   UnitCount: 30
+  UnitAdditionalDefence: 0
   UnitCurrentHealth: 20
   UnitMorale: 0
   UnitLuck: 0
@@ -183,6 +184,8 @@ MonoBehaviour:
   UnitSuccessfulMorale: 0
   UnitFailedLuck: 0
   UnitSuccessfulLuck: 0
+  UnitProbabilityMorale: 0
+  UnitProbabilityLuck: 0
   abilities: 01000000
   animator: {fileID: -6099265815298606442}
   UnitResponse: 1

@@ -34,7 +34,7 @@ public class ShiftButtonHandler : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.CurrentFaction == Faction.Hero)
+        if (GameManager.Instance.CurrentSide == Side.Player)
         {
             if (!UIShiftBtnPressed)
             {
@@ -74,7 +74,7 @@ public class ShiftButtonHandler : MonoBehaviour
     }
     public void PressShift()
     {
-        if (GameManager.Instance.CurrentFaction == Faction.Hero)
+        if (GameManager.Instance.CurrentSide == Side.Player)
         {
             if (shiftBtnImage.sprite != shiftOffBtn)
             {

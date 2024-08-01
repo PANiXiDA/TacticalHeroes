@@ -22,9 +22,9 @@ namespace Assets.Scripts.Managers
             _units = Resources.LoadAll<ScriptableUnit>("Units").ToList();
         }
 
-        public void SpawnHeroes()
+        public void SpawnPlayerUnits()
         {
-            var heroUnits = _units.Where(u => u.UnitPrefab.Faction == Faction.Hero).Select(u => u.UnitPrefab).ToList();
+            var heroUnits = _units.Where(u => u.UnitPrefab.Side == Side.Player && u.IsActive).Select(u => u.UnitPrefab).ToList();
 
             foreach (var unit in heroUnits)
             {
@@ -35,12 +35,12 @@ namespace Assets.Scripts.Managers
 
                 randomSpawnTile.SetUnit(spawnedHero, randomSpawnTile);
             }
-            GameManager.Instance.ChangeState(GameState.SpawnEnemies);
+            GameManager.Instance.ChangeState(GameState.SpawnEnemyUnits);
         }
 
-        public void SpawnEnemies()
+        public void SpawnEnemyUnits()
         {
-            var enemyUnits = _units.Where(u => u.UnitPrefab.Faction == Faction.Enemy).Select(u => u.UnitPrefab).ToList();
+            var enemyUnits = _units.Where(u => u.UnitPrefab.Side == Side.Enemy && u.IsActive).Select(u => u.UnitPrefab).ToList();
 
             foreach (var unit in enemyUnits)
             {
@@ -65,7 +65,7 @@ namespace Assets.Scripts.Managers
             {
                 if (tile.Value.OccupiedUnit != null)
                 {
-                    if (tile.Value.OccupiedUnit.Faction == Faction.Hero)
+                    if (tile.Value.OccupiedUnit.Side == Side.Player)
                     {
                         PlayerUnits.Add(tile.Value.OccupiedUnit);
                     }
@@ -83,7 +83,7 @@ namespace Assets.Scripts.Managers
 
             unit.GetComponent<SpriteRenderer>().sortingOrder = -1;
 
-            if (GameManager.Instance.GameState == GameState.HeroesTurn)
+            if (GameManager.Instance.GameState == GameState.PlayerTurn)
             {
                 if (responseAttack)
                 {

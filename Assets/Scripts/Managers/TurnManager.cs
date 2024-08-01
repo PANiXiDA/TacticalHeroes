@@ -130,15 +130,15 @@ namespace Assets.Scripts.Managers
 
             UnitManager.Instance.CalculateProbabilityStats(unit);
 
-            if (unit.Faction == Faction.Hero)
+            if (unit.Side == Side.Player)
             {
                 UnitManager.Instance.SetSelectedHero(unit);
                 Tile.Instance.SetHighlight(UnitManager.Instance.SelectedHero);
-                GameManager.Instance.ChangeState(GameState.HeroesTurn);
+                GameManager.Instance.ChangeState(GameState.PlayerTurn);
             }
             else
             {
-                GameManager.Instance.ChangeState(GameState.EnemiesTurn);
+                GameManager.Instance.ChangeState(GameState.EnemyTurn);
             }
         }
 
@@ -148,7 +148,7 @@ namespace Assets.Scripts.Managers
 
             unit.GetComponent<SpriteRenderer>().sortingOrder = 1;
 
-            if (GameManager.Instance.GameState == GameState.HeroesTurn)
+            if (GameManager.Instance.GameState == GameState.PlayerTurn)
             {
                 UnitManager.Instance.SetSelectedHero(null);
             }

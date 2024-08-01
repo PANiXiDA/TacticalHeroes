@@ -6,4 +6,5 @@ using UnityEngine;
 public class ScriptableUnit : ScriptableObject
 {
     public BaseUnit UnitPrefab;
+    public bool IsActive;
 }

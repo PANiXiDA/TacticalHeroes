@@ -46,7 +46,7 @@ namespace Assets.Scripts.Actions.Attack.MeleeAttack
 
         private bool DiscardAttack(BaseUnit attacker, BaseUnit defender)
         {
-            if (Random.Range(0f, 100f) < 20f && attacker.Faction == GameManager.Instance.CurrentFaction) 
+            if (Random.Range(0f, 100f) < 20f && attacker.Side == GameManager.Instance.CurrentSide) 
             {
                 var diffCoord = GridManager.Instance.GetTileCoordinate(attacker.OccupiedTile) - GridManager.Instance.GetTileCoordinate(defender.OccupiedTile);
                 var tile = GridManager.Instance.GetTileAtPosition(GridManager.Instance.GetTileCoordinate(defender.OccupiedTile) - diffCoord);

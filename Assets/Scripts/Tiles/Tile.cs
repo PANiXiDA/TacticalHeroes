@@ -57,7 +57,7 @@ public class Tile : MonoBehaviour
         MenuManager.Instance.ShowTileInfo(this);
         if (OccupiedUnit != null)
         {
-            if (OccupiedUnit.Faction == Faction.Enemy && UnitManager.Instance.SelectedHero != null)
+            if (OccupiedUnit.Side == Side.Enemy && UnitManager.Instance.SelectedHero != null)
             {
                 flag = true;
             }
@@ -81,7 +81,7 @@ public class Tile : MonoBehaviour
     {
         if (IsPointerOverUIObject()) return;
 
-        if (GameManager.Instance.GameState != GameState.HeroesTurn) return;
+        if (GameManager.Instance.GameState != GameState.PlayerTurn) return;
 
         BaseUnit attacker = UnitManager.Instance.SelectedHero;
         BaseUnit defender = OccupiedUnit;
@@ -92,7 +92,7 @@ public class Tile : MonoBehaviour
 
         if (defender != null)
         {
-            if (attacker != null && defender.Faction != Faction.Hero &&
+            if (attacker != null && defender.Side != Side.Player &&
                 defender != attacker)
             {
                 if (rangeAttack)

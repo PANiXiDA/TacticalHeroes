@@ -17,7 +17,7 @@ public class BaseUnit : MonoBehaviour
     public string UnitName;
     [HideInInspector]
     public Tile OccupiedTile;
-    public Faction Faction;
+    public Side Side;
 
     public int UnitAttack;
     public int UnitDefence;
@@ -106,7 +106,7 @@ public class BaseUnit : MonoBehaviour
     {
         await _move.Move(attacker, targetTile);
         await _meleeAttack.MeleeAttack(attacker, defender);
-        if (attacker.Faction == GameManager.Instance.CurrentFaction)
+        if (attacker.Side == GameManager.Instance.CurrentSide)
         {
             TurnManager.Instance.EndTurn(this);
         }
@@ -115,7 +115,7 @@ public class BaseUnit : MonoBehaviour
     public virtual async UniTask RangeAttack(BaseUnit attacker, BaseUnit defender)
     {
         await _rangeAttack.RangeAttack(attacker, defender);
-        if (attacker.Faction == GameManager.Instance.CurrentFaction)
+        if (attacker.Side == GameManager.Instance.CurrentSide)
         {
             TurnManager.Instance.EndTurn(this);
         }

@@ -33,8 +33,8 @@ public class UnitManager : MonoBehaviour
     }
     public virtual bool IsResponseAttack(BaseUnit unit)
     {
-        return (GameManager.Instance.GameState == GameState.HeroesTurn && unit.Faction != Faction.Hero)
-            || (GameManager.Instance.GameState != GameState.HeroesTurn && unit.Faction != Faction.Enemy);
+        return (GameManager.Instance.GameState == GameState.PlayerTurn && unit.Side != Side.Player)
+            || (GameManager.Instance.GameState != GameState.PlayerTurn && unit.Side != Side.Enemy);
     }
 
     public Dictionary<Vector2, Tile> GetTilesForMove(BaseUnit unit)
@@ -61,8 +61,8 @@ public class UnitManager : MonoBehaviour
     {
         if (!IsUnitFlip(attacker))
         {
-            if (attacker.Faction == Faction.Hero && attacker.OccupiedTile.Position.x > targetTile.Position.x
-                || attacker.Faction == Faction.Enemy && attacker.OccupiedTile.Position.x < targetTile.Position.x)
+            if (attacker.Side == Side.Player && attacker.OccupiedTile.Position.x > targetTile.Position.x
+                || attacker.Side == Side.Enemy && attacker.OccupiedTile.Position.x < targetTile.Position.x)
             {
                 var spriteRenderer = attacker.GetComponent<SpriteRenderer>();
                 spriteRenderer.flipX = !spriteRenderer.flipX;
@@ -80,7 +80,7 @@ public class UnitManager : MonoBehaviour
     public bool IsUnitFlip(BaseUnit unit)
     {
         var spriteRenderer = unit.GetComponent<SpriteRenderer>();
-        if (unit.Faction == Faction.Hero && spriteRenderer.flipX || unit.Faction == Faction.Enemy && !spriteRenderer.flipX)
+        if (unit.Side == Side.Player && spriteRenderer.flipX || unit.Side == Side.Enemy && !spriteRenderer.flipX)
         {
             return true;
         }
@@ -121,7 +121,7 @@ public class UnitManager : MonoBehaviour
             {
                 if (neighbourTile.OccupiedUnit != null)
                 {
-                    if (neighbourTile.OccupiedUnit.Faction != unit.Faction)
+                    if (neighbourTile.OccupiedUnit.Side != unit.Side)
                     {
                         return true;
                     }
@@ -152,7 +152,7 @@ public class UnitManager : MonoBehaviour
     }
     public void SetAdditionalDefend()
     {
-        if (GameManager.Instance.CurrentFaction == Faction.Hero)
+        if (GameManager.Instance.CurrentSide == Side.Player)
         {
             BaseUnit unit = TurnManager.Instance.ATB.FirstOrDefault().Value;
             unit.UnitAdditionalDefence = (int)(unit.UnitDefence * 0.3);
@@ -164,7 +164,7 @@ public class UnitManager : MonoBehaviour
     }
     public void Wait()
     {
-        if (GameManager.Instance.CurrentFaction == Faction.Hero)
+        if (GameManager.Instance.CurrentSide == Side.Player)
         {
             BaseUnit unit = TurnManager.Instance.ATB.FirstOrDefault().Value;
 
@@ -175,7 +175,7 @@ public class UnitManager : MonoBehaviour
             TurnManager.Instance.WaitOrMoraleUnit(unit);
 
             unit.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            if (GameManager.Instance.GameState == GameState.HeroesTurn)
+            if (GameManager.Instance.GameState == GameState.PlayerTurn)
             {
                 SetSelectedHero(null);
             }
@@ -195,7 +195,7 @@ public class UnitManager : MonoBehaviour
         {
             UnitFactory.Instance.CreateMoraleEffect(unit).Forget();
 
-            string color = unit.Faction == Faction.Hero ? "red" : "blue";
+            string color = unit.Side == Side.Player ? "red" : "blue";
             string message = $"<color={color}>{unit.UnitName}</color> рвtтся в бой!";
             MenuManager.Instance.AddMessageToChat(message);
 
@@ -203,12 +203,25 @@ public class UnitManager : MonoBehaviour
             TurnManager.Instance.WaitOrMoraleUnit(unit);
 
             unit.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            if (GameManager.Instance.GameState == GameState.HeroesTurn)
+            if (GameManager.Instance.GameState == GameState.PlayerTurn)
             {
                 SetSelectedHero(null);
             }
 
-            TurnManager.Instance.StartTurn(TurnManager.Instance.ATB.FirstOrDefault().Value);
+            if (SpawnManager.Instance.EnemyUnits.Count == 0)
+            {
+                GameManager.Instance.ChangeState(GameState.GameOver);
+                MenuManager.Instance.WinPanel();
+            }
+            else if (SpawnManager.Instance.PlayerUnits.Count == 0)
+            {
+                GameManager.Instance.ChangeState(GameState.GameOver);
+                MenuManager.Instance.LosePanel();
+            }
+            else
+            {
+                TurnManager.Instance.StartTurn(TurnManager.Instance.ATB.FirstOrDefault().Value);
+            }
 
             return true;
         }
@@ -225,7 +238,7 @@ public class UnitManager : MonoBehaviour
         {
             UnitFactory.Instance.CreateLuckEffect(unit).Forget();
 
-            string color = unit.Faction == Faction.Hero ? "red" : "blue";
+            string color = unit.Side == Side.Player ? "red" : "blue";
             string message = $"<color={color}>{unit.UnitName}</color> посетила удача!";
             MenuManager.Instance.AddMessageToChat(message);
 

@@ -187,7 +187,7 @@ public class MenuManager : MonoBehaviour
         image.sprite = Resources.Load<Sprite>($"Icons/{unitName}");
 
         CreateUnitCountText(portrait.transform, ATBunit.UnitCount);
-        CreateContour(portrait.transform, ATBunit.Faction);
+        CreateContour(portrait.transform, ATBunit.Side);
     }
     public void UpdatePortraits(List<BaseUnit> newUnitsInATB)
     {
@@ -243,7 +243,7 @@ public class MenuManager : MonoBehaviour
         unitCountTextMeshPro.color = Color.yellow;
     }
 
-    private void CreateContour(Transform parent, Faction faction)
+    private void CreateContour(Transform parent, Side faction)
     {
         var sortingLayerID = SortingLayer.NameToID("Menu");
 
@@ -256,7 +256,7 @@ public class MenuManager : MonoBehaviour
         spriteRenderer.sprite = Resources.Load<Sprite>("Contour");
         spriteRenderer.sortingOrder = 1;
         spriteRenderer.sortingLayerID = sortingLayerID;
-        spriteRenderer.color = faction == Faction.Hero ? Color.red : Color.blue;
+        spriteRenderer.color = faction == Side.Player ? Color.red : Color.blue;
     }
     public void ShowTileInfo(Tile tile)
     {

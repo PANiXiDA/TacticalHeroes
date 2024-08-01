@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameState GameState;
-    public Faction CurrentFaction;
+    public Side CurrentSide;
+
     private void Awake()
     {
         Instance = this;
@@ -26,20 +27,20 @@ public class GameManager : MonoBehaviour
             case GameState.GenerateGrid:
                 GridManager.Instance.GenerateGrid();
                 break;
-            case GameState.SpawnHeroes:
-                SpawnManager.Instance.SpawnHeroes();
+            case GameState.SpawnPlayerUnits:
+                SpawnManager.Instance.SpawnPlayerUnits();
                 break;
-            case GameState.SpawnEnemies:
-                SpawnManager.Instance.SpawnEnemies();
+            case GameState.SpawnEnemyUnits:
+                SpawnManager.Instance.SpawnEnemyUnits();
                 break;
             case GameState.SetATB:
                 TurnManager.Instance.SetATB();
                 break;
-            case GameState.HeroesTurn:
-                CurrentFaction = Faction.Hero;
+            case GameState.PlayerTurn:
+                CurrentSide = Side.Player;
                 break;
-            case GameState.EnemiesTurn:
-                CurrentFaction = Faction.Enemy;
+            case GameState.EnemyTurn:
+                CurrentSide = Side.Enemy;
                 await AIController.Instance.ExecuteAITurn();
                 break;
             case GameState.GameOver:

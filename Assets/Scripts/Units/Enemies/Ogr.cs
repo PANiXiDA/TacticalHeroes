@@ -5,11 +5,6 @@ using Assets.Scripts.IActions;
 using Assets.Scripts.Interfaces;
 using Assets.Scripts.Managers;
 using Cysharp.Threading.Tasks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assets.Scripts.Units.Enemies
 {
@@ -30,7 +25,7 @@ namespace Assets.Scripts.Units.Enemies
             await _move.Move(attacker, targetTile);
             await _meleeAttack.MeleeAttack(attacker, defender);
 
-            if (attacker.Faction == GameManager.Instance.CurrentFaction)
+            if (attacker.Side == GameManager.Instance.CurrentSide)
             {
                 TurnManager.Instance.EndTurn(this);
             }

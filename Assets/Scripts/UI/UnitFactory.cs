@@ -78,7 +78,7 @@ namespace Assets.Scripts.UI
             var countNumbersInCountUnits = unit.UnitCount.ToSafeString().Count();
             int fontSize = 5;
             float widthSquare = 0.2f + 0.1f * countNumbersInCountUnits;
-            Color color = unit.Faction == Faction.Hero ? Color.red : Color.blue;
+            Color color = unit.Side == Side.Player ? Color.red : Color.blue;
             float widthText = countNumbersInCountUnits < 3 ? countNumbersInCountUnits == 1 ? 2.5f : 2f : 1.5f;
 
             GameObject square = CreateOrUpdateSquare("Square", unit.transform, new Vector3(0.23f, -0.3f, 0),

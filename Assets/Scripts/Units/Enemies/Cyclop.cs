@@ -33,7 +33,7 @@ namespace Assets.Scripts.Units.Enemies
         {
             await _move.Move(attacker, targetTile);
             await _meleeAttack.MeleeAttack(attacker, defender);
-            if (attacker.Faction == GameManager.Instance.CurrentFaction)
+            if (attacker.Side == GameManager.Instance.CurrentSide)
             {
                 TurnManager.Instance.EndTurn(this);
             }
@@ -42,7 +42,7 @@ namespace Assets.Scripts.Units.Enemies
         public override async UniTask RangeAttack(BaseUnit attacker, BaseUnit defender)
         {
             await _rangeAttack.RangeAttack(attacker, defender);
-            if (attacker.Faction == GameManager.Instance.CurrentFaction)
+            if (attacker.Side == GameManager.Instance.CurrentSide)
             {
                 TurnManager.Instance.EndTurn(this);
             }
