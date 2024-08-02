@@ -3,11 +3,12 @@
     public enum GameState
     {
         GenerateGrid = 0,
-        SpawnPlayerUnits = 1,
-        SpawnEnemyUnits = 2,
-        SetATB = 3,
-        PlayerTurn = 4,
-        EnemyTurn = 5,
-        GameOver = 6
+        BattleSettings = 1,
+        SpawnPlayerUnits = 2,
+        SpawnEnemyUnits = 3,
+        SetATB = 4,
+        PlayerTurn = 5,
+        EnemyTurn = 6,
+        GameOver = 7
     }
 }

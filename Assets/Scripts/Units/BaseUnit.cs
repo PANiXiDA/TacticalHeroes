@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Scripts.Enumeration;
 using Cysharp.Threading.Tasks;
 using Assets.Scripts.Interfaces;
 using Assets.Scripts.Actions.Move;
@@ -19,6 +18,7 @@ public class BaseUnit : MonoBehaviour
     public Tile OccupiedTile;
     public Side Side;
     public Faction Faction;
+    public Tier Tier;
 
     public int UnitAttack;
     public int UnitDefence;

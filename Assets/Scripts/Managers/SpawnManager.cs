@@ -2,7 +2,6 @@
 using Assets.Scripts.UI;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace Assets.Scripts.Managers
@@ -20,6 +19,22 @@ namespace Assets.Scripts.Managers
         {
             Instance = this;
             _units = Resources.LoadAll<ScriptableUnit>("Units").ToList();
+        }
+
+        public void SetUnitsSettings()
+        {
+            foreach (var unit in  _units)
+            {
+                if (unit.UnitPrefab.Faction == GameManager.Instance.PlayerFaction)
+                {
+                    unit.UnitPrefab.Side = Side.Player;
+                }
+                else
+                {
+                    unit.UnitPrefab.Side = Side.Enemy;
+                }
+            }
+            GameManager.Instance.ChangeState(GameState.SpawnPlayerUnits);
         }
 
         public void SpawnPlayerUnits()
@@ -46,6 +61,15 @@ namespace Assets.Scripts.Managers
             {
                 var spawnedEnemy = Instantiate(unit);
                 var randomSpawnTile = GridManager.Instance.GetEnemySpawnTile();
+
+                if (GameManager.Instance.GameDifficulty == DifficultyLevel.Middle)
+                {
+                    spawnedEnemy.UnitCount *= 2;
+                }
+                else if (GameManager.Instance.GameDifficulty == DifficultyLevel.Hard)
+                {
+                    spawnedEnemy.UnitCount *= 3;
+                }
 
                 UnitFactory.Instance.CreateOrUpdateUnitVisuals(spawnedEnemy);
 

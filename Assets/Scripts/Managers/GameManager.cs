@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
             case GameState.GenerateGrid:
                 GridManager.Instance.GenerateGrid();
                 break;
+            case GameState.BattleSettings:
+                MenuManager.Instance.FactionChoosingPanelSetActive(true);
+                break;
             case GameState.SpawnPlayerUnits:
                 SpawnManager.Instance.SpawnPlayerUnits();
                 break;
@@ -63,5 +66,6 @@ public class GameManager : MonoBehaviour
     {
         GameDifficulty = (DifficultyLevel)difficultId;
         MenuManager.Instance.DifficultyLevelPanelSetActive(false);
+        SpawnManager.Instance.SetUnitsSettings();
     }
 }

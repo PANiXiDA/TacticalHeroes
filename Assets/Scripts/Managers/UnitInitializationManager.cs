@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Enumeration;
+﻿using Assets.Scripts.Enumerations;
 using UnityEngine;
 
 namespace Assets.Scripts.Managers

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Enumerations;
-using Assets.Scripts.Enumeration;
 using Assets.Scripts.Managers;
 using System.Linq;
 using Unity.Mathematics;

@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Enumeration;
-using Assets.Scripts.Managers;
+﻿using Assets.Scripts.Managers;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Assets.Scripts.Enumeration
+namespace Assets.Scripts.Enumerations
 {
     public enum Ability
     {

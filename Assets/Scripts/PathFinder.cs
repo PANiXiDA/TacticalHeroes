@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using Assets.Scripts.Enumeration;
+using Assets.Scripts.Enumerations;
 using Unity.Mathematics;
 
 public class PathFinder : MonoBehaviour

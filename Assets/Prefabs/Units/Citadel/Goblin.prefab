@@ -168,6 +168,8 @@ MonoBehaviour:
   UnitName: "\u0413\u043E\u0431\u043B\u0438\u043D"
   OccupiedTile: {fileID: 0}
   Side: 1
+  Faction: 1
+  Tier: 0
   UnitAttack: 3
   UnitDefence: 0
   UnitFullHealth: 5

@@ -187,7 +187,10 @@ namespace Assets.Scripts.Managers
 
                 if (startTime <= 0)
                 {
-                    EndTurn(unit);
+                    if (unit != null)
+                    {
+                        EndTurn(unit);
+                    }
                     break;
                 }
 
