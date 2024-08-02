@@ -16,7 +16,7 @@ public class MenuManager : MonoBehaviour
     public static MenuManager Instance;
 
     [SerializeField] private GameObject _tileInfoPanel, _unitInfoPanel, _chatPanel, _endBattlePanel, _surrenderPanel, _exitBtn,
-        _waitBtn, _defBtn, _shiftBtn, _timer;
+        _waitBtn, _defBtn, _shiftBtn, _timer, _factionChoosingPanel, _difficultyLevelPanel;
     [SerializeField] private RectTransform _ATBIcons;
     private CancellationTokenSource _cancellationTokenSource;
 
@@ -366,5 +366,13 @@ public class MenuManager : MonoBehaviour
         TextMeshProUGUI textMeshProUGUI = _timer.GetComponentInChildren<TextMeshProUGUI>();
         textMeshProUGUI.text = "30";
         TurnManager.Instance.TimeCounter(textMeshProUGUI, unit, _cancellationTokenSource.Token).Forget();
+    }
+    public void FactionChoosingPanelSetActive(bool active)
+    {
+        _factionChoosingPanel.SetActive(active);
+    }
+    public void DifficultyLevelPanelSetActive(bool active)
+    {
+        _difficultyLevelPanel.SetActive(active);
     }
 }
