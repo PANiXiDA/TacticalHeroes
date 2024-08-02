@@ -370,9 +370,17 @@ public class MenuManager : MonoBehaviour
     public void FactionChoosingPanelSetActive(bool active)
     {
         _factionChoosingPanel.SetActive(active);
+        if (!active)
+        {
+            Destroy(_factionChoosingPanel);
+        }
     }
     public void DifficultyLevelPanelSetActive(bool active)
     {
         _difficultyLevelPanel.SetActive(active);
+        if (!active)
+        {
+            Destroy(_difficultyLevelPanel);
+        }
     }
 }
