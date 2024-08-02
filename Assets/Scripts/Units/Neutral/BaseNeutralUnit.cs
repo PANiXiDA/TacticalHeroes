@@ -8,7 +8,7 @@ namespace Assets.Scripts.Units.Neutral
         protected override void Awake() 
         {
             base.Awake();
-            Faction = Factions.Neutral;
+            Faction = Faction.Neutral;
         }
     }
 }

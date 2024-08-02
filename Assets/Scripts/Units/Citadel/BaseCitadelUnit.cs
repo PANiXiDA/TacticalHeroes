@@ -7,7 +7,7 @@ namespace Assets.Scripts.Units.Citadel
         protected override void Awake()
         {
             base.Awake();
-            Faction = Factions.Citadel;
+            Faction = Faction.Citadel;
         }
     }
 }

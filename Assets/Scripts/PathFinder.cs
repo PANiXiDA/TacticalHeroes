@@ -37,7 +37,7 @@ public class PathFinder : MonoBehaviour
                 return CalculatePathFromNode(nodeToCheck);
             }
             var walkable = nodeToCheck.Walkable;
-            if ((!walkable && !unit.abilities.Contains(Abilities.Fly)) && nodeToCheck.Position != StartPosition)
+            if ((!walkable && !unit.abilities.Contains(Ability.Fly)) && nodeToCheck.Position != StartPosition)
             {
                 WaitingNodes.Remove(nodeToCheck);
                 CheckedNodes.Add(nodeToCheck);
@@ -92,7 +92,7 @@ public class PathFinder : MonoBehaviour
     private bool IsNeighbourValid(Tile node, Tile neighbour, BaseUnit unit, Vector2Int direction, Vector2 neighbourPosition)
     {
         float distance = direction.x == 0 || direction.y == 0 ? 1 : math.sqrt(2);
-        if (neighbour != null && (neighbour.Walkable || unit.abilities.Contains(Abilities.Fly))
+        if (neighbour != null && (neighbour.Walkable || unit.abilities.Contains(Ability.Fly))
             && (!CheckedNodes.Contains(neighbour) || node.G + distance < neighbour.G))
         {
             CalculateHeuristic(neighbour, node.G + distance, neighbourPosition, node.TargetPosition, node);

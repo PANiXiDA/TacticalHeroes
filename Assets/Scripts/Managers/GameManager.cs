@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameState GameState;
     public Side CurrentSide;
-    public Factions PlayerFaction;
+    public Faction PlayerFaction;
     public DifficultyLevel GameDifficulty;
 
     private void Awake()
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     public void SetPlayerFaction(int factionId)
     {
-        PlayerFaction = (Factions)factionId;
+        PlayerFaction = (Faction)factionId;
         MenuManager.Instance.FactionChoosingPanelSetActive(false);
         MenuManager.Instance.DifficultyLevelPanelSetActive(true);
     }

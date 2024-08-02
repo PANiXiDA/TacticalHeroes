@@ -18,7 +18,7 @@ namespace Assets.Scripts.Managers
 
         public void SetArcherParameters(BaseUnit unit)
         {
-            if (unit.abilities.Contains(Abilities.Archer))
+            if (unit.abilities.Contains(Ability.Archer))
             {
                 unit.UnitRange = 6;
                 unit.UnitArrows = 10;

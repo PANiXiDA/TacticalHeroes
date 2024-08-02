@@ -132,7 +132,7 @@ public class UnitManager : MonoBehaviour
     }
     public bool IsRangeAttackPossible(BaseUnit unit)
     {
-        if (!unit.abilities.Contains(Abilities.Archer))
+        if (!unit.abilities.Contains(Ability.Archer))
         {
             return false;
         }

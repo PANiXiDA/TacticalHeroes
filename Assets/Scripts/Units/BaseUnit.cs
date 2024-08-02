@@ -18,7 +18,7 @@ public class BaseUnit : MonoBehaviour
     [HideInInspector]
     public Tile OccupiedTile;
     public Side Side;
-    public Factions Faction;
+    public Faction Faction;
 
     public int UnitAttack;
     public int UnitDefence;
@@ -57,7 +57,7 @@ public class BaseUnit : MonoBehaviour
     [HideInInspector]
     public double UnitProbabilityLuck;
 
-    public List<Abilities> abilities;
+    public List<Ability> abilities;
     public Animator animator;
 
     [HideInInspector]

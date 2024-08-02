@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Enumeration
 {
-    public enum Abilities
+    public enum Ability
     {
         [Description("Летающее существо")]
         Fly = 0,
