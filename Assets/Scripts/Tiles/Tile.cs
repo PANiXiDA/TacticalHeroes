@@ -88,8 +88,6 @@ public class Tile : MonoBehaviour
             currentTileUnderMouse = null;
         }
 
-        MenuManager.Instance.ShowTileInfo(null);
-
         flag = false;
         MenuManager.Instance.DeleteSwords();
         MenuManager.Instance.DeleteArrows();

@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameState GameState;
     public Side CurrentSide;
-    public Faction PlayerFaction;
-    public DifficultyLevel GameDifficulty;
+    public Faction? PlayerFaction;
+    public DifficultyLevel? GameDifficulty;
 
     private void Awake()
     {

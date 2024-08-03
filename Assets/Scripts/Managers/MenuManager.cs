@@ -142,6 +142,9 @@ public class MenuManager : MonoBehaviour
         TMP_InputField inputField = _chatPanel.GetComponentInChildren<TMP_InputField>();
         _chatPanel.GetComponentInChildren<TextMeshProUGUI>().text += $"<color=red>[Человеческий разум]</color>: {inputField.text}\n";
         inputField.text = "";
+
+        Scrollbar scrollbar = _chatPanel.GetComponentInChildren<Scrollbar>(true);
+        AutoScrollToBottom(scrollbar).Forget();
     }
     private async UniTaskVoid AutoScrollToBottom(Scrollbar scrollbar)
     {
@@ -353,7 +356,10 @@ public class MenuManager : MonoBehaviour
     }
     public void ShowSurrenderPanel()
     {
-        _surrenderPanel.SetActive(true);
+        if (GameManager.Instance.PlayerFaction != null && GameManager.Instance.GameDifficulty != null)
+        {
+            _surrenderPanel.SetActive(true);
+        }
     }
     public void CloseSurrenderPanel()
     {

@@ -151,7 +151,8 @@ public class UnitManager : MonoBehaviour
     }
     public void SetAdditionalDefend()
     {
-        if (GameManager.Instance.CurrentSide == Side.Player)
+        if (GameManager.Instance.CurrentSide == Side.Player && GameManager.Instance.PlayerFaction != null
+            && GameManager.Instance.GameDifficulty != null)
         {
             BaseUnit unit = TurnManager.Instance.ATB.FirstOrDefault().Value;
             unit.UnitAdditionalDefence = (int)(unit.UnitDefence * 0.3);
@@ -163,7 +164,8 @@ public class UnitManager : MonoBehaviour
     }
     public void Wait()
     {
-        if (GameManager.Instance.CurrentSide == Side.Player)
+        if (GameManager.Instance.CurrentSide == Side.Player && GameManager.Instance.PlayerFaction != null 
+            && GameManager.Instance.GameDifficulty != null)
         {
             BaseUnit unit = TurnManager.Instance.ATB.FirstOrDefault().Value;
 
@@ -195,7 +197,7 @@ public class UnitManager : MonoBehaviour
             UnitFactory.Instance.CreateMoraleEffect(unit).Forget();
 
             string color = unit.Side == Side.Player ? "red" : "blue";
-            string message = $"<color={color}>{unit.UnitName}</color> рвtтся в бой!";
+            string message = $"<color={color}>{unit.UnitName}</color> рвется в бой!";
             MenuManager.Instance.AddMessageToChat(message);
 
             unit.UnitSuccessfulMorale += 1;
