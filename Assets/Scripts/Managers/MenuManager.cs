@@ -267,8 +267,14 @@ public class MenuManager : MonoBehaviour
         }
 
         UpdateTileInfoPanel(tile);
-
-        if (tile.OccupiedUnit != null)
+    }
+    public void ShowUnitInfo(Tile tile)
+    {
+        if (tile == null)
+        {
+            return;
+        }
+        else if (tile.OccupiedUnit != null)
         {
             UpdateUnitInfoPanel(tile.OccupiedUnit);
         }
@@ -280,7 +286,6 @@ public class MenuManager : MonoBehaviour
     private void HideTileInfoPanels()
     {
         _tileInfoPanel.SetActive(false);
-        _unitInfoPanel.SetActive(false);
     }
     private void UpdateTileInfoPanel(Tile tile)
     {
@@ -292,7 +297,7 @@ public class MenuManager : MonoBehaviour
     {
         string abilitiesText = string.Join(". ", unit.abilities.Select(ability => EnumHelper.GetDescription(ability)));
 
-        SetUnitInfoText("UnitName", unit.UnitName);
+        SetUnitInfoText("UnitName", $"{unit.UnitName} [{unit.UnitCount}]");
         SetUnitInfoText("AttackValue", unit.UnitAttack.ToString());
         SetUnitInfoText("DefenceValue", $"{unit.UnitDefence} {(unit.UnitAdditionalDefence > 0 ? $"(+{unit.UnitAdditionalDefence})" : "")}");
         SetUnitInfoText("HealthValue", $"{unit.UnitCurrentHealth}/{unit.UnitFullHealth}");
@@ -309,7 +314,7 @@ public class MenuManager : MonoBehaviour
     }
     private void SetUnitInfoText(string parameterName, string textValue)
     {
-        _unitInfoPanel.GetComponentsInChildren<TextMeshProUGUI>(true)
+        _unitInfoPanel.GetComponentsInChildren<TextMeshPro>(true)
             .Where(item => item.name == parameterName)
             .FirstOrDefault()
             .text = textValue;

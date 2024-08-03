@@ -27,6 +27,8 @@ public class Tile : MonoBehaviour
 
     public Tile targetTile = null; // Клетка, в которую мы должны переместиться при атаке
 
+    private static Tile currentTileUnderMouse;
+
     private void Awake()
     {
         Instance = this;
@@ -51,10 +53,20 @@ public class Tile : MonoBehaviour
                 targetTile._highlight_for_attack.SetActive(true);
             }
         }
+        if (Input.GetMouseButtonDown(1)) // Правая кнопка мыши
+        {
+            if (currentTileUnderMouse == this)
+            {
+                MenuManager.Instance.ShowUnitInfo(this);
+            }
+        }
     }
     void OnMouseEnter()
     {
+        currentTileUnderMouse = this;
+
         MenuManager.Instance.ShowTileInfo(this);
+
         if (OccupiedUnit != null)
         {
             if (OccupiedUnit.Side == Side.Enemy && UnitManager.Instance.SelectedHero != null)
@@ -71,7 +83,13 @@ public class Tile : MonoBehaviour
     }
     void OnMouseExit()
     {
+        if (currentTileUnderMouse == this)
+        {
+            currentTileUnderMouse = null;
+        }
+
         MenuManager.Instance.ShowTileInfo(null);
+
         flag = false;
         MenuManager.Instance.DeleteSwords();
         MenuManager.Instance.DeleteArrows();
