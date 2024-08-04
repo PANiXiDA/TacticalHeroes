@@ -25,7 +25,8 @@ namespace Assets.Scripts.Units.Heroes
             _damageMeleeCalculator = new HalfDamage(_damageRangeCalculator);
             _move = new DefaultMove();
             _meleeAttack = new DefaultMeleeAttack(_damageMeleeCalculator);
-            _rangeAttack = new ArealRangeAttack(_damageRangeCalculator);
+            _rangeAttack = gameObject.AddComponent<ArealRangeAttack>();
+            (_rangeAttack as ArealRangeAttack).Initialize(_damageRangeCalculator);
             UnitMorale = 0;
             UnitRange = 7;
             UnitArrows = 10;

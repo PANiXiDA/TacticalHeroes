@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lich_0
+      name: Lich_Stay_0
       rect:
         serializedVersion: 2
         x: 9
@@ -157,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_1
+      name: Lich_Stay_1
       rect:
         serializedVersion: 2
         x: 96
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_2
+      name: Lich_Stay_2
       rect:
         serializedVersion: 2
         x: 185
@@ -199,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_3
+      name: Lich_Stay_3
       rect:
         serializedVersion: 2
         x: 277
@@ -220,7 +220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_87
+      name: Lich_Move_0
       rect:
         serializedVersion: 2
         x: 5
@@ -241,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_88
+      name: Lich_Move_1
       rect:
         serializedVersion: 2
         x: 101
@@ -262,7 +262,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_89
+      name: Lich_Move_2
       rect:
         serializedVersion: 2
         x: 190
@@ -283,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_90
+      name: Lich_Move_3
       rect:
         serializedVersion: 2
         x: 294
@@ -304,7 +304,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_91
+      name: Lich_Move_4
       rect:
         serializedVersion: 2
         x: 390
@@ -325,7 +325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_92
+      name: Lich_Move_5
       rect:
         serializedVersion: 2
         x: 485
@@ -346,7 +346,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_93
+      name: Lich_Move_6
       rect:
         serializedVersion: 2
         x: 579
@@ -367,7 +367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_94
+      name: Lich_Move_7
       rect:
         serializedVersion: 2
         x: 683
@@ -388,12 +388,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_115
+      name: Lich_Cloud_1
       rect:
         serializedVersion: 2
         x: 126
         y: 437
-        width: 81
+        width: 86
         height: 67
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -409,28 +409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_97
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 493
-        width: 5
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd5ce2c198199fe4bbc8c0c174a68504
-      internalID: -1094256686
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lich_116
+      name: Lich_Cloud_2
       rect:
         serializedVersion: 2
         x: 243
@@ -451,7 +430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_117
+      name: Lich_Cloud_3
       rect:
         serializedVersion: 2
         x: 368
@@ -472,7 +451,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_118
+      name: Lich_Cloud_4
       rect:
         serializedVersion: 2
         x: 487
@@ -493,7 +472,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_119
+      name: Lich_Cloud_5
       rect:
         serializedVersion: 2
         x: 617
@@ -514,7 +493,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_120
+      name: Lich_Cloud_6
       rect:
         serializedVersion: 2
         x: 749
@@ -535,7 +514,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_110
+      name: Lich_TopMeleeAttack_0
       rect:
         serializedVersion: 2
         x: 6
@@ -556,7 +535,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_111
+      name: Lich_TopMeleeAttack_1
       rect:
         serializedVersion: 2
         x: 96
@@ -577,7 +556,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_112
+      name: Lich_TopMeleeAttack_2
       rect:
         serializedVersion: 2
         x: 189
@@ -598,7 +577,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_113
+      name: Lich_TopMeleeAttack_3
       rect:
         serializedVersion: 2
         x: 284
@@ -619,7 +598,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_114
+      name: Lich_TopMeleeAttack_4
       rect:
         serializedVersion: 2
         x: 376
@@ -640,7 +619,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_156
+      name: Lich_FrontMeleeAttack_RangeAttack_0
       rect:
         serializedVersion: 2
         x: 6
@@ -661,10 +640,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_157
+      name: Lich_FrontMeleeAttack_RangeAttack_1
       rect:
         serializedVersion: 2
-        x: 97
+        x: 96
         y: 196
         width: 55
         height: 86
@@ -682,11 +661,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_158
+      name: Lich_FrontMeleeAttack_RangeAttack_2
       rect:
         serializedVersion: 2
         x: 184
-        y: 196
+        y: 195
         width: 60
         height: 88
       alignment: 0
@@ -703,7 +682,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_159
+      name: Lich_FrontMeleeAttack_RangeAttack_3
       rect:
         serializedVersion: 2
         x: 276
@@ -724,7 +703,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_160
+      name: Lich_FrontMeleeAttack_RangeAttack_4
       rect:
         serializedVersion: 2
         x: 368
@@ -745,11 +724,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_174
+      name: Lich_BottomMeleeAttack_0
       rect:
         serializedVersion: 2
         x: 4
-        y: 101
+        y: 102
         width: 50
         height: 86
       alignment: 0
@@ -766,7 +745,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_175
+      name: Lich_BottomMeleeAttack_1
       rect:
         serializedVersion: 2
         x: 95
@@ -787,10 +766,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_176
+      name: Lich_BottomMeleeAttack_2
       rect:
         serializedVersion: 2
-        x: 182
+        x: 175
         y: 98
         width: 60
         height: 85
@@ -808,7 +787,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_177
+      name: Lich_BottomMeleeAttack_3
       rect:
         serializedVersion: 2
         x: 276
@@ -829,7 +808,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_178
+      name: Lich_BottomMeleeAttack_4
       rect:
         serializedVersion: 2
         x: 368
@@ -850,7 +829,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_182
+      name: Lich_TakeDamage_1
       rect:
         serializedVersion: 2
         x: 90
@@ -871,7 +850,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_183
+      name: Lich_TakeDamage_2
       rect:
         serializedVersion: 2
         x: 193
@@ -892,7 +871,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_184
+      name: Lich_TakeDamage_3
       rect:
         serializedVersion: 2
         x: 280
@@ -913,7 +892,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_187
+      name: Lich_TakeDamage_0
       rect:
         serializedVersion: 2
         x: 9
@@ -934,7 +913,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_188
+      name: Lich_Death_0
       rect:
         serializedVersion: 2
         x: 374
@@ -955,7 +934,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_189
+      name: Lich_Death_1
       rect:
         serializedVersion: 2
         x: 463
@@ -976,7 +955,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_190
+      name: Lich_Death_2
       rect:
         serializedVersion: 2
         x: 559
@@ -997,7 +976,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_191
+      name: Lich_Death_3
       rect:
         serializedVersion: 2
         x: 648
@@ -1018,7 +997,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_192
+      name: Lich_Death_4
       rect:
         serializedVersion: 2
         x: 750
@@ -1039,7 +1018,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_193
+      name: Lich_Death_5
       rect:
         serializedVersion: 2
         x: 836
@@ -1060,7 +1039,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_4
+      name: Lich_Cloud_0
       rect:
         serializedVersion: 2
         x: 12
@@ -1081,7 +1060,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_5
+      name: Lich_Cloud_7
       rect:
         serializedVersion: 2
         x: 491
@@ -1102,7 +1081,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lich_6
+      name: Lich_Cloud_8
       rect:
         serializedVersion: 2
         x: 628
@@ -1133,8 +1112,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Lich_0: -380785584
-      Lich_1: 76010691
       Lich_10: 706346465
       Lich_103: -1351797771
       Lich_104: -1493585971
@@ -1143,17 +1120,6 @@ TextureImporter:
       Lich_107: 1931486712
       Lich_108: -1364429572
       Lich_109: 1787821767
-      Lich_110: 1682603508
-      Lich_111: 1665497809
-      Lich_112: -1819853803
-      Lich_113: -293657525
-      Lich_114: 669841406
-      Lich_115: 1556562773
-      Lich_116: 1619864395
-      Lich_117: 1511940708
-      Lich_118: 531405993
-      Lich_119: -713186908
-      Lich_120: -411832196
       Lich_121: 37359039
       Lich_122: 189745089
       Lich_123: 1065708047
@@ -1192,12 +1158,7 @@ TextureImporter:
       Lich_153: -529222602
       Lich_154: -2140333737
       Lich_155: -1912932074
-      Lich_156: -552915143
-      Lich_157: 952448553
-      Lich_158: -790795923
-      Lich_159: 1402560468
       Lich_16: -325928577
-      Lich_160: -22270761
       Lich_161: -1582823816
       Lich_162: 814277276
       Lich_163: -1509645158
@@ -1212,29 +1173,13 @@ TextureImporter:
       Lich_171: 1209955829
       Lich_172: 1935038392
       Lich_173: 455285430
-      Lich_174: 1089210366
-      Lich_175: 115043664
-      Lich_176: 863162427
-      Lich_177: 1693680145
-      Lich_178: 1499569705
       Lich_179: -794442970
       Lich_18: -576039629
       Lich_180: -278290679
       Lich_181: 1853485519
-      Lich_182: -1686658639
-      Lich_183: -586597740
-      Lich_184: 977202075
       Lich_185: -1167387599
       Lich_186: 1939407252
-      Lich_187: -1956433814
-      Lich_188: -985527667
-      Lich_189: -658520405
       Lich_19: 580342033
-      Lich_190: 1916999478
-      Lich_191: 730288300
-      Lich_192: 500306278
-      Lich_193: -1487600392
-      Lich_2: -793684343
       Lich_20: -1417280116
       Lich_21: 345530525
       Lich_22: -234711378
@@ -1245,7 +1190,6 @@ TextureImporter:
       Lich_27: 2100565540
       Lich_28: 124750775
       Lich_29: 2099598153
-      Lich_3: -72311733
       Lich_30: 747518998
       Lich_31: -1541863836
       Lich_32: -104769470
@@ -1256,7 +1200,6 @@ TextureImporter:
       Lich_37: 1040562841
       Lich_38: 1322457013
       Lich_39: 412839357
-      Lich_4: -298949804
       Lich_40: 1629076330
       Lich_41: -494635528
       Lich_42: 1932554765
@@ -1267,7 +1210,6 @@ TextureImporter:
       Lich_47: -1731331611
       Lich_48: 440893204
       Lich_49: -1032931019
-      Lich_5: -1639944396
       Lich_50: 1775304071
       Lich_51: -1580248063
       Lich_52: 604371059
@@ -1278,7 +1220,6 @@ TextureImporter:
       Lich_57: -1399930798
       Lich_58: -1714305157
       Lich_59: 1859661553
-      Lich_6: 948519296
       Lich_60: 35145379
       Lich_61: 400777236
       Lich_62: -762281853
@@ -1308,17 +1249,55 @@ TextureImporter:
       Lich_84: -823447992
       Lich_85: -791866229
       Lich_86: -32172447
-      Lich_87: 1663702813
-      Lich_88: 792348765
-      Lich_89: 2067980543
       Lich_9: 1520135468
-      Lich_90: 1961164122
-      Lich_91: 1146561592
-      Lich_92: -406909954
-      Lich_93: -119998254
-      Lich_94: -1519544810
       Lich_95: -1705684330
       Lich_97: -1094256686
+      Lich_BottomMeleeAttack_0: 1089210366
+      Lich_BottomMeleeAttack_1: 115043664
+      Lich_BottomMeleeAttack_2: 863162427
+      Lich_BottomMeleeAttack_3: 1693680145
+      Lich_BottomMeleeAttack_4: 1499569705
+      Lich_Cloud_0: -298949804
+      Lich_Cloud_1: 1556562773
+      Lich_Cloud_2: 1619864395
+      Lich_Cloud_3: 1511940708
+      Lich_Cloud_4: 531405993
+      Lich_Cloud_5: -713186908
+      Lich_Cloud_6: -411832196
+      Lich_Cloud_7: -1639944396
+      Lich_Cloud_8: 948519296
+      Lich_Death_0: -985527667
+      Lich_Death_1: -658520405
+      Lich_Death_2: 1916999478
+      Lich_Death_3: 730288300
+      Lich_Death_4: 500306278
+      Lich_Death_5: -1487600392
+      Lich_FrontMeleeAttack_RangeAttack_0: -552915143
+      Lich_FrontMeleeAttack_RangeAttack_1: 952448553
+      Lich_FrontMeleeAttack_RangeAttack_2: -790795923
+      Lich_FrontMeleeAttack_RangeAttack_3: 1402560468
+      Lich_FrontMeleeAttack_RangeAttack_4: -22270761
+      Lich_Move_0: 1663702813
+      Lich_Move_1: 792348765
+      Lich_Move_2: 2067980543
+      Lich_Move_3: 1961164122
+      Lich_Move_4: 1146561592
+      Lich_Move_5: -406909954
+      Lich_Move_6: -119998254
+      Lich_Move_7: -1519544810
+      Lich_Stay_0: -380785584
+      Lich_Stay_1: 76010691
+      Lich_Stay_2: -793684343
+      Lich_Stay_3: -72311733
+      Lich_TakeDamage_0: -1956433814
+      Lich_TakeDamage_1: -1686658639
+      Lich_TakeDamage_2: -586597740
+      Lich_TakeDamage_3: 977202075
+      Lich_TopMeleeAttack_0: 1682603508
+      Lich_TopMeleeAttack_1: 1665497809
+      Lich_TopMeleeAttack_2: -1819853803
+      Lich_TopMeleeAttack_3: -293657525
+      Lich_TopMeleeAttack_4: 669841406
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

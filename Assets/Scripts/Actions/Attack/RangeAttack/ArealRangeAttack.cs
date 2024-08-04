@@ -1,18 +1,21 @@
 ﻿using Assets.Scripts.IActions;
 using Assets.Scripts.Interfaces;
+using Assets.Scripts.UI;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Actions.Attack.RangeAttack
 {
-    public class ArealRangeAttack : IRangeAttack
+    public class ArealRangeAttack : MonoBehaviour, IRangeAttack
     {
         private IDamage _damageCalculator;
-        public ArealRangeAttack(IDamage damageCalculator)
+
+        public void Initialize(IDamage damageCalculator)
         {
             _damageCalculator = damageCalculator;
         }
+
         public async UniTask RangeAttack(BaseUnit attacker, BaseUnit defender)
         {
             Tile.Instance.DeleteHighlight();
@@ -23,6 +26,8 @@ namespace Assets.Scripts.Actions.Attack.RangeAttack
 
             bool isLuck = UnitManager.Instance.Luck(attacker);
             _damageCalculator.isLuck = isLuck;
+
+            CreateCloudEffect(defender).Forget();
 
             List<BaseUnit> defenders = GetArealUnits(defender);
             foreach (var defenderForAttack in defenders)
@@ -70,6 +75,29 @@ namespace Assets.Scripts.Actions.Attack.RangeAttack
             }
 
             return defenders;
+        }
+
+        private async UniTaskVoid CreateCloudEffect(BaseUnit unit)
+        {
+            var menuLayerId = SortingLayer.NameToID("Menu");
+            var unitPosition = unit.transform.position;
+
+            GameObject cloud = new GameObject("Cloud");
+            cloud.transform.position = new Vector3(unitPosition.x, unitPosition.y, unitPosition.z);
+            cloud.transform.localScale = new Vector3(2, 2, 2);
+
+            SpriteRenderer spriteRenderer = cloud.AddComponent<SpriteRenderer>();
+            spriteRenderer.sortingLayerID = menuLayerId;
+            spriteRenderer.sortingOrder = 2;
+
+            Animator animator = cloud.AddComponent<Animator>();
+            RuntimeAnimatorController controller = Resources.Load<RuntimeAnimatorController>("Animations/Lich/Cloud");
+            animator.runtimeAnimatorController = controller;
+
+            animator.Play("Cloud");
+            await UniTask.Delay(1000);
+
+            Destroy(animator.gameObject);
         }
     }
 }

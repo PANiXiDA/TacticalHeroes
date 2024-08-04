@@ -1,11 +1,9 @@
 ﻿using Assets.Scripts.Enumerations;
 using Cysharp.Threading.Tasks;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 namespace Assets.Scripts.UI
 {
