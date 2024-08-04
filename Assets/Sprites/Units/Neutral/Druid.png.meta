@@ -1,0 +1,1190 @@
+fileFormatVersion: 2
+guid: aa171e5983f4dac40aeb889ac089b717
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Druid_Stay_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 490
+        width: 35
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2590d9a9a8c3df0469446b2f2ad1d086
+      internalID: -731139172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Stay_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 490
+        width: 34
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 647e84ab6be288640956cc1181b77af2
+      internalID: -469549392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Stay_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 490
+        width: 33
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bfb507b65e67e9498c8f5ee206c3d58
+      internalID: -313525937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Stay_3
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 490
+        width: 33
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff7e6fce96d29874ea04bf9d33130532
+      internalID: -174735105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Stay_4
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 490
+        width: 34
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a7a2d70037d13448b59eeeaaf1c4a1c
+      internalID: -882693249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Move_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 392
+        width: 34
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfb704773dfcd2640aea9600a38256bc
+      internalID: 1444161965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Move_1
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 392
+        width: 35
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13ade303ce49f4847b6018ccb2474a34
+      internalID: -1287361591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Move_2
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 392
+        width: 36
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45aeb989138417e4ba4fe853010ba7ab
+      internalID: 1065919234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Move_3
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 392
+        width: 35
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aacb4ad4d222c6d4296a6ef73194f155
+      internalID: 140181646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Move_4
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 393
+        width: 36
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfe953dede8b16542bd63db2cad7c753
+      internalID: -768207553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Move_5
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 392
+        width: 38
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27cb81952ab2c63459671adfa104ca50
+      internalID: 1881147555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Move_6
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 392
+        width: 39
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee9ff13856f47274b84e475a55b9af94
+      internalID: 20977529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Move_7
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 392
+        width: 36
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 177cabc4d25d8cc4fa3ec614dc153653
+      internalID: -1853735618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Move_8
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 391
+        width: 35
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce0ed7a9f9c1744499116e55976f0091
+      internalID: 600563711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Move_9
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 391
+        width: 36
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b869a5ed3bcee2347a5f956be347803e
+      internalID: 852131857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Move_10
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 391
+        width: 35
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dfb5ecb8bb0b7447a46cc43c92a6a5d
+      internalID: 1242020026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Move_11
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 391
+        width: 36
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ff7d8372e969d4d96d93297f33921c
+      internalID: -336687984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_TakeDamage_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 291
+        width: 37
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b86419e6a04a0a44ab9c374f1e6f1e6e
+      internalID: -1463690786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_TakeDamage_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 291
+        width: 36
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60e32791e343cb64388d51964ed70bd1
+      internalID: 1233907443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_TakeDamage_2
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 291
+        width: 34
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba156ce041bcb6449b54d7f9268d45f2
+      internalID: 1915598956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Death_0
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 292
+        width: 34
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9966c8944657b544db36b6789c5fe189
+      internalID: 1147892889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Death_1
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 292
+        width: 36
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0f7e353cb386c443aee377c2ddc55b4
+      internalID: 876320066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Death_2
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 293
+        width: 37
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4570282329b1f4647890f1186a1515be
+      internalID: -1123923037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Death_3
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 294
+        width: 36
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c22e3d5f1c7bf243b0fd8ec812ac364
+      internalID: 1764559529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Death_4
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 291
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bd4843ddb387ad48a3567ecf55946cf
+      internalID: -994588654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Death_5
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 290
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8996f2327c66c784e9ea89394db5802f
+      internalID: 438750941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Death_6
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 290
+        width: 37
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cefa66dc7a5228419671987f0d576a5
+      internalID: -229091621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Death_7
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 290
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d97629a63c319a4ab971d1fcaa9c35c
+      internalID: -1299775967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_Death_8
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 290
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767f9d8c9effed34688b2ef14bdda39d
+      internalID: -462024952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_TopMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 187
+        width: 40
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bdbe9f2e7e8bfd4ca31981b98a38eec
+      internalID: 2147229871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_TopMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 187
+        width: 56
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f9aee335a2c2a409d9a10e78c77369
+      internalID: -1012089370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_TopMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 187
+        width: 45
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 773202afb8fefa0448b20920c1f11e3a
+      internalID: 1689130152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_TopMeleeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 188
+        width: 37
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99fceb7f91cc61c47b06ba562b87bc36
+      internalID: -1697930387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_FrontMeleeAttack_RangeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 98
+        width: 40
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce4d5e2e08222f343a1c04a5adf94357
+      internalID: 921792377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_FrontMeleeAttack_RangeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 98
+        width: 40
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af385c66c5be5724bb721cc46a34af88
+      internalID: 1281397487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_FrontMeleeAttack_RangeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 98
+        width: 41
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0351d4a5dea3d944088f8161b23ee22c
+      internalID: -1931126514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_FrontMeleeAttack_RangeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 98
+        width: 81
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 194f2503657d6e64db98c726ac052c57
+      internalID: 1710962752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_FrontMeleeAttack_RangeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 98
+        width: 48
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d37a313e74ff1c4296914f41139bb16
+      internalID: 1706742717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_BottomMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 8
+        width: 36
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 771fcb0344358b9499b6350fbb24bf14
+      internalID: 1429741673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_BottomMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 8
+        width: 36
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb66af297bfc62c43874a96c40345e6c
+      internalID: -1620363320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_BottomMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 9
+        width: 37
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36e2e409f18bd5f498eb0b0c01a2865f
+      internalID: -530269715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Druid_BottomMeleeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 9
+        width: 37
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a0d791b2cc1e41459e8c400acfe880f
+      internalID: 647487220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Druid_10: -102001669
+      Druid_100: -956057702
+      Druid_101: 878750294
+      Druid_102: -1063617340
+      Druid_103: -1101608532
+      Druid_104: -58372211
+      Druid_105: 857336981
+      Druid_106: -1113584396
+      Druid_107: -977838748
+      Druid_108: 563730914
+      Druid_109: 2087934944
+      Druid_11: 188112613
+      Druid_110: -618887625
+      Druid_111: 520472465
+      Druid_112: 1234276318
+      Druid_113: 1519286307
+      Druid_114: -1673717929
+      Druid_115: 1575744166
+      Druid_116: 1261326707
+      Druid_117: -2145933034
+      Druid_118: 1660234053
+      Druid_119: 421478624
+      Druid_12: -267424514
+      Druid_120: 284122728
+      Druid_121: 1441514061
+      Druid_122: 1978044973
+      Druid_123: 832495800
+      Druid_124: 1641505703
+      Druid_125: -366267049
+      Druid_126: -245503756
+      Druid_127: 606746029
+      Druid_128: 454593816
+      Druid_129: 1287539494
+      Druid_130: 2046795816
+      Druid_131: -199106724
+      Druid_132: 164300750
+      Druid_133: 1958370448
+      Druid_134: 215197730
+      Druid_135: -1904179988
+      Druid_136: -1632934738
+      Druid_137: 2134448746
+      Druid_138: 1921515344
+      Druid_139: -1725877499
+      Druid_140: 1326352716
+      Druid_141: -1969697150
+      Druid_142: 1933716332
+      Druid_143: -2112188709
+      Druid_144: 1610500363
+      Druid_145: -1652413033
+      Druid_146: 782056423
+      Druid_147: -2044089326
+      Druid_148: 1186760893
+      Druid_149: 694571351
+      Druid_150: 633261582
+      Druid_151: 1147196658
+      Druid_152: 1923542934
+      Druid_153: 1336897422
+      Druid_154: -977986542
+      Druid_37: -301465167
+      Druid_38: 1193288375
+      Druid_39: -1887985150
+      Druid_40: -1810988556
+      Druid_41: 375183292
+      Druid_42: 1147412779
+      Druid_43: 1175841017
+      Druid_46: -861744767
+      Druid_49: 365888550
+      Druid_5: -516242195
+      Druid_50: 613038083
+      Druid_51: 584546868
+      Druid_52: -44784371
+      Druid_53: 1154248444
+      Druid_54: 1689502849
+      Druid_55: 372899643
+      Druid_6: -1363891940
+      Druid_60: -1611075546
+      Druid_62: -1626792856
+      Druid_63: -774865288
+      Druid_64: -1797461081
+      Druid_65: 1537386241
+      Druid_66: 492372485
+      Druid_67: -1976258385
+      Druid_68: 1419436253
+      Druid_69: 469509148
+      Druid_7: -157532423
+      Druid_70: 1243568663
+      Druid_71: -1248015708
+      Druid_72: 56001513
+      Druid_73: -1749226731
+      Druid_78: 1855505295
+      Druid_79: -1656054632
+      Druid_8: 1806461258
+      Druid_80: -1139930130
+      Druid_81: -1021993076
+      Druid_82: 1877810163
+      Druid_83: -1490879679
+      Druid_84: 1128630132
+      Druid_85: 277120916
+      Druid_86: -27320056
+      Druid_87: 598523565
+      Druid_88: -426919297
+      Druid_89: -218110
+      Druid_9: -1367566066
+      Druid_90: -1021861426
+      Druid_91: -1747101992
+      Druid_92: 522819853
+      Druid_93: 324417916
+      Druid_94: -1754281301
+      Druid_95: -1424446014
+      Druid_96: -1536879035
+      Druid_97: -612165036
+      Druid_98: 852341343
+      Druid_99: 903899472
+      Druid_BottomMeleeAttack_0: 1429741673
+      Druid_BottomMeleeAttack_1: -1620363320
+      Druid_BottomMeleeAttack_2: -530269715
+      Druid_BottomMeleeAttack_3: 647487220
+      Druid_Death_0: 1147892889
+      Druid_Death_1: 876320066
+      Druid_Death_2: -1123923037
+      Druid_Death_3: 1764559529
+      Druid_Death_4: -994588654
+      Druid_Death_5: 438750941
+      Druid_Death_6: -229091621
+      Druid_Death_7: -1299775967
+      Druid_Death_8: -462024952
+      Druid_FrontMeleeAttack_RangeAttack_0: 921792377
+      Druid_FrontMeleeAttack_RangeAttack_1: 1281397487
+      Druid_FrontMeleeAttack_RangeAttack_2: -1931126514
+      Druid_FrontMeleeAttack_RangeAttack_3: 1710962752
+      Druid_FrontMeleeAttack_RangeAttack_4: 1706742717
+      Druid_Move_0: 1444161965
+      Druid_Move_1: -1287361591
+      Druid_Move_10: 1242020026
+      Druid_Move_11: -336687984
+      Druid_Move_2: 1065919234
+      Druid_Move_3: 140181646
+      Druid_Move_4: -768207553
+      Druid_Move_5: 1881147555
+      Druid_Move_6: 20977529
+      Druid_Move_7: -1853735618
+      Druid_Move_8: 600563711
+      Druid_Move_9: 852131857
+      Druid_Stay_0: -731139172
+      Druid_Stay_1: -469549392
+      Druid_Stay_2: -313525937
+      Druid_Stay_3: -174735105
+      Druid_Stay_4: -882693249
+      Druid_TakeDamage_0: -1463690786
+      Druid_TakeDamage_1: 1233907443
+      Druid_TakeDamage_2: 1915598956
+      Druid_TopMeleeAttack_0: 2147229871
+      Druid_TopMeleeAttack_1: -1012089370
+      Druid_TopMeleeAttack_2: 1689130152
+      Druid_TopMeleeAttack_3: -1697930387
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
