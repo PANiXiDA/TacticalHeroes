@@ -89,7 +89,6 @@ namespace Assets.Scripts.Managers
             if (currentUnit == unit)
             {
                 var time = currentUnit.UnitTime;
-                //ATB.RemoveAt(0);
 
                 for (int i = 0; i < ATB.Count; i++)
                 {
@@ -142,7 +141,7 @@ namespace Assets.Scripts.Managers
             }
         }
 
-        public void EndTurn(BaseUnit unit)
+        public void EndTurn(BaseUnit unit, bool isSkip = false)
         {
             Tile.Instance.DeleteHighlight();
 
@@ -153,7 +152,7 @@ namespace Assets.Scripts.Managers
                 UnitManager.Instance.SetSelectedHero(null);
             }
             bool morale = false;
-            if (unit.UnitAdditionalDefence == 0 && unit.UnitCount > 0)
+            if (unit.UnitAdditionalDefence == 0 && unit.UnitCount > 0 && !isSkip)
             {
                 morale = UnitManager.Instance.Morale(unit);
             }
@@ -189,7 +188,7 @@ namespace Assets.Scripts.Managers
                 {
                     if (unit != null)
                     {
-                        EndTurn(unit);
+                        EndTurn(unit, true);
                     }
                     break;
                 }

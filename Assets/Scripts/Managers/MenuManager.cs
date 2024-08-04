@@ -73,6 +73,7 @@ public class MenuManager : MonoBehaviour
                 (tilesForMove.ContainsKey(tilePos) || tile.OccupiedUnit == UnitManager.Instance.SelectedHero))
             {
                 DeleteSwords();
+                DeleteArrows();
                 var sword = swordsList.Find(e => e.name == swordName);
                 Instantiate(sword, position, Quaternion.identity);
             }
@@ -87,6 +88,9 @@ public class MenuManager : MonoBehaviour
 
         var tilePos = new Vector2(enemyPos.x - 1, enemyPos.y);
         var tile = GridManager.Instance.GetTileAtPosition(tilePos);
+
+        Tile.Instance.DeleteHighlightForAttack();
+        DeleteSwords();
 
         if (tile != null && GameObject.Find("Arrow(Clone)") is null && selectedHero.UnitRange >= distance)
         {
