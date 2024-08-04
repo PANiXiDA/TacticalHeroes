@@ -1,0 +1,865 @@
+fileFormatVersion: 2
+guid: fd68841ed21372245b46c219eccd3d54
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boar_Stay_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 309
+        width: 70
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e18b429c313aa4143abeab50f27d9f29
+      internalID: -102953947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Stay_1
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 309
+        width: 65
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 814c389f9e0d3054eb0604dec5f4c7b3
+      internalID: 612765339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Stay_2
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 309
+        width: 78
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fceb8e3edfd72704aa586a8447083841
+      internalID: -1042793560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Stay_3
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 309
+        width: 74
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 535fe597b7a1be84080d87dcd7aae137
+      internalID: 1428212519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Move_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 238
+        width: 74
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd5d04caebe306408f1c554739900cd
+      internalID: -1077550806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Move_1
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 238
+        width: 79
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5b32920ee89bdf429bc1d2ba61a442c
+      internalID: -699960439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Move_2
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 238
+        width: 73
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39096084fd104a45b171bcb5b48e671
+      internalID: -1258518902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Move_3
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 238
+        width: 70
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8ce3105722797e49b9e55762a24c92f
+      internalID: 897810783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Move_4
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 238
+        width: 73
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea38b49d060b29e43bf4b19985db15ea
+      internalID: -996386063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Move_5
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 238
+        width: 79
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d311f8ef5934a7e42849ae7d39b0c31f
+      internalID: -503226603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Move_6
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 238
+        width: 74
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2724a0d3009a60c499de2eca269c3bdf
+      internalID: 1709446653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Move_7
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 238
+        width: 74
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2421a6f26d8464c9abeba4c50706bd
+      internalID: -545468602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_TakeDamage_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 165
+        width: 72
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44731f19ca6186642aeb77de13f8a64d
+      internalID: 271828643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_TakeDamage_1
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 165
+        width: 69
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8374a7bc9d85b6c47b1299447170179b
+      internalID: -1489624091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_TakeDamage_2
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 165
+        width: 73
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e097b48a634e834087b15a7c027f7af
+      internalID: -962162410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Death_0
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 162
+        width: 72
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5666d9db23e6e8478a12b9550bad229
+      internalID: -568052724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Death_1
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 163
+        width: 64
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48e6dec910dbc3c4ab9d3410cd357070
+      internalID: -211957549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Death_2
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 164
+        width: 72
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84f8c7265654f6846b2f86d95aadedd3
+      internalID: 618291190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Death_3
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 167
+        width: 80
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e1f45266db284a4bb6dbf84121fd9fd
+      internalID: 1619602347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_Death_4
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 166
+        width: 78
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 043164a0d7829dc4c8ef8970cb21f2cb
+      internalID: 2082827309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_TopMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 73
+        width: 79
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 462a950eb832b5b4780de4ca3e30a55d
+      internalID: -1217433369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_TopMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 73
+        width: 76
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb57383780bb2e24cabc16c01f5b42d0
+      internalID: 1548705802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_TopMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 75
+        width: 61
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb056207b80ced41a772e5cb7f58caf
+      internalID: 551593936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_FrontMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 73
+        width: 80
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ddea8f6ec63e0340a1f2b698bbc258c
+      internalID: -26068324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_FrontMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 73
+        width: 72
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b773bf1175111140a11eabbae59784b
+      internalID: -538027546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_FrontMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 73
+        width: 73
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba2e8eb40239774b963913b08a3340d
+      internalID: 112995324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_BottomMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 58
+        width: 66
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a089713cd77237344bfa816dea6a15eb
+      internalID: -1856369099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boar_BottomMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 53
+        width: 53
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 126d2f73b5a80284abff1fec557fb584
+      internalID: 636140577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Boar_0: 1686212449
+      Boar_117: 1445913506
+      Boar_118: 239016807
+      Boar_119: 211316035
+      Boar_12: -1558436580
+      Boar_120: -1962490641
+      Boar_121: 573183834
+      Boar_122: -1331658169
+      Boar_123: 316823526
+      Boar_124: -422880883
+      Boar_13: -1828662140
+      Boar_14: -2042969050
+      Boar_15: -1957812354
+      Boar_16: -1470971857
+      Boar_17: -1932877059
+      Boar_18: 1557370546
+      Boar_19: -2069700821
+      Boar_2: 1373308468
+      Boar_20: 575366155
+      Boar_21: -1196332474
+      Boar_22: 137341950
+      Boar_23: 202610612
+      Boar_24: -62432090
+      Boar_25: -724158835
+      Boar_26: 1482722323
+      Boar_27: 329573131
+      Boar_28: -151179001
+      Boar_29: -1900013298
+      Boar_3: 241387489
+      Boar_30: -120454041
+      Boar_31: -236311051
+      Boar_32: 600502746
+      Boar_33: -2077836233
+      Boar_34: 1733714883
+      Boar_35: 982405114
+      Boar_36: -441231587
+      Boar_37: -1642738582
+      Boar_38: 244902278
+      Boar_39: 1514942751
+      Boar_4: 555488576
+      Boar_40: -286384574
+      Boar_41: 1934507221
+      Boar_42: 1224898750
+      Boar_43: -1966224657
+      Boar_44: -520992704
+      Boar_45: -254920810
+      Boar_46: -1915847754
+      Boar_47: 1478738306
+      Boar_48: 1804558444
+      Boar_49: 296783423
+      Boar_5: -1144205723
+      Boar_50: -550527589
+      Boar_51: -276836438
+      Boar_52: 1297672072
+      Boar_53: 87858210
+      Boar_54: -1141630157
+      Boar_55: -143901353
+      Boar_56: -820433487
+      Boar_57: 790849783
+      Boar_58: 871394206
+      Boar_59: 452255739
+      Boar_6: -1446644818
+      Boar_60: -511896556
+      Boar_61: 181655663
+      Boar_62: 1865984711
+      Boar_63: -190880560
+      Boar_64: 42174889
+      Boar_65: -1920881408
+      Boar_66: -784114475
+      Boar_67: -1555397798
+      Boar_68: 1005715578
+      Boar_69: -1994801142
+      Boar_7: 659334464
+      Boar_70: -1076920581
+      Boar_71: -2137607153
+      Boar_72: -1006406734
+      Boar_73: -2112053604
+      Boar_74: 698568152
+      Boar_75: 1093546676
+      Boar_76: 1257090482
+      Boar_77: -485773443
+      Boar_78: -396781389
+      Boar_79: -1467383803
+      Boar_80: 1792840601
+      Boar_81: 256711218
+      Boar_82: 2057781630
+      Boar_83: -89924829
+      Boar_84: 1832234286
+      Boar_85: 1781641480
+      Boar_86: -1108844368
+      Boar_87: 1720637994
+      Boar_88: 1043181927
+      Boar_89: -115859787
+      Boar_90: 2067841426
+      Boar_91: -1853349625
+      Boar_92: -964379506
+      Boar_BottomMeleeAttack_0: -1856369099
+      Boar_BottomMeleeAttack_1: 636140577
+      Boar_Death_0: -568052724
+      Boar_Death_1: -211957549
+      Boar_Death_2: 618291190
+      Boar_Death_3: 1619602347
+      Boar_Death_4: 2082827309
+      Boar_FrontMeleeAttack_0: -26068324
+      Boar_FrontMeleeAttack_1: -538027546
+      Boar_FrontMeleeAttack_2: 112995324
+      Boar_Move_0: -1077550806
+      Boar_Move_1: -699960439
+      Boar_Move_2: -1258518902
+      Boar_Move_3: 897810783
+      Boar_Move_4: -996386063
+      Boar_Move_5: -503226603
+      Boar_Move_6: 1709446653
+      Boar_Move_7: -545468602
+      Boar_Stay_0: -102953947
+      Boar_Stay_1: 612765339
+      Boar_Stay_2: -1042793560
+      Boar_Stay_3: 1428212519
+      Boar_TakeDamage_0: 271828643
+      Boar_TakeDamage_1: -1489624091
+      Boar_TakeDamage_2: -962162410
+      Boar_TopMeleeAttack_0: -1217433369
+      Boar_TopMeleeAttack_1: 1548705802
+      Boar_TopMeleeAttack_2: 551593936
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
