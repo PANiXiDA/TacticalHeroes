@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
     {
         GameDifficulty = (DifficultyLevel)difficultId;
         MenuManager.Instance.DifficultyLevelPanelSetActive(false);
+        MenuManager.Instance.SetHeroPortrets();
         SpawnManager.Instance.SetUnitsSettings();
     }
 }

@@ -62,7 +62,7 @@ namespace Assets.Scripts.Managers
                 var spawnedEnemy = Instantiate(unit);
                 var randomSpawnTile = GridManager.Instance.GetEnemySpawnTile();
 
-                if (GameManager.Instance.GameDifficulty == DifficultyLevel.Middle)
+                if (GameManager.Instance.GameDifficulty == DifficultyLevel.Medium)
                 {
                     spawnedEnemy.UnitCount *= 2;
                 }

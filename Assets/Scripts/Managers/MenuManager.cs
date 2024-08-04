@@ -10,13 +10,14 @@ using Unity.Mathematics;
 using Cysharp.Threading.Tasks;
 using UnityEngine.EventSystems;
 using System.Threading;
+using Unity.VisualScripting;
 
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
     [SerializeField] private GameObject _tileInfoPanel, _unitInfoPanel, _chatPanel, _endBattlePanel, _surrenderPanel, _exitBtn,
-        _waitBtn, _defBtn, _shiftBtn, _timer, _factionChoosingPanel, _difficultyLevelPanel;
+        _waitBtn, _defBtn, _shiftBtn, _timer, _factionChoosingPanel, _difficultyLevelPanel, _playerHeroPortret, _enemyHeroPortret;
     [SerializeField] private RectTransform _ATBIcons;
     private CancellationTokenSource _cancellationTokenSource;
 
@@ -393,5 +394,51 @@ public class MenuManager : MonoBehaviour
         {
             Destroy(_difficultyLevelPanel);
         }
+    }
+    public void SetHeroPortrets()
+    {
+        Sprite playerHeroPortret;
+        Sprite enemyHeroPortret;
+        DifficultyLevel difficulty = GameManager.Instance.GameDifficulty.Value;
+        Faction faction = GameManager.Instance.PlayerFaction.Value;
+
+        if (faction == Faction.Citadel)
+        {
+            playerHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Ilisei");
+            if (difficulty == DifficultyLevel.Easy)
+            {
+                enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Meldd");
+            }
+            else if (difficulty == DifficultyLevel.Medium)
+            {
+                enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Julia");
+            }
+            else
+            {
+                enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Rory");
+            }
+        }
+        else
+        {
+            playerHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Misha");
+            if (difficulty == DifficultyLevel.Easy)
+            {
+                enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/DeimanEasy");
+            }
+            else if (difficulty == DifficultyLevel.Medium)
+            {
+                enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/DeimanMiddle");
+            }
+            else
+            {
+                enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Abaddon216");
+            }
+        }
+
+        _playerHeroPortret.GetComponentInChildren<SpriteRenderer>().sprite = playerHeroPortret;
+        _playerHeroPortret.SetActive(true);
+
+        _enemyHeroPortret.GetComponentInChildren<SpriteRenderer>().sprite = enemyHeroPortret;
+        _enemyHeroPortret.SetActive(true);
     }
 }
