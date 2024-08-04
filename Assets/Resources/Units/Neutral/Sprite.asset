@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2620eed6f239e294ea16355ce4f0d3e4, type: 3}
-  m_Name: Pikeman
+  m_Name: Sprite
   m_EditorClassIdentifier: 
-  UnitPrefab: {fileID: -2580786971841340955, guid: 55a137c5a1c353041b699acc8f326a14, type: 3}
+  UnitPrefab: {fileID: -6302556222179679299, guid: 92bb0c63606e1424aaceb02d1b5fee30, type: 3}
   IsActive: 0
