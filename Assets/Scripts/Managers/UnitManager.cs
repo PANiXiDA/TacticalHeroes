@@ -60,8 +60,8 @@ public class UnitManager : MonoBehaviour
     {
         if (!IsUnitFlip(attacker))
         {
-            if (attacker.Side == Side.Player && attacker.OccupiedTile.Position.x > GridManager.Instance.GetTileCoordinate(targetTile).x
-                || attacker.Side == Side.Enemy && attacker.OccupiedTile.Position.x < GridManager.Instance.GetTileCoordinate(targetTile).x)
+            if (attacker.Side == Side.Player && GridManager.Instance.GetTileCoordinate(attacker.OccupiedTile).x > GridManager.Instance.GetTileCoordinate(targetTile).x
+                || attacker.Side == Side.Enemy && GridManager.Instance.GetTileCoordinate(attacker.OccupiedTile).x < GridManager.Instance.GetTileCoordinate(targetTile).x)
             {
                 var spriteRenderer = attacker.GetComponent<SpriteRenderer>();
                 spriteRenderer.flipX = !spriteRenderer.flipX;

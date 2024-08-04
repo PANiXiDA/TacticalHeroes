@@ -134,7 +134,1078 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Titan_Stay_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 603
+        width: 38
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ba240ffb52f1fa44a531befb7804def
+      internalID: -74464226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Stay_1
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 603
+        width: 38
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51991a848c5cf544e9640bd9b5c48578
+      internalID: -1787060220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Stay_2
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 603
+        width: 39
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b1c7a2cb4d94f54085aac924e297113
+      internalID: -679682727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Stay_3
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 603
+        width: 39
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c945a0f889262ae44891e48786ef3e62
+      internalID: 1473122696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Stay_4
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 603
+        width: 39
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcbab4c6c62de944fb67f67cc2c963b5
+      internalID: 1652244426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Stay_5
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 602
+        width: 38
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5af3d12e625fc947adce6eea2bd57de
+      internalID: -1818370103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Move_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 490
+        width: 38
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3477cdd74a687f449d8b884327d014b
+      internalID: 1565276166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Move_1
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 491
+        width: 35
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 791626dffdd7bcb4eb28e64c491b7c68
+      internalID: 57043334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Move_2
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 491
+        width: 45
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c827d2c825046b4bb27985d95781add
+      internalID: -76584305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Move_3
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 490
+        width: 46
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d7a215c712348847b411cf3e450c2ee
+      internalID: 303843736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Move_4
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 490
+        width: 33
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 534bf6d2a15205a4ea9940cc93229b64
+      internalID: -134495308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Move_5
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 490
+        width: 36
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f416e29865360e48aa34d6f22cdff0e
+      internalID: -623920612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Move_6
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 490
+        width: 40
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d97c139f2c6fc347b65ceb73da7f0a4
+      internalID: 730524084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Thunder_0
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 546
+        width: 5
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b17a368f2539e541a3cabc44cc0f5ea
+      internalID: 782462433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Thunder_1
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 548
+        width: 19
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a28b839052c36f41978e06a6c78cbf7
+      internalID: -2127260377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Thunder_2
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 556
+        width: 33
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d533944a3da13046b6a09412f9a6687
+      internalID: -1473107978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Thunder_3
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 565
+        width: 43
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c0492c1a3d6434cbe8d1d3d74a9814
+      internalID: -1684773171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Thunder_4
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 559
+        width: 38
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f657e6434e4cc974f8f7dec93b4f1ffe
+      internalID: -1321281097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Thunder_5
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 551
+        width: 20
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0b28ded990d80c4fbeb79661ed661cd
+      internalID: -1464079156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Thunder_6
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 545
+        width: 5
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15eada147c973bd408275037cc5a00c9
+      internalID: 719932198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_TopMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 372
+        width: 41
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f54989932513f9428ffec681b9a01f0
+      internalID: 1068860916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_TopMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 371
+        width: 39
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c4a5cefa15423a499a5ff8f019da6e8
+      internalID: 1152475925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_TopMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 372
+        width: 52
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7d2b5a65a9b7f2499e7272a3b627e45
+      internalID: -466519582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_TopMeleeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 372
+        width: 62
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a04cc1d07c67754bb53d9b1d77c2940
+      internalID: 1067334994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_TopMeleeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 372
+        width: 59
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94cbbb73d881c5b4dad1e22f4f275944
+      internalID: -2007060475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_FrontMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 261
+        width: 41
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38cf017a66a8a744aab74c71c2f8fd51
+      internalID: 723124887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_FrontMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 261
+        width: 50
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a90861bb81f4c30408330c2c1e809ed0
+      internalID: -1564412613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_FrontMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 261
+        width: 61
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f5b91bdac4a9c2439028258f1ac58fe
+      internalID: -289582818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_FrontMeleeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 261
+        width: 90
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a238297f4b45caa409ad57a0cae85b5a
+      internalID: 956818714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_FrontMeleeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 261
+        width: 75
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac9254a8eb254b43a297883925d59b4
+      internalID: 1258631661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_RangeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 262
+        width: 50
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71d469c9ea0c06349a6600a82cc28d9a
+      internalID: 1134874250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_RangeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 262
+        width: 75
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d3c58ce33caf184eabae91e750ddea1
+      internalID: -603729364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_RangeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 262
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed58afd653d9e8e4abb66dd6fd5b35ec
+      internalID: -1606636202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_RangeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 262
+        width: 57
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9074188d0b5bd754b86fe66025bbd0c7
+      internalID: -839746736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_RangeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 262
+        width: 47
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d911098489859e4d86b1f06686c815d
+      internalID: -2026205927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_RangeAttack_5
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 262
+        width: 37
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eabf3a7032518d84f8f7749826e3a9ba
+      internalID: 363923460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_BottomMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 150
+        width: 42
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b741943437431a469495842bb02888f
+      internalID: -1826958298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_BottomMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 146
+        width: 44
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dae606f3165458f409af9f5ca89a7adb
+      internalID: 323664690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_BottomMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 138
+        width: 35
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cf38e5e1836b7a46b8d763807a6509f
+      internalID: -734692974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_BottomMeleeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 127
+        width: 52
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e6fba8f12c84e742aa33a094cad654d
+      internalID: -1774242329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_BottomMeleeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 134
+        width: 49
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84de948d8b79faa41af65236b7b02ca6
+      internalID: -179636154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_TakeDamage_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 9
+        width: 46
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5e01d715fa1cc4695b985c00762f04
+      internalID: 1315207807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_TakeDamage_1
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 9
+        width: 59
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f673b4cc7993ec4f9f478a6ed3d59e0
+      internalID: 1324959033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_TakeDamage_2
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 9
+        width: 35
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b91fc62e05e3243429c0456725344a72
+      internalID: 153099599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Death_0
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 9
+        width: 44
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3557dc1cef1dbe74a82ff329980be24e
+      internalID: -27025478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Death_1
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 9
+        width: 44
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb941a3e28bfd8498fb4b749a091502
+      internalID: 2067214375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Death_2
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 8
+        width: 49
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8048ba429d4a4fd48b78eafce18ef619
+      internalID: -1453836641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Death_3
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 7
+        width: 48
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b6cf5c33513ac45949d7993481fe0d
+      internalID: -1681160107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Death_4
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 10
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 026df5ef0dde87d468bfbe6f93644fa6
+      internalID: 1315322247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Death_5
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 14
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc461d8b5998ee244b28e5d16a8643bd
+      internalID: 342773547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Titan_Portret
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 372
+        width: 69
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a86abebd75d481640928c0d63651e482
+      internalID: 1097401262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +1216,156 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Titan_10: -1889409273
+      Titan_100: 1257539887
+      Titan_107: 848448444
+      Titan_108: -1531814101
+      Titan_109: -1392745936
+      Titan_11: 57015613
+      Titan_110: 1572858187
+      Titan_111: -985534709
+      Titan_112: -2027298956
+      Titan_113: 1005094085
+      Titan_114: -1697513585
+      Titan_115: 24948200
+      Titan_116: -1118471648
+      Titan_117: -1831933405
+      Titan_118: 1207613806
+      Titan_119: -373107731
+      Titan_12: 372184847
+      Titan_120: -1024418710
+      Titan_121: -1160475192
+      Titan_122: 1377191750
+      Titan_123: 315375040
+      Titan_124: 769049982
+      Titan_125: 1829824114
+      Titan_126: -981290937
+      Titan_127: 71851858
+      Titan_128: -1875374278
+      Titan_129: -692758289
+      Titan_13: 1449521562
+      Titan_131: -2001861228
+      Titan_132: 1913422667
+      Titan_133: 1975199407
+      Titan_134: 533883712
+      Titan_135: -1373903776
+      Titan_136: -1357546381
+      Titan_137: -625764524
+      Titan_138: -1840387095
+      Titan_139: -1920373540
+      Titan_140: 1536988939
+      Titan_141: -592880872
+      Titan_142: 945741623
+      Titan_143: 1202314147
+      Titan_144: -1791719704
+      Titan_145: 888595526
+      Titan_28: 1516394129
+      Titan_29: 1010304840
+      Titan_30: -1828747828
+      Titan_31: 1944326779
+      Titan_32: 733651030
+      Titan_33: 1956732949
+      Titan_34: -704027568
+      Titan_35: 1609903178
+      Titan_36: 2011230315
+      Titan_37: -1435262782
+      Titan_38: 52224190
+      Titan_39: -64770906
+      Titan_40: 1770654859
+      Titan_41: -230436396
+      Titan_42: 496241246
+      Titan_43: -1360345696
+      Titan_44: 1784659047
+      Titan_45: 926430713
+      Titan_46: -801504216
+      Titan_47: -1011855233
+      Titan_48: -176204427
+      Titan_49: -1556033517
+      Titan_50: 1392318574
+      Titan_51: 561716342
+      Titan_52: 361859062
+      Titan_53: 280791754
+      Titan_54: -950235386
+      Titan_55: -1302543506
+      Titan_56: 1872589727
+      Titan_57: -43877086
+      Titan_58: 2124691767
+      Titan_59: -1010359742
+      Titan_6: 1260388282
+      Titan_60: -1124411998
+      Titan_61: 280428085
+      Titan_62: 1108205694
+      Titan_63: 463168638
+      Titan_64: -673226391
+      Titan_65: -1910700181
+      Titan_66: -805696442
+      Titan_67: -1271151379
+      Titan_68: 1945046804
+      Titan_7: -1257922986
+      Titan_74: -1471983797
+      Titan_75: -1900504351
+      Titan_76: 870569692
+      Titan_77: -241684566
+      Titan_78: -414805809
+      Titan_8: 1596332300
+      Titan_9: -1393020735
+      Titan_95: -402334424
+      Titan_96: -1751293700
+      Titan_97: -733008682
+      Titan_98: 1561861066
+      Titan_99: -1838871908
+      Titan_BottomMeleeAttack_0: -1826958298
+      Titan_BottomMeleeAttack_1: 323664690
+      Titan_BottomMeleeAttack_2: -734692974
+      Titan_BottomMeleeAttack_3: -1774242329
+      Titan_BottomMeleeAttack_4: -179636154
+      Titan_Death_0: -27025478
+      Titan_Death_1: 2067214375
+      Titan_Death_2: -1453836641
+      Titan_Death_3: -1681160107
+      Titan_Death_4: 1315322247
+      Titan_Death_5: 342773547
+      Titan_FrontMeleeAttack_0: 723124887
+      Titan_FrontMeleeAttack_1: -1564412613
+      Titan_FrontMeleeAttack_2: -289582818
+      Titan_FrontMeleeAttack_3: 956818714
+      Titan_FrontMeleeAttack_4: 1258631661
+      Titan_Move_0: 1565276166
+      Titan_Move_1: 57043334
+      Titan_Move_2: -76584305
+      Titan_Move_3: 303843736
+      Titan_Move_4: -134495308
+      Titan_Move_5: -623920612
+      Titan_Move_6: 730524084
+      Titan_Portret: 1097401262
+      Titan_RangeAttack_0: 1134874250
+      Titan_RangeAttack_1: -603729364
+      Titan_RangeAttack_2: -1606636202
+      Titan_RangeAttack_3: -839746736
+      Titan_RangeAttack_4: -2026205927
+      Titan_RangeAttack_5: 363923460
+      Titan_Stay_0: -74464226
+      Titan_Stay_1: -1787060220
+      Titan_Stay_2: -679682727
+      Titan_Stay_3: 1473122696
+      Titan_Stay_4: 1652244426
+      Titan_Stay_5: -1818370103
+      Titan_TakeDamage_0: 1315207807
+      Titan_TakeDamage_1: 1324959033
+      Titan_TakeDamage_2: 153099599
+      Titan_Thunder_0: 782462433
+      Titan_Thunder_1: -2127260377
+      Titan_Thunder_2: -1473107978
+      Titan_Thunder_3: -1684773171
+      Titan_Thunder_4: -1321281097
+      Titan_Thunder_5: -1464079156
+      Titan_Thunder_6: 719932198
+      Titan_TopMeleeAttack_0: 1068860916
+      Titan_TopMeleeAttack_1: 1152475925
+      Titan_TopMeleeAttack_2: -466519582
+      Titan_TopMeleeAttack_3: 1067334994
+      Titan_TopMeleeAttack_4: -2007060475
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
