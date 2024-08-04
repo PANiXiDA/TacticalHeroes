@@ -9,6 +9,8 @@ namespace Assets.Scripts.Units.Neutral
         {
             base.Awake();
             Faction = Faction.Neutral;
+            UnitMorale = 5;
+            UnitLuck = 5;
         }
     }
 }

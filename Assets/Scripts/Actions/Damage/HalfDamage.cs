@@ -5,10 +5,12 @@ namespace Assets.Scripts.Actions.Damage
 {
     public class HalfDamage : IDamage
     {
+        public bool isLuck { get; set; }
         private IDamage _damage;
         public HalfDamage(IDamage damage)
         {
             _damage = damage;
+            _damage.isLuck = isLuck;
         }
 
         public (int damage, int deathCount) CalculateDamageAndDeathUnit(BaseUnit attacker, BaseUnit defender)

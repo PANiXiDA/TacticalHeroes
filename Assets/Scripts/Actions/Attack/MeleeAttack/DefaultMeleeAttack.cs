@@ -22,6 +22,9 @@ namespace Assets.Scripts.Actions.Attack.MeleeAttack
 
             bool responseAttack = UnitManager.Instance.IsResponseAttack(attacker);
 
+            bool isLuck = UnitManager.Instance.Luck(attacker);
+            _damageCalculator.isLuck = isLuck;
+
             await defender.TakeMeleeDamage(attacker, defender, _damageCalculator);
             bool death = UnitManager.Instance.IsDead(defender);
             if (death)

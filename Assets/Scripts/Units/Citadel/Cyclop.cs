@@ -26,9 +26,6 @@ namespace Assets.Scripts.Units.Enemies
             _move = new DefaultMove();
             _meleeAttack = new DefaultMeleeAttack(_damageMeleeCalculator);
             _rangeAttack = new DefaultRangeAttack(_damageRangeCalculator);
-            UnitMorale = 0;
-            UnitRange = 7;
-            UnitArrows = 10;
         }
 
         public override async UniTask MeleeAttack(BaseUnit attacker, BaseUnit defender, Tile targetTile)

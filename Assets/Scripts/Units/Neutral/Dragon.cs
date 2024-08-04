@@ -21,8 +21,6 @@ namespace Assets.Scripts.Units.Heroes
             _damageCalculator = new DefaultDamage();
             _move = new DefaultMove();
             _meleeAttack = new FieryBreathMeleeAttack(_damageCalculator);
-            UnitMorale = 5;
-            UnitLuck = 5;
         }
 
         public override async UniTask MeleeAttack(BaseUnit attacker, BaseUnit defender, Tile targetTile)

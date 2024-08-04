@@ -188,7 +188,7 @@ MonoBehaviour:
   UnitSuccessfulLuck: 0
   UnitProbabilityMorale: 0
   UnitProbabilityLuck: 0
-  abilities: 
+  abilities: 07000000
   animator: {fileID: 1986504707264567658}
   UnitResponse: 1
   UnitATB: 0

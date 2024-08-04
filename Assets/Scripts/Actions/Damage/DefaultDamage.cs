@@ -6,6 +6,7 @@ namespace Assets.Scripts.Actions.Damage
 {
     public class DefaultDamage : IDamage
     {
+        public bool isLuck { get; set; }
         public (int damage, int deathCount) CalculateDamageAndDeathUnit(BaseUnit attacker, BaseUnit defender)
         {
             int damage = CalculateDamage(attacker, defender);
@@ -34,8 +35,7 @@ namespace Assets.Scripts.Actions.Damage
             {
                 damage /= 2;
             }
-
-            bool isLuck = UnitManager.Instance.Luck(attacker);
+         
             if (isLuck)
             {
                 damage *= 2;
