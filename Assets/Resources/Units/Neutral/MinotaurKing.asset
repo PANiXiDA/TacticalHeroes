@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2620eed6f239e294ea16355ce4f0d3e4, type: 3}
-  m_Name: Paladin
+  m_Name: MinotaurKing
   m_EditorClassIdentifier: 
-  UnitPrefab: {fileID: -8468846120160656845, guid: 52b2bb1e052ed974c9de21665b758fab, type: 3}
+  UnitPrefab: {fileID: -3426387712769988095, guid: 7642fbdd0e5b18c479c7aa73e05ee8a3, type: 3}
   IsActive: 1
