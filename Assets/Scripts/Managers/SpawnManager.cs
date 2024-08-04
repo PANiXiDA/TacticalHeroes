@@ -34,7 +34,7 @@ namespace Assets.Scripts.Managers
                     unit.UnitPrefab.Side = Side.Enemy;
                 }
             }
-            SetUnitsForNeutralFaction();
+            //SetUnitsForNeutralFaction();
             GameManager.Instance.ChangeState(GameState.SpawnPlayerUnits);
         }
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -5825595741242472455}
   - component: {fileID: 1944647060858370115}
   - component: {fileID: -5105900990415390573}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Elf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: Elf
   OccupiedTile: {fileID: 0}
-  Side: 1
+  Side: 0
   Faction: 0
   Tier: 2
   UnitAttack: 12

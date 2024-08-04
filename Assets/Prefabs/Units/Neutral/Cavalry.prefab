@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 570023975632574126}
   - component: {fileID: 7801936213664737474}
   - component: {fileID: -3663854118247705231}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cavalry
   m_TagString: Untagged
   m_Icon: {fileID: 0}

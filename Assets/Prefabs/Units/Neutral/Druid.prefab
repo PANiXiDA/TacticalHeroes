@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4187799809235905689}
   - component: {fileID: 2995272766959761994}
   - component: {fileID: -1942590088157479045}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Druid
   m_TagString: Untagged
   m_Icon: {fileID: 0}

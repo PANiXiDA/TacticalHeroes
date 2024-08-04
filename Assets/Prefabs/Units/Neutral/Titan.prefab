@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -7075362051465570123}
   - component: {fileID: 3479486458894391271}
   - component: {fileID: -333811484540713482}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Titan
   m_TagString: Untagged
   m_Icon: {fileID: 0}

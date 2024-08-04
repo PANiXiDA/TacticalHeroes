@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Dragon
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableUnits
   UnitPrefab: {fileID: 7277008145396121127, guid: c924ac65ca6dad94baa45cd6778c9156, type: 3}
-  IsActive: 1
+  IsActive: 0

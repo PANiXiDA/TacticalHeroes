@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2620eed6f239e294ea16355ce4f0d3e4, type: 3}
-  m_Name: Cavalry
+  m_Name: Rory
   m_EditorClassIdentifier: 
-  UnitPrefab: {fileID: -3663854118247705231, guid: e0712dcab0b34ec4d8476f154ff8ec61, type: 3}
+  UnitPrefab: {fileID: -7848956825044649411, guid: de05a68e315249546b9e864826b23472, type: 3}
   IsActive: 0
