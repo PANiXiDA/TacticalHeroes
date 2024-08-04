@@ -1,0 +1,1213 @@
+fileFormatVersion: 2
+guid: 4f521232b0739af4cb3fa094f32f9b12
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Swordsman_Stay_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 526
+        width: 35
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03dccf81a0bfa8344adba1e8b8bf3c39
+      internalID: 2022087445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Stay_2
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 526
+        width: 35
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a0fab7dd899224db5eb1c13bb50fe9
+      internalID: -417777676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Stay_3
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 526
+        width: 35
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 392a36376c65a394f9ab3a74b8462f0e
+      internalID: 320230257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Stay_4
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 526
+        width: 34
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d51bfddcc747545b58b83b83a87e5c
+      internalID: 1079504235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Stay_5
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 526
+        width: 34
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c887f8055c42fc740a9f634682ddfdde
+      internalID: 2110811209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Stay_6
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 526
+        width: 35
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464b718b14641d749a163a2092bde22a
+      internalID: -1109085135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Move_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 443
+        width: 35
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79f625e5e484c614f9b5aa043601ce12
+      internalID: 1763671621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Move_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 443
+        width: 38
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c68e2227503ef844bbe5bc8ee6fc18a
+      internalID: 208258598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Move_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 443
+        width: 43
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efab91a1a9429154ab4dbfa87c572c97
+      internalID: 1206906297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Move_3
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 443
+        width: 48
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cfb00faa9a32924a87b7528984a0250
+      internalID: -1568039324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Move_4
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 443
+        width: 39
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e501db24b3e19e14db1440288f553345
+      internalID: 2063271532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Move_5
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 443
+        width: 37
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4646e059bcf10854a83aa6d322cdbb2f
+      internalID: 1960292391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Move_6
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 443
+        width: 45
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c09c52334481d428acaa71e38683be
+      internalID: -453279346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Move_7
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 443
+        width: 41
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ddb63603bcfcb4b970c6341aec86dd
+      internalID: -1170213846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Move_8
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 443
+        width: 36
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba226abdbda5394a8fc750e2c12e452
+      internalID: -2103242422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Move_9
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 443
+        width: 35
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb3aee6e4f69dfc48ac7a8195af1b7b3
+      internalID: -139325858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Move_10
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 443
+        width: 34
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef7f8678e96f70468def38d4cc2181e
+      internalID: 928974547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_TakeDamage_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 350
+        width: 38
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1211c8d45fc14b341a7f5ef9b4646f21
+      internalID: 455558478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_TakeDamage_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 350
+        width: 43
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e372dfd0a88f6a8448878699ecfb0fa7
+      internalID: -1092791274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_TakeDamage_2
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 351
+        width: 38
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7123b14c9a2794749b38687cfe4811af
+      internalID: -1681831640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_TakeDamage_3
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 352
+        width: 45
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb7e26caf5b74d649abc03b7734da995
+      internalID: -1769457621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_TakeDamage_4
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 353
+        width: 49
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e7692db6e42f144794ff6ce88b85b93
+      internalID: -1778026566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Death_0
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 354
+        width: 61
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd7523a1e398acd439bbcbb7b465e79a
+      internalID: -1246771613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Death_1
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 355
+        width: 72
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 752dac6c3c3a29a4396e9af8a12011c2
+      internalID: 2143954245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Death_2
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 358
+        width: 60
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68172c6c9f0d25d42987b0f8816def36
+      internalID: -655383651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Death_3
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 357
+        width: 58
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0ffcc88b7168d94c95ec6069213058c
+      internalID: 769210461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Death_4
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 357
+        width: 53
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b69228851c03a34449d13042a25c97cc
+      internalID: 1287402992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_TopMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 242
+        width: 45
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c9e460a9c0368743ad690ce488cd35d
+      internalID: -2116528345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_TopMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 242
+        width: 71
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 276a0b93fb0080e41850d43c3dea76df
+      internalID: 1048196323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_TopMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 243
+        width: 39
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1503a5ba53e85748888bcf3bfee845a
+      internalID: 80589538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_TopMeleeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 242
+        width: 47
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 012934cd890b4714298e20d9e94fb3a0
+      internalID: 1393260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_FrontMeleeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 129
+        width: 77
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97dbc336731b87e4aaad404693577205
+      internalID: 273570809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_FrontMeleeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 129
+        width: 45
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb29234a71c899d4d99b83fbf1305351
+      internalID: 713618815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_FrontMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 129
+        width: 42
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfa622a024e4f4c48bb181ceb484304e
+      internalID: -1178390147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_FrontMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 129
+        width: 49
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07eac506bcf33c4dba2b7d7bbc864f4
+      internalID: 555137127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_FrontMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 129
+        width: 68
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a77fd6feb2df554e9ff9e6656eb7a9a
+      internalID: 1502501447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_FrontMeleeAttack_5
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 129
+        width: 77
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 574eaf1f25ec9ab4989051a710497944
+      internalID: 684221303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_FrontMeleeAttack_6
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 129
+        width: 43
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2deaac5c6c59c8c4683e6f739ee5e009
+      internalID: -85526693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_BottomMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 17
+        width: 52
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658f1770647482946a6b9c1456f4b493
+      internalID: -869675677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_BottomMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 17
+        width: 72
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b13080ab5eb9164799472fb1d49d32b
+      internalID: -2000028598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_BottomMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 17
+        width: 64
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bdff0567a3521c40a8d033b9e652206
+      internalID: -227884378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_BottomMeleeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 17
+        width: 44
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d434bda9db88d241965ae1f83f86bb3
+      internalID: 1642492825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_BottomMeleeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 9
+        width: 43
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c6aacdb70f7870419c8c89f2c1d3f0d
+      internalID: 1976680406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Swordsman_Stay_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 523
+        width: 39
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 096ccfc310324f74abf811ac6a3ab28b
+      internalID: -1204278307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Swordsman_10: -729755213
+      Swordsman_103: -1336491187
+      Swordsman_104: -1589598159
+      Swordsman_105: -2035131769
+      Swordsman_106: 756156806
+      Swordsman_107: 700821279
+      Swordsman_108: 257158864
+      Swordsman_109: -52183521
+      Swordsman_11: 736287416
+      Swordsman_110: -200375964
+      Swordsman_111: 933113370
+      Swordsman_112: 1454588482
+      Swordsman_113: 1882014223
+      Swordsman_114: -1707633944
+      Swordsman_115: -686160735
+      Swordsman_116: -251915586
+      Swordsman_117: 1102181119
+      Swordsman_118: -2082180563
+      Swordsman_119: 810613169
+      Swordsman_12: 1948920251
+      Swordsman_120: 1709804056
+      Swordsman_121: 1948493090
+      Swordsman_122: -1067142301
+      Swordsman_123: -782846205
+      Swordsman_124: -1614899877
+      Swordsman_125: 1995393682
+      Swordsman_126: -583660600
+      Swordsman_127: 1709831916
+      Swordsman_128: 1301184871
+      Swordsman_129: -1649409932
+      Swordsman_13: 991716262
+      Swordsman_130: 620720207
+      Swordsman_131: 243910332
+      Swordsman_132: -754633681
+      Swordsman_133: -1269633394
+      Swordsman_134: 653809903
+      Swordsman_135: 2018619249
+      Swordsman_14: 561586088
+      Swordsman_15: 1950853856
+      Swordsman_16: -1815742207
+      Swordsman_17: -1918740158
+      Swordsman_18: 1715681869
+      Swordsman_19: -909932780
+      Swordsman_20: -2060530683
+      Swordsman_21: 1896933337
+      Swordsman_22: -1480629451
+      Swordsman_23: 88200138
+      Swordsman_24: 423587693
+      Swordsman_25: -1068778098
+      Swordsman_26: 1912490360
+      Swordsman_27: 1149141820
+      Swordsman_28: -1723897560
+      Swordsman_29: 674182176
+      Swordsman_30: -1759598173
+      Swordsman_31: 483583674
+      Swordsman_32: -971769428
+      Swordsman_33: 1438539887
+      Swordsman_34: 1178556246
+      Swordsman_35: 1500817288
+      Swordsman_36: 1723842042
+      Swordsman_37: -976547651
+      Swordsman_38: -576608680
+      Swordsman_39: 711044380
+      Swordsman_40: 568934986
+      Swordsman_41: 449340005
+      Swordsman_42: -242099236
+      Swordsman_43: 192132206
+      Swordsman_44: -502834226
+      Swordsman_45: 1229944125
+      Swordsman_46: -1493229320
+      Swordsman_47: 503082020
+      Swordsman_48: 156254268
+      Swordsman_49: -1492763729
+      Swordsman_7: -952673788
+      Swordsman_71: 741753312
+      Swordsman_72: -898823621
+      Swordsman_73: 891671811
+      Swordsman_78: 1319228290
+      Swordsman_79: -1057471578
+      Swordsman_8: 216635635
+      Swordsman_80: -26349413
+      Swordsman_81: -321922874
+      Swordsman_82: -469720531
+      Swordsman_9: 1953219785
+      Swordsman_90: 576250071
+      Swordsman_91: -2083928580
+      Swordsman_92: 483468736
+      Swordsman_93: -625614224
+      Swordsman_94: -1459154581
+      Swordsman_95: -246710802
+      Swordsman_96: 174617523
+      Swordsman_97: -673094116
+      Swordsman_BottomMeleeAttack_0: -869675677
+      Swordsman_BottomMeleeAttack_1: -2000028598
+      Swordsman_BottomMeleeAttack_2: -227884378
+      Swordsman_BottomMeleeAttack_3: 1642492825
+      Swordsman_BottomMeleeAttack_4: 1976680406
+      Swordsman_Death_0: -1246771613
+      Swordsman_Death_1: 2143954245
+      Swordsman_Death_2: -655383651
+      Swordsman_Death_3: 769210461
+      Swordsman_Death_4: 1287402992
+      Swordsman_FrontMeleeAttack_0: -1178390147
+      Swordsman_FrontMeleeAttack_1: 555137127
+      Swordsman_FrontMeleeAttack_2: 1502501447
+      Swordsman_FrontMeleeAttack_3: 273570809
+      Swordsman_FrontMeleeAttack_4: 713618815
+      Swordsman_FrontMeleeAttack_5: 684221303
+      Swordsman_FrontMeleeAttack_6: -85526693
+      Swordsman_Move_0: 1763671621
+      Swordsman_Move_1: 208258598
+      Swordsman_Move_10: 928974547
+      Swordsman_Move_2: 1206906297
+      Swordsman_Move_3: -1568039324
+      Swordsman_Move_4: 2063271532
+      Swordsman_Move_5: 1960292391
+      Swordsman_Move_6: -453279346
+      Swordsman_Move_7: -1170213846
+      Swordsman_Move_8: -2103242422
+      Swordsman_Move_9: -139325858
+      Swordsman_Stay_0: 2022087445
+      Swordsman_Stay_1: -1204278307
+      Swordsman_Stay_2: -417777676
+      Swordsman_Stay_3: 320230257
+      Swordsman_Stay_4: 1079504235
+      Swordsman_Stay_5: 2110811209
+      Swordsman_Stay_6: -1109085135
+      Swordsman_TakeDamage_0: 455558478
+      Swordsman_TakeDamage_1: -1092791274
+      Swordsman_TakeDamage_2: -1681831640
+      Swordsman_TakeDamage_3: -1769457621
+      Swordsman_TakeDamage_4: -1778026566
+      Swordsman_TopMeleeAttack_0: -2116528345
+      Swordsman_TopMeleeAttack_1: 1048196323
+      Swordsman_TopMeleeAttack_2: 80589538
+      Swordsman_TopMeleeAttack_3: 1393260
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
