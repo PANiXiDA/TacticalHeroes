@@ -34,7 +34,39 @@ namespace Assets.Scripts.Managers
                     unit.UnitPrefab.Side = Side.Enemy;
                 }
             }
+            SetUnitsForNeutralFaction();
             GameManager.Instance.ChangeState(GameState.SpawnPlayerUnits);
+        }
+
+        public void SetUnitsForNeutralFaction()
+        {
+
+            var activeUnitsByTier = new Dictionary<Tier, ScriptableUnit>();
+
+            var neutralUnitsByTier = _units
+                .Where(u => u.UnitPrefab.Faction == Faction.Neutral)
+                .GroupBy(u => u.UnitPrefab.Tier)
+                .ToDictionary(g => g.Key, g => g.ToList());
+
+            foreach (var tier in neutralUnitsByTier.Keys)
+            {
+                var unitsOfTier = neutralUnitsByTier[tier];
+                if (unitsOfTier.Any())
+                {
+                    var randomUnit = unitsOfTier[Random.Range(0, unitsOfTier.Count)];
+                    activeUnitsByTier[tier] = randomUnit;
+                }
+            }
+
+            foreach (var unit in _units.Where(u => u.UnitPrefab.Faction == Faction.Neutral))
+            {
+                unit.IsActive = false;
+            }
+
+            foreach (var unit in activeUnitsByTier.Values)
+            {
+                unit.IsActive = true;
+            }
         }
 
         public void SpawnPlayerUnits()
