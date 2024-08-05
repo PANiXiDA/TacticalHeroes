@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Enumerations;
-using Unity.VisualScripting;
 
 namespace Assets.Scripts.Units.Neutral
 {

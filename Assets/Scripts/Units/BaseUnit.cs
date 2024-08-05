@@ -84,6 +84,7 @@ public class BaseUnit : MonoBehaviour
         _rangeAttack = new DefaultRangeAttack(_damageCalculator);
         _takeDamage = new DefaultTakeDamage();
 
+        UnitResponse = true;
         UnitAdditionalDefence = 0;
         UnitCurrentHealth = UnitFullHealth;
         UnitMorale = 1;

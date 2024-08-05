@@ -10,9 +10,9 @@ using Unity.Mathematics;
 using Cysharp.Threading.Tasks;
 using UnityEngine.EventSystems;
 using System.Threading;
-using Unity.VisualScripting;
-using static UnityEngine.UI.CanvasScaler;
 using Assets.Scripts.IActions;
+using DG.Tweening;
+using Unity.VisualScripting;
 
 public class MenuManager : MonoBehaviour
 {
@@ -20,7 +20,7 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] private GameObject _tileInfoPanel, _unitInfoPanel, _chatPanel, _endBattlePanel, _surrenderPanel, _exitBtn,
         _waitBtn, _defBtn, _shiftBtn, _timer, _factionChoosingPanel, _difficultyLevelPanel, _playerHeroPortret, _enemyHeroPortret,
-        _roryTalk;
+        _roryTalk, _abaddonTalk;
     [SerializeField] private RectTransform _ATBIcons;
     private CancellationTokenSource _cancellationTokenSource;
 
@@ -177,10 +177,9 @@ public class MenuManager : MonoBehaviour
 
     public void ClearExistingIcons(BaseUnit unit)
     {
-        var name = unit.name.Replace("(Clone)", "");
         foreach (Transform child in _ATBIcons)
         {
-            if (child.name == name)
+            if (child.name == unit.UnitName)
             {
                 Destroy(child.gameObject);
             }
@@ -191,7 +190,7 @@ public class MenuManager : MonoBehaviour
     {
         string unitName = ATBunit.name.Replace("(Clone)", "");
 
-        GameObject portrait = new GameObject(unitName);
+        GameObject portrait = new GameObject(ATBunit.UnitName);
         portrait.transform.SetParent(_ATBIcons, false);
 
         Image image = portrait.AddComponent<Image>();
@@ -216,10 +215,9 @@ public class MenuManager : MonoBehaviour
     {
         if (unit.UnitCount > 0)
         {
-            var name = unit.name.Replace("(Clone)", "");
             foreach (Transform child in _ATBIcons)
             {
-                if (child.name == name)
+                if (child.name == unit.UnitName)
                 {
                     Transform unitCountChild = child.Find("UnitCount");
                     unitCountChild.GetComponent<TextMeshProUGUI>().text = unit.UnitCount.ToString();
@@ -229,10 +227,9 @@ public class MenuManager : MonoBehaviour
     }
     public void DeletePortrait(BaseUnit unit)
     {
-        var name = unit.name.Replace("(Clone)", "");
         foreach (Transform child in _ATBIcons)
         {
-            if (child.name == name)
+            if (child.name == unit.UnitName)
             {
                 Destroy(child.gameObject);
                 break;
@@ -493,5 +490,43 @@ public class MenuManager : MonoBehaviour
         await UniTask.Delay(3750);
 
         Destroy(animator.gameObject);
+    }
+
+    public async UniTaskVoid ShowAbaddonTalk()
+    {
+        _abaddonTalk.SetActive(true);
+
+        SpriteRenderer spriteRenderer = _abaddonTalk.GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("SpriteRenderer not found on _abaddonTalk GameObject.");
+            return;
+        }
+
+        TextMeshPro textMeshPro = _abaddonTalk.GetComponentInChildren<TextMeshPro>();
+        if (textMeshPro == null)
+        {
+            Debug.LogError("TextMeshPro not found on _abaddonTalk GameObject.");
+            return;
+        }
+
+        Color originalSpriteColor = spriteRenderer.color;
+        Color originalTextColor = textMeshPro.color;
+        float elapsedTime = 0f;
+        float duration = 5f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / duration);
+
+            spriteRenderer.color = new Color(originalSpriteColor.r, originalSpriteColor.g, originalSpriteColor.b, alpha);
+
+            textMeshPro.color = new Color(originalTextColor.r, originalTextColor.g, originalTextColor.b, alpha);
+
+            await UniTask.Yield();
+        }
+
+        _abaddonTalk.SetActive(false);
     }
 }

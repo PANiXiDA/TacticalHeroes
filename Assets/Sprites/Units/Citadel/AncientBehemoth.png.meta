@@ -1,0 +1,1455 @@
+fileFormatVersion: 2
+guid: a6e61b12082450c46bdad0ed371a28a2
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AncientBehemoth_Stay_0
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 1316
+        width: 87
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa5444ac278cb74fa5cd76ecbba6a36
+      internalID: 1456604038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Stay_1
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1314
+        width: 87
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dbfa6ab9dc139140815612b2f3a8764
+      internalID: -984650153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Stay_2
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 1316
+        width: 87
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c1b44a603ace764cb2c807608fd3100
+      internalID: 953990300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Stay_3
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 1317
+        width: 87
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc26199f781de0a4cbfcd5feb1279e3c
+      internalID: -1288369293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Stay_4
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 1319
+        width: 93
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956943cc1e7619342aa7072d5ca90b93
+      internalID: -611269765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Stay_5
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 1321
+        width: 108
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6acbd4a43fe4834ab71ab61c1e71c22
+      internalID: -1545008740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Stay_6
+      rect:
+        serializedVersion: 2
+        x: 1225
+        y: 1319
+        width: 120
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b085d6f417e7644439f94d24c4f3b939
+      internalID: -1220663363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Stay_7
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 1321
+        width: 116
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0de4df54b5506cf4d95a058d5f350d1f
+      internalID: -2029572385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Move_0
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 1117
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 689c38c8825895243ade58431362dd1a
+      internalID: 2090968600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Move_1
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 1119
+        width: 116
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e9e08ce4e54f984c872b856f32e1d91
+      internalID: 1269817289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Move_2
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 1122
+        width: 132
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f8cc5baa4ac4e142ba60492cd681e86
+      internalID: 2109958931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Move_3
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 1118
+        width: 130
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c304ca6688077a46a3059834c49aa3b
+      internalID: 609877177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Move_4
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 1118
+        width: 113
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e60e5f6478bfa7419e10c185f9da74a
+      internalID: -521441029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Move_5
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1119
+        width: 93
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 386ab8ac10a742542b652596b3f0ce31
+      internalID: 635704983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Move_6
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 1124
+        width: 103
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f1fdb4f9c8bc5a459efbf167ec1a1d7
+      internalID: 1270840370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Move_7
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 1121
+        width: 123
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d518dc750f1ff949b5612344ec9e619
+      internalID: -1708169997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Move_8
+      rect:
+        serializedVersion: 2
+        x: 1507
+        y: 1117
+        width: 120
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd824442170f6842a61d39c7c80ccc2
+      internalID: 1210976552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Move_9
+      rect:
+        serializedVersion: 2
+        x: 1662
+        y: 1117
+        width: 112
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e40f3397188456449be5eca175781ebc
+      internalID: -551985955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Move_10
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 1117
+        width: 101
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef0e5f9817d89548b43721bf9fa9e9d
+      internalID: -1046172634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TopMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 884
+        width: 83
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70275a1da7bc764d83192cc523f011a
+      internalID: 816032709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TopMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 884
+        width: 117
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55db40af2324350439b9f7c24e056e41
+      internalID: -682283424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TopMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 884
+        width: 121
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e56e406d92e0c394bb69e8d369fa96b7
+      internalID: 2110514606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TopMeleeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 884
+        width: 112
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53485f2620fa8ea489fbec1ca93fec81
+      internalID: -1489465511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TopMeleeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 886
+        width: 105
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 371c090d1f8d6204b940e6342cac563d
+      internalID: -543794893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TopMeleeAttack_5
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 884
+        width: 96
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4c7971e9dbf24f4fa84c6a6485cf95e
+      internalID: -1291492812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Portret
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 911
+        width: 58
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b66ed1880ff96543a3f439d96f3da28
+      internalID: 1375341899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_FrontMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 675
+        width: 112
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d6581677c5f6d4b869b8ab500c3277
+      internalID: -1880424565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_FrontMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 675
+        width: 121
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f66d51e083b55d644b201f2683cc4174
+      internalID: 1069012439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_FrontMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 675
+        width: 137
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e808c7ab665e12d4d969c24c09a3c546
+      internalID: 463265593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_FrontMeleeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 663
+        width: 129
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ad63cbb1857c0d4ca8378df1fa3a2a2
+      internalID: -1523126537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_FrontMeleeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 667
+        width: 97
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 429108a21cde47b4bb514908f89086bb
+      internalID: 601456813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_FrontMeleeAttack_5
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 668
+        width: 93
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f15fb60c3fb5d374690fda1e57416a17
+      internalID: -538557941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_BottomMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 476
+        width: 152
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e8c68a27801ca94596752162dd8250a
+      internalID: -541330409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_BottomMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 476
+        width: 184
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79fc958c08eec3643bd6ff2028da577c
+      internalID: 873072494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_BottomMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 458
+        width: 108
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c37f949d134d434d9c62595de8b018e
+      internalID: 1597810703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_BottomMeleeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 451
+        width: 92
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c9f7d3059642f541b40762ee46c448b
+      internalID: 892174203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_BottomMeleeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 460
+        width: 86
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3161bd864498ce04cbb19c09448ec233
+      internalID: -1555592341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_BottomMeleeAttack_5
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 464
+        width: 84
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3006a826d346a447b2a7a7aba1f69c5
+      internalID: 28997557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TakeDamage_0
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 247
+        width: 107
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b328073119ea5b439c2bf675a6eb100
+      internalID: 1717640863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TakeDamage_1
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 249
+        width: 124
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 907b6c20d4d552b489f72c42eeec268e
+      internalID: -567568338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TakeDamage_2
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 244
+        width: 169
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91594b186f34334409541fb672cb80a6
+      internalID: 1335391100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TakeDamage_3
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 237
+        width: 140
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8ba02ddd0e10084a9cf3b38e13af2ee
+      internalID: -949421538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TakeDamage_4
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 236
+        width: 114
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a47e21bf59ce4d34482d838648adffdf
+      internalID: -435526745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TakeDamage_5
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 237
+        width: 94
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3561ab205b1b1de46898d22656c9a2a8
+      internalID: -286553975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TakeRangeDamage_0
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 260
+        width: 107
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c8bf6b6a85f254e891d17eabcda1c4
+      internalID: -1540840106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TakeRangeDamage_1
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 260
+        width: 109
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada45cc362a3a954c8eac1b4b12c786d
+      internalID: -1400019949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_TakeRangeDamage_2
+      rect:
+        serializedVersion: 2
+        x: 1769
+        y: 263
+        width: 99
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b8b5ed1552cab4f8da2de665aee29f
+      internalID: -377583777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Death_1
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 28
+        width: 166
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e03cd32ea641c6248af8d001b3b99cb1
+      internalID: 1988177295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Death_2
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 22
+        width: 122
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bf1534a15b34d5498aa8f1d4b16362c
+      internalID: -1903779848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Death_3
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 28
+        width: 103
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79c7cec1af70c8c429f7b34231e47d5b
+      internalID: -1874244144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Death_0
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 26
+        width: 124
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c748e16e8d40b9745ae0ee2b41172b02
+      internalID: -377822407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Death_4
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 30
+        width: 84
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e1c49f2953485543b9b1e59dbc3cfce
+      internalID: -484857383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Death_5
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 33
+        width: 81
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 529d77512feb72a44a91160786f2e097
+      internalID: -222093857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AncientBehemoth_Death_6
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 31
+        width: 82
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 960f0f9ca6890b8409469797b5a74d7f
+      internalID: 21448860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      AncientBehemoth_100: -1067320647
+      AncientBehemoth_101: 2118801022
+      AncientBehemoth_102: 1243018267
+      AncientBehemoth_103: -184051014
+      AncientBehemoth_104: 919629508
+      AncientBehemoth_105: -673927997
+      AncientBehemoth_106: -842556073
+      AncientBehemoth_107: -1029956206
+      AncientBehemoth_108: -1769323649
+      AncientBehemoth_109: -1450626660
+      AncientBehemoth_110: 1258700506
+      AncientBehemoth_111: -2089513137
+      AncientBehemoth_112: 1608332722
+      AncientBehemoth_113: -352731654
+      AncientBehemoth_114: -647509479
+      AncientBehemoth_115: 1392565183
+      AncientBehemoth_116: -288933350
+      AncientBehemoth_117: -784838512
+      AncientBehemoth_118: 1256233583
+      AncientBehemoth_119: -1901759268
+      AncientBehemoth_120: 1892065981
+      AncientBehemoth_121: 275615614
+      AncientBehemoth_122: 1185813707
+      AncientBehemoth_123: -1541341607
+      AncientBehemoth_124: 478989808
+      AncientBehemoth_125: 766799699
+      AncientBehemoth_126: -62180782
+      AncientBehemoth_127: -467464748
+      AncientBehemoth_128: 1115532020
+      AncientBehemoth_129: 1431393737
+      AncientBehemoth_130: -1152826524
+      AncientBehemoth_142: 54667043
+      AncientBehemoth_144: -1474073600
+      AncientBehemoth_145: -1712062220
+      AncientBehemoth_147: 532581001
+      AncientBehemoth_149: -1872314263
+      AncientBehemoth_150: -1358886616
+      AncientBehemoth_151: -508347426
+      AncientBehemoth_152: 1354770619
+      AncientBehemoth_153: 1497059883
+      AncientBehemoth_154: -456254052
+      AncientBehemoth_155: 1633330068
+      AncientBehemoth_156: -1937891269
+      AncientBehemoth_157: -279632294
+      AncientBehemoth_159: -2039728291
+      AncientBehemoth_160: -52329231
+      AncientBehemoth_161: 1648146628
+      AncientBehemoth_162: -1446143197
+      AncientBehemoth_163: -1267365889
+      AncientBehemoth_164: -1750024307
+      AncientBehemoth_165: -616518807
+      AncientBehemoth_26: 1345741647
+      AncientBehemoth_27: 1544578686
+      AncientBehemoth_28: -1214175030
+      AncientBehemoth_29: -1925773810
+      AncientBehemoth_30: -953777007
+      AncientBehemoth_31: 1239676410
+      AncientBehemoth_32: 171924395
+      AncientBehemoth_33: -1097997628
+      AncientBehemoth_34: 295854057
+      AncientBehemoth_35: 2142498591
+      AncientBehemoth_36: 851184958
+      AncientBehemoth_37: 2138565848
+      AncientBehemoth_38: -1330131566
+      AncientBehemoth_39: -1315433859
+      AncientBehemoth_40: 1773400566
+      AncientBehemoth_41: 701786443
+      AncientBehemoth_42: -1932012240
+      AncientBehemoth_43: -1420942484
+      AncientBehemoth_44: 486706507
+      AncientBehemoth_45: -1717478433
+      AncientBehemoth_46: 2060305527
+      AncientBehemoth_47: 142939708
+      AncientBehemoth_48: -1132752341
+      AncientBehemoth_49: 906013372
+      AncientBehemoth_50: 2032624186
+      AncientBehemoth_51: -1994441704
+      AncientBehemoth_52: 533641503
+      AncientBehemoth_53: -1752889360
+      AncientBehemoth_54: -1716670583
+      AncientBehemoth_55: -417785394
+      AncientBehemoth_56: 467969472
+      AncientBehemoth_57: -1207417637
+      AncientBehemoth_58: -1333551993
+      AncientBehemoth_59: 1088496461
+      AncientBehemoth_60: 864443915
+      AncientBehemoth_61: -507586914
+      AncientBehemoth_62: -1850583192
+      AncientBehemoth_63: 621514072
+      AncientBehemoth_64: 1007663975
+      AncientBehemoth_65: 1705558878
+      AncientBehemoth_66: 1465684780
+      AncientBehemoth_67: 1265365560
+      AncientBehemoth_68: -107633248
+      AncientBehemoth_69: 414018828
+      AncientBehemoth_70: -134712896
+      AncientBehemoth_71: 1621842029
+      AncientBehemoth_72: 738507983
+      AncientBehemoth_73: 30414803
+      AncientBehemoth_74: -1355257946
+      AncientBehemoth_81: -1639245568
+      AncientBehemoth_82: -2095294317
+      AncientBehemoth_83: -207255693
+      AncientBehemoth_90: 792278477
+      AncientBehemoth_91: -1962992941
+      AncientBehemoth_92: -925907104
+      AncientBehemoth_93: -192598992
+      AncientBehemoth_94: -1924541478
+      AncientBehemoth_95: -865214852
+      AncientBehemoth_96: 526284419
+      AncientBehemoth_97: 2070216795
+      AncientBehemoth_98: 1340782914
+      AncientBehemoth_99: 1313112436
+      AncientBehemoth_BottomMeleeAttack_0: -541330409
+      AncientBehemoth_BottomMeleeAttack_1: 873072494
+      AncientBehemoth_BottomMeleeAttack_2: 1597810703
+      AncientBehemoth_BottomMeleeAttack_3: 892174203
+      AncientBehemoth_BottomMeleeAttack_4: -1555592341
+      AncientBehemoth_BottomMeleeAttack_5: 28997557
+      AncientBehemoth_Death_0: -377822407
+      AncientBehemoth_Death_1: 1988177295
+      AncientBehemoth_Death_2: -1903779848
+      AncientBehemoth_Death_3: -1874244144
+      AncientBehemoth_Death_4: -484857383
+      AncientBehemoth_Death_5: -222093857
+      AncientBehemoth_Death_6: 21448860
+      AncientBehemoth_FrontMeleeAttack_0: -1880424565
+      AncientBehemoth_FrontMeleeAttack_1: 1069012439
+      AncientBehemoth_FrontMeleeAttack_2: 463265593
+      AncientBehemoth_FrontMeleeAttack_3: -1523126537
+      AncientBehemoth_FrontMeleeAttack_4: 601456813
+      AncientBehemoth_FrontMeleeAttack_5: -538557941
+      AncientBehemoth_Move_0: 2090968600
+      AncientBehemoth_Move_1: 1269817289
+      AncientBehemoth_Move_10: -1046172634
+      AncientBehemoth_Move_2: 2109958931
+      AncientBehemoth_Move_3: 609877177
+      AncientBehemoth_Move_4: -521441029
+      AncientBehemoth_Move_5: 635704983
+      AncientBehemoth_Move_6: 1270840370
+      AncientBehemoth_Move_7: -1708169997
+      AncientBehemoth_Move_8: 1210976552
+      AncientBehemoth_Move_9: -551985955
+      AncientBehemoth_Portret: 1375341899
+      AncientBehemoth_Stay_0: 1456604038
+      AncientBehemoth_Stay_1: -984650153
+      AncientBehemoth_Stay_2: 953990300
+      AncientBehemoth_Stay_3: -1288369293
+      AncientBehemoth_Stay_4: -611269765
+      AncientBehemoth_Stay_5: -1545008740
+      AncientBehemoth_Stay_6: -1220663363
+      AncientBehemoth_Stay_7: -2029572385
+      AncientBehemoth_TakeDamage_0: 1717640863
+      AncientBehemoth_TakeDamage_1: -567568338
+      AncientBehemoth_TakeDamage_2: 1335391100
+      AncientBehemoth_TakeDamage_3: -949421538
+      AncientBehemoth_TakeDamage_4: -435526745
+      AncientBehemoth_TakeDamage_5: -286553975
+      AncientBehemoth_TakeRangeDamage_0: -1540840106
+      AncientBehemoth_TakeRangeDamage_1: -1400019949
+      AncientBehemoth_TakeRangeDamage_2: -377583777
+      AncientBehemoth_TakeRangeDamage_3: -2085217034
+      AncientBehemoth_TopMeleeAttack_0: 816032709
+      AncientBehemoth_TopMeleeAttack_1: -682283424
+      AncientBehemoth_TopMeleeAttack_2: 2110514606
+      AncientBehemoth_TopMeleeAttack_3: -1489465511
+      AncientBehemoth_TopMeleeAttack_4: -543794893
+      AncientBehemoth_TopMeleeAttack_5: -1291492812
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
