@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Rory
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: -7848956825044649411, guid: de05a68e315249546b9e864826b23472, type: 3}
-  IsActive: 0
+  IsActive: 1

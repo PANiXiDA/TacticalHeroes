@@ -33,7 +33,7 @@ namespace Assets.Scripts.Managers
                 {
                     unit.UnitPrefab.Side = Side.Enemy;
                 }
-            }
+            }     
             //SetUnitsForNeutralFaction();
             GameManager.Instance.ChangeState(GameState.SpawnPlayerUnits);
         }
@@ -82,12 +82,46 @@ namespace Assets.Scripts.Managers
 
                 randomSpawnTile.SetUnit(spawnedHero, randomSpawnTile);
             }
-            GameManager.Instance.ChangeState(GameState.SpawnEnemyUnits);
+            if (GameManager.Instance.GameDifficulty != DifficultyLevel.Hard)
+            {
+                GameManager.Instance.ChangeState(GameState.SpawnEnemyUnits);
+            }
+            else
+            {
+                if (GameManager.Instance.PlayerFaction == Faction.Neutral)
+                {
+
+                }
+                else if (GameManager.Instance.PlayerFaction == Faction.Citadel)
+                {
+                    SpawnRory();
+                }
+            }
+        }
+
+        public void SpawnRory()
+        {
+            var rory = _units.FirstOrDefault(u => u.UnitPrefab.Faction == Faction.Rory);
+            var spawnedRory = Instantiate(rory.UnitPrefab);
+
+            var rorySpawnTile = GridManager.Instance.GetRorySpawnTile();
+
+            UnitFactory.Instance.CreateOrUpdateUnitVisuals(spawnedRory);
+
+            var spriteRenderer = spawnedRory.GetComponent<SpriteRenderer>();
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+
+            rorySpawnTile.SetUnit(spawnedRory, rorySpawnTile);
+            SetUnits();
+            GameManager.Instance.ChangeState(GameState.SetATB);
         }
 
         public void SpawnEnemyUnits()
         {
-            var enemyUnits = _units.Where(u => u.UnitPrefab.Side == Side.Enemy && u.IsActive).Select(u => u.UnitPrefab).ToList();
+            Faction playerFaction = GameManager.Instance.PlayerFaction.Value;
+            Faction enemyFaction = playerFaction == Faction.Citadel ? Faction.Neutral : Faction.Citadel;
+
+            var enemyUnits = _units.Where(u => u.UnitPrefab.Side == Side.Enemy && u.IsActive && u.UnitPrefab.Faction == enemyFaction).Select(u => u.UnitPrefab).ToList();
 
             foreach (var unit in enemyUnits)
             {

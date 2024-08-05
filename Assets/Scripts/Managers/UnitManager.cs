@@ -5,6 +5,7 @@ using Assets.Scripts.Managers;
 using System.Linq;
 using Unity.Mathematics;
 using Assets.Scripts.UI;
+using Assets.Scripts.IActions;
 
 public class UnitManager : MonoBehaviour
 {
@@ -250,6 +251,15 @@ public class UnitManager : MonoBehaviour
         {
             unit.UnitFailedLuck += 1;
             return false;
+        }
+    }
+
+    public void KillAllUnits(BaseUnit attacker, IDamage damage)
+    {
+        foreach (var unit in TurnManager.Instance.allUnits.Where(u => u.Faction != Faction.Rory))
+        {
+            _ = unit.TakeMeleeDamage(attacker, unit, damage);
+            _ = unit.Death();
         }
     }
 }

@@ -31,7 +31,7 @@ public class GridManager : MonoBehaviour
                 var randomTile = _grassTile;
                 if (index == 1)
                     randomTile = _mountainTile;
-                else if(index == 2)
+                else if (index == 2)
                     randomTile = _lakeTile;
 
                 var spawnedTile = Instantiate(randomTile, new Vector3(x, y), Quaternion.identity);
@@ -54,6 +54,13 @@ public class GridManager : MonoBehaviour
     {
         return _tiles.Where(t => t.Key.x > _width - 2 && t.Value.Walkable).OrderBy(t => Random.value).First().Value;
     }
+
+    public Tile GetRorySpawnTile()
+    {
+        return _tiles.Where(t => t.Key.x > _width / 2 && t.Key.x < _width - 3 && t.Key.y == 5 && t.Value.Walkable)
+            .OrderBy(t => Random.value).First().Value;
+    }
+
     public Vector2 GetTileCoordinate(Tile tile)
     {
         Vector2 tmp = _tiles.Where(a => a.Value == tile).FirstOrDefault().Key;

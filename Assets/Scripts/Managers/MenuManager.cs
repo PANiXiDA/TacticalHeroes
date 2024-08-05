@@ -11,13 +11,16 @@ using Cysharp.Threading.Tasks;
 using UnityEngine.EventSystems;
 using System.Threading;
 using Unity.VisualScripting;
+using static UnityEngine.UI.CanvasScaler;
+using Assets.Scripts.IActions;
 
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
     [SerializeField] private GameObject _tileInfoPanel, _unitInfoPanel, _chatPanel, _endBattlePanel, _surrenderPanel, _exitBtn,
-        _waitBtn, _defBtn, _shiftBtn, _timer, _factionChoosingPanel, _difficultyLevelPanel, _playerHeroPortret, _enemyHeroPortret;
+        _waitBtn, _defBtn, _shiftBtn, _timer, _factionChoosingPanel, _difficultyLevelPanel, _playerHeroPortret, _enemyHeroPortret,
+        _roryTalk;
     [SerializeField] private RectTransform _ATBIcons;
     private CancellationTokenSource _cancellationTokenSource;
 
@@ -359,6 +362,18 @@ public class MenuManager : MonoBehaviour
             "<color=#10CEEB>Человеческий разум</color> сегодня потерпел поражение!"
         );
     }
+
+    public void RoryWinPanel()
+    {
+        _exitBtn.SetActive(false);
+        SetPanelTexts(
+            _endBattlePanel,
+            "Поражение",
+            "<color=#FF6666>Любимое существо</color> победила!",
+            "<color=#10CEEB>Миша</color> сегодня опять играет один :("
+        );
+    }
+
     public void ShowSurrenderPanel()
     {
         if (GameManager.Instance.PlayerFaction != null && GameManager.Instance.GameDifficulty != null)
@@ -408,7 +423,7 @@ public class MenuManager : MonoBehaviour
 
         if (faction == Faction.Citadel)
         {
-            playerHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Ilisei");
+            playerHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Misha");
             if (difficulty == DifficultyLevel.Easy)
             {
                 enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Meldd");
@@ -424,7 +439,7 @@ public class MenuManager : MonoBehaviour
         }
         else
         {
-            playerHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Misha");
+            playerHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Ilisei");
             if (difficulty == DifficultyLevel.Easy)
             {
                 enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/DeimanEasy");
@@ -444,5 +459,39 @@ public class MenuManager : MonoBehaviour
 
         _enemyHeroPortret.GetComponentInChildren<SpriteRenderer>().sprite = enemyHeroPortret;
         _enemyHeroPortret.SetActive(true);
+    }
+
+    public async UniTask ShowRoryTalk(BaseUnit unit, IDamage damage)
+    {
+        _exitBtn.SetActive(false);
+        _roryTalk.SetActive(true);
+        await UniTask.Delay(5000);
+        SoundManager.Instance.PLayLaughSound().Forget();
+        _roryTalk.GetComponentInChildren<TextMeshPro>().text = "Наивный и глупый мальчишка... Умри!";
+        await UniTask.Delay(3000);
+
+        var menuLayerId = SortingLayer.NameToID("Menu");
+
+        GameObject fire = new GameObject("Fire");
+        fire.transform.position = new Vector3(5, 6, 0);
+        fire.transform.localScale = new Vector3(15, 15, 15);
+
+        SpriteRenderer spriteRenderer = fire.AddComponent<SpriteRenderer>();
+        spriteRenderer.sortingLayerID = menuLayerId;
+        spriteRenderer.sortingOrder = 2;
+
+        Animator animator = fire.AddComponent<Animator>();
+        RuntimeAnimatorController controller = Resources.Load<RuntimeAnimatorController>("Animations/Rory/Fire");
+        animator.runtimeAnimatorController = controller;
+
+        animator.Play("Fire");
+        SoundManager.Instance.PLayFireSound().Forget();
+
+        _roryTalk.SetActive(false);
+        UnitManager.Instance.KillAllUnits(unit, damage);
+
+        await UniTask.Delay(3750);
+
+        Destroy(animator.gameObject);
     }
 }
