@@ -22,7 +22,7 @@ namespace Assets.Scripts.Units.Enemies
         {
             base.Start();
             _damageRangeCalculator = new DefaultDamage();
-            _damageMeleeCalculator = new HalfDamage(_damageRangeCalculator);
+            _damageMeleeCalculator = new PercentDefaultDamage(0.5);
             _move = new DefaultMove();
             _meleeAttack = new DefaultMeleeAttack(_damageMeleeCalculator);
             _rangeAttack = new DefaultRangeAttack(_damageRangeCalculator);

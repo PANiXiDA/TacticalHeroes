@@ -20,5 +20,7 @@ namespace Assets.Scripts.Enumerations
         FullMeleeDamage = 6,
         [Description("Отбрасывающий удар")]
         DiscardMeleeAttack = 7,
+        [Description("Большой щит")]
+        BigShield = 8
     }
 }

@@ -130,9 +130,11 @@ public class MenuManager : MonoBehaviour
             }
         }
     }
-    public void DisplayDamageWithDeathCountInChat(BaseUnit hero, BaseUnit enemy, int damage, int countDeaths)
+    public void DisplayDamageWithDeathCountInChat(BaseUnit attacker, BaseUnit defender, int damage, int countDeaths)
     {
-        _chatPanel.GetComponentInChildren<TextMeshProUGUI>().text += $"<color=red>{hero.UnitName}</color> нанес {damage} урона по <color=blue>{enemy.UnitName}</color>." +
+        var attackerColor = attacker.Side == Side.Player ? "red" : "blue";
+        var defenderColor = defender.Side == Side.Player ? "red" : "blue";
+        _chatPanel.GetComponentInChildren<TextMeshProUGUI>().text += $"<color={attackerColor}>{attacker.UnitName}</color> нанес {damage} урона по <color={defenderColor}>{defender.UnitName}</color>." +
             $"{(countDeaths > 0 ? $" ѕогибло {countDeaths}.\n" : $"\n")}";
 
         Scrollbar scrollbar = _chatPanel.GetComponentInChildren<Scrollbar>(true);

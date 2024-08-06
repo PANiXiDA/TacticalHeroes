@@ -7,7 +7,7 @@ namespace Assets.Scripts.Actions.TakeDamage
 {
     public class DefaultTakeDamage : ITakeDamage
     {
-        public async UniTask TakeMeleeDamage(BaseUnit attacker, BaseUnit defender, IDamage damageCalculator)
+        public virtual async UniTask TakeMeleeDamage(BaseUnit attacker, BaseUnit defender, IDamage damageCalculator)
         {
             (int damage, int countDeathUnits) = damageCalculator.CalculateDamageAndDeathUnit(attacker, defender);
 
@@ -30,7 +30,7 @@ namespace Assets.Scripts.Actions.TakeDamage
                 await UniTask.Delay(1000);
             }
         }
-        public async UniTask TakeRangeDamage(BaseUnit attacker, BaseUnit defender, IDamage damageCalculator)
+        public virtual async UniTask TakeRangeDamage(BaseUnit attacker, BaseUnit defender, IDamage damageCalculator)
         {
             (int damage, int countDeathUnits) = damageCalculator.CalculateDamageAndDeathUnit(attacker, defender);
 
