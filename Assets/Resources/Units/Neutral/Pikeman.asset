@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Pikeman
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: -2580786971841340955, guid: 55a137c5a1c353041b699acc8f326a14, type: 3}
-  IsActive: 1
+  IsActive: 0

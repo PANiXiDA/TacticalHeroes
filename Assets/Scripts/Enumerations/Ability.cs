@@ -23,6 +23,8 @@ namespace Assets.Scripts.Enumerations
         [Description("Большой щит")]
         BigShield = 8,
         [Description("Враг не сопротивляется")]
-        NoResponseAttack = 9
+        NoResponseAttack = 9,
+        [Description("Бдительность")]
+        AttackFirst = 10
     }
 }

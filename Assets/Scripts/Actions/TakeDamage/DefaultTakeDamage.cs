@@ -11,6 +11,8 @@ namespace Assets.Scripts.Actions.TakeDamage
         {
             (int damage, int countDeathUnits) = damageCalculator.CalculateDamageAndDeathUnit(attacker, defender);
 
+            UnitManager.Instance.PlayAttackAnimation(attacker, defender);
+
             defender.animator.Play("TakeDamage");
 
             if (defender.UnitCurrentHealth > damage)

@@ -18,8 +18,6 @@ namespace Assets.Scripts.Actions.Attack.MeleeAttack
 
             UnitManager.Instance.ChangeUnitFlip(attacker, defender.OccupiedTile);
 
-            UnitManager.Instance.PlayAttackAnimation(attacker, defender);
-
             bool isLuck = UnitManager.Instance.Luck(attacker);
             _damageCalculator.isLuck = isLuck;
 

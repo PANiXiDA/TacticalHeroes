@@ -167,12 +167,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: "\u0424\u0430\u0443\u0441\u0442"
   OccupiedTile: {fileID: 0}
-  Side: 0
+  Side: 1
   Faction: 0
   Tier: 4
   UnitAttack: 15
   UnitDefence: 5
-  UnitFullHealth: 500
+  UnitFullHealth: 50
   UnitMinDamage: 25
   UnitMaxDamage: 40
   UnitInitiative: 18
