@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.IActions;
 using Assets.Scripts.Interfaces;
-using Assets.Scripts.UI;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;

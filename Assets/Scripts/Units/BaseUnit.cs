@@ -70,11 +70,11 @@ public class BaseUnit : MonoBehaviour
     [HideInInspector]
     public bool isBusy;
 
-    private IDamage _damageCalculator;
-    private IMove _move;
-    private IMeleeAttack _meleeAttack;
-    private IRangeAttack _rangeAttack;
-    private ITakeDamage _takeDamage;
+    protected IDamage _damageCalculator;
+    protected IMove _move;
+    protected IMeleeAttack _meleeAttack;
+    protected IRangeAttack _rangeAttack;
+    protected ITakeDamage _takeDamage;
 
     protected virtual void Awake()
     {

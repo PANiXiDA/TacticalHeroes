@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Titan
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: -333811484540713482, guid: e120485ff4be4dd49bbd035b1ca29605, type: 3}
-  IsActive: 1
+  IsActive: 0

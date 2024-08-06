@@ -7,7 +7,6 @@ namespace Assets.Scripts.Units.Rory
 {
     public class Rory : BaseUnit
     {
-        private IDamage _damageCalculator;
         protected override void Awake()
         {
             SoundManager.Instance.PlayRoryBattleSound();

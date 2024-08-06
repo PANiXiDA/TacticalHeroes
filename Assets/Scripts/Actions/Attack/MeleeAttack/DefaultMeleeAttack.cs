@@ -6,7 +6,7 @@ namespace Assets.Scripts.Actions.Attack.MeleeAttack
 {
     public class DefaultMeleeAttack : IMeleeAttack
     {
-        private IDamage _damageCalculator;
+        protected IDamage _damageCalculator;
         public DefaultMeleeAttack(IDamage damageCalculator) 
         {
             _damageCalculator = damageCalculator;
@@ -20,27 +20,38 @@ namespace Assets.Scripts.Actions.Attack.MeleeAttack
 
             UnitManager.Instance.PlayAttackAnimation(attacker, defender);
 
-            bool responseAttack = UnitManager.Instance.IsResponseAttack(attacker);
-
             bool isLuck = UnitManager.Instance.Luck(attacker);
             _damageCalculator.isLuck = isLuck;
 
+            var death = await EnemyTakeDamage(attacker, defender);
+
+            await ResponseAttack(attacker, defender, death);
+
+            UnitManager.Instance.SetOriginalUnitFlip(attacker);
+
+            attacker.isBusy = false;
+        }
+
+        protected virtual async UniTask<bool> EnemyTakeDamage(BaseUnit attacker, BaseUnit defender)
+        {
             await defender.TakeMeleeDamage(attacker, defender, _damageCalculator);
             bool death = UnitManager.Instance.IsDead(defender);
             if (death)
             {
                 await defender.Death();
             }
+            return !death;
+        }
 
-            if (!death && !responseAttack && defender.UnitResponse)
+        protected virtual async UniTask ResponseAttack(BaseUnit attacker, BaseUnit defender, bool isCanAttack)
+        {
+            bool isResponseAttack = UnitManager.Instance.IsResponseAttack(attacker);
+
+            if (isCanAttack && !isResponseAttack && defender.UnitResponse)
             {
                 defender.UnitResponse = false;
                 await defender.MeleeAttack(defender, attacker, defender.OccupiedTile);
             }
-
-            UnitManager.Instance.SetOriginalUnitFlip(attacker);
-
-            attacker.isBusy = false;
         }
     }
 }

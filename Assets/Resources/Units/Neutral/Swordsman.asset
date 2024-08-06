@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Swordsman
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 5002053638561645539, guid: b4246491e8421ed40a277015e47427cc, type: 3}
-  IsActive: 1
+  IsActive: 0

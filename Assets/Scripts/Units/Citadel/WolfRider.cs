@@ -11,17 +11,6 @@ namespace Assets.Scripts.Units.Enemies
 {
     public class WolfRider : BaseCitadelUnit
     {
-        private IDamage _damageCalculator;
-        private IMove _move;
-        private IMeleeAttack _meleeAttack;
-
-        protected override void Start()
-        {
-            base.Start();
-            _damageCalculator = new DefaultDamage();
-            _move = new DefaultMove();
-            _meleeAttack = new DefaultMeleeAttack(_damageCalculator);
-        }
         public override async UniTask MeleeAttack(BaseUnit attacker, BaseUnit defender, Tile targetTile)
         {
             await _move.Move(attacker, targetTile);

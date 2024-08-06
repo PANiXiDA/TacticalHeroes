@@ -21,6 +21,8 @@ namespace Assets.Scripts.Enumerations
         [Description("Отбрасывающий удар")]
         DiscardMeleeAttack = 7,
         [Description("Большой щит")]
-        BigShield = 8
+        BigShield = 8,
+        [Description("Враг не сопротивляется")]
+        NoResponseAttack = 9
     }
 }
