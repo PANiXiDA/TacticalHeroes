@@ -25,6 +25,8 @@ namespace Assets.Scripts.Enumerations
         [Description("Враг не сопротивляется")]
         NoResponseAttack = 9,
         [Description("Бдительность")]
-        AttackFirst = 10
+        AttackFirst = 10,
+        [Description("Рыцарский разбег")]
+        KnightRunUp = 11,
     }
 }

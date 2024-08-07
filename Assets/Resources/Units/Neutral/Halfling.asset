@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Halfling
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 296104774034896483, guid: f59316a46e343e84d8333c7ec02c2252, type: 3}
-  IsActive: 0
+  IsActive: 1

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Druid
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: -1942590088157479045, guid: 4122da180cb1750439245fab2d800d7b, type: 3}
-  IsActive: 0
+  IsActive: 1

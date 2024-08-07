@@ -15,7 +15,7 @@ namespace Assets.Scripts.Helpers
             {
                 return attribute.Description;
             }
-            return "Описание не найдено";
+            return nameof(ability);
         }
     }
 }

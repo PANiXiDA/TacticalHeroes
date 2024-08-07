@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Lich
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: -3568245931418224617, guid: 14f3565d4a4b7514ca61e6107659079c, type: 3}
-  IsActive: 1
+  IsActive: 0
