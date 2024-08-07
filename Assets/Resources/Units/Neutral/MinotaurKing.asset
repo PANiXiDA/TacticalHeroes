@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MinotaurKing
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: -3426387712769988095, guid: 7642fbdd0e5b18c479c7aa73e05ee8a3, type: 3}
-  IsActive: 1
+  IsActive: 0

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Boar
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 5728992870200140249, guid: fa17f05d7aec3134bab60e5a9ada39a2, type: 3}
-  IsActive: 1
+  IsActive: 0

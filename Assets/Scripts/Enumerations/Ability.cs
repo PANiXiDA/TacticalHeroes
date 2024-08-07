@@ -9,7 +9,7 @@ namespace Assets.Scripts.Enumerations
         [Description("Стрелок")]
         Archer = 1,
         [Description("Двойной удар")]
-        DoubleAttack = 2,
+        DoubleMeleeAttack = 2,
         [Description("Огненное дыхание")]
         FieryBreath = 3,
         [Description("Нежить")]
@@ -30,5 +30,9 @@ namespace Assets.Scripts.Enumerations
         KnightRunUp = 11,
         [Description("Атака по линии")]
         LineAttack = 12,
+        [Description("Снайпер")]
+        Sniper = 13,
+        [Description("Двойной выстрел")]
+        DoubleRangeAttack = 14
     }
 }

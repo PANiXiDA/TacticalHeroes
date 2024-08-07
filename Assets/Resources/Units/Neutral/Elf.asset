@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Elf
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: -5105900990415390573, guid: 72ba9ba1303e09d4092c340833be2c4a, type: 3}
-  IsActive: 1
+  IsActive: 0
