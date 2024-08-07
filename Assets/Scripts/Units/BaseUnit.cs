@@ -60,7 +60,7 @@ public class BaseUnit : MonoBehaviour
     public List<Ability> abilities;
     public Animator animator;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool UnitResponse;
     [HideInInspector]
     public double UnitATB;

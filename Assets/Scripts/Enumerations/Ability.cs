@@ -28,5 +28,7 @@ namespace Assets.Scripts.Enumerations
         AttackFirst = 10,
         [Description("Рыцарский разбег")]
         KnightRunUp = 11,
+        [Description("Атака по линии")]
+        LineAttack = 12,
     }
 }

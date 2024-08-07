@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: "\u041F\u0442\u0438\u0446\u0430 \u0440\u0443\u0445"
   OccupiedTile: {fileID: 0}
-  Side: 0
+  Side: 1
   Faction: 1
   Tier: 5
   UnitAttack: 17
@@ -176,7 +176,7 @@ MonoBehaviour:
   UnitMinDamage: 25
   UnitMaxDamage: 40
   UnitInitiative: 17
-  UnitSpeed: 16
+  UnitSpeed: 8
   UnitCount: 15
   UnitAdditionalDefence: 0
   UnitCurrentHealth: 50
