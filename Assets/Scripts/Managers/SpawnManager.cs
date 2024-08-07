@@ -34,8 +34,8 @@ namespace Assets.Scripts.Managers
                 {
                     unit.UnitPrefab.Side = Side.Enemy;
                 }
-            }     
-            //SetUnitsForNeutralFaction();
+            }
+            SetUnitsForNeutralFaction();
             GameManager.Instance.ChangeState(GameState.SpawnPlayerUnits);
         }
 
@@ -106,10 +106,11 @@ namespace Assets.Scripts.Managers
             List<int> countUnits = new List<int>() { 2, 6, 16, 21, 216 };
 
             foreach (var count in countUnits)
-            {
+            {             
                 abaddon.UnitCount = count;
                 var spawnedAbaddon = Instantiate(abaddon);
-                spawnedAbaddon.UnitName = $"{spawnedAbaddon.UnitName} {count}";
+
+                spawnedAbaddon.UnitName = $"{spawnedAbaddon.UnitName} {(count == 216 ? (Random.Range(0, 2) == 0 ? 21 : 16) : count)}";
 
                 var abaddonSpawnTile = GridManager.Instance.GetEnemySpawnTile();
 

@@ -35,6 +35,10 @@ namespace Assets.Scripts.Enumerations
         [Description("Двойной выстрел")]
         DoubleRangeAttack = 14,
         [Description("Божественная защита")]
-        GodDefence = 14
+        GodDefence = 15,
+        [Description("Бесконечный отпор")]
+        UnlimitResponce = 16,
+        [Description("Игнорирование защиты")]
+        IgnoreDefence = 17,
     }
 }

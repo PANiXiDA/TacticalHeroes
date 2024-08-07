@@ -24,7 +24,7 @@ namespace Assets.Scripts.Actions.Attack.MeleeAttack
             {
                 discard = DiscardAttack(attacker, defender);
             }
-            return !(discard & death);
+            return discard & !death;
         }
 
         private bool DiscardAttack(BaseUnit attacker, BaseUnit defender)

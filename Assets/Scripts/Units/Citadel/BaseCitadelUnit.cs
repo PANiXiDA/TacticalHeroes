@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Enumerations;
+﻿using Assets.Scripts.Actions.Damage;
+using Assets.Scripts.Enumerations;
 
 namespace Assets.Scripts.Units.Citadel
 {
@@ -8,6 +9,7 @@ namespace Assets.Scripts.Units.Citadel
         {
             base.Awake();
             Faction = Faction.Citadel;
+            _damageCalculator = new PercentDefaultDamage(1.3);
         }
     }
 }

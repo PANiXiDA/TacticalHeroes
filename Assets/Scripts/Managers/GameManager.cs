@@ -69,4 +69,10 @@ public class GameManager : MonoBehaviour
         MenuManager.Instance.SetHeroPortrets();
         SpawnManager.Instance.SetUnitsSettings();
     }
+
+    public void SaveData()
+    {
+        PlayerPrefs.SetInt(PlayerFaction.Value.ToString(), (int)GameDifficulty.Value + 1);
+        PlayerPrefs.Save();
+    }
 }

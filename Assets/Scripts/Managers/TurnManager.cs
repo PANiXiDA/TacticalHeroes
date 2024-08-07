@@ -166,6 +166,7 @@ namespace Assets.Scripts.Managers
                 }
                 else if (SpawnManager.Instance.EnemyUnits.Count == 0)
                 {
+                    GameManager.Instance.SaveData();
                     GameManager.Instance.ChangeState(GameState.GameOver);
                     MenuManager.Instance.WinPanel();
                 }

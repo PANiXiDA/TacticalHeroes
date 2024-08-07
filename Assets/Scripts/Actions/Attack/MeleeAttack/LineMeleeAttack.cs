@@ -73,7 +73,7 @@ namespace Assets.Scripts.Actions.Attack.MeleeAttack
             foreach (var offset in offsets)
             {
                 Tile tile = GridManager.Instance.GetTileAtPosition(offset);
-                if (tile != null && tile.OccupiedUnit != null)
+                if (tile != null && tile.OccupiedUnit != null && tile.OccupiedUnit.Side != attacker.Side)
                 {
                     unitsForAttack.Add(tile.OccupiedUnit);
                 }

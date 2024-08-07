@@ -7924,7 +7924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.09052084, y: 0.591}
   m_AnchorMax: {x: 0.15247917, y: 0.70062965}
-  m_AnchoredPosition: {x: -688.37305, y: 143.21866}
+  m_AnchoredPosition: {x: -688.37366, y: 143.21866}
   m_SizeDelta: {x: 113.03427, y: 107.02702}
   m_Pivot: {x: 0.5, y: 0.5000002}
 --- !u!114 &1328554823
@@ -13401,7 +13401,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u0416\u0418\u0417\u041D\u042C \u0421\u0414\u0415\u041B\u0410\u0415\u0422
-    \u0412\u0421\u0415\u0425"
+    \u0412\u0421\u0415\u0425\n21?? ... 16?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

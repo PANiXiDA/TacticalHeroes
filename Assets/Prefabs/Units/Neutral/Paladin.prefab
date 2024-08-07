@@ -175,7 +175,7 @@ MonoBehaviour:
   UnitFullHealth: 75
   UnitMinDamage: 20
   UnitMaxDamage: 40
-  UnitInitiative: 110
+  UnitInitiative: 11
   UnitSpeed: 6
   UnitCount: 10
   UnitAdditionalDefence: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   UnitSuccessfulLuck: 0
   UnitProbabilityMorale: 0
   UnitProbabilityLuck: 0
-  abilities: 
+  abilities: 0f000000
   animator: {fileID: -3887475842749378624}
   UnitResponse: 0
   UnitATB: 0

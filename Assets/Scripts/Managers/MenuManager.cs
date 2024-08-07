@@ -11,7 +11,6 @@ using Cysharp.Threading.Tasks;
 using UnityEngine.EventSystems;
 using System.Threading;
 using Assets.Scripts.IActions;
-using DG.Tweening;
 using Unity.VisualScripting;
 
 public class MenuManager : MonoBehaviour
@@ -407,6 +406,22 @@ public class MenuManager : MonoBehaviour
     }
     public void DifficultyLevelPanelSetActive(bool active)
     {
+        var playerFaction = GameManager.Instance.PlayerFaction.Value;
+        int levelCompleted = PlayerPrefs.GetInt(playerFaction.ToString(), 0);
+
+        GameObject middleDifficultBtn = _difficultyLevelPanel.transform.Find("MiddleDifficultBtn").gameObject;
+        if (levelCompleted < 1)
+        {
+            middleDifficultBtn.GetComponentInChildren<Image>().color = Color.black;
+            Destroy(middleDifficultBtn.GetComponent<Button>());
+        }
+        GameObject hardDifficultBtn = _difficultyLevelPanel.transform.Find("HardDifficultBtn").gameObject;
+        if (levelCompleted < 2)
+        {
+            hardDifficultBtn.GetComponentInChildren<Image>().color = Color.black;
+            Destroy(hardDifficultBtn.GetComponent<Button>());
+        }
+
         _difficultyLevelPanel.SetActive(active);
         if (!active)
         {
