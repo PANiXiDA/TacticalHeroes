@@ -33,6 +33,8 @@ namespace Assets.Scripts.Enumerations
         [Description("Снайпер")]
         Sniper = 13,
         [Description("Двойной выстрел")]
-        DoubleRangeAttack = 14
+        DoubleRangeAttack = 14,
+        [Description("Божественная защита")]
+        GodDefence = 14
     }
 }
