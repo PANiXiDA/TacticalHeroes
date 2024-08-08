@@ -173,11 +173,11 @@ MonoBehaviour:
   UnitAttack: 10
   UnitDefence: 5
   UnitFullHealth: 20
-  UnitMinDamage: 15
-  UnitMaxDamage: 20
+  UnitMinDamage: 4
+  UnitMaxDamage: 6
   UnitInitiative: 12
-  UnitSpeed: 3
-  UnitCount: 30
+  UnitSpeed: 5
+  UnitCount: 70
   UnitAdditionalDefence: 0
   UnitCurrentHealth: 20
   UnitMorale: 0

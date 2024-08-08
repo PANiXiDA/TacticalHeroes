@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.IActions;
+using Assets.Scripts.Managers;
 using Cysharp.Threading.Tasks;
 
 namespace Assets.Scripts.Units.Neutral
@@ -7,12 +8,19 @@ namespace Assets.Scripts.Units.Neutral
     {
         public override async UniTask TakeMeleeDamage(BaseUnit attacker, BaseUnit defender, IDamage damageCalculator)
         {
-            if (UnitResponse)
+            if (UnitResponse && defender.Side != GameManager.Instance.CurrentSide)
             {
                 await _meleeAttack.MeleeAttack(defender, attacker);
             }
             UnitResponse = false;
-            await _takeDamage.TakeMeleeDamage(attacker, defender, damageCalculator);
+            if (attacker.UnitCount > 0)
+            {
+                await _takeDamage.TakeMeleeDamage(attacker, defender, damageCalculator);
+            }
+            else
+            {
+                TurnManager.Instance.EndTurn(attacker, true);
+            }
         }
     }
 }

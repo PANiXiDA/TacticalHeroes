@@ -157,7 +157,7 @@ namespace Assets.Scripts.Managers
 
                 if (GameManager.Instance.GameDifficulty == DifficultyLevel.Medium)
                 {
-                    spawnedEnemy.UnitCount *= 2;
+                    spawnedEnemy.UnitCount = (int)(spawnedEnemy.UnitCount * 1.35);
                 }
                 else if (GameManager.Instance.GameDifficulty == DifficultyLevel.Hard)
                 {

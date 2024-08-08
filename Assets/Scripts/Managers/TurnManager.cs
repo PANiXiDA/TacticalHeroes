@@ -108,7 +108,7 @@ namespace Assets.Scripts.Managers
                 {
                     if (ATB[i].Value == unit)
                     {
-                        ATB[i] = new KeyValuePair<double, BaseUnit>(ATB[i].Key + 50 / unit.UnitInitiative, ATB[i].Value);
+                        ATB[i] = new KeyValuePair<double, BaseUnit>(ATB[i].Key + 100 / unit.UnitInitiative, ATB[i].Value);
                     }
                 }
                 var x = ATB.FirstOrDefault();
@@ -145,7 +145,14 @@ namespace Assets.Scripts.Managers
         {
             Tile.Instance.DeleteHighlight();
 
-            unit.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            if (unit.UnitCount > 0)
+            {
+                unit.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            }
+            else
+            {
+                unit.GetComponent<SpriteRenderer>().sortingOrder = -1;
+            }
 
             if (GameManager.Instance.GameState == GameState.PlayerTurn)
             {

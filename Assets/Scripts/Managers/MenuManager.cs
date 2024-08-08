@@ -11,7 +11,6 @@ using Cysharp.Threading.Tasks;
 using UnityEngine.EventSystems;
 using System.Threading;
 using Assets.Scripts.IActions;
-using Unity.VisualScripting;
 
 public class MenuManager : MonoBehaviour
 {
@@ -514,18 +513,7 @@ public class MenuManager : MonoBehaviour
         _abaddonTalk.SetActive(true);
 
         SpriteRenderer spriteRenderer = _abaddonTalk.GetComponent<SpriteRenderer>();
-        if (spriteRenderer == null)
-        {
-            Debug.LogError("SpriteRenderer not found on _abaddonTalk GameObject.");
-            return;
-        }
-
         TextMeshPro textMeshPro = _abaddonTalk.GetComponentInChildren<TextMeshPro>();
-        if (textMeshPro == null)
-        {
-            Debug.LogError("TextMeshPro not found on _abaddonTalk GameObject.");
-            return;
-        }
 
         Color originalSpriteColor = spriteRenderer.color;
         Color originalTextColor = textMeshPro.color;

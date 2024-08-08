@@ -10,7 +10,7 @@ namespace Assets.Scripts.Units.Enemies
         protected override void Start()
         {
             base.Start();
-            PercentIgnoreDefence = 0.3;
+            PercentIgnoreDefence = 0.4;
         }
 
         public override async UniTask MeleeAttack(BaseUnit attacker, BaseUnit defender, Tile targetTile)

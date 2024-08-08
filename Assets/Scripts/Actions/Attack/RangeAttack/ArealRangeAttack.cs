@@ -31,11 +31,23 @@ namespace Assets.Scripts.Actions.Attack.RangeAttack
             List<BaseUnit> defenders = GetArealUnits(defender);
             foreach (var defenderForAttack in defenders)
             {
-                _ = defenderForAttack.TakeRangeDamage(attacker, defenderForAttack, _damageCalculator);
-                bool death = UnitManager.Instance.IsDead(defenderForAttack);
-                if (death)
+                if (defenderForAttack == defender)
                 {
-                    _ = defenderForAttack.Death();
+                    await defenderForAttack.TakeRangeDamage(attacker, defenderForAttack, _damageCalculator);
+                    bool death = UnitManager.Instance.IsDead(defenderForAttack);
+                    if (death)
+                    {
+                        await defenderForAttack.Death();
+                    }
+                }
+                else
+                {
+                    _ = defenderForAttack.TakeRangeDamage(attacker, defenderForAttack, _damageCalculator);
+                    bool death = UnitManager.Instance.IsDead(defenderForAttack);
+                    if (death)
+                    {
+                        _ = defenderForAttack.Death();
+                    }
                 }
             }
 
@@ -46,7 +58,6 @@ namespace Assets.Scripts.Actions.Attack.RangeAttack
         private List<BaseUnit> GetArealUnits(BaseUnit defender)
         {
             List<BaseUnit> defenders = new List<BaseUnit>();
-            defenders.Add(defender);
 
             var directions = new Vector2Int[] {
                 new Vector2Int(1, 0),
@@ -72,6 +83,8 @@ namespace Assets.Scripts.Actions.Attack.RangeAttack
                     }
                 }
             }
+
+            defenders.Add(defender);
 
             return defenders;
         }

@@ -19,7 +19,15 @@ namespace Assets.Scripts.Controllers
             await UniTask.Delay(1000);
 
             var enemy = TurnManager.Instance.ATB.First().Value;
-            var player = SelectRandomPlayer(SpawnManager.Instance.PlayerUnits);
+            BaseUnit player = SelectRandomPlayer(SpawnManager.Instance.PlayerUnits);
+
+            var playerUnits = GetUnitsInTilesForMove(enemy);
+            if (playerUnits.Count > 0)
+            {
+                int randomIndex = Random.Range(0, playerUnits.Count);
+
+                player = playerUnits[randomIndex];
+            }
 
             if (UnitManager.Instance.IsRangeAttackPossible(enemy))
             {
@@ -44,7 +52,7 @@ namespace Assets.Scripts.Controllers
                 else
                 {
                     Debug.Log("Путь меньше нуля");
-                    Debug.Log(pathToEnemy);
+                    Debug.Log(player);
                 }
 
                 if (enemyTilesForMove.ContainsKey(pathToEnemy[pathToEnemy.Count-1]))
@@ -108,6 +116,7 @@ namespace Assets.Scripts.Controllers
 
             return paths.FirstOrDefault();
         }
+
         private List<Vector2> GetTilesAroundPlayer(Vector2 playerCoordinates)
         {
             List<Vector2> tiles = new List<Vector2>();
@@ -129,6 +138,49 @@ namespace Assets.Scripts.Controllers
             }
 
             return tiles;
+        }
+
+        private List<BaseUnit> GetUnitsInTilesForMove (BaseUnit unit)
+        {
+            List<BaseUnit> unitsForAttack = new List<BaseUnit>();
+
+            var directions = new Vector2Int[] {
+                new Vector2Int(1, 0),
+                new Vector2Int(0, 1),
+                new Vector2Int(0, -1),
+                new Vector2Int(-1, 0),
+                new Vector2Int(1, 1),
+                new Vector2Int(1, -1),
+                new Vector2Int(-1, -1),
+                new Vector2Int(-1, 1)
+            };
+
+            var tilesForMove = UnitManager.Instance.GetTilesForMove(unit);
+            foreach (var tileCoord in tilesForMove)
+            {
+                if (tileCoord.Value.OccupiedUnit != null)
+                {
+                    if (!unitsForAttack.Contains(tileCoord.Value.OccupiedUnit) && unit.Side != tileCoord.Value.OccupiedUnit.Side)
+                    {
+                        unitsForAttack.Add(tileCoord.Value.OccupiedUnit);
+                    }
+                }
+                foreach (var direction in directions)
+                {
+                    var tile = GridManager.Instance.GetTileAtPosition(new Vector2(tileCoord.Key.x + direction.x, tileCoord.Key.y + direction.y));
+                    if (tile != null)
+                    {
+                        if (tile.OccupiedUnit != null)
+                        {
+                            if (!unitsForAttack.Contains(tile.OccupiedUnit) && unit.Side != tile.OccupiedUnit.Side)
+                            {
+                                unitsForAttack.Add(tile.OccupiedUnit);
+                            }
+                        }
+                    }
+                }
+            }
+            return unitsForAttack;
         }
     }
 }

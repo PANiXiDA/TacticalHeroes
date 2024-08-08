@@ -170,14 +170,14 @@ MonoBehaviour:
   Side: 0
   Faction: 0
   Tier: 3
-  UnitAttack: 15
-  UnitDefence: 10
-  UnitFullHealth: 50
-  UnitMinDamage: 25
-  UnitMaxDamage: 35
+  UnitAttack: 10
+  UnitDefence: 12
+  UnitFullHealth: 35
+  UnitMinDamage: 15
+  UnitMaxDamage: 23
   UnitInitiative: 12
   UnitSpeed: 6
-  UnitCount: 15
+  UnitCount: 40
   UnitAdditionalDefence: 0
   UnitCurrentHealth: 0
   UnitMorale: 0

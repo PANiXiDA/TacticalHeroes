@@ -26,7 +26,10 @@ namespace Assets.Scripts.Units.Neutral
 
         public override async UniTask MeleeAttack(BaseUnit attacker, BaseUnit defender, Tile targetTile)
         {
-            IsActiveGodShield = true;
+            if (attacker.Side == GameManager.Instance.CurrentSide)
+            {
+                IsActiveGodShield = true;
+            }
             await base.MeleeAttack(attacker, defender, targetTile);
         }
 

@@ -172,9 +172,9 @@ MonoBehaviour:
   Tier: 5
   UnitAttack: 17
   UnitDefence: 12
-  UnitFullHealth: 50
-  UnitMinDamage: 25
-  UnitMaxDamage: 40
+  UnitFullHealth: 65
+  UnitMinDamage: 11
+  UnitMaxDamage: 15
   UnitInitiative: 17
   UnitSpeed: 8
   UnitCount: 15

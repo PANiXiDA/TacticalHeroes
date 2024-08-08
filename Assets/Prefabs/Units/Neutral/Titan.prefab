@@ -175,7 +175,7 @@ MonoBehaviour:
   UnitFullHealth: 300
   UnitMinDamage: 30
   UnitMaxDamage: 50
-  UnitInitiative: 15
+  UnitInitiative: 11
   UnitSpeed: 5
   UnitCount: 4
   UnitAdditionalDefence: 0

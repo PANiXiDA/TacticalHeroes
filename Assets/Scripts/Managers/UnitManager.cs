@@ -160,7 +160,7 @@ public class UnitManager : MonoBehaviour
             string message = $"<color=red>{unit.UnitName}</color> оборона.";
             MenuManager.Instance.AddMessageToChat(message);
             Tile.Instance.DeleteHighlight();
-            TurnManager.Instance.EndTurn(unit);
+            TurnManager.Instance.EndTurn(unit, true);
         }
     }
     public void Wait()

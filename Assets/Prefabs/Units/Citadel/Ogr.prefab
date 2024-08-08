@@ -172,12 +172,12 @@ MonoBehaviour:
   Tier: 3
   UnitAttack: 20
   UnitDefence: 20
-  UnitFullHealth: 50
-  UnitMinDamage: 15
-  UnitMaxDamage: 30
-  UnitInitiative: 15
+  UnitFullHealth: 60
+  UnitMinDamage: 12
+  UnitMaxDamage: 20
+  UnitInitiative: 9
   UnitSpeed: 5
-  UnitCount: 20
+  UnitCount: 50
   UnitAdditionalDefence: 0
   UnitCurrentHealth: 40
   UnitMorale: 0
