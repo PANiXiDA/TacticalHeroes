@@ -14,16 +14,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 956774835688774002, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_Size.x
-      value: 0.55
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 956774835688774002, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_Size.y
-      value: 0.7
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 956774835688774002, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 76473589, guid: 518ddea22a08a744fa045c42e50a8c29, type: 3}
+      objectReference: {fileID: 451652836, guid: b5be785efc3c5474c8abfd646fb04865, type: 3}
     - target: {fileID: 956774835688774002, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_MaskInteraction
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 956774835688774002, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1363682431504045900, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -66,19 +70,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1363682431504045900, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 0.55
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1363682431504045900, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 0.7
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 1363682431504045900, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.86
+      value: 2.15
       objectReference: {fileID: 0}
     - target: {fileID: 1363682431504045900, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.29
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 1952775766025429112, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_Layer
@@ -195,7 +199,7 @@ MonoBehaviour:
   G: 0
   H: 0
   flag: 0
-  TileForAttackMove: {fileID: 0}
+  targetTile: {fileID: 0}
 --- !u!1 &2577502066439238379 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1952775766025429112, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}

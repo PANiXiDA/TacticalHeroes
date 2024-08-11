@@ -166,14 +166,8 @@ namespace Assets.Scripts.Managers
             if (!morale)
             {
                 UpdateATB(unit);
-                if (allUnits.Any(u => u.Faction == Faction.Rory))
+               if (SpawnManager.Instance.EnemyUnits.Count == 0)
                 {
-                    GameManager.Instance.ChangeState(GameState.GameOver);
-                    MenuManager.Instance.RoryWinPanel();
-                }
-                else if (SpawnManager.Instance.EnemyUnits.Count == 0)
-                {
-                    GameManager.Instance.SaveData();
                     GameManager.Instance.ChangeState(GameState.GameOver);
                     MenuManager.Instance.WinPanel();
                 }

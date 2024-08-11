@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.Enumerations;
 using Assets.Scripts.UI;
-using Assets.Scripts.Units.Rory;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -83,64 +82,8 @@ namespace Assets.Scripts.Managers
 
                 randomSpawnTile.SetUnit(spawnedHero, randomSpawnTile);
             }
-            if (GameManager.Instance.GameDifficulty != DifficultyLevel.Hard)
-            {
-                GameManager.Instance.ChangeState(GameState.SpawnEnemyUnits);
-            }
-            else
-            {
-                if (GameManager.Instance.PlayerFaction == Faction.Neutral)
-                {
-                    SpawnAbaddon();
-                }
-                else if (GameManager.Instance.PlayerFaction == Faction.Citadel)
-                {
-                    SpawnRory();
-                }
-            }
-        }
 
-        public void SpawnAbaddon()
-        {
-            var abaddon = _units.FirstOrDefault(u => u.UnitPrefab.Faction == Faction.Citadel && !u.IsActive).UnitPrefab;
-            List<int> countUnits = new List<int>() { 2, 6, 16, 21, 216 };
-
-            foreach (var count in countUnits)
-            {             
-                abaddon.UnitCount = count;
-                var spawnedAbaddon = Instantiate(abaddon);
-
-                spawnedAbaddon.UnitName = $"{spawnedAbaddon.UnitName} {(count == 216 ? (Random.Range(0, 2) == 0 ? 21 : 16) : count)}";
-
-                var abaddonSpawnTile = GridManager.Instance.GetEnemySpawnTile();
-
-                UnitFactory.Instance.CreateOrUpdateUnitVisuals(spawnedAbaddon);
-
-                var spriteRenderer = spawnedAbaddon.GetComponent<SpriteRenderer>();
-                spriteRenderer.flipX = !spriteRenderer.flipX;
-
-                abaddonSpawnTile.SetUnit(spawnedAbaddon, abaddonSpawnTile);
-            }
-            MenuManager.Instance.ShowAbaddonTalk().Forget();
-            SetUnits();
-            GameManager.Instance.ChangeState(GameState.SetATB);
-        }
-
-        public void SpawnRory()
-        {
-            var rory = _units.FirstOrDefault(u => u.UnitPrefab.Faction == Faction.Rory).UnitPrefab;
-            var spawnedRory = Instantiate(rory);
-
-            var rorySpawnTile = GridManager.Instance.GetRorySpawnTile();
-
-            UnitFactory.Instance.CreateOrUpdateUnitVisuals(spawnedRory);
-
-            var spriteRenderer = spawnedRory.GetComponent<SpriteRenderer>();
-            spriteRenderer.flipX = !spriteRenderer.flipX;
-
-            rorySpawnTile.SetUnit(spawnedRory, rorySpawnTile);
-            SetUnits();
-            GameManager.Instance.ChangeState(GameState.SetATB);
+            GameManager.Instance.ChangeState(GameState.SpawnEnemyUnits);
         }
 
         public void SpawnEnemyUnits()
@@ -154,15 +97,6 @@ namespace Assets.Scripts.Managers
             {
                 var spawnedEnemy = Instantiate(unit);
                 var randomSpawnTile = GridManager.Instance.GetEnemySpawnTile();
-
-                if (GameManager.Instance.GameDifficulty == DifficultyLevel.Medium)
-                {
-                    spawnedEnemy.UnitCount = (int)(spawnedEnemy.UnitCount * 1.35);
-                }
-                else if (GameManager.Instance.GameDifficulty == DifficultyLevel.Hard)
-                {
-                    spawnedEnemy.UnitCount *= 3;
-                }
 
                 UnitFactory.Instance.CreateOrUpdateUnitVisuals(spawnedEnemy);
 

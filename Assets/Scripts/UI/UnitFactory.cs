@@ -34,7 +34,7 @@ namespace Assets.Scripts.UI
             square.transform.localPosition = localPosition;
             square.transform.localScale = localScale;
             SpriteRenderer spriteRenderer = square.GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = Resources.Load<Sprite>(spriteName);
+            spriteRenderer.sprite = Resources.Load<Sprite>($"UI/{spriteName}");
             spriteRenderer.color = color;
             spriteRenderer.sortingLayerID = sortingLayerID;
 

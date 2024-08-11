@@ -16,9 +16,9 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
-    [SerializeField] private GameObject _tileInfoPanel, _unitInfoPanel, _chatPanel, _endBattlePanel, _surrenderPanel, _exitBtn,
-        _waitBtn, _defBtn, _shiftBtn, _timer, _factionChoosingPanel, _difficultyLevelPanel, _playerHeroPortret, _enemyHeroPortret,
-        _roryTalk, _abaddonTalk;
+    [SerializeField]
+    private GameObject _tileInfoPanel, _unitInfoPanel, _chatPanel, _endBattlePanel, _surrenderPanel, _exitBtn,
+        _waitBtn, _defBtn, _shiftBtn, _timer, _factionChoosingPanel, _playerHeroPortret, _enemyHeroPortret;
     [SerializeField] private RectTransform _ATBIcons;
     private CancellationTokenSource _cancellationTokenSource;
 
@@ -194,7 +194,7 @@ public class MenuManager : MonoBehaviour
         portrait.transform.SetParent(_ATBIcons, false);
 
         Image image = portrait.AddComponent<Image>();
-        image.sprite = Resources.Load<Sprite>($"Icons/{unitName}");
+        image.sprite = Resources.Load<Sprite>($"Icons/{ATBunit.Faction}/Tier{ATBunit.Tier}/{unitName}");
 
         CreateUnitCountText(portrait.transform, ATBunit.UnitCount);
         CreateContour(portrait.transform, ATBunit.Side);
@@ -261,7 +261,7 @@ public class MenuManager : MonoBehaviour
         contour.transform.localScale = new Vector3(170, 170, 1);
 
         SpriteRenderer spriteRenderer = contour.AddComponent<SpriteRenderer>();
-        spriteRenderer.sprite = Resources.Load<Sprite>("Contour");
+        spriteRenderer.sprite = Resources.Load<Sprite>("UI/Contour");
         spriteRenderer.sortingOrder = 1;
         spriteRenderer.sortingLayerID = sortingLayerID;
         spriteRenderer.color = faction == Side.Player ? Color.red : Color.blue;
@@ -373,7 +373,7 @@ public class MenuManager : MonoBehaviour
 
     public void ShowSurrenderPanel()
     {
-        if (GameManager.Instance.PlayerFaction != null && GameManager.Instance.GameDifficulty != null)
+        if (GameManager.Instance.PlayerFaction != null)
         {
             _surrenderPanel.SetActive(true);
         }
@@ -403,135 +403,16 @@ public class MenuManager : MonoBehaviour
             Destroy(_factionChoosingPanel);
         }
     }
-    public void DifficultyLevelPanelSetActive(bool active)
-    {
-        var playerFaction = GameManager.Instance.PlayerFaction.Value;
-        int levelCompleted = PlayerPrefs.GetInt(playerFaction.ToString(), 0);
 
-        GameObject middleDifficultBtn = _difficultyLevelPanel.transform.Find("MiddleDifficultBtn").gameObject;
-        if (levelCompleted < 1)
-        {
-            middleDifficultBtn.GetComponentInChildren<Image>().color = Color.black;
-            Destroy(middleDifficultBtn.GetComponent<Button>());
-        }
-        GameObject hardDifficultBtn = _difficultyLevelPanel.transform.Find("HardDifficultBtn").gameObject;
-        if (levelCompleted < 2)
-        {
-            hardDifficultBtn.GetComponentInChildren<Image>().color = Color.black;
-            Destroy(hardDifficultBtn.GetComponent<Button>());
-        }
-
-        _difficultyLevelPanel.SetActive(active);
-        if (!active)
-        {
-            Destroy(_difficultyLevelPanel);
-        }
-    }
     public void SetHeroPortrets()
     {
-        Sprite playerHeroPortret;
-        Sprite enemyHeroPortret;
-        DifficultyLevel difficulty = GameManager.Instance.GameDifficulty.Value;
-        Faction faction = GameManager.Instance.PlayerFaction.Value;
-
-        if (faction == Faction.Citadel)
-        {
-            playerHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Misha");
-            if (difficulty == DifficultyLevel.Easy)
-            {
-                enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Meldd");
-            }
-            else if (difficulty == DifficultyLevel.Medium)
-            {
-                enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Julia");
-            }
-            else
-            {
-                enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Rory");
-            }
-        }
-        else
-        {
-            playerHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Ilisei");
-            if (difficulty == DifficultyLevel.Easy)
-            {
-                enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/DeimanEasy");
-            }
-            else if (difficulty == DifficultyLevel.Medium)
-            {
-                enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/DeimanMiddle");
-            }
-            else
-            {
-                enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Abaddon216");
-            }
-        }
+        Sprite playerHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Misha");
+        Sprite enemyHeroPortret = Resources.Load<Sprite>($"HeroPortrets/Rory");
 
         _playerHeroPortret.GetComponentInChildren<SpriteRenderer>().sprite = playerHeroPortret;
         _playerHeroPortret.SetActive(true);
 
         _enemyHeroPortret.GetComponentInChildren<SpriteRenderer>().sprite = enemyHeroPortret;
         _enemyHeroPortret.SetActive(true);
-    }
-
-    public async UniTask ShowRoryTalk(BaseUnit unit, IDamage damage)
-    {
-        _exitBtn.SetActive(false);
-        _roryTalk.SetActive(true);
-        await UniTask.Delay(5000);
-        SoundManager.Instance.PLayLaughSound().Forget();
-        _roryTalk.GetComponentInChildren<TextMeshPro>().text = "Наивный и глупый мальчишка... Умри!";
-        await UniTask.Delay(3000);
-
-        var menuLayerId = SortingLayer.NameToID("Menu");
-
-        GameObject fire = new GameObject("Fire");
-        fire.transform.position = new Vector3(5, 6, 0);
-        fire.transform.localScale = new Vector3(15, 15, 15);
-
-        SpriteRenderer spriteRenderer = fire.AddComponent<SpriteRenderer>();
-        spriteRenderer.sortingLayerID = menuLayerId;
-        spriteRenderer.sortingOrder = 2;
-
-        Animator animator = fire.AddComponent<Animator>();
-        RuntimeAnimatorController controller = Resources.Load<RuntimeAnimatorController>("Animations/Rory/Fire");
-        animator.runtimeAnimatorController = controller;
-
-        animator.Play("Fire");
-        SoundManager.Instance.PLayFireSound().Forget();
-
-        _roryTalk.SetActive(false);
-        UnitManager.Instance.KillAllUnits(unit, damage);
-
-        await UniTask.Delay(3750);
-
-        Destroy(animator.gameObject);
-    }
-
-    public async UniTaskVoid ShowAbaddonTalk()
-    {
-        _abaddonTalk.SetActive(true);
-
-        SpriteRenderer spriteRenderer = _abaddonTalk.GetComponent<SpriteRenderer>();
-        TextMeshPro textMeshPro = _abaddonTalk.GetComponentInChildren<TextMeshPro>();
-
-        Color originalSpriteColor = spriteRenderer.color;
-        Color originalTextColor = textMeshPro.color;
-        float elapsedTime = 0f;
-        float duration = 5f;
-
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / duration);
-
-            spriteRenderer.color = new Color(originalSpriteColor.r, originalSpriteColor.g, originalSpriteColor.b, alpha);
-
-            textMeshPro.color = new Color(originalTextColor.r, originalTextColor.g, originalTextColor.b, alpha);
-
-            await UniTask.Yield();
-        }
-
-        _abaddonTalk.SetActive(false);
     }
 }
