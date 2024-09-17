@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b5be785efc3c5474c8abfd646fb04865
+guid: e0b0d7ae77f946e459275bbab73df038
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -141,22 +141,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kamni_0
+      name: Mountain_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 1022
-        height: 862
+        x: 4
+        y: 444
+        width: 266
+        height: 310
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 310, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73afc9ff0ad7f9148bbd9fb8f82efc79
-      internalID: 451652836
+      spriteID: f4f962c3a0c942e40a238e98b53c1508
+      internalID: 999010826
       vertices: []
       indices: 
       edges: []
@@ -172,7 +172,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      kamni_0: 451652836
+      Mountain_0: 999010826
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

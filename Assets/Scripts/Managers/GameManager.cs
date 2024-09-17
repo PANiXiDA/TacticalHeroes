@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameState GameState;
     public Side CurrentSide;
     public Faction? PlayerFaction;
+    public DifficultyLevel? GameDifficulty;
 
     private void Awake()
     {
@@ -58,7 +59,20 @@ public class GameManager : MonoBehaviour
     {
         PlayerFaction = (Faction)factionId;
         MenuManager.Instance.FactionChoosingPanelSetActive(false);
+        MenuManager.Instance.DifficultyLevelPanelSetActive(true);
+    }
+
+    public void SetGameDifficulty(int difficultId)
+    {
+        GameDifficulty = (DifficultyLevel)difficultId;
+        MenuManager.Instance.DifficultyLevelPanelSetActive(false);
         MenuManager.Instance.SetHeroPortrets();
         SpawnManager.Instance.SetUnitsSettings();
+    }
+
+    public void SaveData()
+    {
+        PlayerPrefs.SetInt(PlayerFaction.Value.ToString(), (int)GameDifficulty.Value + 1);
+        PlayerPrefs.Save();
     }
 }

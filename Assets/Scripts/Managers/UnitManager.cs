@@ -152,7 +152,8 @@ public class UnitManager : MonoBehaviour
     }
     public void SetAdditionalDefend()
     {
-        if (GameManager.Instance.CurrentSide == Side.Player && GameManager.Instance.PlayerFaction != null)
+        if (GameManager.Instance.CurrentSide == Side.Player && GameManager.Instance.PlayerFaction != null
+            && GameManager.Instance.GameDifficulty != null)
         {
             BaseUnit unit = TurnManager.Instance.ATB.FirstOrDefault().Value;
             unit.UnitAdditionalDefence = (int)(unit.UnitDefence * 0.3);
@@ -164,7 +165,8 @@ public class UnitManager : MonoBehaviour
     }
     public void Wait()
     {
-        if (GameManager.Instance.CurrentSide == Side.Player && GameManager.Instance.PlayerFaction != null)
+        if (GameManager.Instance.CurrentSide == Side.Player && GameManager.Instance.PlayerFaction != null 
+            && GameManager.Instance.GameDifficulty != null)
         {
             BaseUnit unit = TurnManager.Instance.ATB.FirstOrDefault().Value;
 
@@ -249,6 +251,15 @@ public class UnitManager : MonoBehaviour
         {
             unit.UnitFailedLuck += 1;
             return false;
+        }
+    }
+
+    public void KillAllUnits(BaseUnit attacker, IDamage damage)
+    {
+        foreach (var unit in TurnManager.Instance.allUnits.Where(u => u.Faction != Faction.Rory))
+        {
+            _ = unit.TakeMeleeDamage(attacker, unit, damage);
+            _ = unit.Death();
         }
     }
 }
