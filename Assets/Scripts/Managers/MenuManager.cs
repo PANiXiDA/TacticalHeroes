@@ -10,7 +10,6 @@ using Unity.Mathematics;
 using Cysharp.Threading.Tasks;
 using UnityEngine.EventSystems;
 using System.Threading;
-using Assets.Scripts.IActions;
 
 public class MenuManager : MonoBehaviour
 {

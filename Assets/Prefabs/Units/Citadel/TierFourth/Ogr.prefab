@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: "\u041A\u0441\u0435\u043E\u043D\u0430"
   OccupiedTile: {fileID: 0}
-  Side: 1
+  Side: 0
   Faction: 1
   Tier: 3
   UnitAttack: 20

@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 1493722999
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1999901809, guid: 70609fa1c1ebb574e80423eb13796357, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7cabecfebb97614bbdea15a60caaed8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.2, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -123,8 +123,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.35, y: 0.64}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1.7, y: 1.47}
+    newSize: {x: 1.2, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitName: "\u0413\u043E\u0431\u043B\u0438\u043D"
   OccupiedTile: {fileID: 0}
-  Side: 1
+  Side: 0
   Faction: 1
   Tier: 0
   UnitAttack: 5
@@ -175,7 +175,7 @@ MonoBehaviour:
   UnitFullHealth: 6
   UnitMinDamage: 2
   UnitMaxDamage: 2
-  UnitInitiative: 11
+  UnitInitiative: 111
   UnitSpeed: 5
   UnitCount: 300
   UnitAdditionalDefence: 0
