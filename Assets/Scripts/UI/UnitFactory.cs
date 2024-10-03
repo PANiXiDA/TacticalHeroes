@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Enumerations;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting;

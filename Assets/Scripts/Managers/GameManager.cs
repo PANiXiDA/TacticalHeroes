@@ -1,8 +1,7 @@
 using UnityEngine;
 using System;
-using Assets.Scripts.Enumerations;
 using Assets.Scripts.Managers;
-using Assets.Scripts.Controllers;
+using Assets.Scripts.AI;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,7 +44,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.EnemyTurn:
                 CurrentSide = Side.Enemy;
-                await AIController.Instance.ExecuteAITurn();
+                await AI.Instance.ExecuteAITurn();
                 break;
             case GameState.GameOver:
                 break;

@@ -5601,7 +5601,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.808, y: 0}
-  m_AnchoredPosition: {x: 11.48, y: -30.590027}
+  m_AnchoredPosition: {x: 11.479996, y: -30.590027}
   m_SizeDelta: {x: 14.49, y: 66.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1179273048
@@ -6773,7 +6773,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.09052084, y: 0.591}
   m_AnchorMax: {x: 0.15247917, y: 0.70062965}
-  m_AnchoredPosition: {x: -688.37585, y: 143.21866}
+  m_AnchoredPosition: {x: -688.3759, y: 143.21866}
   m_SizeDelta: {x: 113.03427, y: 107.02702}
   m_Pivot: {x: 0.5, y: 0.5000002}
 --- !u!114 &1328554823
@@ -8076,7 +8076,7 @@ GameObject:
   - component: {fileID: 1487809431}
   - component: {fileID: 1487809430}
   m_Layer: 5
-  m_Name: EndBtn
+  m_Name: ExitBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10411,9 +10411,9 @@ MonoBehaviour:
   _chatPanel: {fileID: 65497293}
   _endBattlePanel: {fileID: 1734044754}
   _surrenderPanel: {fileID: 579931762}
-  _exitBtn: {fileID: 0}
-  _waitBtn: {fileID: 0}
-  _defBtn: {fileID: 0}
+  _exitBtn: {fileID: 1487809428}
+  _waitBtn: {fileID: 580313171}
+  _defBtn: {fileID: 941934361}
   _shiftBtn: {fileID: 858596344}
   _timer: {fileID: 604808184}
   _factionChoosingPanel: {fileID: 1860438654}

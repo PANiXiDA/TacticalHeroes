@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Scripts.Enumerations;
 using UnityEngine.EventSystems;
+using Assets.Scripts.Managers;
 
 public class Tile : MonoBehaviour
 {

@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Enumerations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Managers
 {
@@ -18,7 +17,7 @@ namespace Assets.Scripts.Managers
 
         public void SetArcherParameters(BaseUnit unit)
         {
-            if (unit.abilities.Contains(Ability.Archer))
+            if (unit.abilities.Contains(UnitAbility.Archer))
             {
                 unit.UnitRange = 6;
                 unit.UnitArrows = 10;

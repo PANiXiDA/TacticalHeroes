@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Enumerations;
-using Assets.Scripts.UI;
+﻿using Assets.Scripts.UI;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -41,7 +40,7 @@ namespace Assets.Scripts.Managers
         public void SetUnitsForNeutralFaction()
         {
 
-            var activeUnitsByTier = new Dictionary<Tier, ScriptableUnit>();
+            var activeUnitsByTier = new Dictionary<UnitTier, ScriptableUnit>();
 
             var neutralUnitsByTier = _units
                 .Where(u => u.UnitPrefab.Faction == Faction.Neutral)

@@ -1,6 +1,3 @@
-using Assets.Scripts.Enumerations;
-using Assets.Scripts.Managers;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
