@@ -4,6 +4,8 @@ using UnityEngine;
 using Zenject;
 using Firebase;
 using Firebase.Auth;
+using Firebase.Firestore;
+using UnityEngine.SceneManagement;
 
 public class AuthManager : MonoBehaviour
 {
@@ -43,7 +45,7 @@ public class AuthManager : MonoBehaviour
         try
         {
             var user = await _auth.SignIn(_emailAuth.text, _passwordAuth.text);
-            Debug.Log("User logged in: " + user.Email);
+            SceneManager.LoadScene(3);
         }
         catch (FirebaseException ex)
         {
@@ -100,7 +102,9 @@ public class AuthManager : MonoBehaviour
 
         //try
         //{
+        //    Debug.Log("AuthManager start integration with FireStore...");
         //    var user = await _userData.GetUserByNicknameAsync(_nicknameRegistration.text);
+        //    Debug.Log("AuthManager end integration with FireStore...");
         //    if (user != null)
         //    {
         //        _formsManager.ShowMessage("A user with this nickname has already been registered!");

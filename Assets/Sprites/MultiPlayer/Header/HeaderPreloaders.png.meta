@@ -1,0 +1,1284 @@
+fileFormatVersion: 2
+guid: 1d6e5ea5cb91b324780acc1f07f01cc0
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PreloaderFirst_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 455
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abc39ddde3613f64ea3e2fb943937409
+      internalID: -1165861378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderSecond_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 455
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feff65e2bfa030d46ac64d680901c1e1
+      internalID: 1724343254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderThird_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 455
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eb8de926efd1724e94bef7d6ea28526
+      internalID: 254793634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderFirst_2
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 395
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65676f01229b2be4198dd2fc6520d775
+      internalID: 622901999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderSecond_2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 395
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e911c2f2c0ed3d34e8e3e40fa99b795c
+      internalID: 1309678086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderThird_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 396
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 744d4a6946388c64b85e2b9bd5580230
+      internalID: 1534954309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderFirst_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 364
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57e1ecb8cfc6d6248927ef6484929ef2
+      internalID: -1387249739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderSecond_3
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 364
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce65235235125c443a8523200645e0e0
+      internalID: 993225376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderThird_3
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 364
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11563924982ae024391b82b091ad2691
+      internalID: 1627113714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderFirst_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 332
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae1473cf67480ba4f9b552c5d9a129eb
+      internalID: -1483162046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderSecond_4
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 332
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e6f53ed4c805045b823209c70929ea
+      internalID: 178561940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderThird_4
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 332
+        width: 25
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4996bbe50950f44591a67052f0e94aa
+      internalID: -1435605948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderFirst_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 301
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f8fd02b3901cf94497c520c2abc62a5
+      internalID: 1136327771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderSecond_5
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 301
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa2b4f92397cf64eac78632be4f0aaf
+      internalID: -1213633337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderThird_5
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 301
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ace11f14b385204ab33251b277cdc01
+      internalID: 17650938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderFirst_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 270
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4774b70df69e1ab47a45b2969802ec48
+      internalID: 1075686529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderSecond_6
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 270
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78d6332e8a77a3d4e8f8de8f5b290ddb
+      internalID: -2106387792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderThird_6
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 269
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85c9089541f124f46b79582f1e91bc06
+      internalID: 53665699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderFirst_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 237
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bfbe81ae2d316d49942eca1c883cefb
+      internalID: -1189415085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderSecond_7
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 238
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee02655745d2ba4384936ca98fa5552
+      internalID: -1642102390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderThird_7
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 239
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b44b4a2c53ef2514780c5b6b2264e419
+      internalID: -2066775661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderFirst_8
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 205
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a50e834c70286bf40ab63ab01dc24d9b
+      internalID: 1824346540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderSecond_8
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 204
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51f8a752dd7df16468c8818cc29ea13f
+      internalID: -1000966722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderThird_8
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 205
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb3b3d7320bafab499dbda969e325925
+      internalID: 1460510761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderFirst_9
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 174
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1679ad0e5ef811448b0e135f778ccbf2
+      internalID: 32066663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderSecond_9
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 173
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebd2a9c26a46e58418eb8081e8cb4854
+      internalID: -523142781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderThird_9
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 173
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29cf493f8e26ab478becb3d97b43f21
+      internalID: -282907805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderFirst_10
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 142
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a21d4db86374d2499c0ccc21316915f
+      internalID: -1116411188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderSecond_10
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 141
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee258a9e0d9b3364f87ba3ae73e775fc
+      internalID: 1788159034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderThird_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 141
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00e1dabfa7b4bf94cb40cb0cdb3867af
+      internalID: -203647605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderFirst_11
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 110
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 158a9c8a5a7313b48b7349cf7791b262
+      internalID: 1692329623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderSecond_11
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 109
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 087adcfe810c7c44ba67b3d1cedf29d2
+      internalID: -779800933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderThird_11
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 110
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 193cf5a405174d949b945042dec6fc80
+      internalID: -1581229763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderFirst_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 78
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 395cb92768698e84ca853b900ed22099
+      internalID: 274702397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderSecond_12
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 78
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212609ae30b19c948ae789ef8403eeee
+      internalID: -1741830895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderThird_12
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 77
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8b7cebc1cb387d47adbac4cc130b89a
+      internalID: 1975193349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderFirst_13
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 46
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530476545835e3c42a538cf1df52defe
+      internalID: -1252046541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderSecond_13
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 46
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f4ee5ea85409f4381c90060c70792b
+      internalID: -766834177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderThird_13
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 46
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c288ce857d8764f8a97222e65f4693
+      internalID: 1293235683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderFirst_14
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 14
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f8204733cdb4894381ff7362425466a
+      internalID: -1810867829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderSecond_14
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 15
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1582c787d22665a4889529ade3455e27
+      internalID: 558690342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PreloaderThird_14
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 15
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a150a0a3c370a64792e8a7a69d0aad3
+      internalID: -2034156006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PreloaderFirst_1: -1165861378
+      PreloaderFirst_10: -1116411188
+      PreloaderFirst_11: 1692329623
+      PreloaderFirst_12: 274702397
+      PreloaderFirst_13: -1252046541
+      PreloaderFirst_14: -1810867829
+      PreloaderFirst_2: 622901999
+      PreloaderFirst_3: -1387249739
+      PreloaderFirst_4: -1483162046
+      PreloaderFirst_5: 1136327771
+      PreloaderFirst_6: 1075686529
+      PreloaderFirst_7: -1189415085
+      PreloaderFirst_8: 1824346540
+      PreloaderFirst_9: 32066663
+      PreloaderSecond_1: 1724343254
+      PreloaderSecond_10: 1788159034
+      PreloaderSecond_11: -779800933
+      PreloaderSecond_12: -1741830895
+      PreloaderSecond_13: -766834177
+      PreloaderSecond_14: 558690342
+      PreloaderSecond_2: 1309678086
+      PreloaderSecond_3: 993225376
+      PreloaderSecond_4: 178561940
+      PreloaderSecond_5: -1213633337
+      PreloaderSecond_6: -2106387792
+      PreloaderSecond_7: -1642102390
+      PreloaderSecond_8: -1000966722
+      PreloaderSecond_9: -523142781
+      PreloaderThird_1: 254793634
+      PreloaderThird_10: -203647605
+      PreloaderThird_11: -1581229763
+      PreloaderThird_12: 1975193349
+      PreloaderThird_13: 1293235683
+      PreloaderThird_14: -2034156006
+      PreloaderThird_2: 1534954309
+      PreloaderThird_3: 1627113714
+      PreloaderThird_4: -1435605948
+      PreloaderThird_5: 17650938
+      PreloaderThird_6: 53665699
+      PreloaderThird_7: -2066775661
+      PreloaderThird_8: 1460510761
+      PreloaderThird_9: -282907805
+      Preloaders-Photoroom_0: -1295074131
+      Preloaders-Photoroom_10: 152946204
+      Preloaders-Photoroom_100: 1638674966
+      Preloaders-Photoroom_101: 1525330022
+      Preloaders-Photoroom_102: -1822912328
+      Preloaders-Photoroom_103: -1934555604
+      Preloaders-Photoroom_104: -516744619
+      Preloaders-Photoroom_105: 57887028
+      Preloaders-Photoroom_106: -1124947032
+      Preloaders-Photoroom_107: -1513899600
+      Preloaders-Photoroom_108: -1757066994
+      Preloaders-Photoroom_109: 791418709
+      Preloaders-Photoroom_11: 2129520073
+      Preloaders-Photoroom_110: -1649847531
+      Preloaders-Photoroom_111: 1128299627
+      Preloaders-Photoroom_112: -636812690
+      Preloaders-Photoroom_116: 200115733
+      Preloaders-Photoroom_117: 983443032
+      Preloaders-Photoroom_118: -377285040
+      Preloaders-Photoroom_119: 465079948
+      Preloaders-Photoroom_12: 163986527
+      Preloaders-Photoroom_120: 174425978
+      Preloaders-Photoroom_121: -399110272
+      Preloaders-Photoroom_122: -1169758137
+      Preloaders-Photoroom_123: 2018588340
+      Preloaders-Photoroom_124: 822352512
+      Preloaders-Photoroom_125: 2005640209
+      Preloaders-Photoroom_126: 1237995595
+      Preloaders-Photoroom_127: -2079019639
+      Preloaders-Photoroom_128: -268687453
+      Preloaders-Photoroom_129: 273298664
+      Preloaders-Photoroom_13: -777675042
+      Preloaders-Photoroom_130: 230850775
+      Preloaders-Photoroom_131: -733871445
+      Preloaders-Photoroom_135: 73635620
+      Preloaders-Photoroom_136: -1315513357
+      Preloaders-Photoroom_137: 628595176
+      Preloaders-Photoroom_138: -543218604
+      Preloaders-Photoroom_139: 205023128
+      Preloaders-Photoroom_14: 1480670786
+      Preloaders-Photoroom_140: -1015312126
+      Preloaders-Photoroom_141: -124446387
+      Preloaders-Photoroom_142: -470656322
+      Preloaders-Photoroom_143: 1491747019
+      Preloaders-Photoroom_144: -1163136270
+      Preloaders-Photoroom_145: -1440367178
+      Preloaders-Photoroom_146: 2093761111
+      Preloaders-Photoroom_147: -1490752721
+      Preloaders-Photoroom_148: -1590067120
+      Preloaders-Photoroom_149: 1032983950
+      Preloaders-Photoroom_15: 457925675
+      Preloaders-Photoroom_150: -302229621
+      Preloaders-Photoroom_154: -98703840
+      Preloaders-Photoroom_155: -2080313123
+      Preloaders-Photoroom_156: -1250872631
+      Preloaders-Photoroom_157: -1901616020
+      Preloaders-Photoroom_158: -1371486472
+      Preloaders-Photoroom_159: -753854190
+      Preloaders-Photoroom_16: -1883293590
+      Preloaders-Photoroom_160: 956793125
+      Preloaders-Photoroom_161: -564732373
+      Preloaders-Photoroom_162: 549534019
+      Preloaders-Photoroom_163: 445333695
+      Preloaders-Photoroom_164: 1693568211
+      Preloaders-Photoroom_165: 2068417112
+      Preloaders-Photoroom_166: 704076061
+      Preloaders-Photoroom_167: -64247051
+      Preloaders-Photoroom_168: 1222502881
+      Preloaders-Photoroom_169: -1656525566
+      Preloaders-Photoroom_17: 1152617531
+      Preloaders-Photoroom_170: 797911941
+      Preloaders-Photoroom_174: -437041433
+      Preloaders-Photoroom_175: -257740711
+      Preloaders-Photoroom_176: 378509343
+      Preloaders-Photoroom_177: 802000526
+      Preloaders-Photoroom_178: -911686453
+      Preloaders-Photoroom_179: 299524687
+      Preloaders-Photoroom_180: -1004959507
+      Preloaders-Photoroom_181: -1023769456
+      Preloaders-Photoroom_182: 1605523593
+      Preloaders-Photoroom_183: 1661290940
+      Preloaders-Photoroom_184: -1725068520
+      Preloaders-Photoroom_188: -238722288
+      Preloaders-Photoroom_189: -2116155655
+      Preloaders-Photoroom_190: 1874812766
+      Preloaders-Photoroom_191: -863856802
+      Preloaders-Photoroom_192: -700332124
+      Preloaders-Photoroom_193: -1297411760
+      Preloaders-Photoroom_194: -573270489
+      Preloaders-Photoroom_195: -208949860
+      Preloaders-Photoroom_196: 1524055156
+      Preloaders-Photoroom_197: -298519959
+      Preloaders-Photoroom_198: -799894162
+      Preloaders-Photoroom_199: -711504099
+      Preloaders-Photoroom_200: -1076426137
+      Preloaders-Photoroom_201: 708810499
+      Preloaders-Photoroom_202: -313115823
+      Preloaders-Photoroom_203: -370676385
+      Preloaders-Photoroom_207: 677122991
+      Preloaders-Photoroom_208: 598416581
+      Preloaders-Photoroom_209: 593132915
+      Preloaders-Photoroom_21: 292915357
+      Preloaders-Photoroom_210: -893470356
+      Preloaders-Photoroom_211: -924405229
+      Preloaders-Photoroom_212: 1321185119
+      Preloaders-Photoroom_213: 2020181103
+      Preloaders-Photoroom_214: 1832871171
+      Preloaders-Photoroom_215: 1714841557
+      Preloaders-Photoroom_216: -1864908081
+      Preloaders-Photoroom_217: 1093455129
+      Preloaders-Photoroom_218: 1420737106
+      Preloaders-Photoroom_219: 927126557
+      Preloaders-Photoroom_22: -1897071085
+      Preloaders-Photoroom_220: 1015806518
+      Preloaders-Photoroom_221: -1732138049
+      Preloaders-Photoroom_222: 998700394
+      Preloaders-Photoroom_223: 1363982589
+      Preloaders-Photoroom_227: 1139678433
+      Preloaders-Photoroom_228: 1024660077
+      Preloaders-Photoroom_229: -884655598
+      Preloaders-Photoroom_23: -1998482016
+      Preloaders-Photoroom_230: -1728801277
+      Preloaders-Photoroom_231: 1294533636
+      Preloaders-Photoroom_232: 1729352114
+      Preloaders-Photoroom_233: -53520964
+      Preloaders-Photoroom_234: 331709492
+      Preloaders-Photoroom_235: 721599260
+      Preloaders-Photoroom_236: 1353009953
+      Preloaders-Photoroom_237: 833330412
+      Preloaders-Photoroom_238: 573790037
+      Preloaders-Photoroom_239: 1116737010
+      Preloaders-Photoroom_24: 2081176872
+      Preloaders-Photoroom_240: 1021907636
+      Preloaders-Photoroom_241: 717494090
+      Preloaders-Photoroom_242: -28363157
+      Preloaders-Photoroom_246: 2037732773
+      Preloaders-Photoroom_247: -220875932
+      Preloaders-Photoroom_248: 1360192143
+      Preloaders-Photoroom_249: 1833974341
+      Preloaders-Photoroom_25: 1144289017
+      Preloaders-Photoroom_250: -1332624045
+      Preloaders-Photoroom_251: 926418851
+      Preloaders-Photoroom_252: 1945830854
+      Preloaders-Photoroom_253: 350123286
+      Preloaders-Photoroom_254: -408744226
+      Preloaders-Photoroom_255: 825305526
+      Preloaders-Photoroom_256: -1750090300
+      Preloaders-Photoroom_257: -1629627376
+      Preloaders-Photoroom_258: 403388399
+      Preloaders-Photoroom_259: 572410029
+      Preloaders-Photoroom_26: -1038110065
+      Preloaders-Photoroom_260: -248078312
+      Preloaders-Photoroom_261: 1927830840
+      Preloaders-Photoroom_27: 1807740644
+      Preloaders-Photoroom_28: 2090955764
+      Preloaders-Photoroom_29: 1788708407
+      Preloaders-Photoroom_30: 1624064888
+      Preloaders-Photoroom_31: -1905179533
+      Preloaders-Photoroom_32: -93787954
+      Preloaders-Photoroom_33: 536922850
+      Preloaders-Photoroom_34: -1400928474
+      Preloaders-Photoroom_35: -704046054
+      Preloaders-Photoroom_39: 1919309579
+      Preloaders-Photoroom_4: 1451006882
+      Preloaders-Photoroom_40: 1019171502
+      Preloaders-Photoroom_41: -1403730649
+      Preloaders-Photoroom_42: 1823657127
+      Preloaders-Photoroom_43: 1148634783
+      Preloaders-Photoroom_44: -1939725633
+      Preloaders-Photoroom_45: -1473171149
+      Preloaders-Photoroom_46: -772006803
+      Preloaders-Photoroom_47: -1608430068
+      Preloaders-Photoroom_48: 131621196
+      Preloaders-Photoroom_49: -1762380524
+      Preloaders-Photoroom_5: 828953677
+      Preloaders-Photoroom_50: -1992895766
+      Preloaders-Photoroom_51: -442730154
+      Preloaders-Photoroom_52: -1459009957
+      Preloaders-Photoroom_53: -1529768182
+      Preloaders-Photoroom_54: -937354761
+      Preloaders-Photoroom_55: 1639364575
+      Preloaders-Photoroom_56: 107826511
+      Preloaders-Photoroom_6: 1788146305
+      Preloaders-Photoroom_60: -1441631453
+      Preloaders-Photoroom_61: 66684911
+      Preloaders-Photoroom_62: -801593710
+      Preloaders-Photoroom_63: 981083446
+      Preloaders-Photoroom_64: -1988412950
+      Preloaders-Photoroom_65: -2127224043
+      Preloaders-Photoroom_66: 513992682
+      Preloaders-Photoroom_67: 618792085
+      Preloaders-Photoroom_68: 1676304466
+      Preloaders-Photoroom_69: 2132659511
+      Preloaders-Photoroom_7: 2071425390
+      Preloaders-Photoroom_70: 83446549
+      Preloaders-Photoroom_71: 776778884
+      Preloaders-Photoroom_72: -1576287519
+      Preloaders-Photoroom_73: -325466191
+      Preloaders-Photoroom_74: -1392849034
+      Preloaders-Photoroom_75: 2122830696
+      Preloaders-Photoroom_76: -1231437911
+      Preloaders-Photoroom_8: -770865450
+      Preloaders-Photoroom_80: 1925457568
+      Preloaders-Photoroom_81: -1846869515
+      Preloaders-Photoroom_82: 2007424976
+      Preloaders-Photoroom_83: 2011204542
+      Preloaders-Photoroom_84: -229468967
+      Preloaders-Photoroom_85: 187633361
+      Preloaders-Photoroom_86: -1248129899
+      Preloaders-Photoroom_87: 2059785981
+      Preloaders-Photoroom_88: -950214314
+      Preloaders-Photoroom_89: 1064613284
+      Preloaders-Photoroom_9: -385314921
+      Preloaders-Photoroom_90: 1163213174
+      Preloaders-Photoroom_91: 135437978
+      Preloaders-Photoroom_92: 433332892
+      Preloaders-Photoroom_93: -526533696
+      Preloaders-Photoroom_97: 343348554
+      Preloaders-Photoroom_98: -1616139328
+      Preloaders-Photoroom_99: -2036147986
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

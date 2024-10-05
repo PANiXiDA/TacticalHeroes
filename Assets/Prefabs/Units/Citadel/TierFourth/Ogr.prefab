@@ -165,21 +165,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158fc4c0aac4e1c489d29adb03b4848a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: "\u041A\u0441\u0435\u043E\u043D\u0430"
+  UnitName: Ogr
   OccupiedTile: {fileID: 0}
   Side: 0
   Faction: 1
   Tier: 3
-  UnitAttack: 20
-  UnitDefence: 20
-  UnitFullHealth: 60
-  UnitMinDamage: 12
-  UnitMaxDamage: 20
-  UnitInitiative: 9
+  UnitAttack: 10
+  UnitDefence: 5
+  UnitFullHealth: 50
+  UnitMinDamage: 5
+  UnitMaxDamage: 15
+  UnitInitiative: 10
   UnitSpeed: 5
-  UnitCount: 50
+  UnitCount: 10
   UnitAdditionalDefence: 0
-  UnitCurrentHealth: 40
+  UnitCurrentHealth: 0
   UnitMorale: 0
   UnitLuck: 0
   UnitFailedMorale: 0
@@ -188,9 +188,9 @@ MonoBehaviour:
   UnitSuccessfulLuck: 0
   UnitProbabilityMorale: 0
   UnitProbabilityLuck: 0
-  abilities: 07000000
+  abilities: 
   animator: {fileID: 1986504707264567658}
-  UnitResponse: 1
+  UnitResponse: 0
   UnitATB: 0
   UnitTime: 0
   isBusy: 0
