@@ -9,5 +9,6 @@ public class UntitledInstaller : MonoInstaller
         Container.Bind<IFirebaseAuthService>().To<FirebaseAuthService>().AsSingle();
         Container.Bind<IFirebaseRegistrationService>().To<FirebaseRegistrationService>().AsSingle();
         Container.Bind<IFirestoreUserService>().To<FirestoreUserService>().AsSingle();
+        Container.Bind<IFirebaseChatService>().To<FirebaseChatService>().AsSingle();
     }
 }

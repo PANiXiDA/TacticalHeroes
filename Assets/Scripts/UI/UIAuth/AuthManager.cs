@@ -45,6 +45,7 @@ public class AuthManager : MonoBehaviour
         try
         {
             var user = await _auth.SignIn(_emailAuth.text, _passwordAuth.text);
+            SaveUserDataLocally(user);
             SceneManager.LoadScene(3);
         }
         catch (FirebaseException ex)
@@ -83,6 +84,13 @@ public class AuthManager : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private void SaveUserDataLocally(FirebaseUser user)
+    {
+        PlayerPrefs.SetString("UserId", user.UserId);
+        PlayerPrefs.SetString("NickName", user.DisplayName);
+        PlayerPrefs.SetString("ImageUrl", user.PhotoUrl != null ? user.PhotoUrl.ToString() : "");
     }
 
     public async void OnRegistrationClicked()

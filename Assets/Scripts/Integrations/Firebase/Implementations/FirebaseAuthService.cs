@@ -2,6 +2,8 @@ using Assets.Scripts.Integrations.Firebase.Interfaces;
 using Cysharp.Threading.Tasks;
 using Firebase;
 using Firebase.Auth;
+using System;
+using UnityEngine;
 
 namespace Assets.Scripts.Integrations.Firebase.Implementations
 {
