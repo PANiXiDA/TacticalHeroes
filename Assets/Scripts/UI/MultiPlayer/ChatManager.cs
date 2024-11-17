@@ -1,6 +1,3 @@
-using Assets.Scripts.Integrations.Firebase.Infrastructure.Requests;
-using Assets.Scripts.Integrations.Firebase.Interfaces;
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,70 +17,40 @@ public class ChatManager : MonoBehaviour
     [SerializeField]
     private ScrollRect _scrollRect;
 
-    private IFirebaseChatService _firebaseChatService;
 
     [Inject]
-    public void Constructor(IFirebaseChatService firebaseChatService)
+    public void Constructor()
     {
-        _firebaseChatService = firebaseChatService;
-    }
-
-    private void Start()
-    {
-        _firebaseChatService.SubscribeToNewMessages("Global", OnNewMessageReceived);
     }
 
     public void SendMessageToChat()
     {
-        if (!string.IsNullOrEmpty(_input.text))
-        {
-            string nickname = PlayerPrefs.GetString("NickName");
-            string imageUrl = PlayerPrefs.GetString("ImageUrl");
 
-            var chatMessage = new SaveChatMessageRequest()
-            {
-                ChatId = "Global",
-                Nickname = nickname,
-                Message = _input.text,
-                ImageUrl = imageUrl
-            };
-
-            try
-            {
-                _firebaseChatService.SendChatMessage(chatMessage);
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError(ex);
-            }
-
-            _input.text = string.Empty;
-        }
     }
 
-    private async void OnNewMessageReceived(SaveChatMessageRequest message)
+    private void OnNewMessageReceived()
     {
         GameObject newMessage = Instantiate(_messagePrefab, _chat);
 
         TextMeshProUGUI nicknameText = newMessage.transform.Find("NickName").GetComponent<TextMeshProUGUI>();
-        nicknameText.text = message.Nickname;
+        nicknameText.text = string.Empty;
 
         TextMeshProUGUI messageText = newMessage.transform.Find("Message/Text").GetComponent<TextMeshProUGUI>();
-        messageText.text = message.Message;
+        messageText.text = string.Empty;
 
         Image image = newMessage.transform.Find("PlayerPortret/PlayerImage").GetComponent<Image>();
 
-        if (!ProfileManager.imageCache.TryGetValue(message.ImageUrl, out Sprite avatar))
-        {
-            avatar = await ProfileManager.Instance.GetImageFromUrl(message.ImageUrl);
+        //if (!ProfileManager.imageCache.TryGetValue(message.ImageUrl, out Sprite avatar))
+        //{
+        //    avatar = await ProfileManager.Instance.GetImageFromUrl(message.ImageUrl);
 
-            if (avatar != null)
-            {
-                ProfileManager.imageCache[message.ImageUrl] = avatar;
-            }
-        }
+        //    if (avatar != null)
+        //    {
+        //        ProfileManager.imageCache[message.ImageUrl] = avatar;
+        //    }
+        //}
 
-        image.sprite = avatar;
+        //image.sprite = avatar;
 
         Canvas.ForceUpdateCanvases();
         _scrollRect.verticalNormalizedPosition = 0f;

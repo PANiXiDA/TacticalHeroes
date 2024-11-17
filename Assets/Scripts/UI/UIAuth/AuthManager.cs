@@ -1,11 +1,10 @@
-using Assets.Scripts.Integrations.Firebase.Interfaces;
+using Cysharp.Threading.Tasks;
+using System.Text;
 using TMPro;
+using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.Networking;
 using Zenject;
-using Firebase;
-using Firebase.Auth;
-using Firebase.Firestore;
-using UnityEngine.SceneManagement;
 
 public class AuthManager : MonoBehaviour
 {
@@ -18,21 +17,11 @@ public class AuthManager : MonoBehaviour
     [SerializeField]
     private TMP_InputField _emailRecoveryPassword;
 
-    private IFirebaseAuthService _auth;
-    private IFirebaseRegistrationService _registration;
-    private IFirestoreUserService _userData;
-
     private FormsManager _formsManager;
 
     [Inject]
-    public void Construct(
-        IFirebaseAuthService auth,
-        IFirebaseRegistrationService registration,
-        IFirestoreUserService userData)
+    public void Construct()
     {
-        _auth = auth;
-        _registration = registration;
-        _userData = userData;
     }
 
     private void Start()
@@ -42,60 +31,28 @@ public class AuthManager : MonoBehaviour
 
     public async void OnLoginClicked()
     {
-        try
-        {
-            var user = await _auth.SignIn(_emailAuth.text, _passwordAuth.text);
-            SaveUserDataLocally(user);
-            SceneManager.LoadScene(3);
-        }
-        catch (FirebaseException ex)
-        {
-            switch ((AuthError)ex.ErrorCode)
-            {
-                case AuthError.Failure:
-                    _formsManager.ShowMessage("Wrong email or password!");
-                    break;
-                case AuthError.UserDisabled:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.MissingEmail:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.MissingPassword:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.UnverifiedEmail:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.InvalidEmail:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.WrongPassword:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.OperationNotAllowed:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.NetworkRequestFailed:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                default:
-                    Debug.LogError($"{ex.Message}");
-                    break;
-            }
-        }
+
     }
 
-    private void SaveUserDataLocally(FirebaseUser user)
+    public class Registration
     {
-        PlayerPrefs.SetString("UserId", user.UserId);
-        PlayerPrefs.SetString("NickName", user.DisplayName);
-        PlayerPrefs.SetString("ImageUrl", user.PhotoUrl != null ? user.PhotoUrl.ToString() : "");
+        public string NickName { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string RepeatPassword { get; set; }
+
+        public Registration(string nickName, string email, string password, string repeatPassword)
+        {
+            NickName = nickName;
+            Email = email;
+            Password = password;
+            RepeatPassword = repeatPassword;
+        }
     }
 
     public async void OnRegistrationClicked()
     {
-        bool registrationSuccessful = false;
+        string url = "https://tacticalheroesdev.ru/api/v1/auth/sign-up";
 
         if (string.IsNullOrEmpty(_nicknameRegistration.text))
         {
@@ -108,114 +65,44 @@ public class AuthManager : MonoBehaviour
             return;
         }
 
-        //try
-        //{
-        //    Debug.Log("AuthManager start integration with FireStore...");
-        //    var user = await _userData.GetUserByNicknameAsync(_nicknameRegistration.text);
-        //    Debug.Log("AuthManager end integration with FireStore...");
-        //    if (user != null)
-        //    {
-        //        _formsManager.ShowMessage("A user with this nickname has already been registered!");
-        //        return;
-        //    }
-        //}
-        //catch (FirestoreException ex)
-        //{
-        //    Debug.LogError(ex.Message);
-        //    return;
-        //}
+        var registration = new Registration(
+            _nicknameRegistration.text,
+            _emailRegistration.text,
+            _passwordRegistration.text,
+            _repeatPasswordRegistration.text);
 
-        string userIdFirebase = string.Empty;
-        try
+        string request = JsonConvert.SerializeObject(registration);
+
+        await PostRequest(url, request);
+    }
+
+    private async UniTask PostRequest(string url, string jsonBody)
+    {
+        byte[] jsonToSend = Encoding.UTF8.GetBytes(jsonBody);
+
+        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
         {
-            userIdFirebase = await _registration.Register(_emailRegistration.text, _passwordRegistration.text,
-                _nicknameRegistration.text);
-            registrationSuccessful = true;
-        }
-        catch (FirebaseException ex)
-        {
-            switch ((AuthError)ex.ErrorCode)
+            request.uploadHandler = new UploadHandlerRaw(jsonToSend);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            await request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
             {
-                case AuthError.MissingEmail:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.MissingPassword:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.EmailAlreadyInUse:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.InvalidEmail:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.WeakPassword:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.OperationNotAllowed:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.NetworkRequestFailed:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                default:
-                    Debug.LogError($"{ex.Message}");
-                    break;
+                Debug.Log("Запрос успешно выполнен: " + request.downloadHandler.text);
             }
-        }
-
-        if (registrationSuccessful)
-        {
-            //var userFirestore = new SaveUserRequest()
-            //{
-            //    UserAuthId = userIdFirebase,
-            //    Nickname = _nicknameRegistration.text,
-            //    Email = _emailRegistration.text,
-            //    IsBlocked = false,
-            //    IsEmailConfirmed = false,
-            //    CreatedAt = Timestamp.GetCurrentTimestamp(),
-            //    UpdatedAt = Timestamp.GetCurrentTimestamp()
-            //};
-            //try
-            //{
-            //    await _userData.SaveUserAsync(userFirestore);
-            //}
-            //catch (FirestoreException ex)
-            //{
-            //    Debug.LogError(ex.Message);
-            //}
-            _formsManager.ShowMessage("Registration was successful. You will receive a confirmation message by email.");
+            else
+            {
+                Debug.LogError("Ошибка: " + request.error);
+            }
         }
     }
 
     public async void RecoveryPassword()
     {
         bool recoveryPasswordSuccessful = false;
-        try
-        {
-            await _auth.RecoveryPassword(_emailRecoveryPassword.text);
-            recoveryPasswordSuccessful = true;
-        }
-        catch (FirebaseException ex)
-        {
-            switch ((AuthError)ex.ErrorCode)
-            {
-                case AuthError.MissingEmail:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.InvalidEmail:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.OperationNotAllowed:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                case AuthError.NetworkRequestFailed:
-                    _formsManager.ShowMessage(ex.Message);
-                    break;
-                default:
-                    Debug.LogError($"{ex.Message}");
-                    break;
-            }
-        }
+
         if (recoveryPasswordSuccessful)
         {
             _formsManager.ShowMessage("A message with instructions on password recovery has been sent to your email.");
