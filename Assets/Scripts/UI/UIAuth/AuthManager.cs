@@ -1,10 +1,14 @@
+using Assets.Scripts.UI.UIAuth.Requests;
+using Assets.Scripts.UI.UIAuth.Responses;
 using Cysharp.Threading.Tasks;
-using System.Text;
+using Assets.Scripts.Common.WebRequest;
 using TMPro;
-using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.Networking;
 using Zenject;
+using Assets.Scripts.Common.Enumerations;
+using System;
+using System.Text.RegularExpressions;
+using UnityEngine.SceneManagement;
 
 public class AuthManager : MonoBehaviour
 {
@@ -19,6 +23,13 @@ public class AuthManager : MonoBehaviour
 
     private FormsManager _formsManager;
 
+    private const string _registrationUrl = "auth/sign-up";
+    private const string _loginUrl = "auth/login";
+
+    private const string _serverUnavailable = "The server is unavailable";
+
+    private const string _multiPlayerScene = "MultiPlayer";
+
     [Inject]
     public void Construct()
     {
@@ -31,29 +42,50 @@ public class AuthManager : MonoBehaviour
 
     public async void OnLoginClicked()
     {
+        var login = new LoginRequest(_emailAuth.text, _passwordAuth.text);
 
-    }
-
-    public class Registration
-    {
-        public string NickName { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string RepeatPassword { get; set; }
-
-        public Registration(string nickName, string email, string password, string repeatPassword)
+        try
         {
-            NickName = nickName;
-            Email = email;
-            Password = password;
-            RepeatPassword = repeatPassword;
+            var result = await UniversalWebRequest.SendRequest<LoginRequest, LoginResponse>(_loginUrl, RequestType.POST, login);
+
+            if (result != null && result.IsSuccess)
+            {
+                // поменять, как добавлю JWT
+                PlayerPrefs.SetString("Email", login.Email);
+                PlayerPrefs.SetString("Password", login.Password);
+                PlayerPrefs.Save();
+
+                SceneManager.LoadScene(_multiPlayerScene);
+            }
+            else
+            {
+                _formsManager.ShowMessage(_serverUnavailable);
+                Debug.LogError($"Unexpected error: {result.ToString()}");
+            }
+        }
+        catch (UnityWebRequestException ex)
+        {
+            var error = Regex.Match(ex.Text, @"Detail=\\\""([^\\\""]*)\\\""");
+
+            if (error.Success)
+            {
+                _formsManager.ShowMessage(error.Groups[1].Value);
+            }
+            else
+            {
+                _formsManager.ShowMessage(_serverUnavailable);
+                Debug.LogError($"Unexpected error: {ex.Message}");
+            }
+        }
+        catch (Exception ex)
+        {
+            _formsManager.ShowMessage(_serverUnavailable);
+            Debug.LogError($"Unexpected error: {ex.Message}");
         }
     }
 
     public async void OnRegistrationClicked()
     {
-        string url = "https://tacticalheroesdev.ru/api/v1/auth/sign-up";
-
         if (string.IsNullOrEmpty(_nicknameRegistration.text))
         {
             _formsManager.ShowMessage("Enter your nickname!");
@@ -65,47 +97,54 @@ public class AuthManager : MonoBehaviour
             return;
         }
 
-        var registration = new Registration(
+        var registration = new RegistrationRequest(
             _nicknameRegistration.text,
             _emailRegistration.text,
             _passwordRegistration.text,
             _repeatPasswordRegistration.text);
 
-        string request = JsonConvert.SerializeObject(registration);
-
-        await PostRequest(url, request);
-    }
-
-    private async UniTask PostRequest(string url, string jsonBody)
-    {
-        byte[] jsonToSend = Encoding.UTF8.GetBytes(jsonBody);
-
-        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+        try
         {
-            request.uploadHandler = new UploadHandlerRaw(jsonToSend);
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.SetRequestHeader("Content-Type", "application/json");
+            var result = await UniversalWebRequest.SendRequest<RegistrationRequest, RegistrationResponse>(_registrationUrl, RequestType.POST, registration);
 
-            await request.SendWebRequest();
-
-            if (request.result == UnityWebRequest.Result.Success)
+            if (result != null && result.IsSuccess)
             {
-                Debug.Log("Запрос успешно выполнен: " + request.downloadHandler.text);
+                _formsManager.ShowMessage("Registration successful!");
             }
             else
             {
-                Debug.LogError("Ошибка: " + request.error);
+                _formsManager.ShowMessage(_serverUnavailable);
+                Debug.LogError($"Unexpected error: {result.ToString()}");
             }
         }
-    }
-
-    public async void RecoveryPassword()
-    {
-        bool recoveryPasswordSuccessful = false;
-
-        if (recoveryPasswordSuccessful)
+        catch (UnityWebRequestException ex)
         {
-            _formsManager.ShowMessage("A message with instructions on password recovery has been sent to your email.");
+            var error = Regex.Match(ex.Text, @"Detail=\\\""([^\\\""]*)\\\""");
+
+            if (error.Success)
+            {
+                _formsManager.ShowMessage(error.Groups[1].Value);
+            }
+            else
+            {
+                _formsManager.ShowMessage(_serverUnavailable);
+                Debug.LogError($"Unexpected error: {ex.Message}");
+            }
+        }
+        catch (Exception ex)
+        {
+            _formsManager.ShowMessage(_serverUnavailable);
+            Debug.LogError($"Unexpected error: {ex.Message}");
         }
     }
+
+    //public async void RecoveryPassword()
+    //{
+    //    bool recoveryPasswordSuccessful = false;
+
+    //    if (recoveryPasswordSuccessful)
+    //    {
+    //        _formsManager.ShowMessage("A message with instructions on password recovery has been sent to your email.");
+    //    }
+    //}
 }

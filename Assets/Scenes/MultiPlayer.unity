@@ -3371,7 +3371,7 @@ GameObject:
   - component: {fileID: 1160158111}
   - component: {fileID: 1160158110}
   m_Layer: 5
-  m_Name: PlayerImage
+  m_Name: PlayerAvatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3660,12 +3660,12 @@ GameObject:
   - component: {fileID: 1242464449}
   - component: {fileID: 1242464450}
   m_Layer: 0
-  m_Name: ProfileManagerCash
+  m_Name: ProfileManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1242464449
 Transform:
   m_ObjectHideFlags: 0
@@ -3675,11 +3675,11 @@ Transform:
   m_GameObject: {fileID: 1242464448}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 408.82297, y: 771.1981, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2102533299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1242464450
 MonoBehaviour:
@@ -3693,7 +3693,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81170a95af585bc439240de7e65edda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerImage: {fileID: 1160158110}
+  _playerFrame: {fileID: 1939019515}
+  _playerAvatar: {fileID: 1160158110}
+  _leagueIcon: {fileID: 1607559277}
+  _games: {fileID: 1758259553}
+  _wins: {fileID: 784015559}
+  _loses: {fileID: 1241800770}
+  _league: {fileID: 2094083566}
+  _mmr: {fileID: 12032214}
 --- !u!1 &1263036815
 GameObject:
   m_ObjectHideFlags: 0
@@ -4243,7 +4250,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -19.754639, y: -0.000049591064}
-  m_SizeDelta: {x: -85.9914, y: 0}
+  m_SizeDelta: {x: -85.9914, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1381836979
 MonoBehaviour:
@@ -4705,7 +4712,7 @@ RectTransform:
   m_Father: {fileID: 45050514}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4896,7 +4903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1478613325
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6718,7 +6725,7 @@ GameObject:
   - component: {fileID: 1939019516}
   - component: {fileID: 1939019515}
   m_Layer: 5
-  m_Name: PlayerPortret
+  m_Name: PlayerFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7025,7 +7032,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2022014778
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7321,9 +7328,9 @@ RectTransform:
   m_Father: {fileID: 390737835}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.16333224, y: 0.14465822}
-  m_AnchorMax: {x: 0.43573356, y: 0.35700002}
-  m_AnchoredPosition: {x: -0.15002441, y: 0.19999695}
-  m_SizeDelta: {x: 0.41999817, y: 1}
+  m_AnchorMax: {x: 0.42526647, y: 0.35700002}
+  m_AnchoredPosition: {x: -0.39059448, y: 0.19999695}
+  m_SizeDelta: {x: -0.061200142, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2094083566
 MonoBehaviour:
@@ -7372,10 +7379,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 37.4
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -7457,6 +7464,7 @@ Transform:
   - {fileID: 1892399716}
   - {fileID: 1583790091}
   - {fileID: 709542845}
+  - {fileID: 1242464449}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2139953027
@@ -7494,9 +7502,9 @@ RectTransform:
   m_Father: {fileID: 1327392960}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -31.9203, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2139953029
 MonoBehaviour:
@@ -7557,4 +7565,3 @@ SceneRoots:
   - {fileID: 1810731146}
   - {fileID: 1593844516}
   - {fileID: 2102533299}
-  - {fileID: 1242464449}
