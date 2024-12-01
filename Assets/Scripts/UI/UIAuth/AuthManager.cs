@@ -9,6 +9,7 @@ using Assets.Scripts.Common.Enumerations;
 using System;
 using System.Text.RegularExpressions;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.Common.WebRequest.JWT;
 
 public class AuthManager : MonoBehaviour
 {
@@ -50,10 +51,8 @@ public class AuthManager : MonoBehaviour
 
             if (result != null && result.IsSuccess)
             {
-                // поменять, как добавлю JWT
-                PlayerPrefs.SetString("Email", login.Email);
-                PlayerPrefs.SetString("Password", login.Password);
-                PlayerPrefs.Save();
+                JwtToken.AccessToken = result.Payload.AccessToken;
+                JwtToken.RefreshToken = result.Payload.RefreshToken;
 
                 SceneManager.LoadScene(_multiPlayerScene);
             }

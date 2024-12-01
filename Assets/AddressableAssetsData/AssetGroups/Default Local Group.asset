@@ -14,7 +14,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
   m_GUID: 6164bc8b76fbb93488f8918d6f7664cd
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 214dd9257133b3545a9713e742a13ac9
+    m_Address: LeagueIcons/Bronze
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3aca4a1b51dc9ff4e824a047b815657b
+    m_Address: LeagueIcons/Diamond
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54ae75d2154cd0143b18177083baa6fa
+    m_Address: LeagueIcons/Silver
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 881f0296b900e6947a2d1dcd4eb5a15c
+    m_Address: LeagueIcons/Platinum
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a138654a49085a74a9c28982f93dbcaa
+    m_Address: LeagueIcons/Gold
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6610c063b6e5b14b92b856123d3d910
+    m_Address: LeagueIcons/GrandMaster
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca72345a7d57bb642b11ef0aa83efcba
+    m_Address: LeagueIcons/Master
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f9c35badb45ac794ca38281ef7a6dd27, type: 2}
   m_SchemaSet:

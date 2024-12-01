@@ -20,18 +20,14 @@ public class ProfileManager : MonoBehaviour
 
     public PlayerProfile playerProfile;
 
-    private const string _loginUrl = "auth/login";
+    private const string _playerUrl = "players";
     private const string _authScene = "Auth";
 
     private async void Awake()
     {
-        var email = PlayerPrefs.GetString("Email");
-        var password = PlayerPrefs.GetString("Password");
-        var login = new LoginRequest(email, password);
-
         try
         {
-            var result = await UniversalWebRequest.SendRequest<LoginRequest, PlayerProfile>(_loginUrl, RequestType.POST, login);
+            var result = await UniversalWebRequest.SendRequest<object, PlayerProfile>(_playerUrl, RequestType.GET, null);
 
             if (result != null && result.IsSuccess)
             {
