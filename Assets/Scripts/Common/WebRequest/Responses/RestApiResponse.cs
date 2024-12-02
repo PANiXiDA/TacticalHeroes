@@ -1,4 +1,7 @@
-﻿namespace Assets.Scripts.Common.WebRequest.Responses
+﻿using System;
+using System.Linq;
+
+namespace Assets.Scripts.Common.WebRequest.Responses
 {
     public class RestApiResponse<T>
     {
@@ -30,6 +33,18 @@
         public static RestApiResponse<T> Success(T payload)
         {
             return new RestApiResponse<T>(payload);
+        }
+
+        public T EnsureSuccess()
+        {
+            if (IsSuccess)
+            {
+                return Payload;
+            }
+            else
+            {
+                throw new ApplicationException(Failure.Errors.Values.FirstOrDefault());
+            }
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Unity.Mathematics;
-using Assets.Scripts.UI;
+using Assets.Scripts.Units;
 
 namespace Assets.Scripts.Managers
 {

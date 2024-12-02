@@ -7,21 +7,26 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.Common.Constants;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Assets.Scripts.Common.WebRequest
 {
     public static class UniversalWebRequest
     {
-        private const string _authScene = "Auth";
+        private const string Domen = "https://tacticalheroesdev.ru/api/v1/";
 
-        private const string _domen = "https://tacticalheroesdev.ru/api/v1/";
-
-        public static async UniTask<RestApiResponse<TResponse>> SendRequest<TRequest, TResponse>(string apiUrl, RequestType requestType, TRequest modelRequest)
+        public static async UniTask<RestApiResponse<TResponse>> SendRequest<TRequest, TResponse>(
+            string apiUrl,
+            RequestType requestType,
+            TRequest modelRequest,
+            bool isRetry = false)
         {
             string stringRequest = JsonConvert.SerializeObject(modelRequest);
             byte[] byteRequest = Encoding.UTF8.GetBytes(stringRequest);
 
-            string fullUrl = _domen + apiUrl;
+            string fullUrl = Domen + apiUrl;
 
             using (UnityWebRequest request = new UnityWebRequest(fullUrl, requestType.ToString()))
             {
@@ -35,41 +40,87 @@ namespace Assets.Scripts.Common.WebRequest
                     request.SetRequestHeader("Authorization", $"Bearer {accessToken}");
                 }
 
-                await request.SendWebRequest();
-
-                if (request.result == UnityWebRequest.Result.Success)
+                try
                 {
+                    await request.SendWebRequest();
                     string jsonResponse = request.downloadHandler.text;
 
-                    try
-                    {
-                        return JsonConvert.DeserializeObject<RestApiResponse<TResponse>>(jsonResponse)
-                            ?? RestApiResponse<TResponse>.Fail(new Failure().AddError("Empty response"));
-                    }
-                    catch (JsonException ex)
-                    {
-                        return RestApiResponse<TResponse>.Fail(new Failure().AddError($"Failed to parse response: {ex.Message}"));
-                    }
+                    return ParseResponse<TResponse>(jsonResponse);
                 }
-                else if (request.responseCode == 401)
+                catch
                 {
-                    var refreshResponse = await SendRequest<RefreshTokenRequest, RefreshTokenResponse>(apiUrl, requestType, new RefreshTokenRequest() { RefreshToken = JwtToken.RefreshToken }); ;
-                    if (refreshResponse.IsSuccess)
+                    string errorText = request.downloadHandler.text;
+                    Debug.LogError($"{request.error} : {errorText}");
+
+                    var response = ParseResponse<TResponse>(errorText);
+
+                    if (!isRetry)
                     {
-                        JwtToken.AccessToken = refreshResponse.Payload.AccessToken;
-                        JwtToken.RefreshToken = refreshResponse.Payload.RefreshToken;
+                        if (request.responseCode == 401)
+                        {
+                            var refreshResponse = await SendRequest<RefreshTokenRequest, RefreshTokenResponse>(
+                                ApiEndpointsConstants.RefreshTokensEndpoint,
+                                RequestType.POST,
+                                new RefreshTokenRequest { RefreshToken = JwtToken.RefreshToken },
+                                true);
 
-                        return await SendRequest<TRequest, TResponse>(apiUrl, requestType, modelRequest);
+                            if (refreshResponse.IsSuccess)
+                            {
+                                JwtToken.AccessToken = refreshResponse.Payload.AccessToken;
+                                JwtToken.RefreshToken = refreshResponse.Payload.RefreshToken;
+
+                                return await SendRequest<TRequest, TResponse>(
+                                    apiUrl,
+                                    requestType,
+                                    modelRequest,
+                                    true);
+                            }
+                            else
+                            {
+                                SceneManager.LoadScene(SceneConstants.AuthScene);
+                                return response;
+                            }
+                        }
+                        return response;
                     }
-                    SceneManager.LoadScene(_authScene);
-
-                    return RestApiResponse<TResponse>.Fail(new Failure().AddError("Unauthorized."));
-
+                    else
+                    {
+                        return response;
+                    }
                 }
-                else
+            }
+        }
+
+        private static RestApiResponse<TResponse> ParseResponse<TResponse>(string responseText)
+        {
+            try
+            {
+                var response = JsonConvert.DeserializeObject<RestApiResponse<TResponse>>(responseText)
+                    ?? RestApiResponse<TResponse>.Fail(new Failure().AddError("Empty response"));
+
+                if (response.IsSuccess)
                 {
-                    return RestApiResponse<TResponse>.Fail(new Failure().AddError(request.error));
+                    return response;
                 }
+
+                var processedErrors = new Dictionary<string, string>();
+                foreach (var error in response.Failure.Errors)
+                {
+                    var match = Regex.Match(error.Value, @"Detail=\""(.*?)\""");
+                    processedErrors[error.Key] = match.Success ? match.Groups[1].Value : error.Value;
+                }
+
+                response.Failure.Errors.Clear();
+                foreach (var error in processedErrors)
+                {
+                    response.Failure.Errors[error.Key] = error.Value;
+                }
+
+                return response;
+            }
+            catch (JsonException ex)
+            {
+                return RestApiResponse<TResponse>.Fail(new Failure().AddError($"Failed to parse response: {ex.Message}"));
             }
         }
     }

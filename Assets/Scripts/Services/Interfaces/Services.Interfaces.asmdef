@@ -1,0 +1,17 @@
+{
+    "name": "Services.Interfaces",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e9012494c8ce0894897fc1e7ae252d2f",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
