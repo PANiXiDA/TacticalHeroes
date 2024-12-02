@@ -8,6 +8,7 @@ namespace Assets.Scripts.Services.Implementations.Extensions
         public override void InstallBindings()
         {
             Container.Bind<IAuthService>().To<AuthService>().AsSingle();
+            Container.Bind<IPlayersService>().To<PlayersService>().AsSingle();
         }
     }
 }

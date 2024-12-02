@@ -5,8 +5,6 @@ using Cysharp.Threading.Tasks;
 using Assets.Scripts.Common.Enumerations;
 using Assets.Scripts.Common.WebRequest;
 using Assets.Scripts.Common.Constants;
-using System.Linq;
-using System;
 using Assets.Scripts.Infrastructure.Responses;
 
 namespace Assets.Scripts.Services.Implementations

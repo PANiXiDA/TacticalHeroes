@@ -1,80 +1,60 @@
 using Assets.Scripts.Common.Enumerations;
-using Assets.Scripts.Common.WebRequest;
 using Cysharp.Threading.Tasks;
 using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using System.Threading;
 using UnityEngine.UI;
-using System.Linq;
+using Assets.Scripts.Services.Interfaces;
+using Zenject;
+using Assets.Scripts.Common.Helpers;
+using Assets.Scripts.Infrastructure.Requests;
 
 public class ProfileManager : MonoBehaviour
 {
-    private CancellationTokenSource _cts;
-
     [SerializeField]
     private GameObject _playerFrame, _playerAvatar, _leagueIcon;
 
     [SerializeField]
     private TextMeshProUGUI _games, _wins, _loses, _league, _mmr;
 
-    public PlayerProfile playerProfile;
+    private IPlayersService _playerService;
 
-    private const string _playerUrl = "players";
-    private const string _authScene = "Auth";
+    [Inject]
+    public void Construct(IPlayersService playerService)
+    {
+        _playerService = playerService;
+    }
 
     private void Awake()
     {
-        _cts = new CancellationTokenSource();
-        InitializeProfileAsync(_cts.Token).Forget();
+        InitializeProfileAsync();
     }
 
-    private void OnDestroy()
-    {
-        if (_cts != null)
-        {
-            _cts.Cancel();
-            _cts.Dispose();
-            _cts = null;
-        }
-    }
-
-    private async UniTaskVoid InitializeProfileAsync(CancellationToken token)
+    private void InitializeProfileAsync()
     {
         _leagueIcon.SetActive(true);
         _playerFrame.SetActive(true);
         _playerAvatar.SetActive(true);
 
-        try
+        var request = new EmptyRequest();
+
+        TaskRunner.RunWithGlobalErrorHandling(async () =>
         {
-            var result = await UniversalWebRequest.SendRequest<object, PlayerProfile>(_playerUrl, RequestType.GET, null);
+            var response = await _playerService.GetPlayerProfile(request);
 
-            if (result != null && result.IsSuccess)
-            {
-                playerProfile = result.Payload;
+            _games.text = response.Games.ToString();
+            _wins.text = response.Wins.ToString();
+            _loses.text = response.Loses.ToString();
+            _mmr.text = response.Mmr.ToString();
 
-                if (token.IsCancellationRequested) return;
+            var league = DetermineLeague(response.Mmr);
 
-                _games.text = playerProfile.Games.ToString();
-                _wins.text = playerProfile.Wins.ToString();
-                _loses.text = playerProfile.Loses.ToString();
-                _mmr.text = playerProfile.Mmr.ToString();
-
-                var league = DetermineLeague(playerProfile.Mmr);
-
-                if (token.IsCancellationRequested) return;
-
-                _league.text = league.ToString();
-                _league.color = GetLeagueColor(league);
-                await LoadLeagueIconAsync(league, token);
-            }
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"Unexpected error: {ex.Message}");
-        }
+            _league.text = league.ToString();
+            _league.color = GetLeagueColor(league);
+            await LoadLeagueIconAsync(league);
+        });
     }
 
     private League DetermineLeague(int mmr)
@@ -118,7 +98,7 @@ public class ProfileManager : MonoBehaviour
         }
     }
 
-    private async UniTask LoadLeagueIconAsync(League league, CancellationToken token)
+    private async UniTask LoadLeagueIconAsync(League league)
     {
         string assetAddress = $"LeagueIcons/{league}";
 
@@ -126,9 +106,9 @@ public class ProfileManager : MonoBehaviour
 
         try
         {
-            var sprite = await handle.ToUniTask(cancellationToken: token);
+            var sprite = await handle.ToUniTask();
 
-            if (handle.Status == AsyncOperationStatus.Succeeded && _leagueIcon != null && !token.IsCancellationRequested)
+            if (handle.Status == AsyncOperationStatus.Succeeded && _leagueIcon != null)
             {
                 _leagueIcon.GetComponentInChildren<Image>().sprite = handle.Result;
             }

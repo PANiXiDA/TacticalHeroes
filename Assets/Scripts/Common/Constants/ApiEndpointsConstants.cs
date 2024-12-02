@@ -9,5 +9,9 @@
         public const string RecoveryPasswordEndpoint = "auth/recovery";
         public const string RefreshTokensEndpoint = "auth/refresh";
         #endregion
+
+        #region PlayersService
+        public const string GetPlayerEndpoint = "players";
+        #endregion
     }
 }
