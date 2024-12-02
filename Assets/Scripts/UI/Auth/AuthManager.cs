@@ -45,8 +45,8 @@ public class AuthManager : MonoBehaviour
         {
             var response = await _authService.Login(request);
 
-            JwtToken.AccessToken = response.AccessToken;
-            JwtToken.RefreshToken = response.RefreshToken;
+            JwtTokenManager.AccessToken = response.AccessToken;
+            JwtTokenManager.SaveRefreshToken(response.RefreshToken);
 
             SceneManager.LoadScene(SceneConstants.MultiPlayerLobbyScene);
         });

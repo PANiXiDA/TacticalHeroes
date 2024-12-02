@@ -34,7 +34,7 @@ namespace Assets.Scripts.Common.WebRequest
                 request.downloadHandler = new DownloadHandlerBuffer();
                 request.SetRequestHeader("Content-Type", "application/json");
 
-                string accessToken = JwtToken.AccessToken;
+                string accessToken = JwtTokenManager.AccessToken;
                 if (!string.IsNullOrEmpty(accessToken))
                 {
                     request.SetRequestHeader("Authorization", $"Bearer {accessToken}");
@@ -50,7 +50,10 @@ namespace Assets.Scripts.Common.WebRequest
                 catch
                 {
                     string errorText = request.downloadHandler.text;
-                    Debug.LogError($"{request.error} : {errorText}");
+                    if (request.responseCode != 401 || isRetry)
+                    {
+                        Debug.LogError($"{request.error} : {errorText}");
+                    }
 
                     var response = ParseResponse<TResponse>(errorText);
 
@@ -61,13 +64,13 @@ namespace Assets.Scripts.Common.WebRequest
                             var refreshResponse = await SendRequest<RefreshTokenRequest, RefreshTokenResponse>(
                                 ApiEndpointsConstants.RefreshTokensEndpoint,
                                 RequestType.POST,
-                                new RefreshTokenRequest { RefreshToken = JwtToken.RefreshToken },
+                                new RefreshTokenRequest { RefreshToken = JwtTokenManager.LoadRefreshToken() },
                                 true);
 
                             if (refreshResponse.IsSuccess)
                             {
-                                JwtToken.AccessToken = refreshResponse.Payload.AccessToken;
-                                JwtToken.RefreshToken = refreshResponse.Payload.RefreshToken;
+                                JwtTokenManager.AccessToken = refreshResponse.Payload.AccessToken;
+                                JwtTokenManager.SaveRefreshToken(refreshResponse.Payload.RefreshToken);
 
                                 return await SendRequest<TRequest, TResponse>(
                                     apiUrl,

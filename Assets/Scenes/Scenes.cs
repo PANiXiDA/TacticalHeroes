@@ -12,7 +12,7 @@ public class Scenes : MonoBehaviour
 
     public void OpenMultiPlayerLobby()
     {
-        if (!string.IsNullOrEmpty(JwtToken.AccessToken))
+        if (!string.IsNullOrEmpty(JwtTokenManager.AccessToken) || JwtTokenManager.LoadRefreshToken() != null)
         {
             SceneManager.LoadScene(SceneConstants.MultiPlayerLobbyScene);
         }
