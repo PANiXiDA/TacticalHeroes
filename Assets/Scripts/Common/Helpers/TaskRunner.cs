@@ -9,9 +9,9 @@ namespace Assets.Scripts.Common.Helpers
     {
         public static event Action<string> OnErrorOccurred;
 
-        public static void RunWithGlobalErrorHandling(Func<UniTask> task)
+        public static UniTask RunWithGlobalErrorHandling(Func<UniTask> task)
         {
-            Run(task).Forget();
+            return Run(task);
         }
 
         private static async UniTask Run(Func<UniTask> task)

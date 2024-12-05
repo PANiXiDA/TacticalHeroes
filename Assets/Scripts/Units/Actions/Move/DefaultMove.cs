@@ -27,7 +27,7 @@ namespace Assets.Scripts.Units.Actions.Move
                 Vector3[] path_ = path.Select(p => new Vector3(p.x, p.y, 0)).ToArray();
 
                 unit.animator.Play("Move");
-                await unit.transform.DOPath(path_, 1, PathType.Linear, PathMode.TopDown2D).SetEase(Ease.Linear);
+                await unit.transform.DOPath(path_, 1, PathType.Linear, PathMode.TopDown2D).SetEase(Ease.Linear).AsyncWaitForCompletion();
 
                 unit.OccupiedTile.OccupiedUnit = null;
                 targetTile.OccupiedUnit = unit;

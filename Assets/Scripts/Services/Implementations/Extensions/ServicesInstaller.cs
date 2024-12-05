@@ -9,6 +9,7 @@ namespace Assets.Scripts.Services.Implementations.Extensions
         {
             Container.Bind<IAuthService>().To<AuthService>().AsSingle();
             Container.Bind<IPlayersService>().To<PlayersService>().AsSingle();
+            Container.Bind<IImagesService>().To<ImagesService>().AsSingle();
         }
     }
 }

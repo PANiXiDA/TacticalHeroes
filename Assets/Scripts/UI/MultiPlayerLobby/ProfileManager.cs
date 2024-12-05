@@ -10,6 +10,8 @@ using Assets.Scripts.Services.Interfaces;
 using Zenject;
 using Assets.Scripts.Common.Helpers;
 using Assets.Scripts.Infrastructure.Requests;
+using Assets.Scripts.UI;
+using System.Threading.Tasks;
 
 public class ProfileManager : MonoBehaviour
 {
@@ -19,20 +21,36 @@ public class ProfileManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _games, _wins, _loses, _league, _mmr;
 
+    private AsyncOperationHandle<Sprite> _loadedSpriteHandle;
+    private PlayerProfile _playerProfile;
+
     private IPlayersService _playerService;
+    private IImagesService _imagesService;
 
     [Inject]
-    public void Construct(IPlayersService playerService)
+    public void Construct(
+        IPlayersService playerService,
+        IImagesService imagesService)
     {
         _playerService = playerService;
+        _imagesService = imagesService;
     }
 
-    private void Awake()
+    private async void Start()
     {
-        InitializeProfileAsync();
+        _playerProfile = PlayerProfile.Instance;
+        await InitializeProfileAsync();
     }
 
-    private void InitializeProfileAsync()
+    private void OnDestroy()
+    {
+        if (_loadedSpriteHandle.IsValid())
+        {
+            Addressables.Release(_loadedSpriteHandle);
+        }
+    }
+
+    private async Task InitializeProfileAsync()
     {
         _leagueIcon.SetActive(true);
         _playerFrame.SetActive(true);
@@ -40,20 +58,33 @@ public class ProfileManager : MonoBehaviour
 
         var request = new EmptyRequest();
 
-        TaskRunner.RunWithGlobalErrorHandling(async () =>
+        await TaskRunner.RunWithGlobalErrorHandling(async () =>
         {
             var response = await _playerService.GetPlayerProfile(request);
 
-            _games.text = response.Games.ToString();
-            _wins.text = response.Wins.ToString();
-            _loses.text = response.Loses.ToString();
-            _mmr.text = response.Mmr.ToString();
+            _playerProfile.Initialize(
+                response.Nickname,
+                response.Games,
+                response.Wins,
+                response.Loses,
+                response.Mmr,
+                response.Avatar);
+        });
 
-            var league = DetermineLeague(response.Mmr);
+        _games.text = _playerProfile.Games.ToString();
+        _wins.text = _playerProfile.Wins.ToString();
+        _loses.text = _playerProfile.Loses.ToString();
+        _mmr.text = _playerProfile.Mmr.ToString();
 
-            _league.text = league.ToString();
-            _league.color = GetLeagueColor(league);
-            await LoadLeagueIconAsync(league);
+        var league = DetermineLeague(_playerProfile.Mmr);
+        _league.text = league.ToString();
+        _league.color = GetLeagueColor(league);
+        await LoadLeagueIconAsync(league);
+
+        await TaskRunner.RunWithGlobalErrorHandling(async () =>
+        {
+            var playerAvatar = await _imagesService.LoadImage(_playerProfile.Avatar.S3Path);
+            _playerAvatar.GetComponentInChildren<Image>().sprite = playerAvatar;
         });
     }
 
@@ -102,24 +133,20 @@ public class ProfileManager : MonoBehaviour
     {
         string assetAddress = $"LeagueIcons/{league}";
 
-        var handle = Addressables.LoadAssetAsync<Sprite>(assetAddress);
+        _loadedSpriteHandle = Addressables.LoadAssetAsync<Sprite>(assetAddress);
 
         try
         {
-            var sprite = await handle.ToUniTask();
+            var sprite = await _loadedSpriteHandle.ToUniTask();
 
-            if (handle.Status == AsyncOperationStatus.Succeeded && _leagueIcon != null)
+            if (_loadedSpriteHandle.Status == AsyncOperationStatus.Succeeded && _leagueIcon != null)
             {
-                _leagueIcon.GetComponentInChildren<Image>().sprite = handle.Result;
+                _leagueIcon.GetComponentInChildren<Image>().sprite = sprite;
             }
         }
         catch (OperationCanceledException)
         {
             Debug.Log("Icon loading canceled.");
-        }
-        finally
-        {
-            Addressables.Release(handle);
         }
     }
 }
