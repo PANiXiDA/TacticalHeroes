@@ -6,6 +6,7 @@ using Assets.Scripts.Common.Enumerations;
 using Assets.Scripts.Common.WebRequest;
 using Assets.Scripts.Common.Constants;
 using Assets.Scripts.Infrastructure.Responses;
+using Assets.Scripts.Common.WebRequest.JWT;
 
 namespace Assets.Scripts.Services.Implementations
 {
@@ -49,6 +50,19 @@ namespace Assets.Scripts.Services.Implementations
                 ApiEndpointsConstants.RecoveryPasswordEndpoint,
                 RequestType.POST,
                 request);
+
+            return result.EnsureSuccess();
+        }
+
+        public async UniTask<EmptyResponse> Logout(LogoutRequest request)
+        {
+            var result = await UniversalWebRequest.SendRequest<LogoutRequest, EmptyResponse>(
+                ApiEndpointsConstants.LogoutEndpoint,
+                RequestType.POST,
+                request);
+
+            JwtTokenManager.AccessToken = string.Empty;
+            JwtTokenManager.DeleteRefreshToken();
 
             return result.EnsureSuccess();
         }

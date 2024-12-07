@@ -18,5 +18,10 @@ namespace Assets.Scripts.Common.WebRequest.JWT
         {
             return _secureStorage.LoadData(RefreshTokenKey);
         }
+
+        public static void DeleteRefreshToken()
+        {
+            _secureStorage.DeleteData(RefreshTokenKey);
+        }
     }
 }

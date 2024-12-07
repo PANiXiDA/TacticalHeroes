@@ -8,6 +8,7 @@
         public const string EmailConfirmEndpoint = "auth/confirm-email";
         public const string RecoveryPasswordEndpoint = "auth/recovery";
         public const string RefreshTokensEndpoint = "auth/refresh";
+        public const string LogoutEndpoint = "auth/logout";
         #endregion
 
         #region PlayersService

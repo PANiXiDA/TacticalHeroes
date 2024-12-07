@@ -11,5 +11,6 @@ namespace Assets.Scripts.Services.Interfaces
         UniTask<LoginResponse> Login(LoginRequest request);
         UniTask<EmptyResponse> ConfirmEmail(ConfirmEmailRequest request);
         UniTask<EmptyResponse> RecoveryPassword(RecoveryPasswordRequest request);
+        UniTask<EmptyResponse> Logout(LogoutRequest request);
     }
 }

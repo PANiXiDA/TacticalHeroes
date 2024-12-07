@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Avatar = Assets.Scripts.Infrastructure.Models.Avatar;
 
 namespace Assets.Scripts.UI
@@ -12,6 +13,7 @@ namespace Assets.Scripts.UI
         public int Wins { get; set; }
         public int Loses { get; set; }
         public int Mmr { get; set; }
+        public DateTime LastLogin { get; set; }
         public Avatar Avatar { get; set; }
 
         private void Awake()
@@ -33,6 +35,7 @@ namespace Assets.Scripts.UI
             int wins,
             int loses,
             int mmr,
+            DateTime lastLogin,
             Avatar avatar)
         {
             Nickname = nickname;
@@ -40,6 +43,7 @@ namespace Assets.Scripts.UI
             Wins = wins;
             Loses = loses;
             Mmr = mmr;
+            LastLogin = lastLogin;
             Avatar = avatar;
         }
     }

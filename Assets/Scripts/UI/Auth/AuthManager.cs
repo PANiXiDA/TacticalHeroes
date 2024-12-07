@@ -8,6 +8,7 @@ using Assets.Scripts.Common.Constants;
 using Assets.Scripts.Services.Interfaces;
 using Assets.Scripts.UI;
 using Assets.Scripts.Common.Helpers;
+using System;
 
 public class AuthManager : MonoBehaviour
 {
@@ -43,6 +44,15 @@ public class AuthManager : MonoBehaviour
 
         TaskRunner.RunWithGlobalErrorHandling(async () =>
         {
+            if (!Helpers.IsEmailValid(request.Email))
+            {
+                throw new ApplicationException(ErrorConstants.NotValidEmail);
+            }
+            if (!Helpers.IsPasswordValid(request.Password))
+            {
+                throw new ApplicationException(ErrorConstants.NotValidPassword);
+            }
+
             var response = await _authService.Login(request);
 
             JwtTokenManager.AccessToken = response.AccessToken;
@@ -62,6 +72,23 @@ public class AuthManager : MonoBehaviour
 
         TaskRunner.RunWithGlobalErrorHandling(async () =>
         {
+            if (!Helpers.IsEmailValid(request.Email))
+            {
+                throw new ApplicationException(ErrorConstants.NotValidEmail);
+            }
+            if (!Helpers.IsPasswordValid(request.Password))
+            {
+                throw new ApplicationException(ErrorConstants.NotValidPassword);
+            }
+            if (request.Password != request.RepeatPassword)
+            {
+                throw new ApplicationException(ErrorConstants.IncorrectRepeatPassword);
+            }
+            if (string.IsNullOrEmpty(request.NickName))
+            {
+                throw new ApplicationException(ErrorConstants.RequiredNickname);
+            }
+
             var response = await _authService.Registration(request);
             _popupManager.ShowPopup(SuccessConstants.Registration);
         });
@@ -73,6 +100,11 @@ public class AuthManager : MonoBehaviour
 
         TaskRunner.RunWithGlobalErrorHandling(async () =>
         {
+            if (!Helpers.IsEmailValid(request.Email))
+            {
+                throw new ApplicationException(ErrorConstants.NotValidEmail);
+            }
+
             var response = await _authService.ConfirmEmail(request);
             _popupManager.ShowPopup(SuccessConstants.ConfirmEmail);
         });
@@ -84,6 +116,11 @@ public class AuthManager : MonoBehaviour
 
         TaskRunner.RunWithGlobalErrorHandling(async () =>
         {
+            if (!Helpers.IsEmailValid(request.Email))
+            {
+                throw new ApplicationException(ErrorConstants.NotValidEmail);
+            }
+
             var response = await _authService.RecoveryPassword(request);
             _popupManager.ShowPopup(SuccessConstants.RecoveryPassword);
         });
