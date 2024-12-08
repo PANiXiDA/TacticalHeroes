@@ -7,7 +7,7 @@ public class FormsManager : MonoBehaviour
 
     public static FormsManager Instance { get; private set; }
 
-    private void Awake()
+    public void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -18,13 +18,13 @@ public class FormsManager : MonoBehaviour
         Instance = this;
     }
 
-    private void GoToAuthForm()
+    public void GoToAuthForm()
     {
         _authForm.SetActive(true);
         _registrationForm.SetActive(false);
     }
 
-    private void GoToRegistrationForm()
+    public void GoToRegistrationForm()
     {
         _registrationForm.SetActive(true);
         _authForm.SetActive(false);
