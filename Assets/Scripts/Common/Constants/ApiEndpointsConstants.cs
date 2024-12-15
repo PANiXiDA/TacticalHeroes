@@ -13,6 +13,16 @@
 
         #region PlayersService
         public const string GetPlayerEndpoint = "players";
+        public const string UpdatePlayerAvatarEndpoint = "players/update-avatar";
+        public const string UpdatePlayerFrameEndpoint = "players/update-frame";
+        #endregion
+
+        #region AvatarsService
+        public const string GetAvailableAvatarsEndpoint = "avatars/get-available";
+        #endregion
+
+        #region FramesService
+        public const string GetAvailableFramesEndpoint = "frames/get-available";
         #endregion
     }
 }

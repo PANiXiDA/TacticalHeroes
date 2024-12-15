@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Infrastructure.Models;
+using System;
 using UnityEngine;
 using Avatar = Assets.Scripts.Infrastructure.Models.Avatar;
 
@@ -14,7 +15,13 @@ namespace Assets.Scripts.UI
         public int Loses { get; set; }
         public int Mmr { get; set; }
         public DateTime LastLogin { get; set; }
+        public int Gold { get; set; }
+        public bool Premium { get; set; }
+        public int AvatarId { get; set; }
+        public int FrameId { get; set; }
+
         public Avatar Avatar { get; set; }
+        public Frame Frame { get; set; }
 
         private void Awake()
         {
@@ -36,7 +43,12 @@ namespace Assets.Scripts.UI
             int loses,
             int mmr,
             DateTime lastLogin,
-            Avatar avatar)
+            int gold,
+            bool premium,
+            int avatarId,
+            int frameId,
+            Avatar avatar,
+            Frame frame)
         {
             Nickname = nickname;
             Games = games;
@@ -44,7 +56,12 @@ namespace Assets.Scripts.UI
             Loses = loses;
             Mmr = mmr;
             LastLogin = lastLogin;
+            Gold = gold;
+            Premium = premium;
+            AvatarId = avatarId;
+            FrameId = frameId;
             Avatar = avatar;
+            Frame = frame;
         }
     }
 }

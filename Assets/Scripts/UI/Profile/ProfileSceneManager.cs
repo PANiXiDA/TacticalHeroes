@@ -3,7 +3,7 @@ using Assets.Scripts.Common.Helpers;
 using Assets.Scripts.Common.WebRequest.JWT;
 using Assets.Scripts.Infrastructure.Requests.AuthService;
 using Assets.Scripts.Services.Interfaces;
-using Cysharp.Threading.Tasks;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,55 +12,60 @@ using Zenject;
 
 namespace Assets.Scripts.UI.Profile
 {
-    public class ProfileSceneManager : MonoBehaviour
+    public class ProfileSceneManager : BaseProfileScene
     {
-        [SerializeField]
-        private GameObject _playerFrame, _playerAvatar;
-
         [SerializeField]
         private TextMeshProUGUI _nickname, _lastLogin;
 
         [SerializeField]
         private GameObject _statisticContent, _statisticPrefab;
 
-        private PlayerProfile _playerProfile;
-
         private IAuthService _authService;
-        private IImagesService _imagesService;
 
         [Inject]
         public void Construct(
-            IAuthService authService,
-            IImagesService imagesService)
+            IAuthService authService)
         {
             _authService = authService;
-            _imagesService = imagesService;
         }
 
         private async void Start()
         {
             _playerProfile = PlayerProfile.Instance;
-            await InitializeSceneAsync();
+            InitializeSceneAsync();
+            await InitializePlayerProfileAsync();
         }
 
-        private async UniTask InitializeSceneAsync()
+        private void InitializeSceneAsync()
         {
             _playerFrame.SetActive(true);
             _playerAvatar.SetActive(true);
 
             _nickname.text = _playerProfile.Nickname;
-            _lastLogin.text = _playerProfile.LastLogin.ToString();
 
+            UpdateLastLoginUI(_lastLogin, Helpers.ConvertUtcToLocalTime(_playerProfile.LastLogin));
             AddStatisticRow();
+        }
 
-            await TaskRunner.RunWithGlobalErrorHandling(async () =>
+        public async void Logout()
+        {
+            var refreshToken = JwtTokenManager.LoadRefreshToken();
+            await _authService.Logout(new LogoutRequest(refreshToken));
+            SceneManager.LoadScene(SceneConstants.MenuScene);
+        }
+
+        private void UpdateLastLoginUI(TextMeshProUGUI lastLoginText, DateTime lastLogin)
+        {
+            if (lastLogin.AddMinutes(30) <= DateTime.UtcNow)
             {
-                var playerAvatar = await _imagesService.LoadImage(_playerProfile.Avatar.S3Path);
-                if (_playerAvatar != null)
-                {
-                    _playerAvatar.GetComponentInChildren<Image>().sprite = playerAvatar;
-                }
-            });
+                lastLoginText.color = Color.white;
+                lastLoginText.text = lastLogin.ToString("dd.MM.yyyy HH:mm");
+            }
+            else
+            {
+                lastLoginText.color = Color.green;
+                lastLoginText.text = "Online";
+            }
         }
 
         private void AddStatisticRow()
@@ -81,13 +86,6 @@ namespace Assets.Scripts.UI.Profile
             {
                 texts[4].text = "0%";
             }
-        }
-
-        public async void Logout()
-        {
-            var refreshToken = JwtTokenManager.LoadRefreshToken();
-            await _authService.Logout(new LogoutRequest(refreshToken));
-            SceneManager.LoadScene(SceneConstants.MenuScene);
         }
     }
 }

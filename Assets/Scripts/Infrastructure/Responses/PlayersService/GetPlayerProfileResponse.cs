@@ -23,5 +23,6 @@ namespace Assets.Scripts.Infrastructure.Responses.PlayersService
         public int Level { get; set; }
         public int Experience { get; set; }
         public Avatar Avatar { get; set; }
+        public Frame Frame { get; set; }
     }
 }

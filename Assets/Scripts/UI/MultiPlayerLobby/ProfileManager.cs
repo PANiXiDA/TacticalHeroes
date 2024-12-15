@@ -13,33 +13,30 @@ using Assets.Scripts.Infrastructure.Requests;
 
 namespace Assets.Scripts.UI.MultiPlayerLobby
 {
-    public class ProfileManager : MonoBehaviour
+    public class ProfileManager : BaseProfileScene
     {
         [SerializeField]
-        private GameObject _playerFrame, _playerAvatar, _leagueIcon;
+        private GameObject _leagueIcon;
 
         [SerializeField]
         private TextMeshProUGUI _games, _wins, _loses, _league, _mmr;
 
         private AsyncOperationHandle<Sprite> _loadedSpriteHandle;
-        private PlayerProfile _playerProfile;
 
         private IPlayersService _playerService;
-        private IImagesService _imagesService;
 
         [Inject]
         public void Construct(
-            IPlayersService playerService,
-            IImagesService imagesService)
+            IPlayersService playerService)
         {
             _playerService = playerService;
-            _imagesService = imagesService;
         }
 
         private async void Start()
         {
             _playerProfile = PlayerProfile.Instance;
             await InitializeProfileAsync();
+            await InitializePlayerProfileAsync();
         }
 
         private void OnDestroy()
@@ -65,7 +62,12 @@ namespace Assets.Scripts.UI.MultiPlayerLobby
                     response.Loses,
                     response.Mmr,
                     response.LastLogin,
-                    response.Avatar);
+                    response.Gold,
+                    response.Premium,
+                    response.AvatarId,
+                    response.FrameId,
+                    response.Avatar,
+                    response.Frame);
             });
 
             _leagueIcon.SetActive(true);
@@ -81,15 +83,6 @@ namespace Assets.Scripts.UI.MultiPlayerLobby
             _league.text = league.ToString();
             _league.color = GetLeagueColor(league);
             await LoadLeagueIconAsync(league);
-
-            await TaskRunner.RunWithGlobalErrorHandling(async () =>
-            {
-                var playerAvatar = await _imagesService.LoadImage(_playerProfile.Avatar.S3Path);
-                if (_playerAvatar != null)
-                {
-                    _playerAvatar.GetComponentInChildren<Image>().sprite = playerAvatar;
-                }
-            });
         }
 
         private League DetermineLeague(int mmr)

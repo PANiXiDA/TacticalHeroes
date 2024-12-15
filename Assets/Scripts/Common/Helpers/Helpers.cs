@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Assets.Scripts.Common.Helpers
@@ -30,6 +31,13 @@ namespace Assets.Scripts.Common.Helpers
             }
 
             return true;
+        }
+
+        public static DateTime ConvertUtcToLocalTime(DateTime utcDateTime)
+        {
+            var localTimeZone = TimeZoneInfo.Local;
+
+            return TimeZoneInfo.ConvertTimeFromUtc(utcDateTime, localTimeZone);
         }
     }
 }
