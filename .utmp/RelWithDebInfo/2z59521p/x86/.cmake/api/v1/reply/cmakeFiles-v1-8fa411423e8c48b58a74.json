@@ -49,7 +49,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/armeabi-v7a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeSystem.cmake"
+			"path" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/x86/CMakeFiles/3.22.1-g37088a8-dirty/CMakeSystem.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -324,7 +324,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/armeabi-v7a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCCompiler.cmake"
+			"path" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/x86/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -558,7 +558,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/armeabi-v7a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCXXCompiler.cmake"
+			"path" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/x86/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -722,7 +722,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/armeabi-v7a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCCompiler.cmake"
+			"path" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/x86/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -816,24 +816,24 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/armeabi-v7a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCXXCompiler.cmake"
+			"path" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/x86/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCXXCompiler.cmake"
 		},
 		{
 			"path" : "FramePacing/CMakeLists.txt"
 		},
 		{
 			"isExternal" : true,
-			"path" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/prefab/armeabi-v7a/prefab/lib/arm-linux-androideabi/cmake/games-frame-pacing/games-frame-pacingConfigVersion.cmake"
+			"path" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/prefab/x86/prefab/lib/i686-linux-android/cmake/games-frame-pacing/games-frame-pacingConfigVersion.cmake"
 		},
 		{
 			"isExternal" : true,
-			"path" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/prefab/armeabi-v7a/prefab/lib/arm-linux-androideabi/cmake/games-frame-pacing/games-frame-pacingConfig.cmake"
+			"path" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/prefab/x86/prefab/lib/i686-linux-android/cmake/games-frame-pacing/games-frame-pacingConfig.cmake"
 		}
 	],
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/armeabi-v7a",
+		"build" : "D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/x86",
 		"source" : "D:/Unity-Game/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp"
 	},
 	"version" : 

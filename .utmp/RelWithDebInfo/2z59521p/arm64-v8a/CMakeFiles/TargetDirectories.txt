@@ -1,0 +1,5 @@
+D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/arm64-v8a/CMakeFiles/rebuild_cache.dir
+D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+D:/Unity-Game/.utmp/RelWithDebInfo/2z59521p/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir
