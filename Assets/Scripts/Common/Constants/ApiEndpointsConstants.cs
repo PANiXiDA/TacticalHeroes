@@ -24,5 +24,10 @@
         #region FramesService
         public const string GetAvailableFramesEndpoint = "frames/get-available";
         #endregion
+
+        #region ChatsService
+        public const string GlobalChatHistoryEndpoint = "chats/global/history";
+        public const string GlobalChatEndpoint = "chats/global";
+        #endregion
     }
 }

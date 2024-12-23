@@ -128,4 +128,3 @@ namespace Assets.Scripts.Common.WebRequest
         }
     }
 }
-

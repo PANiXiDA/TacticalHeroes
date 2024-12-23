@@ -7,6 +7,7 @@ namespace Assets.Scripts.UI.MultiPlayerLobby.Extensions
         public override void InstallBindings()
         {
             Container.Bind<ProfileManager>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<ChatManager>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

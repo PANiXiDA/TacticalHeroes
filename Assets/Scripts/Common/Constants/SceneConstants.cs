@@ -5,5 +5,6 @@
         public static string MenuScene = "Menu";
         public static string MultiPlayerLobbyScene = "MultiPlayerLobby";
         public static string AuthScene = "Auth";
+        public static string ProfileScene = "Profile";
     }
 }

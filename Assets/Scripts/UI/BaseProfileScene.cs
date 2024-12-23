@@ -24,8 +24,6 @@ namespace Assets.Scripts.UI
 
         protected async UniTask InitializePlayerProfileAsync()
         {
-            _playerProfile = PlayerProfile.Instance;
-
             _playerFrame.SetActive(true);
             _playerAvatar.SetActive(true);
 

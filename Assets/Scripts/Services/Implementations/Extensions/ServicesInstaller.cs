@@ -12,6 +12,7 @@ namespace Assets.Scripts.Services.Implementations.Extensions
             Container.Bind<IImagesService>().To<ImagesService>().AsSingle();
             Container.Bind<IAvatarsService>().To<AvatarsService>().AsSingle();
             Container.Bind<IFramesService>().To<FramesService>().AsSingle();
+            Container.Bind<IChatsService>().To<ChatsService>().AsSingle();
         }
     }
 }
