@@ -1,0 +1,144 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/CustomHero/Uss/CustomHero.uss?fileID=7433441132597879392&amp;guid=7cb0bfb0c9610164f96ff56a564a1597&amp;type=3#CustomHero" />
+    <engine:VisualElement name="MainBlock" style="flex-grow: 1; flex-direction: row;">
+        <engine:VisualElement name="EditBlock" style="flex-grow: 1; flex-shrink: 0; height: 100%; width: 50%;">
+            <engine:VisualElement style="flex-grow: 9; background-color: rgba(0, 0, 0, 0);" />
+            <engine:VisualElement name="SaveBlock" style="flex-grow: 1;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="ToggleButtonsBlock" style="flex-grow: 1; flex-shrink: 0; width: 10%; height: 100%;" />
+        <engine:VisualElement name="HeroBlock" style="flex-grow: 1; cursor: url(&quot;project://database/Assets/Sprites/Build/Icons/Cursor.png?fileID=2800000&amp;guid=424e665dc412a1943a76111cefc935d9&amp;type=3#Cursor&quot;); background-image: none; flex-shrink: 0; width: 40%; height: 100%; -unity-text-outline-color: rgba(0, 0, 0, 0); background-color: rgb(140, 130, 119); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgb(245, 175, 94); border-right-color: rgb(245, 175, 94); border-top-color: rgb(245, 175, 94); border-bottom-color: rgb(245, 175, 94);">
+            <engine:VisualElement name="Hero" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/HeroBlock/HeroBackground.png?fileID=-4396260839482105674&amp;guid=d137b2bfc41106d41b2c3f6e05888e67&amp;type=3#HeroBackground&quot;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.59); flex-direction: row; flex-shrink: 0; width: 100%; height: 60%; border-top-width: 0; border-right-width: 0; border-bottom-width: 5px; border-left-width: 0; border-left-color: rgb(245, 175, 94); border-right-color: rgb(245, 175, 94); border-top-color: rgb(245, 175, 94); border-bottom-color: rgb(245, 175, 94);">
+                <engine:VisualElement name="MainHero" style="flex-grow: 1; margin-right: 0; margin-left: 0; height: 100%; width: 75%; flex-shrink: 0;">
+                    <engine:VisualElement name="Header" style="flex-grow: 1; flex-direction: row;">
+                        <engine:VisualElement name="RingFirst" class="hero-container-element" style="flex-grow: 1; flex-wrap: nowrap;">
+                            <engine:VisualElement name="Sprite" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.36); opacity: 0.5; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/HeroBlock/BaseArtefacts/Ring.png?fileID=4004708080983207187&amp;guid=980026442a39d7d488d412b14aa44fcd&amp;type=3#Ring&quot;);" />
+                        </engine:VisualElement>
+                        <engine:VisualElement name="Helmet" class="hero-container-element" style="flex-grow: 1;">
+                            <engine:VisualElement name="Sprite" style="flex-grow: 1; opacity: 0.5; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/HeroBlock/BaseArtefacts/Helm.png?fileID=5774581190672780694&amp;guid=85cf7a5dcd1fdc94797efdffc3545a50&amp;type=3#Helm&quot;);" />
+                        </engine:VisualElement>
+                        <engine:VisualElement name="Necklace" class="hero-container-element" style="flex-grow: 1;">
+                            <engine:VisualElement name="Sprite" style="flex-grow: 1; opacity: 0.5; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/HeroBlock/BaseArtefacts/Necklace.png?fileID=-2919378836723705254&amp;guid=4a1f0ce22596edb46a1358f3d93f40db&amp;type=3#Necklace&quot;);" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="Body" style="flex-grow: 1; flex-direction: row;">
+                        <engine:VisualElement name="RingSecond" class="hero-container-element" style="flex-grow: 1;">
+                            <engine:VisualElement name="Sprite" style="flex-grow: 1; opacity: 0.5; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/HeroBlock/BaseArtefacts/Ring.png?fileID=4004708080983207187&amp;guid=980026442a39d7d488d412b14aa44fcd&amp;type=3#Ring&quot;);" />
+                        </engine:VisualElement>
+                        <engine:VisualElement name="Cirase" class="hero-container-element" style="flex-grow: 1;">
+                            <engine:VisualElement name="Sprite" style="flex-grow: 1; opacity: 0.5; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/HeroBlock/BaseArtefacts/Cirase.png?fileID=6752599820228936355&amp;guid=fdaa5c4456471964c8219cab26a47452&amp;type=3#Cirase&quot;);" />
+                        </engine:VisualElement>
+                        <engine:VisualElement name="Shield" class="hero-container-element" style="flex-grow: 1;">
+                            <engine:VisualElement name="Sprite" style="flex-grow: 1; opacity: 0.5; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/HeroBlock/BaseArtefacts/Shield.png?fileID=-6717884257390833292&amp;guid=e7862784459da25498a107a33183b7af&amp;type=3#Shield&quot;);" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="Footer" style="flex-grow: 1; flex-direction: row; flex-shrink: 1; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; justify-content: flex-start;">
+                        <engine:VisualElement name="Weapon" class="hero-container-element">
+                            <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/HeroBlock/BaseArtefacts/Weapon.png?fileID=1518363075290452430&amp;guid=10929749678d92d4ba6fa965a482343e&amp;type=3#Weapon&quot;); opacity: 0.5;" />
+                        </engine:VisualElement>
+                        <engine:VisualElement name="Boots" class="hero-container-element" style="flex-grow: 1;">
+                            <engine:VisualElement name="Sprite" class="base-sprite-element" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/HeroBlock/BaseArtefacts/Boots.png?fileID=7902364575885455685&amp;guid=f62fce00e80521642bd0169b7acbc09a&amp;type=3#Boots&quot;); opacity: 0.5;" />
+                        </engine:VisualElement>
+                        <engine:VisualElement name="Cloak" class="hero-container-element" style="flex-grow: 1;">
+                            <engine:VisualElement name="Sprite" class="base-sprite-element" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/HeroBlock/BaseArtefacts/Cloak.png?fileID=-56352792576338850&amp;guid=5e74acb5491fc8f4fa7e43b01639470b&amp;type=3#Cloak&quot;); opacity: 0.5;" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:VisualElement name="AdditionalHero" style="flex-grow: 1; height: 100%; width: 25%; flex-shrink: 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-bottom: 0;">
+                    <engine:VisualElement name="Book" class="hero-container-element" style="flex-grow: 1; scale: 1 0.95;">
+                        <engine:VisualElement name="Sprite" style="flex-grow: 1; background-color: rgba(95, 95, 95, 0); background-image: url(&quot;project://database/Assets/Sprites/CustomHero/HeroBlock/BaseArtefacts/Book.png?fileID=2353571312451627304&amp;guid=7880b043cb0f2b0468055c5ad81a57c4&amp;type=3#Book&quot;); opacity: 0.5;" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="Backpack" class="hero-container-element" style="flex-grow: 1; scale: 1 0.95;">
+                        <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: none; -unity-background-image-tint-color: rgb(164, 164, 164); opacity: 0.5;" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="Empty" enabled="true" class="hero-container-element" style="flex-grow: 1; opacity: 1; display: flex; visibility: hidden;" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="Stats" style="flex-grow: 1; flex-shrink: 0; width: 100%; height: 20%; -unity-text-align: upper-left; white-space: normal; flex-direction: row; border-left-color: rgb(245, 175, 94); border-right-color: rgb(245, 175, 94); border-top-color: rgb(245, 175, 94); border-bottom-color: rgb(245, 175, 94); border-bottom-width: 5px;">
+                <engine:VisualElement name="LeftStatsContainer" style="flex-grow: 1; flex-shrink: 0; width: 33%; height: 100%;">
+                    <engine:VisualElement name="AttackContainer" style="height: 33%; width: 100%; flex-direction: row; flex-shrink: 0; flex-grow: 1;">
+                        <engine:VisualElement name="AttackIcon" class="stats-icon-element" style="background-image: url(&quot;project://database/Assets/Sprites/CustomHero/StatsBlock/AttackIcon.png?fileID=-760638781232810543&amp;guid=f28078456e3f2b74cba3c319d518857f&amp;type=3#AttackIcon_0&quot;);" />
+                        <engine:Label text="Attack" name="AttackText" class="stats-text-element" />
+                        <engine:Label text="0" name="AttackCount" class="stats-count-element" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="DefenceContainer" style="flex-grow: 1; flex-shrink: 0; width: 100%; height: 33%; flex-direction: row;">
+                        <engine:VisualElement name="DefenceIcon" class="stats-icon-element" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/StatsBlock/DefenceIcon.png?fileID=-4265871181044004183&amp;guid=80960f0271df5ad4295ec52529132bc7&amp;type=3#DefenceIcon_0&quot;);" />
+                        <engine:Label text="Defence" name="DefenceText" class="stats-text-element" />
+                        <engine:Label text="0" name="DefenceCount" class="stats-count-element" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="Empty" style="flex-grow: 1; width: 100%; height: 34%; flex-shrink: 0; flex-direction: row;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="MiddleStatsContainer" style="flex-grow: 1; width: 34%; height: 100%; flex-shrink: 0;">
+                    <engine:VisualElement name="SpellPowerContainer" class="statc-container-element" style="flex-grow: 1; flex-direction: row; flex-shrink: 0; height: 33%; width: 100%;">
+                        <engine:VisualElement name="SpellPowerIcon" class="stats-icon-element" style="flex-grow: 1; flex-shrink: 0; height: 100%; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/StatsBlock/SpellPowerIcon.png?fileID=11937555165273053&amp;guid=588c663ac16af5a4d9f500d06f505ba3&amp;type=3#SpellPowerIcon_0&quot;);" />
+                        <engine:Label text="Power" name="SpellPowerText" class="stats-text-element" />
+                        <engine:Label text="0" name="SpellPowerCount" class="stats-count-element" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="KnowledgeContainer" class="statc-container-element" style="flex-grow: 1; flex-shrink: 0; width: 100%; height: 33%; flex-direction: row; background-image: none;">
+                        <engine:VisualElement name="KnowledgeIcon" class="stats-icon-element" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/StatsBlock/KnowledgeIcon.png?fileID=-5454028189956240725&amp;guid=b7cdc944b3b0e9640ac5c1330569d62f&amp;type=3#KnowledgeIcon_0&quot;);" />
+                        <engine:Label text="Knowledge" name="KnowledgeText" class="stats-text-element" />
+                        <engine:Label text="0&#10;" name="KnowledgeCount" class="stats-count-element" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="ManaContainer" class="statc-container-element" style="flex-grow: 1; flex-shrink: 0; width: 100%; height: 34%; white-space: normal; flex-direction: row;">
+                        <engine:VisualElement name="ManaIcon" class="stats-icon-element" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/StatsBlock/ManaIcon.png?fileID=-8293474577991263452&amp;guid=8ef7e3ee7ecd1584087e1f3da9f9fe68&amp;type=3#ManaIcon_0&quot;);" />
+                        <engine:Label text="Mana" name="ManaText" class="stats-text-element" />
+                        <engine:Label text="0" name="ManaIcon" class="stats-count-element" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:VisualElement name="RightStatsContainer" style="flex-grow: 1; width: 33%; height: 100%; flex-shrink: 0; flex-direction: column;">
+                    <engine:VisualElement name="MoraleContainer" style="flex-grow: 1; flex-shrink: 0; flex-direction: row; background-size: 100% 33%; width: 100%; height: 33%;">
+                        <engine:VisualElement name="MoraleIcon" class="stats-icon-element" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/StatsBlock/MoraleIcon.png?fileID=2800000&amp;guid=7adb14e5f2667d647b59032c6474cd8e&amp;type=3#MoraleIcon&quot;);" />
+                        <engine:Label text="Morale" name="MoraleText" class="stats-text-element" />
+                        <engine:Label text="0" name="MoraleCount" class="stats-count-element" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="LuckContainer" style="flex-grow: 1; flex-shrink: 0; flex-direction: row; background-size: 100% 33%; width: 100%; height: 33%;">
+                        <engine:VisualElement name="LuckIcon" class="stats-icon-element" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/StatsBlock/LuckIcon.png?fileID=372116115930168411&amp;guid=73feb69ad3acd7a489787f5d9b8bfebc&amp;type=3#LuckIcon_0&quot;);" />
+                        <engine:Label text="Luck" name="LuckText" class="stats-text-element" />
+                        <engine:Label text="0" name="LuckCount" class="stats-count-element" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="Empty" style="flex-grow: 1; flex-shrink: 0; background-size: 100% 34%; flex-direction: row; width: 100%; height: 33%;" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="Units" style="flex-grow: 1; visibility: visible; width: 100%; height: 20%; flex-shrink: 0;">
+                <engine:VisualElement name="TopRow" style="flex-grow: 1; flex-shrink: 0; width: 100%; height: 50%; flex-direction: row; margin-right: 0; margin-left: 0; margin-top: 0; margin-bottom: 0; padding-right: 17%; padding-left: 17%;">
+                    <engine:VisualElement name="T1Unit" class="unit-container-element">
+                        <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/UnitsBlock/T1Unit.png?fileID=2737590714477061801&amp;guid=567031cb97092bc4e98ce7e4ba2917be&amp;type=3#T1Unit&quot;);">
+                            <engine:Label text="0" name="Count" class="count-text-element" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="T2Unit" class="unit-container-element" style="flex-grow: 1;">
+                        <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/UnitsBlock/T2Unit.png?fileID=-1182864840732129221&amp;guid=83ea2a25f1704624cacbdec8f6ae6461&amp;type=3#T2Unit&quot;);">
+                            <engine:Label text="0" name="Count" emoji-fallback-support="true" class="count-text-element" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="T3Unit" class="unit-container-element" style="flex-grow: 1;">
+                        <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/UnitsBlock/T3Unit.png?fileID=9172244523880144407&amp;guid=bfef7ff66a9815940bd37922fb345ad2&amp;type=3#T3Unit&quot;);">
+                            <engine:Label text="0" name="Count" class="count-text-element" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="T4Unit" class="unit-container-element" style="flex-grow: 1;">
+                        <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/UnitsBlock/T4Unit.png?fileID=-1939999688302094208&amp;guid=d24ac6a4f8150614b8dda9734b843040&amp;type=3#T4Unit&quot;);">
+                            <engine:Label text="0" name="Count" class="count-text-element" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:VisualElement name="BottomRow" style="flex-grow: 1; flex-shrink: 0; width: 100%; height: 50%; flex-direction: row; padding-right: 25%; padding-left: 25%;">
+                    <engine:VisualElement name="T5Unit" class="unit-container-element" style="flex-grow: 1;">
+                        <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/UnitsBlock/T5Unit.png?fileID=-4970379042333195453&amp;guid=2a029a7739aa5834eb30d7230d9d0a7b&amp;type=3#T5Unit&quot;);">
+                            <engine:Label text="0" name="Count" class="count-text-element" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="T6Unit" class="unit-container-element" style="flex-grow: 1;">
+                        <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/UnitsBlock/T6Unit.png?fileID=180555123642507170&amp;guid=72babc4909c37c5488fcb5d2517c47ff&amp;type=3#T6Unit&quot;);">
+                            <engine:Label text="0" name="Count" class="count-text-element" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:VisualElement name="T7Unit" class="unit-container-element" style="flex-grow: 1;">
+                        <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/CustomHero/UnitsBlock/T7Unit.png?fileID=-1571759535800239776&amp;guid=5260baf90c03a0b48b213e25f54c4222&amp;type=3#T7Unit&quot;);">
+                            <engine:Label text="0" name="Count" class="count-text-element" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
