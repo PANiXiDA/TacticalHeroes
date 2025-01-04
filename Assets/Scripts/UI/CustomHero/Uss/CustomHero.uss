@@ -90,8 +90,8 @@
 
 .stats-icon-element {
     flex-grow: 1;
-    height: 50%;
-    width: 15%;
+    height: 100%;
+    width: 20%;
     flex-shrink: 0;
     background-image: none;
     padding-top: 25%;
@@ -100,7 +100,7 @@
 .stats-text-element {
     width: 60%;
     height: 100%;
-    font-size: 19px;
+    font-size: 24px;
     -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
     -unity-font-style: bold-and-italic;
     color: rgb(255, 255, 255);
@@ -115,12 +115,223 @@
 
 .stats-count-element {
     height: 100%;
-    width: 25%;
+    width: 20%;
     color: rgb(18, 255, 0);
-    font-size: 24px;
+    font-size: 32px;
     -unity-text-align: middle-center;
     -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
     -unity-font-style: normal;
     -unity-text-outline-width: 0.5px;
     -unity-text-outline-color: rgb(0, 0, 0);
+}
+
+.stats-button-element {
+    background-color: rgb(216, 189, 134);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width: 25%;
+    height: 100%;
+}
+
+.stats-button-element:hover {
+    background-color: rgb(236, 224, 201);
+}
+
+.default-block {
+    flex-grow: 1;
+    cursor: url("project://database/Assets/Sprites/Build/Icons/Cursor.png?fileID=2800000&guid=424e665dc412a1943a76111cefc935d9&type=3#Cursor");
+    background-image: none;
+    flex-shrink: 0;
+    width: 40%;
+    height: 100%;
+    -unity-text-outline-color: rgba(0, 0, 0, 0);
+    background-color: rgb(140, 130, 119);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-left-color: rgb(245, 175, 94);
+    border-right-color: rgb(245, 175, 94);
+    border-top-color: rgb(245, 175, 94);
+    border-bottom-color: rgb(245, 175, 94);
+}
+
+.save-block-buttons {
+    width: 25%;
+    height: 100%;
+    border-left-color: rgb(200, 200, 200);
+    border-right-color: rgb(200, 200, 200);
+    border-top-color: rgb(200, 200, 200);
+    border-bottom-color: rgb(200, 200, 200);
+    background-color: rgb(157, 111, 40);
+    background-image: none;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
+    -unity-font-style: bold;
+    color: rgb(255, 255, 255);
+    font-size: 32px;
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+}
+
+.save-block-buttons:hover {
+    background-color: rgb(180, 150, 103);
+}
+
+.toggle-block-buttons {
+    width: 100%;
+    height: 15%;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    background-image: none;
+    background-color: rgba(188, 188, 188, 0);
+}
+
+.toggle-block-buttons:hover {
+    background-color: rgb(200, 200, 200);
+}
+
+.toggle-block-buttons:active {
+    background-color: rgb(0, 0, 0);
+}
+
+.shop-title-backgroud {
+    width: 100%;
+    height: 20%;
+    background-color: rgba(0, 0, 0, 0.39);
+    border-left-color: rgb(245, 175, 94);
+    border-right-color: rgb(245, 175, 94);
+    border-top-color: rgb(245, 175, 94);
+    border-bottom-color: rgb(245, 175, 94);
+    border-bottom-width: 5px;
+}
+
+.shop-title-text {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 500%;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
+    -unity-font-style: bold;
+    color: rgb(255, 255, 255);
+    -unity-text-outline-color: rgb(0, 0, 0);
+    -unity-text-outline-width: 2px;
+}
+
+.unity-base-popup-field__arrow {
+    background-image: url("project://database/Assets/Sprites/CustomHero/ArtifactsBlock/DropDownArrowNew.png?fileID=-832639598771150053&guid=f8563e04eb7d45344b4e8a49d523d940&type=3#DropDownArrowNew");
+    background-size: 100% 100%;
+    flex-shrink: 0;
+    width: 20%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    opacity: 1;
+    display: flex;
+    visibility: visible;
+    overflow: visible;
+    position: relative;
+    flex-basis: auto;
+    align-self: auto;
+    justify-content: flex-start;
+    align-items: stretch;
+    color: rgb(255, 255, 255);
+    -unity-text-outline-color: rgb(0, 0, 0);
+    text-shadow: 0 0 0 rgb(95, 188, 91);
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.unity-base-popup-field__input {
+    background-color: rgba(152, 152, 152, 0);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
+    border-bottom-left-radius: 5%;
+}
+
+.artifacts-dropdown-element {
+    width: 60%;
+    height: 35%;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    top: 30%;
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
+    -unity-font-style: normal;
+    font-size: 180%;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    -unity-text-align: middle-center;
+    -unity-slice-left: 0;
+    -unity-text-outline-width: 0;
+    -unity-text-outline-color: rgba(0, 0, 0, 0);
+    -unity-background-scale-mode: scale-and-crop;
+    background-position-y: bottom 0;
+    background-position-x: center 0;
+    background-repeat: no-repeat no-repeat;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.unity-scroll-view__content-container {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
 }
