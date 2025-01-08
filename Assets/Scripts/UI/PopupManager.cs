@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Common.Helpers;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,9 +8,17 @@ namespace Assets.Scripts.UI
 {
     public class PopupManager : MonoBehaviour
     {
-        public GameObject popupPanel;
-        public TextMeshProUGUI popupText;
-        public Button closeButton;
+        [SerializeField]
+        private RectTransform _scroll;
+
+        [SerializeField]
+        private GameObject _popupPanel;
+
+        [SerializeField]
+        public TextMeshProUGUI _popupText;
+
+        [SerializeField]
+        public Button _closeButton;
 
         private static PopupManager _instance;
 
@@ -25,8 +34,8 @@ namespace Assets.Scripts.UI
 
             DontDestroyOnLoad(gameObject);
 
-            popupPanel.SetActive(false);
-            closeButton.onClick.AddListener(ClosePopup);
+            _popupPanel.SetActive(false);
+            _closeButton.onClick.AddListener(ClosePopup);
 
             TaskRunner.OnErrorOccurred += ShowPopup;
         }
@@ -40,13 +49,16 @@ namespace Assets.Scripts.UI
 
         public void ShowPopup(string message)
         {
-            popupText.text = message;
-            popupPanel.SetActive(true);
+            _popupText.text = message;
+            _popupPanel.SetActive(true);
+
+            _scroll.sizeDelta = new Vector2(_scroll.sizeDelta.x, 0);
+            _scroll.DOSizeDelta(new Vector2(_scroll.sizeDelta.x, 1000), 1f).SetEase(Ease.InBack);
         }
 
         private void ClosePopup()
         {
-            popupPanel.SetActive(false);
+            _scroll.DOSizeDelta(new Vector2(_scroll.sizeDelta.x, 0), 1f).SetEase(Ease.InBack).OnComplete(() => _popupPanel.SetActive(false));
         }
     }
 }

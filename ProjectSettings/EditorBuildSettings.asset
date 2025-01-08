@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CustomHero.unity
     guid: b16b78033cc07084c9c25b7e2d311602
+  - enabled: 1
+    path: Assets/Scenes/LoadBattle.unity
+    guid: 3834198c2d638a5448c984b17305e157
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 8517a54f0c17b5f46b60f9936e2954ef, type: 2}
   m_UseUCBPForAssetBundles: 0

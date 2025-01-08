@@ -8,6 +8,7 @@ namespace Assets.Scripts.UI.MultiPlayerLobby.Extensions
         {
             Container.Bind<ProfileManager>().FromComponentInHierarchy().AsSingle();
             Container.Bind<ChatManager>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<PlayManager>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

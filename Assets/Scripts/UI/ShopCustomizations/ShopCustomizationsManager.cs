@@ -142,7 +142,7 @@ namespace Assets.Scripts.UI.ShopCustomizations
         {
             if (!string.IsNullOrEmpty(_sceneManagerHelper.PreviousScene))
             {
-                SceneManager.LoadScene(_sceneManagerHelper.PreviousScene);
+                _sceneManagerHelper.ChangeScene(_sceneManagerHelper.PreviousScene);
             }
         }
     }

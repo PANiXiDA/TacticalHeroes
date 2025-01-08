@@ -6005,6 +6005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _preloader: {fileID: 733075118}
+  _matchSettings: {fileID: 11400000, guid: 4b7d047ad48a6e948ae536bdf30f2faf, type: 2}
 --- !u!1 &1593844512
 GameObject:
   m_ObjectHideFlags: 0

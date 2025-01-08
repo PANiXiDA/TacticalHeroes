@@ -29,5 +29,9 @@
         public const string GlobalChatHistoryEndpoint = "chats/global/history";
         public const string GlobalChatEndpoint = "chats/global";
         #endregion
+
+        #region MatchmakingService
+        public const string MatchmakingEndpoint = "matchmaking";
+        #endregion
     }
 }

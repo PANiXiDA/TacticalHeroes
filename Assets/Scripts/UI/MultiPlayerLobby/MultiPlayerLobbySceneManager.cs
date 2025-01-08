@@ -63,7 +63,7 @@ namespace Assets.Scripts.UI.MultiPlayerLobby
 
         public void OnClickProfile()
         {
-            SceneManager.LoadScene(SceneConstants.ProfileScene);
+            SceneManagerHelper.Instance.ChangeScene(SceneConstants.ProfileScene);
         }
 
         public void OnClickBattle()
@@ -89,7 +89,7 @@ namespace Assets.Scripts.UI.MultiPlayerLobby
 
         public void OnClickExit()
         {
-            SceneManager.LoadScene(SceneConstants.MenuScene);
+            SceneManagerHelper.Instance.ChangeScene(SceneConstants.MenuScene);
         }
     }
 }

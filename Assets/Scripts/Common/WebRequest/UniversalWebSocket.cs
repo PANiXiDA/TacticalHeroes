@@ -199,7 +199,7 @@ public class UniversalWebSocket
                 if (result.MessageType == WebSocketMessageType.Close)
                 {
                     Debug.Log($"WebSocket закрыт сервером для {endpoint}");
-                    throw new InvalidOperationException();
+                    break;
                 }
 
                 string jsonResponse = Encoding.UTF8.GetString(buffer, 0, result.Count);

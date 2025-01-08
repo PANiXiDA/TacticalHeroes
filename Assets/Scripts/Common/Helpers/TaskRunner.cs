@@ -32,4 +32,3 @@ namespace Assets.Scripts.Common.Helpers
         }
     }
 }
-

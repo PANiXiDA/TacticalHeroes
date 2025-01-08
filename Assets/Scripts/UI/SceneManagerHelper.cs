@@ -1,10 +1,17 @@
-﻿using UnityEngine.SceneManagement;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+using Cysharp.Threading.Tasks;
 
 namespace Assets.Scripts.UI
 {
     public class SceneManagerHelper : MonoBehaviour
     {
+        [SerializeField]
+        private Animator _anim;
+
+        [SerializeField]
+        private float fadeDuration = 1f;
+
         public static SceneManagerHelper Instance { get; private set; }
 
         public string CurrentScene { get; private set; }
@@ -25,23 +32,39 @@ namespace Assets.Scripts.UI
 
         private void Start()
         {
-            SceneManager.activeSceneChanged += OnSceneChanged;
             CurrentScene = SceneManager.GetActiveScene().name;
             PreviousScene = null;
         }
 
-        private void OnSceneChanged(Scene oldScene, Scene newScene)
+        public void ChangeScene(string newSceneName)
         {
-            if (!string.IsNullOrEmpty(newScene.name))
+            if (newSceneName != CurrentScene)
             {
-                PreviousScene = CurrentScene;
-                CurrentScene = newScene.name;
+                ChangeSceneWithAnimationAsync(newSceneName).Forget();
             }
         }
 
-        private void OnDestroy()
+        private async UniTask ChangeSceneWithAnimationAsync(string newSceneName)
         {
-            SceneManager.activeSceneChanged -= OnSceneChanged;
+            if (_anim == null)
+            {
+                Debug.LogError("Animator not assigned!");
+                return;
+            }
+
+            _anim.SetTrigger("FadeOut");
+
+            await UniTask.Delay((int)(fadeDuration * 1000));
+
+            PreviousScene = CurrentScene;
+
+            await SceneManager.LoadSceneAsync(newSceneName);
+
+            _anim.SetTrigger("FadeIn");
+
+            CurrentScene = newSceneName;
+
+            await UniTask.Delay((int)(fadeDuration * 1000));
         }
     }
 }

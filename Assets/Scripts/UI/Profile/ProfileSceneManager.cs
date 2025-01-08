@@ -51,7 +51,7 @@ namespace Assets.Scripts.UI.Profile
         {
             var refreshToken = JwtTokenManager.LoadRefreshToken();
             await _authService.Logout(new LogoutRequest(refreshToken));
-            SceneManager.LoadScene(SceneConstants.MenuScene);
+            SceneManagerHelper.Instance.ChangeScene(SceneConstants.MenuScene);
         }
 
         private void UpdateLastLoginUI(TextMeshProUGUI lastLoginText, DateTime lastLogin)
