@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dragon_Eye_Ring_0: -4261238816999575763
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

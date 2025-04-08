@@ -185,7 +185,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Chain_Mail_of_Enlightenment_0: -3461637530021304868
+      Chain_Mail_of_Enlightenment_1: 8224626876767309183
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

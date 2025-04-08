@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dragon_Scale_Armor_0: -3536166952725815046
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
