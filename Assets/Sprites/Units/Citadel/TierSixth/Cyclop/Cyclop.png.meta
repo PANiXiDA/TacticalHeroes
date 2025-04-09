@@ -1,0 +1,1480 @@
+fileFormatVersion: 2
+guid: 84b7365eaa473cc4093a35b9fffe4f13
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cyclop
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 922
+        width: 42
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71cb2e2d242126c4c94967f5f1c7a435
+      internalID: 1334585770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Move_8
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 819
+        width: 55
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d3000e941ba2124a9ba31d6042dfd13
+      internalID: -878388542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Move_9
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 824
+        width: 41
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66fa670d6bccff040bd5577bf9cc710c
+      internalID: 1914523127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Move_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 816
+        width: 47
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55956a2f62219e847aabba8a42927c23
+      internalID: -86224744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Move_1
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 819
+        width: 41
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3076d5086eaa271469c700097fd20f37
+      internalID: -1570820120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Move_2
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 817
+        width: 38
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2abdf08b4f56854286f3332325a33da
+      internalID: 947416008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Move_3
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 825
+        width: 33
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5ee6c9365b8e2d48a029550aa77b7c0
+      internalID: -1735532763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Move_4
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 823
+        width: 40
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292d3ab185f4f754588114cd6439b3b6
+      internalID: -1143717883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Move_5
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 825
+        width: 37
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7e28fcb2ec5316448c47c1b99668599
+      internalID: 1143783603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Move_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 823
+        width: 39
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab810fb6bdde9d041881c1530b7dd469
+      internalID: 1822269236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_TopMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 638
+        width: 53
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0afebd3c2abc39d43b4bcb43c7093230
+      internalID: -856041239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_TopMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 639
+        width: 55
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1841ae266cc33e8448e8180578f8d95b
+      internalID: 1986365384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_TopMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 641
+        width: 54
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a186f60bb0af9a468f2f0e5d6949cfa
+      internalID: -51106199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_TopMeleeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 637
+        width: 46
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9cae40dd6ec9e429834d9e0fe99164
+      internalID: -616430354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_TopMeleeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 637
+        width: 41
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ca311a052510db47abf0b0e05aa4f8f
+      internalID: -1618141292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Avatar
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 635
+        width: 43
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f0d3f094cd00b3468533d1e24162732
+      internalID: 584097458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_FrontMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 549
+        width: 52
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf6ec9151e55b4c4996d4454c5ad670a
+      internalID: -261377137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_FrontMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 553
+        width: 70
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13053ef9049f1c24dbeb75670aed4ed5
+      internalID: 823014900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_FrontMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 553
+        width: 66
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 121118b9eb2f0194bbc4aaf836971f18
+      internalID: 132590527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_FrontMeleeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 553
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b878d9db2f0df5d45853b2bbe37e5f03
+      internalID: 1045144466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_FrontMeleeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 551
+        width: 56
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d15d9331e3b33c740abe2eafbf043562
+      internalID: 1058910340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_FrontMeleeAttack_5
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 547
+        width: 42
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa083649458ae4c4292a77f195026c0a
+      internalID: 805398437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_BottomMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 467
+        width: 50
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb56fe2a5e8a6a448935859c1e85ffe5
+      internalID: -610630801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_BottomMeleeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 464
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86d5de193cf6e3439fb28e6cd162e2d
+      internalID: -150142479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_BottomMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 466
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa75dd41b9705749beaf22180cad901
+      internalID: -1589435595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_BottomMeleeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 467
+        width: 44
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b1c7a48c84c7647ab6e75529ba7d96
+      internalID: 577928796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_BottomMeleeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 467
+        width: 38
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 531048dfc87e70c42855c01a7d2325ed
+      internalID: -1940108664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Death_1
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 369
+        width: 46
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bca230f84a86fd4f8d72a1d701fbf9a
+      internalID: 1378401963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Death_2
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 367
+        width: 46
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb6b606af6786544380c67f65bb0aa5e
+      internalID: 1369635202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Death_3
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 371
+        width: 48
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f271a8fd12683fa4fa09e21d0de6a640
+      internalID: -1091784543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Death_4
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 375
+        width: 36
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9883b520ce476d340a34e7a68e0e9f09
+      internalID: -962186807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Death_5
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 375
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddaa14db5d2c9cb4d86ca0a92403218d
+      internalID: -1830618881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_RangeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 189
+        width: 39
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9733cd9cc0871d34a94d367c571c4b48
+      internalID: 1858267318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_RangeAttack_3
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 187
+        width: 62
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f23da34df759c149a2148b63af4c29d
+      internalID: 735307666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_RangeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 92
+        width: 50
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217552d6c860a014ea7348d276704c3d
+      internalID: 1093197031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_RangeAttack_1
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 94
+        width: 43
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f8a66e84275cd84a85e4f2a897abb0a
+      internalID: -1352538873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_RangeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 98
+        width: 55
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d6e18ff571e2774691c098f783f0bc0
+      internalID: 1283831860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_RangeAttack_5
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 97
+        width: 59
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558e1d156582f254cbb30915444e9c5f
+      internalID: -1063319169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_RangeAttack_6
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 98
+        width: 55
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf84f4f70fa73249b3c5e3efe614785
+      internalID: -996305729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_RangeAttack_7
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 98
+        width: 45
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc2eb8f4b99e55744a7153e8a24859a5
+      internalID: 676380998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Stone_0
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 23
+        width: 28
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ec3373bbd4d8ca4da3443770d75d897
+      internalID: -2131269575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Move_7
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 814
+        width: 58
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ddcd5db89664f41b4efaaad0c4b924
+      internalID: 796738833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Death_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 371
+        width: 58
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f23bb4f1fcfda54c962175616639bfb
+      internalID: 466667691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Stone_1
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 19
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c46757c45bafd0948bcaaf88de0db4d2
+      internalID: -147490588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Stone_2
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 22
+        width: 18
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8352a215d240412409e821cf5fe154cf
+      internalID: -828400488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Stone_3
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 21
+        width: 16
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e420c978a745b4785943f3f84bb623
+      internalID: 1751279528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Stone_4
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 22
+        width: 15
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0a3d1ffa8250ad498638d56971aa537
+      internalID: -384111468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Stone_5
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 23
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7d5e36b20056447957a2e80252e686
+      internalID: -1389604241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Stone_6
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 20
+        width: 19
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b63e812d6d4ea2049bdbe990a317a6a4
+      internalID: 567287574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Stone_7
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 22
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd3db16d4361a6b43b044c39e2c1a7e8
+      internalID: 1255587522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Stone_8
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 22
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8268c99496937b4cac4798529d4f6e7
+      internalID: 1444435909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_Stone_9
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 24
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4a59f8e5c912ba4fac6934705e0771f
+      internalID: -1035447001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_TakeDamage_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 271
+        width: 44
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cefd046ac089f64c975505641b84d19
+      internalID: -241939000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_TakeDamage_1
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 279
+        width: 42
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 755b43d484583b248a72b58b40d4dc73
+      internalID: -900819929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_TakeDamage_2
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 276
+        width: 47
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ef7969d245e6b748934d7d53435890a
+      internalID: 723373396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyclop_TakeDamage_3
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 278
+        width: 47
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b558a8213e49d94797c9737c4008533
+      internalID: -1401405950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Cyclop: 1334585770
+      Cyclop_10: 2069248147
+      Cyclop_18: 1192879469
+      Cyclop_19: 310548176
+      Cyclop_20: 2038723446
+      Cyclop_21: -1901549761
+      Cyclop_22: 1491122605
+      Cyclop_23: -642207565
+      Cyclop_24: 916183511
+      Cyclop_25: -136538729
+      Cyclop_26: 1221567839
+      Cyclop_27: 1467118127
+      Cyclop_33: 1614229709
+      Cyclop_35: -318300232
+      Cyclop_36: -1796702989
+      Cyclop_37: 1417758774
+      Cyclop_38: 767787050
+      Cyclop_45: 1145932188
+      Cyclop_46: -1848823816
+      Cyclop_47: -382605052
+      Cyclop_48: 1180663771
+      Cyclop_54: -1499649387
+      Cyclop_60: 1129185578
+      Cyclop_61: -1614309253
+      Cyclop_62: -330537723
+      Cyclop_63: -991770361
+      Cyclop_64: -1039937426
+      Cyclop_67: -547702904
+      Cyclop_68: 370064065
+      Cyclop_69: 589323831
+      Cyclop_72: 1947227996
+      Cyclop_77: -781742037
+      Cyclop_78: 855273676
+      Cyclop_79: 1574539284
+      Cyclop_80: 1592134038
+      Cyclop_81: 931961737
+      Cyclop_9: -459697523
+      Cyclop_Avatar: 584097458
+      Cyclop_BottomMeleeAttack_1: -150142479
+      Cyclop_BottomMeleeAttack_2: -1589435595
+      Cyclop_BottomMeleeAttack_3: 577928796
+      Cyclop_BottomMeleeAttack_4: -1940108664
+      Cyclop_Death_0: 466667691
+      Cyclop_Death_1: 1378401963
+      Cyclop_Death_2: 1369635202
+      Cyclop_Death_3: -1091784543
+      Cyclop_Death_4: -962186807
+      Cyclop_Death_5: -1830618881
+      Cyclop_FrontMeleeAttack_0: -261377137
+      Cyclop_FrontMeleeAttack_1: 823014900
+      Cyclop_FrontMeleeAttack_2: 132590527
+      Cyclop_FrontMeleeAttack_3: 1045144466
+      Cyclop_FrontMeleeAttack_4: 1058910340
+      Cyclop_FrontMeleeAttack_5: 805398437
+      Cyclop_Move_0: -86224744
+      Cyclop_Move_1: -1570820120
+      Cyclop_Move_2: 947416008
+      Cyclop_Move_3: -1735532763
+      Cyclop_Move_4: -1143717883
+      Cyclop_Move_5: 1143783603
+      Cyclop_Move_6: 1822269236
+      Cyclop_Move_7: 796738833
+      Cyclop_Move_8: -878388542
+      Cyclop_Move_9: 1914523127
+      Cyclop_RangeAttack_0: 1093197031
+      Cyclop_RangeAttack_1: -1352538873
+      Cyclop_RangeAttack_2: 1858267318
+      Cyclop_RangeAttack_3: 735307666
+      Cyclop_RangeAttack_4: 1283831860
+      Cyclop_RangeAttack_5: -1063319169
+      Cyclop_RangeAttack_6: -996305729
+      Cyclop_RangeAttack_7: 676380998
+      Cyclop_Stone_0: -2131269575
+      Cyclop_Stone_1: -147490588
+      Cyclop_Stone_2: -828400488
+      Cyclop_Stone_3: 1751279528
+      Cyclop_Stone_4: -1646005362
+      Cyclop_Stone_5: -6126787
+      Cyclop_Stone_6: 1197438047
+      Cyclop_Stone_7: 1247276808
+      Cyclop_Stone_8: 1371723872
+      Cyclop_Stone_9: -630514231
+      Cyclop_T_0: -610630801
+      Cyclop_TakeDamage_0: -241939000
+      Cyclop_TakeDamage_1: -900819929
+      Cyclop_TakeDamage_2: 723373396
+      Cyclop_TakeDamage_3: -1401405950
+      Cyclop_TopMeleeAttack_0: -856041239
+      Cyclop_TopMeleeAttack_1: 1986365384
+      Cyclop_TopMeleeAttack_2: -51106199
+      Cyclop_TopMeleeAttack_3: -616430354
+      Cyclop_TopMeleeAttack_4: -1618141292
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
