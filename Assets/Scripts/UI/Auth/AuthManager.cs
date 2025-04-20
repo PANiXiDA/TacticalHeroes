@@ -2,7 +2,6 @@ using Assets.Scripts.Infrastructure.Requests.AuthService;
 using TMPro;
 using UnityEngine;
 using Zenject;
-using UnityEngine.SceneManagement;
 using Assets.Scripts.Common.WebRequest.JWT;
 using Assets.Scripts.Common.Constants;
 using Assets.Scripts.Services.Interfaces;
