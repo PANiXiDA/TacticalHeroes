@@ -44,10 +44,20 @@ namespace Assets.Scripts.GameEngine.Implementations
             {
                 for (int y = 0; y < height; y++)
                 {
+                    var terrainRoll = _random.Next(0, 50);
+
+                    var terrain = terrainRoll switch
+                    {
+                        0 => TerrainType.Mountain,
+                        1 => TerrainType.Lake,
+                        _ => TerrainType.Grass
+                    };
+
                     var tile = new Tile(
                     x: x,
                     y: y,
-                    isWalkable: 1 == _random.Next(0, 26));
+                    isWalkable: terrain == TerrainType.Grass,
+                    terrain: terrain);
 
                     grid.Add(tile);
                 }

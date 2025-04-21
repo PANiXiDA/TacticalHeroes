@@ -1,4 +1,7 @@
-﻿using Zenject;
+﻿using Assets.Scripts.UI.Battle.Core;
+using Assets.Scripts.UI.Battle.Presenters;
+
+using Zenject;
 
 namespace Assets.Scripts.UI.LoadBattle.Extensions
 {
@@ -6,7 +9,8 @@ namespace Assets.Scripts.UI.LoadBattle.Extensions
     {
         public override void InstallBindings()
         {
-            Container.Bind<LoadBattleManager>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<EntryPoint>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<GridPresenter>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

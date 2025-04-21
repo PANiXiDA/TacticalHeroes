@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3773420436410042038, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5169755739303481122, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -110,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6100307046655619645, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6100307046655619645, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
       propertyPath: m_SortingLayerID
@@ -120,63 +124,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7593318687287190426, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593318687287190426, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.91
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2893970678299572227, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7698573595560038212}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
---- !u!1 &1888111851794696035 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2893970678299572227, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
-  m_PrefabInstance: {fileID: 3610366577219518304}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7698573595560038212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1888111851794696035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b06a99bdde7135e48b31b84e065c4cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TileName: Lake
-  _renderer: {fileID: 4566013279618442770}
-  _highlight: {fileID: 3566864035086219409}
-  _highlight_for_attack: {fileID: 2955274433456201496}
-  _highlight_hero: {fileID: 4316941283677257345}
-  _isWalkable: 0
-  OccupiedUnit: {fileID: 0}
-  Position: {x: 0, y: 0}
-  TargetPosition: {x: 0, y: 0}
-  PreviousNode: {fileID: 0}
-  F: 0
-  G: 0
-  H: 0
-  flag: 0
-  TileForAttackMove: {fileID: 0}
---- !u!1 &2955274433456201496 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1952775766025429112, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
-  m_PrefabInstance: {fileID: 3610366577219518304}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3566864035086219409 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 259681243697940465, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
-  m_PrefabInstance: {fileID: 3610366577219518304}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4316941283677257345 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 716708406916907489, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
-  m_PrefabInstance: {fileID: 3610366577219518304}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &4566013279618442770 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 956774835688774002, guid: f250b75dc95effb4ea0d024658ba7e79, type: 3}
-  m_PrefabInstance: {fileID: 3610366577219518304}
-  m_PrefabAsset: {fileID: 0}

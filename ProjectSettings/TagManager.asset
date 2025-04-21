@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Tile
+    uniqueID: 2924970731
+    locked: 0
   - name: Path
     uniqueID: 1086535581
     locked: 0
