@@ -1,4 +1,6 @@
-﻿using SQLite4Unity3d;
+﻿using System.Collections.Generic;
+
+using SQLite4Unity3d;
 
 namespace Assets.Scripts.Repositories.Models
 {
@@ -16,5 +18,8 @@ namespace Assets.Scripts.Repositories.Models
         public int Luck { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+
+        [Ignore]
+        public List<Ability> Abilities { get; set; } = new();
     }
 }

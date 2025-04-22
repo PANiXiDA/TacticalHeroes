@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 using Assets.Scripts.Common.ConvertParams;
 using Assets.Scripts.Common.SearchParams;
@@ -8,25 +7,27 @@ using Assets.Scripts.Repositories.Interfaces;
 using SQLite4Unity3d;
 
 using Ability = Assets.Scripts.Domain.Entities.Models.Ability;
-using DbUnit = Assets.Scripts.Repositories.Models.Unit;
-using EntityUnit = Assets.Scripts.Domain.Entities.Models.Unit;
+using DbHero = Assets.Scripts.Repositories.Models.Hero;
+using EntityHero = Assets.Scripts.Domain.Entities.Models.Hero;
+
+using System.Linq;
 
 namespace Assets.Scripts.Repositories.Implementations.SQLite
 {
-    public sealed class UnitsRepository
-        : BaseSQLiteRepository<DbUnit, EntityUnit, int, UnitsSearchParams, UnitsConvertParams>,
-          IUnitsRepository
+    public sealed class HeroesRepository
+        : BaseSQLiteRepository<DbHero, EntityHero, int, HeroesSearchParams, HeroesConvertParams>,
+          IHeroesRepository
     {
         private readonly IAbilitiesRepository _abilitiesRepository;
 
-        public UnitsRepository(
+        public HeroesRepository(
             DatabaseContext ctx,
             IAbilitiesRepository abilitiesRepository) : base(ctx) 
         {
             _abilitiesRepository = abilitiesRepository;
         }
 
-        protected override void MapToDb(EntityUnit entity, DbUnit dbObject)
+        protected override void MapToDb(EntityHero entity, DbHero dbObject)
         {
             dbObject.Attack = entity.Attack;
             dbObject.Defence = entity.Defence;
@@ -35,29 +36,20 @@ namespace Assets.Scripts.Repositories.Implementations.SQLite
             dbObject.Initiative = entity.Initiative;
             dbObject.Morale = entity.Morale;
             dbObject.Luck = entity.Luck;
-            dbObject.Health = entity.Health;
-            dbObject.Speed = entity.Speed;
-            dbObject.Range = entity.Range;
-            dbObject.Arrows = entity.Arrows;
             dbObject.Name = entity.Name;
             dbObject.Description = entity.Description;
         }
 
-        protected override TableQuery<DbUnit> BuildQuery(UnitsSearchParams searchParams)
+        protected override TableQuery<DbHero> BuildQuery(HeroesSearchParams searchParams)
         {
-            var dbObjects = _db.Table<DbUnit>();
-
-            if (searchParams.Ids.Any())
-            {
-                dbObjects = dbObjects.Where(u => searchParams.Ids.Contains(u.Id));
-            }
+            var dbObjects = _db.Table<DbHero>();
 
             return dbObjects;
         }
 
-        protected override EntityUnit MapToEntity(DbUnit dbObject, UnitsConvertParams convertParams)
+        protected override EntityHero MapToEntity(DbHero dbObject, HeroesConvertParams convertParams)
         {
-            return new EntityUnit(
+            return new EntityHero(
                 id: dbObject.Id,
                 attack: dbObject.Attack,
                 defence: dbObject.Defence,
@@ -66,10 +58,6 @@ namespace Assets.Scripts.Repositories.Implementations.SQLite
                 initiative: dbObject.Initiative,
                 morale: dbObject.Morale,
                 luck: dbObject.Luck,
-                health: dbObject.Health,
-                speed: dbObject.Speed,
-                range: dbObject.Range,
-                arrows: dbObject.Arrows,
                 name: dbObject.Name,
                 description: dbObject.Description)
             {
@@ -77,7 +65,7 @@ namespace Assets.Scripts.Repositories.Implementations.SQLite
                     ? _abilitiesRepository.Get(
                         new AbilitiesSearchParams()
                         {
-                            UnitId = dbObject.Id
+                            HeroId = dbObject.Id
                         },
                         new AbilitiesConvertParams()
                         {

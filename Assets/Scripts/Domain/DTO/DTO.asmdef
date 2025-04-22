@@ -1,7 +1,8 @@
 {
-    "name": "Infrastructure",
+    "name": "DTO",
     "rootNamespace": "",
     "references": [
+        "GUID:e9012494c8ce0894897fc1e7ae252d2f",
         "GUID:fcd699a122e15b34bb562239a8d6b793"
     ],
     "includePlatforms": [],

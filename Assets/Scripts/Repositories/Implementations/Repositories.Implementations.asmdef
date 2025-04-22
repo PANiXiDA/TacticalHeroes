@@ -10,7 +10,9 @@
         "UniTask",
         "Unity.ResourceManager",
         "Unity.Addressables.Editor",
-        "Common"
+        "Common",
+        "Entities",
+        "GameEngine"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

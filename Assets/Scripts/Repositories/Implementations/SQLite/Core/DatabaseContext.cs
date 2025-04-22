@@ -14,7 +14,7 @@ using Assets.Scripts.Common.Constants;
 
 namespace Assets.Scripts.Repositories.Implementations.SQLite.Core
 {
-    public sealed class DatabaseContext
+    public sealed class DatabaseContext : IDisposable
     {
         public SQLiteConnection Connection { get; private set; }
 
@@ -24,6 +24,12 @@ namespace Assets.Scripts.Repositories.Implementations.SQLite.Core
             Connection = new SQLiteConnection(dbPath, SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
 
             AutoMigrateSchema();
+        }
+
+        public void Dispose()
+        {
+            Connection?.Close();
+            Connection?.Dispose();
         }
 
         private async UniTask<string> PrepareDatabaseFileAsync()
@@ -92,7 +98,7 @@ namespace Assets.Scripts.Repositories.Implementations.SQLite.Core
                 .ToList();
 
             var props = modelType.GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                .Where(p => p.CanRead && p.CanWrite && p.GetCustomAttribute<IgnoreAttribute>() == null)
+                .Where(p => p.CanRead && p.CanWrite && p.GetCustomAttribute<IgnoreAttribute>() == null && !IsCollectionType(p.PropertyType))
                 .ToList();
 
             bool mustRebuild = false;
@@ -221,6 +227,16 @@ namespace Assets.Scripts.Repositories.Implementations.SQLite.Core
             if (t == typeof(string) || t == typeof(Guid)) return "''";
             if (t == typeof(byte[])) return "x''";
             return "NULL";
+        }
+
+        private static bool IsCollectionType(Type t)
+        {
+            if (!t.IsGenericType) return false;
+            var def = t.GetGenericTypeDefinition();
+            return def == typeof(List<>)
+                || def == typeof(IEnumerable<>)
+                || def == typeof(ICollection<>)
+                || def == typeof(IList<>);
         }
 
         private class TableInfo

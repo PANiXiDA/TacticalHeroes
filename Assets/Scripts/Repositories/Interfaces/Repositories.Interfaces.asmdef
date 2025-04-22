@@ -1,3 +1,17 @@
 {
-	"name": "Repositories.Interfaces"
+    "name": "Repositories.Interfaces",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d5f401bdc197e654493f62592cacd760",
+        "GUID:e9012494c8ce0894897fc1e7ae252d2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

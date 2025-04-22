@@ -13,6 +13,9 @@ namespace Assets.Scripts.Repositories.DependencyInjection
             Container.Bind<DatabaseContext>().AsSingle().NonLazy();
 
             Container.Bind<IUnitsRepository>().To<UnitsRepository>().AsSingle();
+            Container.Bind<IHeroesRepository>().To<HeroesRepository>().AsSingle();
+            Container.Bind<IAbilitiesRepository>().To<AbilitiesRepository>().AsSingle();
+            Container.Bind<IEffectsRepository>().To<EffectsRepository>().AsSingle();
         }
     }
 }

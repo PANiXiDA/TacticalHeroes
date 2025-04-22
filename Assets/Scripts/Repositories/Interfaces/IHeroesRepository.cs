@@ -7,7 +7,7 @@ using Assets.Scripts.Domain.Entities.Models;
 
 namespace Assets.Scripts.Repositories.Interfaces
 {
-    public interface IUnitsRepository : IBaseRepository<Unit, int, UnitsSearchParams, UnitsConvertParams>
+    public interface IHeroesRepository : IBaseRepository<Hero, int, HeroesSearchParams, HeroesConvertParams>
     {
     }
 }
