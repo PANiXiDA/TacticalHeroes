@@ -1,0 +1,24 @@
+{
+    "name": "Repositories.Implementations",
+    "rootNamespace": "",
+    "references": [
+        "SQLite4Unity3d",
+        "Repositories.Interfaces",
+        "Repositories.Models",
+        "Unity.Addressables",
+        "UniTask.Addressables",
+        "UniTask",
+        "Unity.ResourceManager",
+        "Unity.Addressables.Editor",
+        "Common"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

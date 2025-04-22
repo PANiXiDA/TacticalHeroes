@@ -7,9 +7,9 @@ namespace Assets.Scripts.Services.Implementations.Battle.States
 {
     public sealed class GenerateGridState : IGameState
     {
-        private readonly IGridService _gridService;
+        private readonly IGridsService _gridService;
 
-        public GenerateGridState(IGridService gridService)
+        public GenerateGridState(IGridsService gridService)
         {
             _gridService = gridService;
         }

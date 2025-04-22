@@ -1,3 +1,4 @@
+using Assets.Scripts.Infrastructure.Models;
 using Assets.Scripts.Services.Implementations.Battle;
 using Assets.Scripts.Services.Implementations.Battle.States.Core;
 using Assets.Scripts.Services.Interfaces;
@@ -20,8 +21,11 @@ namespace Assets.Scripts.Services.Implementations.Extensions
             Container.Bind<IChatsService>().To<ChatsService>().AsSingle();
             Container.Bind<IMatchmakingeService>().To<MatchmakingeService>().AsSingle();
 
+            Container.Bind<GameSession>().AsSingle();
+
             Container.Bind<IBattleStateMachine>().To<BattleStateMachine>().AsSingle();
-            Container.Bind<IGridService>().To<GridService>().AsSingle();
+            Container.Bind<IGridsService>().To<GridsService>().AsSingle();
+            Container.Bind<IUnitsService>().To<UnitsService>().AsSingle();
         }
     }
 }

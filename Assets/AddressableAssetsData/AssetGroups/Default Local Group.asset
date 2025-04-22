@@ -63,6 +63,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b95acb1a05edcf40b136e5cda099525
+    m_Address: SQLite.db
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e65de96bfa686e409a21d50b8412747
     m_Address: Ogr_Avatar
     m_ReadOnly: 0

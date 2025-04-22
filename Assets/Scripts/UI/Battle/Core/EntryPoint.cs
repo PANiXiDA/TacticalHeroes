@@ -8,8 +8,7 @@ namespace Assets.Scripts.UI.Battle.Core
 {
     public sealed class EntryPoint : MonoBehaviour
     {
-        [Inject] 
-        IBattleStateMachine _battleStateMachine;
+        [Inject] private readonly IBattleStateMachine _battleStateMachine;
 
         private async void Start()
         {

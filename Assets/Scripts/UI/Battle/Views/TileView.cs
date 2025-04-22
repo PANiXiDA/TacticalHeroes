@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.UI.Battle.Views
 {
-    public class TileView : MonoBehaviour
+    public sealed class TileView : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer _sprite;
         [SerializeField] private GameObject _tileForMoveHighlight, _selectedTileHighlight, _activeGameObjectHighlight;
