@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace Assets.Scripts.Services.Implementations
 {
-    public class AvatarsService : IAvatarsService
+    public sealed class AvatarsService : IAvatarsService
     {
         public AvatarsService() { }
 

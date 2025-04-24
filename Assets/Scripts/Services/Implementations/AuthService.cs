@@ -10,7 +10,7 @@ using Assets.Scripts.Common.WebRequest.JWT;
 
 namespace Assets.Scripts.Services.Implementations
 {
-    public class AuthService : IAuthService
+    public sealed class AuthService : IAuthService
     {
         public AuthService() { }
 

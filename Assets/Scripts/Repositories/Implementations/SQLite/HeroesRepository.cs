@@ -21,7 +21,7 @@ namespace Assets.Scripts.Repositories.Implementations.SQLite
         private readonly IAbilitiesRepository _abilitiesRepository;
 
         public HeroesRepository(
-            DatabaseContext ctx,
+            SQLiteContext ctx,
             IAbilitiesRepository abilitiesRepository) : base(ctx) 
         {
             _abilitiesRepository = abilitiesRepository;

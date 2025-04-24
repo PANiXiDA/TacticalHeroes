@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -1217911616559861862}
   - component: {fileID: 4187799809235905689}
   - component: {fileID: 2995272766959761994}
+  - component: {fileID: 1833885495596505033}
   m_Layer: 6
   m_Name: Druid
   m_TagString: Untagged
@@ -157,3 +158,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1833885495596505033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3621758508295274039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6931a0482aaa3c4fa364d5024a810b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: -1217911616559861862}
+  _animator: {fileID: 2995272766959761994}

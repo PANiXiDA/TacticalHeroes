@@ -1235,6 +1235,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Ogr
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 981
+        width: 43
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c8a387282927646be9598cc1e620ef
+      internalID: 2120200792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1249,7 +1271,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ogr_0: 1232072000
+      Ogr: 1232072000
       Ogr_100: -1046861061
       Ogr_101: 1091543312
       Ogr_102: -1575171375

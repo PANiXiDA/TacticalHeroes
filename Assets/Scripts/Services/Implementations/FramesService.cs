@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace Assets.Scripts.Services.Implementations
 {
-    public class FramesService : IFramesService
+    public sealed class FramesService : IFramesService
     {
         public FramesService() { }
 

@@ -9,7 +9,7 @@ using UnityEngine.Networking;
 
 namespace Assets.Scripts.Services.Implementations
 {
-    public class ImagesService : IImagesService
+    public sealed class ImagesService : IImagesService
     {
         private readonly string _localCachePath;
 

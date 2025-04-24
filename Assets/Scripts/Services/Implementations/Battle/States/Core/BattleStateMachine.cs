@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Infrastructure.Models;
+﻿using Assets.Scripts.Common.Enumerations;
+using Assets.Scripts.Infrastructure.Models;
 using Assets.Scripts.Services.Interfaces.Battle;
 using Assets.Scripts.Services.Interfaces.Battle.States;
 using Assets.Scripts.Services.Interfaces.Battle.States.Core;
@@ -14,6 +15,8 @@ namespace Assets.Scripts.Services.Implementations.Battle.States.Core
     public sealed class BattleStateMachine : IBattleStateMachine
     {
         private readonly Dictionary<GameState, IGameState> _states;
+        private readonly GameSession _gameSession;
+
         private readonly CompositeDisposable _disposables = new();
 
         public GameState Current { get; private set; }
@@ -21,17 +24,15 @@ namespace Assets.Scripts.Services.Implementations.Battle.States.Core
         public BattleStateMachine(
             GameSession gameSession,
             IGridsService gridService,
-            IUnitsService unitsService)
+            IBattlePreparationsService spawnersService)
         {
+            _gameSession = gameSession;
+
             _states = new()
             {
                 { GameState.GenerateGrid, new GenerateGridState(gridService) },
-                { GameState.SpawnUnits, new SpawnUnitsState(gameSession, unitsService) },
+                { GameState.Spawn, new SpawnState(spawnersService) },
             };
-
-            gridService.OnGridGenerated
-                .Subscribe(_ => ChangeStateAsync(GameState.SpawnUnits).Forget())
-                .AddTo(_disposables);
         }
 
         public void Dispose() => _disposables.Dispose();
@@ -48,7 +49,12 @@ namespace Assets.Scripts.Services.Implementations.Battle.States.Core
             }
 
             Current = next;
-            await _states[Current].EnterAsync();
+
+            var nextState = await _states[Current].EnterAsync(_gameSession);
+            if (nextState.HasValue)
+            {
+                await ChangeStateAsync(nextState.Value);
+            }
         }
     }
 }

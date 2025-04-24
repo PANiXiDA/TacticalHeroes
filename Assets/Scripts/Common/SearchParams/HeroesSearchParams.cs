@@ -1,6 +1,6 @@
 ﻿namespace Assets.Scripts.Common.SearchParams
 {
-    public class HeroesSearchParams
+    public sealed class HeroesSearchParams
     {
     }
 }

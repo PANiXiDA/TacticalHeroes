@@ -1,0 +1,45 @@
+﻿using System;
+
+using Assets.Scripts.Common.Enumerations;
+using Assets.Scripts.GameEngine.DTO.Enums;
+using Assets.Scripts.Infrastructure.Models;
+using Assets.Scripts.Services.Interfaces;
+
+namespace Assets.Scripts.Services.Implementations
+{
+    public class GameSessionsFactory : IGameSessionsFactory
+    {
+        public GameSessionsFactory() { }
+
+        public GameSession CreateDefault()
+        {
+            var gameSession = new GameSession(
+                gameState: GameState.Default,
+                gameType: GameType.Duel);
+
+            var firstPlayer = new PlayerBattleData(
+                id: null,
+                sessionId: null,
+                buildId: Guid.Parse("2927a215-549b-496a-afd8-8163ec85970a"),
+                countMissedMoves: 0,
+                side: PlayerSide.Left,
+                teamNumber: 1,
+                confirmedDeployment: false,
+                columnsToDeployment: 0);
+            gameSession.Players.Add(firstPlayer);
+
+            var secondPlayer = new PlayerBattleData(
+                id: null,
+                sessionId: null,
+                buildId: Guid.Parse("5777e8cb-5bbf-4496-a06c-fe5ddcb89e96"),
+                countMissedMoves: 0,
+                side: PlayerSide.Right,
+                teamNumber: 2,
+                confirmedDeployment: false,
+                columnsToDeployment: 0);
+            gameSession.Players.Add(secondPlayer);
+
+            return gameSession;
+        }
+    }
+}

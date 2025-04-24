@@ -1,4 +1,9 @@
-﻿using Assets.Scripts.GameEngine.Domain.Enums;
+﻿using System.Collections.Generic;
+using System.Linq;
+
+using Assets.Scripts.GameEngine.Domain.Enums;
+
+using DomainEffect = Assets.Scripts.GameEngine.Domain.Effect;
 
 namespace Assets.Scripts.Domain.Entities.Models
 {
@@ -22,6 +27,20 @@ namespace Assets.Scripts.Domain.Entities.Models
             Value = value;
             Duration = duration;
             Parameters = parameters;
+        }
+
+        public static DomainEffect MapToDomain(Effect entity)
+        {
+            return new DomainEffect(
+                type: entity.Type,
+                value:  entity.Value,
+                duration: entity.Duration,
+                parameters: entity.Parameters);
+        }
+
+        public static List<DomainEffect> MapToDomains(List<Effect> entities)
+        {
+            return entities.Select(entity => MapToDomain(entity)).ToList();
         }
     }
 }

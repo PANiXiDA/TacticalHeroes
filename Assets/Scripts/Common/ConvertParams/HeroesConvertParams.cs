@@ -1,6 +1,6 @@
 ﻿namespace Assets.Scripts.Common.ConvertParams
 {
-    public class HeroesConvertParams
+    public sealed class HeroesConvertParams
     {
         public bool IncludeAbilities { get; set; }
     }

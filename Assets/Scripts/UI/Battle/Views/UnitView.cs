@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.GameEngine.Domain;
+using Assets.Scripts.GameEngine.DTO.Enums;
 
 using UnityEngine;
 
@@ -17,13 +18,21 @@ namespace Assets.Scripts.UI.Battle.Views
         [SerializeField] private SpriteRenderer _sprite;
         [SerializeField] private Animator _animator;
 
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public PlayerSide Side { get; private set; }
         public Unit Data { get; private set; }
-        public Side Side { get; private set; }
 
-        public void Init(Unit unit, Side side)
+        public void Init(
+            string name,
+            string description,
+            PlayerSide side,
+            Unit unit)
         {
-            Data = unit;
+            Name = name;
+            Description = description;
             Side = side;
+            Data = unit;
         }
 
         public void PlayMoveAnimation() => _animator.Play(MoveAnimationName);
@@ -33,5 +42,6 @@ namespace Assets.Scripts.UI.Battle.Views
         public void PlayRangeAttackAnimation() => _animator.Play(RangeAttackAnimationName);
         public void PlayTakeDamageAnimation() => _animator.Play(TakeDamageAnimationName);
         public void PlayDeathAnimation() => _animator.Play(DeathAnimationName);
+        public void Flip(bool value) => _sprite.flipX = value;
     }
 }

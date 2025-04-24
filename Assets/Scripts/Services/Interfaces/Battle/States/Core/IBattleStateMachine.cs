@@ -1,4 +1,6 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using Assets.Scripts.Common.Enumerations;
+
+using Cysharp.Threading.Tasks;
 
 namespace Assets.Scripts.Services.Interfaces.Battle.States.Core
 {

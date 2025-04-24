@@ -11,8 +11,33 @@ namespace Assets.Scripts.Infrastructure.Models
         public int? Id { get; set; }
         public Guid? SessionId { get; set; }
         public Guid BuildId { get; set; }
+        public int CountMissedMoves { get; set; }
         public PlayerSide Side { get; set; }
+        public int TeamNumber { get; set; }
+        public bool ConfirmedDeployment { get; set; }
+        public int ColumnsToDeployment { get; set; }
 
-        public List<Unit> Units { get; set; } = new();
+        public Hero Hero { get; set; }
+        public List<Unit> Units { get; set; }
+
+        public PlayerBattleData(
+            int? id,
+            Guid? sessionId,
+            Guid buildId,
+            int countMissedMoves,
+            PlayerSide side,
+            int teamNumber,
+            bool confirmedDeployment,
+            int columnsToDeployment)
+        {
+            Id = id;
+            SessionId = sessionId;
+            BuildId = buildId;
+            CountMissedMoves = countMissedMoves;
+            Side = side;
+            TeamNumber = teamNumber;
+            ConfirmedDeployment = confirmedDeployment;
+            ColumnsToDeployment = columnsToDeployment;
+        }
     }
 }

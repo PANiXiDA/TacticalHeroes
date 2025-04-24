@@ -1,6 +1,9 @@
 ﻿using Assets.Scripts.GameEngine.Domain.Enums;
 
 using System.Collections.Generic;
+using System.Linq;
+
+using DomainAbility = Assets.Scripts.GameEngine.Domain.Ability;
 
 namespace Assets.Scripts.Domain.Entities.Models
 {
@@ -17,6 +20,18 @@ namespace Assets.Scripts.Domain.Entities.Models
         {
             Id = id;
             Type = type;
+        }
+
+        public static DomainAbility MapToDomain(Ability entity)
+        {
+            return new DomainAbility(
+                type: entity.Type,
+                effects: Effect.MapToDomains(entity.Effects));
+        }
+
+        public static List<DomainAbility> MapToDomains(List<Ability> entities)
+        {
+            return entities.Select(entity => MapToDomain(entity)).ToList();
         }
     }
 }

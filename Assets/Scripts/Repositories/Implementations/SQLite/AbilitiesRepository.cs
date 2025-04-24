@@ -23,7 +23,7 @@ namespace Assets.Scripts.Repositories.Implementations.SQLite
         private readonly IEffectsRepository _effectsRepository;
 
         public AbilitiesRepository(
-            DatabaseContext ctx,
+            SQLiteContext ctx,
             IEffectsRepository effectsRepository) : base(ctx) 
         {
             _effectsRepository = effectsRepository;

@@ -6,7 +6,7 @@ using System;
 
 namespace Assets.Scripts.Services.Implementations
 {
-    public class MatchmakingeService : IMatchmakingeService
+    public sealed class MatchmakingeService : IMatchmakingeService
     {
         public event Action<MatchmakingResponse> OnMatchFound;
 

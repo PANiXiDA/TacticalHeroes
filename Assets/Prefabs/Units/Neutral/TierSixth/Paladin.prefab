@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7356752208049404184}
   - component: {fileID: -8944571828278557961}
   - component: {fileID: -3887475842749378624}
+  - component: {fileID: -5883848344759519350}
   m_Layer: 6
   m_Name: Paladin
   m_TagString: Untagged
@@ -157,3 +158,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5883848344759519350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053521689913825799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6931a0482aaa3c4fa364d5024a810b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: 7356752208049404184}
+  _animator: {fileID: -3887475842749378624}

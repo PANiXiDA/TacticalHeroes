@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.Repositories.Implementations.SQLite;
+﻿using Assets.Scripts.Repositories.Implementations.RealmDB;
+using Assets.Scripts.Repositories.Implementations.RealmDB.Core;
+using Assets.Scripts.Repositories.Implementations.SQLite;
 using Assets.Scripts.Repositories.Implementations.SQLite.Core;
 using Assets.Scripts.Repositories.Interfaces;
 
@@ -10,12 +12,16 @@ namespace Assets.Scripts.Repositories.DependencyInjection
     {
         public override void InstallBindings()
         {
-            Container.Bind<DatabaseContext>().AsSingle().NonLazy();
+            Container.Bind<SQLiteContext>().AsSingle().NonLazy();
 
             Container.Bind<IUnitsRepository>().To<UnitsRepository>().AsSingle();
             Container.Bind<IHeroesRepository>().To<HeroesRepository>().AsSingle();
             Container.Bind<IAbilitiesRepository>().To<AbilitiesRepository>().AsSingle();
             Container.Bind<IEffectsRepository>().To<EffectsRepository>().AsSingle();
+
+            Container.Bind<RealmContext>().AsSingle().NonLazy();
+
+            Container.Bind<IBuildsRepository>().To<BuildsRepository>().AsSingle();
         }
     }
 }

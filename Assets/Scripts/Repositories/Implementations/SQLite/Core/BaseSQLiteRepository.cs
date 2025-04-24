@@ -4,10 +4,12 @@ using System;
 using SQLite4Unity3d;
 using System.Linq.Expressions;
 using System.Reflection;
+using Assets.Scripts.Repositories.Interfaces.Core;
 
 namespace Assets.Scripts.Repositories.Implementations.SQLite.Core
 {
     public abstract class BaseSQLiteRepository<TDbObject, TEntity, TId, TSearchParams, TConvertParams>
+        : IBaseRepository<TEntity, TId, TSearchParams, TConvertParams>
         where TDbObject : class, new()
         where TEntity : class
         where TId : notnull
@@ -16,12 +18,12 @@ namespace Assets.Scripts.Repositories.Implementations.SQLite.Core
     {
         protected readonly SQLiteConnection _db;
 
-        protected virtual bool RequiresRelationUpdates => false;
-
         private readonly Func<TEntity, TId> _getEntityId;
         private readonly Func<TDbObject, TId> _getDbObjectId;
 
-        protected BaseSQLiteRepository(DatabaseContext ctx)
+        protected virtual bool RequiresRelationUpdates => false;
+
+        protected BaseSQLiteRepository(SQLiteContext ctx)
         {
             _db = ctx.Connection ?? throw new ArgumentNullException(nameof(ctx));
             _getEntityId = IdGetter<TEntity>();

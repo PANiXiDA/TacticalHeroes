@@ -1,7 +1,12 @@
-﻿using Assets.Scripts.GameEngine.DTO.Enums;
+﻿using System.Linq;
+
+using Assets.Scripts.Common.Enumerations;
+using Assets.Scripts.Infrastructure.Models;
 using Assets.Scripts.Services.Interfaces.Battle;
 using Assets.Scripts.Services.Interfaces.Battle.States;
 using Cysharp.Threading.Tasks;
+
+using R3;
 
 namespace Assets.Scripts.Services.Implementations.Battle.States
 {
@@ -14,10 +19,13 @@ namespace Assets.Scripts.Services.Implementations.Battle.States
             _gridService = gridService;
         }
 
-        public async UniTask EnterAsync()
+        public async UniTask<GameState?> EnterAsync(GameSession gameSession)
         {
-            _gridService.GenerateGrid(GameType.Duel);
-            await UniTask.Yield();
+            var gridTask = _gridService.OnGridGenerated.FirstAsync();
+            _gridService.GenerateGrid(gameSession.GameType);
+            var grid = await gridTask;
+            gameSession.RoundState.Grid = grid.ToList();
+            return GameState.Spawn;
         }
 
         public void Exit() { }

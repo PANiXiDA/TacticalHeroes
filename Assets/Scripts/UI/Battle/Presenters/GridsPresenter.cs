@@ -27,6 +27,9 @@ public sealed class GridsPresenter : MonoBehaviour
     [SerializeField] private RectTransform leftPanel;
     [SerializeField] private RectTransform rightPanel;
 
+    public UniTask WhenReady => _ready.Task;
+    private readonly UniTaskCompletionSource _ready = new();
+
     private Transform _gridContainer;
 
     private readonly Dictionary<(int, int), TileView> _tiles = new();
@@ -70,6 +73,8 @@ public sealed class GridsPresenter : MonoBehaviour
         var gridSize = new Vector2Int(tiles.Max(t => t.X) + GridIndexOffset, tiles.Max(t => t.Y) + GridIndexOffset);
 
         FitAndPositionGrid(gridSize);
+
+        _ready.TrySetResult();
     }
 
     private void FitAndPositionGrid(Vector2Int gridSize)

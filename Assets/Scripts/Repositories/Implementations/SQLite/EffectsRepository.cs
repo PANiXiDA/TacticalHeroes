@@ -17,7 +17,7 @@ namespace Assets.Scripts.Repositories.Implementations.SQLite
         : BaseSQLiteRepository<DbEffect, EntityEffect, int, EffectsSearchParams, EffectsConvertParams>,
           IEffectsRepository
     {
-        public EffectsRepository(DatabaseContext ctx) : base(ctx) { }
+        public EffectsRepository(SQLiteContext ctx) : base(ctx) { }
 
         protected override void MapToDb(EntityEffect entity, DbEffect dbObject)
         {

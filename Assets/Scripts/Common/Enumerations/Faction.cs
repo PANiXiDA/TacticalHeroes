@@ -1,5 +1,8 @@
-public enum Faction
+namespace Assets.Scripts.Common.Enumerations
 {
-    Neutral = 0,
-    Citadel = 1
+    public enum Faction
+    {
+        Neutral = 0,
+        Citadel = 1
+    }
 }

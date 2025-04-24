@@ -1,5 +1,9 @@
-﻿using Assets.Scripts.GameEngine.Domain;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+
+using DomainUnit = Assets.Scripts.GameEngine.Domain.Unit;
+using DomainEffect = Assets.Scripts.GameEngine.Domain.Effect;
 
 namespace Assets.Scripts.Domain.Entities.Models
 {
@@ -52,6 +56,31 @@ namespace Assets.Scripts.Domain.Entities.Models
             Arrows = arrows;
             Name = name;
             Description = description;
+        }
+
+        public static DomainUnit MapToDomain(Unit entity)
+        {
+            return new DomainUnit(
+                id: Guid.NewGuid(),
+                attack: entity.Attack,
+                defence: entity.Defence,
+                fullHealth: entity.Health,
+                minDamage: entity.MinDamage,
+                maxDamage: entity.MaxDamage,
+                initiative: entity.Initiative,
+                speed: entity.Speed,
+                range: entity.Range,
+                arrows: entity.Arrows,
+                morale: entity.Morale,
+                luck: entity.Luck,
+                count: 1,
+                abilities: Ability.MapToDomains(entity.Abilities),
+                effects: new List<DomainEffect>());
+        }
+
+        public static List<DomainUnit> MapToDomains(List<Unit> entities)
+        {
+            return entities.Select(entity => MapToDomain(entity)).ToList();
         }
     }
 }

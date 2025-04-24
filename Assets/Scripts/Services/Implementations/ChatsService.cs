@@ -9,7 +9,7 @@ using Assets.Scripts.Common.WebRequest;
 using Assets.Scripts.Infrastructure.Requests;
 using System.Collections.Generic;
 
-public class ChatsService : IChatsService
+public sealed class ChatsService : IChatsService
 {
     public event Action<GlobalChatMessageResponse> OnGlobalChatMessageReceived;
 

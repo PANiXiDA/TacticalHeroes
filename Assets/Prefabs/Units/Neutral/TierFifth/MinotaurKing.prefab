@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -8997484668410936995}
   - component: {fileID: 2010510346839460729}
   - component: {fileID: -6380315772245331885}
+  - component: {fileID: -1035251203560294429}
   m_Layer: 6
   m_Name: MinotaurKing
   m_TagString: Untagged
@@ -157,3 +158,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1035251203560294429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8691177240681010449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6931a0482aaa3c4fa364d5024a810b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: -8997484668410936995}
+  _animator: {fileID: -6380315772245331885}

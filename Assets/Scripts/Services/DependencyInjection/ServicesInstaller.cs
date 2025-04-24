@@ -21,11 +21,14 @@ namespace Assets.Scripts.Services.Implementations.Extensions
             Container.Bind<IChatsService>().To<ChatsService>().AsSingle();
             Container.Bind<IMatchmakingeService>().To<MatchmakingeService>().AsSingle();
 
-            Container.Bind<GameSession>().AsSingle();
+            Container.Bind<IGameSessionsFactory>().To<GameSessionsFactory>().AsSingle();
+            Container.Bind<GameSession>().FromMethod(ctx => ctx.Container.Resolve<IGameSessionsFactory>().CreateDefault());
 
             Container.Bind<IBattleStateMachine>().To<BattleStateMachine>().AsSingle();
             Container.Bind<IGridsService>().To<GridsService>().AsSingle();
             Container.Bind<IUnitsService>().To<UnitsService>().AsSingle();
+            Container.Bind<IBuildsService>().To<BuildsService>().AsSingle();
+            Container.Bind<IBattlePreparationsService>().To<BattlePreparationsService>().AsSingle();
         }
     }
 }

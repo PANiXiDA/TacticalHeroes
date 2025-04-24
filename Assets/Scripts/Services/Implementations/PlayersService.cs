@@ -10,7 +10,7 @@ using Assets.Scripts.Infrastructure.Requests.PlayersService;
 
 namespace Assets.Scripts.Services.Implementations
 {
-    public class PlayersService : IPlayersService
+    public sealed class PlayersService : IPlayersService
     {
         public PlayersService() { }
 

@@ -5,6 +5,7 @@ using Assets.Scripts.Common.ConvertParams;
 using Assets.Scripts.Common.SearchParams;
 using Assets.Scripts.Repositories.Implementations.SQLite.Core;
 using Assets.Scripts.Repositories.Interfaces;
+
 using SQLite4Unity3d;
 
 using Ability = Assets.Scripts.Domain.Entities.Models.Ability;
@@ -20,8 +21,8 @@ namespace Assets.Scripts.Repositories.Implementations.SQLite
         private readonly IAbilitiesRepository _abilitiesRepository;
 
         public UnitsRepository(
-            DatabaseContext ctx,
-            IAbilitiesRepository abilitiesRepository) : base(ctx) 
+            SQLiteContext ctx,
+            IAbilitiesRepository abilitiesRepository) : base(ctx)
         {
             _abilitiesRepository = abilitiesRepository;
         }

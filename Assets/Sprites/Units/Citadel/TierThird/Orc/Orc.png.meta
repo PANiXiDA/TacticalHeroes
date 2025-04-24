@@ -139,10 +139,10 @@ TextureImporter:
       name: Orc
       rect:
         serializedVersion: 2
-        x: 103
-        y: 1276
-        width: 53
-        height: 74
+        x: 747
+        y: 1269
+        width: 44
+        height: 73
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

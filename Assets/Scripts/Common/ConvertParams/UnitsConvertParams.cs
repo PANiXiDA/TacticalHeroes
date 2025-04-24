@@ -1,6 +1,6 @@
 ﻿namespace Assets.Scripts.Common.ConvertParams
 {
-    public class UnitsConvertParams
+    public sealed class UnitsConvertParams
     {
         public bool IncludeAbilities { get; set; }
     }
