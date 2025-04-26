@@ -98,11 +98,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5b95acb1a05edcf40b136e5cda099525
-    m_Address: SQLite.db
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5bfbc1f6c45aa4f4399893f150479ffa
     m_Address: Prefabs/Units/Lich
     m_ReadOnly: 0
@@ -238,11 +233,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d87874eb6202fbe4387278b12808b421
     m_Address: Prefabs/Units/Ogr
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e3d67a58eb4869a4fbd7c909cb2f2141
-    m_Address: RealmDb.realm
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

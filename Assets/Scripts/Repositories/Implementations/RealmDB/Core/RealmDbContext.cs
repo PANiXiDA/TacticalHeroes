@@ -34,29 +34,26 @@ namespace Assets.Scripts.Repositories.Implementations.RealmDB.Core
         {
             var fileName = DatabasesConstants.RealmDbDatabaseName;
             var outPath = Path.Combine(Application.persistentDataPath, fileName);
-
             if (File.Exists(outPath))
-            {
                 return outPath;
-            }
 
-            try
+            var streamPath = Path.Combine(Application.streamingAssetsPath, DatabasesConstants.RealmDbDatabasePath, fileName);
+
+            byte[] data;
+            if (Application.platform == RuntimePlatform.Android)
             {
-                var handle = Addressables.LoadAssetAsync<TextAsset>(fileName);
-                var txt = handle.WaitForCompletion();
-                if (txt != null && txt.bytes != null)
-                {
-                    Directory.CreateDirectory(Path.GetDirectoryName(outPath)!);
-                    File.WriteAllBytes(outPath, txt.bytes);
-                    Addressables.Release(handle);
-                    return outPath;
-                }
+                using var www = UnityEngine.Networking.UnityWebRequest.Get(streamPath);
+                www.SendWebRequest();
+                while (!www.isDone) { }
+                data = www.downloadHandler.data!;
             }
-            catch (InvalidKeyException) { }
+            else
+            {
+                data = File.ReadAllBytes(streamPath);
+            }
 
             Directory.CreateDirectory(Path.GetDirectoryName(outPath)!);
-            using (var r = Realm.GetInstance(new RealmConfiguration(outPath)))
-
+            File.WriteAllBytes(outPath, data);
             return outPath;
         }
 

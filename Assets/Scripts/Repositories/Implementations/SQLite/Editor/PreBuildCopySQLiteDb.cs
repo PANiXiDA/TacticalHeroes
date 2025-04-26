@@ -1,54 +1,37 @@
 ﻿#if UNITY_EDITOR
-
 using System.IO;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
-using UnityEditor.AddressableAssets;
-using UnityEditor.AddressableAssets.Settings;
 using Assets.Scripts.Common.Constants;
 
 namespace Assets.Scripts.Repositories.Implementations.SQLite.Editor
 {
-    public class PreBuildCopySQLiteDb : IPreprocessBuildWithReport
+    public class PreBuildCopySQLiteToStreamingAssets : IPreprocessBuildWithReport
     {
         public int callbackOrder => 0;
 
+        private readonly string StreamingFolder = "StreamingAssets";
+
         public void OnPreprocessBuild(BuildReport report)
         {
-            var srcPath = Path.Combine(Application.persistentDataPath, DatabasesConstants.SQLiteDatabaseName);
-            if (!File.Exists(srcPath))
+            var src = Path.Combine(Application.persistentDataPath, DatabasesConstants.SQLiteDatabaseName);
+            if (!File.Exists(src))
             {
-                Debug.LogWarning($"PreBuildCopySQLiteDb: исходной БД не найдено по пути {srcPath}");
+                Debug.LogWarning($"[PreBuild] SQLite.db не найден по пути {src}");
                 return;
             }
 
-            var projectRoot = Application.dataPath.Replace("Assets", "");
-            var projectFolder = Path.Combine(projectRoot, DatabasesConstants.SQLiteDatabasePath);
+            var targetDir = Path.Combine(Application.dataPath, StreamingFolder, DatabasesConstants.SQLiteDatabasePath);
+            Directory.CreateDirectory(targetDir);
 
-            Directory.CreateDirectory(projectFolder);
-            var projectPath = Path.Combine(projectFolder,DatabasesConstants.SQLiteDatabaseName);
+            var dst = Path.Combine(targetDir, DatabasesConstants.SQLiteDatabaseName);
+            File.Copy(src, dst, true);
+            Debug.Log($"[PreBuild] Скопирован SQLite.db → {dst}");
 
-            File.Copy(srcPath, projectPath, overwrite: true);
-            Debug.Log($"PreBuildCopySQLiteDb: скопировано {srcPath} → {projectFolder}");
-
-            var settings = AddressableAssetSettingsDefaultObject.GetSettings(true);
-            if (settings == null)
-            {
-                Debug.LogError("PreBuildCopySQLiteDb: AddressableAssetSettings не найдены!");
-                return;
-            }
-
-            var guid = AssetDatabase.AssetPathToGUID($"{projectPath}");
-            var entry = settings.FindAssetEntry(guid) ?? settings.CreateOrMoveEntry(guid, settings.DefaultGroup);
-
-            entry.SetAddress(DatabasesConstants.SQLiteDatabaseName);
-
-            settings.SetDirty(AddressableAssetSettings.ModificationEvent.EntryMoved, entry, true, false);
-            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
     }
 }
-
 #endif
