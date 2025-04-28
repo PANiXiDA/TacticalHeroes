@@ -7,18 +7,18 @@ namespace Assets.Scripts.Domain.Entities.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public List<int> UnitIds { get; set; } = new();
+        public Dictionary<int, int> UnitIdsAndCounts { get; set; } = new();
 
         public List<Unit> Units { get; set; } = new();
 
         public Build(
             Guid id,
             string name,
-            List<int> unitIds)
+            Dictionary<int, int> unitIdsAndCounts)
         {
             Id = id;
             Name = name;
-            UnitIds = unitIds;
+            UnitIdsAndCounts = unitIdsAndCounts;
         }
     }
 }

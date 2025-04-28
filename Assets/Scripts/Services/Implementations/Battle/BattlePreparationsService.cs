@@ -59,6 +59,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
                     tileY: tile.Y);
                 unitWrapper.Unit = Unit.MapToDomain(unit);
                 unitWrapper.Unit.OwnerId = playerId;
+                unitWrapper.Unit.Count = build.UnitIdsAndCounts[unit.Id];
                 unitWrappers.Add(unitWrapper);
             }
 

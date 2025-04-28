@@ -7,6 +7,7 @@ using Assets.Scripts.Common.SearchParams;
 using Assets.Scripts.Domain.Entities.Models;
 using Assets.Scripts.Repositories.Implementations.RealmDB.Core;
 using Assets.Scripts.Repositories.Interfaces;
+using Assets.Scripts.Repositories.Models.RealmDB;
 
 using DbBuild = Assets.Scripts.Repositories.Models.RealmDB.Build;
 using EntityBuild = Assets.Scripts.Domain.Entities.Models.Build;
@@ -29,10 +30,16 @@ namespace Assets.Scripts.Repositories.Implementations.RealmDB
         protected override void MapToDb(EntityBuild entity, DbBuild dbObject)
         {
             dbObject.Name = entity.Name;
-            dbObject.UnitIds.Clear();
-            foreach (var id in entity.UnitIds)
+
+            dbObject.Units.Clear();
+            foreach (var (id, amount) in entity.UnitIdsAndCounts)
             {
-                dbObject.UnitIds.Add(id);
+                var slot = new UnitInBuild
+                {
+                    UnitId = id,
+                    Amount = amount
+                };
+                dbObject.Units.Add(slot);
             }
         }
 
@@ -45,16 +52,18 @@ namespace Assets.Scripts.Repositories.Implementations.RealmDB
 
         protected override EntityBuild MapToEntity(DbBuild dbObject, BuildsConvertParams convertParams)
         {
+            var unitIdsAndCounts = dbObject.Units.ToDictionary(unit => unit.UnitId, unit => unit.Amount);
+
             return new EntityBuild(
                 id: dbObject.Id,
                 name: dbObject.Name,
-                unitIds: dbObject.UnitIds.ToList())
+                unitIdsAndCounts: unitIdsAndCounts)
             {
                 Units = convertParams.IncludeUnits 
                     ? _unitsRepository.Get(
                         new UnitsSearchParams() 
                         { 
-                            Ids = dbObject.UnitIds.ToList()
+                            Ids = unitIdsAndCounts.Keys.ToList()
                         },
                         new UnitsConvertParams()
                         { 

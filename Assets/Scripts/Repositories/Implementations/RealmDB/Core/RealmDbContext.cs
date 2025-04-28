@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 using Assets.Scripts.Common.Constants;
+using Assets.Scripts.Repositories.Models.RealmDB;
 
 using Realms;
 
@@ -14,7 +17,7 @@ namespace Assets.Scripts.Repositories.Implementations.RealmDB.Core
     {
         public Realm Connection { get; }
 
-        private const int SchemaVersion = 2;
+        private const int SchemaVersion = 3;
 
         public RealmContext()
         {
@@ -61,7 +64,6 @@ namespace Assets.Scripts.Repositories.Implementations.RealmDB.Core
         {
             if (oldVer < SchemaVersion)
             {
-
             }
         }
     }
