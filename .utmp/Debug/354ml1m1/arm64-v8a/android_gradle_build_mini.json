@@ -1,7 +1,7 @@
 {
   "buildFiles": [
-    "D:\\Repository\\TacticalHeroes\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\src\\main\\cpp\\CMakeLists.txt",
-    "D:\\Repository\\TacticalHeroes\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\src\\main\\cpp\\FramePacing\\CMakeLists.txt"
+    "D:\\Repository\\TacticalHeroes\\Library\\PramData\\AndroidApplicationController\\Cache\\com.OldStrategy.TacticalHeroes\\gradle-project\\unityLibrary\\src\\main\\cpp\\CMakeLists.txt",
+    "D:\\Repository\\TacticalHeroes\\Library\\PramData\\AndroidApplicationController\\Cache\\com.OldStrategy.TacticalHeroes\\gradle-project\\unityLibrary\\src\\main\\cpp\\FramePacing\\CMakeLists.txt"
   ],
   "cleanCommandsComponents": [
     [
@@ -21,7 +21,7 @@
     "swappywrapper::@7e25bd1f32ce224db4e9": {
       "artifactName": "swappywrapper",
       "abi": "arm64-v8a",
-      "output": "D:\\Repository\\TacticalHeroes\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\build\\intermediates\\cxx\\Debug\\354ml1m1\\obj\\arm64-v8a\\libswappywrapper.so",
+      "output": "D:\\Repository\\TacticalHeroes\\Library\\PramData\\AndroidApplicationController\\Cache\\com.OldStrategy.TacticalHeroes\\gradle-project\\unityLibrary\\build\\intermediates\\cxx\\Debug\\354ml1m1\\obj\\arm64-v8a\\libswappywrapper.so",
       "runtimeFiles": []
     }
   }
