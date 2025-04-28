@@ -1,5 +1,5 @@
 # ninja log v5
-0	177	7669544742348918	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	bd3b7e733babacbf
-178	387	7669544744491281	D:/Repository/TacticalHeroes/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/294g555f/obj/x86_64/libswappywrapper.so	a162b0cc9156f0fc
-2	226	7673707472358033	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	bd3b7e733babacbf
-227	598	7673707476108025	D:/Repository/TacticalHeroes/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/294g555f/obj/x86_64/libswappywrapper.so	a162b0cc9156f0fc
+1	144	7673959079055329	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	bd3b7e733babacbf
+145	481	7673959082424298	D:/Repository/TacticalHeroes/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/294g555f/obj/x86_64/libswappywrapper.so	a162b0cc9156f0fc
+1	154	7673969260012694	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	bd3b7e733babacbf
+154	642	7673969264980938	D:/Repository/TacticalHeroes/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/294g555f/obj/x86_64/libswappywrapper.so	a162b0cc9156f0fc

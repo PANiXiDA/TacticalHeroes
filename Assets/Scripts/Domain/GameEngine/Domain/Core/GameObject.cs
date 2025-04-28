@@ -5,6 +5,8 @@ namespace Assets.Scripts.GameEngine.Domain.Core
     public class GameObject
     {
         public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         public int Attack { get; set; }
         public int Defence { get; set; }
         public int MinDamage { get; set; }
@@ -12,18 +14,24 @@ namespace Assets.Scripts.GameEngine.Domain.Core
         public double Initiative { get; set; }
         public int Morale { get; set; }
         public int Luck { get; set; }
+        public int? OwnerId { get; set; }
 
         public GameObject(
             Guid id,
+            string name,
+            string description,
             int attack,
             int defence,
             int minDamage,
             int maxDamage,
             double initiative,
             int morale,
-            int luck)
+            int luck,
+            int? ownerId = null)
         {
             Id = id;
+            Name = name;
+            Description = description;
             Attack = attack;
             Defence = defence;
             MinDamage = minDamage;
@@ -31,6 +39,7 @@ namespace Assets.Scripts.GameEngine.Domain.Core
             Initiative = initiative;
             Morale = morale;
             Luck = luck;
+            OwnerId = ownerId;
         }
     }
 }

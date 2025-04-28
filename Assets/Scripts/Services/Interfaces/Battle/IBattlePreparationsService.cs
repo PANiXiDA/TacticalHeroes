@@ -14,6 +14,6 @@ namespace Assets.Scripts.Services.Interfaces.Battle
     public interface IBattlePreparationsService
     {
         Observable<IReadOnlyList<UnitWrapper>> OnUnitsLoaded { get; }
-        UniTask<IReadOnlyList<UnitWrapper>> LoadFromBuildAsync(Guid buildId, PlayerSide side, int teamNumber, List<Tile> grid);
+        UniTask<IReadOnlyList<UnitWrapper>> LoadFromBuildAsync(int? playerId, Guid buildId, PlayerSide side, int teamNumber, List<Tile> grid);
     }
 }

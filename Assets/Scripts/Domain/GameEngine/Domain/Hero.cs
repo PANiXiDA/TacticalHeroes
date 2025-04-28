@@ -8,13 +8,16 @@ namespace Assets.Scripts.GameEngine.Domain
     {
         public Hero(
             Guid id,
+            string name,
+            string description,
             int attack,
             int defence,
             int minDamage,
             int maxDamage,
             double initiative,
             int morale,
-            int luck) : base(id, attack, defence, minDamage, maxDamage, initiative, morale, luck)
+            int luck,
+            int? ownerId = null) : base(id, name, description, attack, defence, minDamage, maxDamage, initiative, morale, luck, ownerId)
         {
         }
     }

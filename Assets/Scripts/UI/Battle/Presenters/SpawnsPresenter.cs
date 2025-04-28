@@ -40,11 +40,9 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
             foreach (var unitWrapper in unitWrappers)
             {
-                var gameObject = await Addressables.LoadAssetAsync<GameObject>($"{AddressablePrefix}/{unitWrapper.Name}");
+                var gameObject = await Addressables.LoadAssetAsync<GameObject>($"{AddressablePrefix}/{unitWrapper.Unit.Name}");
                 var view = Instantiate(gameObject).GetComponent<UnitView>();
                 view.Init(
-                    name: unitWrapper.Name,
-                    description: unitWrapper.Description,
                     side: unitWrapper.Side,
                     unitWrapper.Unit);
 

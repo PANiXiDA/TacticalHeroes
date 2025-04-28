@@ -1,26 +1,28 @@
 ﻿using System;
-using UnityEngine;
 using System.Text;
+
 using Assets.Scripts.Common.SecureStorages.Extensions;
+
+using UnityEngine;
 
 namespace Assets.Scripts.Common.SecureStorages
 {
-    public class SecureStorageAndroid : ISecureStorage
+    public sealed class SecureStorageAndroid : ISecureStorage
     {
         private const string Alias = "MyAppKeystoreAlias";
-        private const string AndroidKeyStore = "AndroidKeyStore";
+        private const string RsaAlgo = "RSA/ECB/PKCS1Padding";
 
         public void SaveData(string key, string value)
         {
             try
             {
-                var encryptedData = Encrypt(value);
-                PlayerPrefs.SetString(key, Convert.ToBase64String(encryptedData));
+                var enc = Encrypt(value);
+                PlayerPrefs.SetString(key, Convert.ToBase64String(enc));
                 PlayerPrefs.Save();
             }
             catch (Exception e)
             {
-                Debug.LogError($"[SecureStorageAndroid] Error saving data: {e.Message}");
+                Debug.LogError($"[SecureStorageAndroid] Save error: {e}");
             }
         }
 
@@ -28,18 +30,17 @@ namespace Assets.Scripts.Common.SecureStorages
         {
             try
             {
-                if (PlayerPrefs.HasKey(key))
-                {
-                    var encryptedData = Convert.FromBase64String(PlayerPrefs.GetString(key));
-                    return Decrypt(encryptedData);
-                }
+                if (!PlayerPrefs.HasKey(key))
+                    return null;
+
+                var enc = Convert.FromBase64String(PlayerPrefs.GetString(key));
+                return Decrypt(enc);
             }
             catch (Exception e)
             {
-                Debug.LogError($"[SecureStorageAndroid] Error loading data: {e.Message}");
+                Debug.LogError($"[SecureStorageAndroid] Load error: {e}");
+                return null;
             }
-
-            return null;
         }
 
         public void DeleteData(string key)
@@ -57,76 +58,108 @@ namespace Assets.Scripts.Common.SecureStorages
             PlayerPrefs.Save();
         }
 
-        private byte[] Encrypt(string plainText)
+        private byte[] Encrypt(string plain)
         {
-            try
+            var keyStore = GetKeyStore();
+            var entry = keyStore.Call<AndroidJavaObject>("getEntry", Alias, null);
+            if (entry == null)
             {
-                var keyStore = new AndroidJavaClass("android.security.keystore.KeyStore");
-                keyStore.Call("load", null);
-
-                var privateKeyEntry = keyStore.Call<AndroidJavaObject>("getEntry", Alias, null);
-                if (privateKeyEntry == null)
-                {
-                    GenerateKey();
-                    privateKeyEntry = keyStore.Call<AndroidJavaObject>("getEntry", Alias, null);
-                }
-
-                var publicKey = privateKeyEntry.Call<AndroidJavaObject>("getCertificate").Call<AndroidJavaObject>("getPublicKey");
-
-                var cipher = new AndroidJavaClass("javax.crypto.Cipher").CallStatic<AndroidJavaObject>("getInstance", "RSA/ECB/PKCS1Padding");
-                cipher.Call("init", 1, publicKey);
-
-                var plainBytes = Encoding.UTF8.GetBytes(plainText);
-                return cipher.Call<byte[]>("doFinal", plainBytes);
+                GenerateKey();
+                entry = keyStore.Call<AndroidJavaObject>("getEntry", Alias, null);
             }
-            catch (Exception ex)
-            {
-                Debug.LogError($"[SecureStorageAndroid] Encryption error: {ex.Message}");
-                throw;
-            }
+
+            var pubKey = entry
+                .Call<AndroidJavaObject>("getCertificate")
+                .Call<AndroidJavaObject>("getPublicKey");
+
+            var cipher = new AndroidJavaClass("javax.crypto.Cipher").CallStatic<AndroidJavaObject>("getInstance", RsaAlgo);
+
+            cipher.Call("init", 1, pubKey);
+
+            var data = Encoding.UTF8.GetBytes(plain);
+            return cipher.Call<byte[]>("doFinal", data);
         }
 
-        private string Decrypt(byte[] encryptedData)
+        private string Decrypt(byte[] encrypted)
         {
-            try
-            {
-                var keyStore = new AndroidJavaClass("android.security.keystore.KeyStore");
-                keyStore.Call("load", null);
+            var keyStore = GetKeyStore();
+            var entry = keyStore.Call<AndroidJavaObject>("getEntry", Alias, null);
+            var privKey = entry.Call<AndroidJavaObject>("getPrivateKey");
 
-                var privateKeyEntry = keyStore.Call<AndroidJavaObject>("getEntry", Alias, null);
-                var privateKey = privateKeyEntry.Call<AndroidJavaObject>("getPrivateKey");
+            var cipher = new AndroidJavaClass("javax.crypto.Cipher").CallStatic<AndroidJavaObject>("getInstance", RsaAlgo);
 
-                var cipher = new AndroidJavaClass("javax.crypto.Cipher").CallStatic<AndroidJavaObject>("getInstance", "RSA/ECB/PKCS1Padding");
-                cipher.Call("init", 2, privateKey);
-
-                var decryptedBytes = cipher.Call<byte[]>("doFinal", encryptedData);
-                return Encoding.UTF8.GetString(decryptedBytes);
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"[SecureStorageAndroid] Decryption error: {ex.Message}");
-                throw;
-            }
+            cipher.Call("init", 2, privKey);
+            var dec = cipher.Call<byte[]>("doFinal", encrypted);
+            return Encoding.UTF8.GetString(dec);
         }
 
         private void GenerateKey()
         {
-            try
-            {
-                var keyGenerator = new AndroidJavaClass("java.security.KeyPairGenerator").CallStatic<AndroidJavaObject>("getInstance", "RSA", AndroidKeyStore);
-                var keyGenSpec = new AndroidJavaClass("android.security.keystore.KeyGenParameterSpec$Builder")
-                    .Call<AndroidJavaObject>("<init>", Alias, 3)
-                    .Call<AndroidJavaObject>("setEncryptionPaddings", new object[] { "PKCS1Padding" })
-                    .Call<AndroidJavaObject>("build");
+            int sdk = new AndroidJavaClass("android.os.Build$VERSION").GetStatic<int>("SDK_INT");
 
-                keyGenerator.Call("initialize", keyGenSpec);
-                keyGenerator.Call("generateKeyPair");
-            }
-            catch (Exception ex)
+            if (sdk >= 23)
             {
-                Debug.LogError($"[SecureStorageAndroid] Key generation error: {ex.Message}");
-                throw;
+                GenerateKeyApi23Plus();
             }
+            else
+            {
+                GenerateKeyApi18_22();
+            }
+        }
+
+        private void GenerateKeyApi23Plus()
+        {
+            var kpg = new AndroidJavaClass("java.security.KeyPairGenerator").CallStatic<AndroidJavaObject>("getInstance", "RSA", "AndroidKeyStore");
+
+            var builder = new AndroidJavaObject(
+                "android.security.keystore.KeyGenParameterSpec$Builder",
+                Alias,
+                3
+            )
+            .Call<AndroidJavaObject>("setKeySize", 2048)
+            .Call<AndroidJavaObject>("setBlockModes", (object)new[] { "ECB" })
+            .Call<AndroidJavaObject>("setEncryptionPaddings", (object)new[] { "PKCS1Padding" });
+
+            var spec = builder.Call<AndroidJavaObject>("build");
+            kpg.Call("initialize", spec);
+
+            kpg.Call<AndroidJavaObject>("generateKeyPair");
+        }
+
+        private void GenerateKeyApi18_22()
+        {
+            var activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
+
+            var calendar = new AndroidJavaObject("java.util.GregorianCalendar");
+            var start = calendar.Call<AndroidJavaObject>("getTime");
+            calendar.Call("add", new AndroidJavaClass("java.util.Calendar").GetStatic<int>("YEAR"), 25);
+            var end = calendar.Call<AndroidJavaObject>("getTime");
+
+            var builder = new AndroidJavaObject(
+                "android.security.KeyPairGeneratorSpec$Builder",
+                activity
+            )
+            .Call<AndroidJavaObject>("setAlias", Alias)
+            .Call<AndroidJavaObject>("setSerialNumber", new AndroidJavaObject("java.math.BigInteger", "1"))
+            .Call<AndroidJavaObject>("setSubject", new AndroidJavaObject("javax.security.auth.x500.X500Principal",
+                                                           $"CN={Alias}"))
+            .Call<AndroidJavaObject>("setStartDate", start)
+            .Call<AndroidJavaObject>("setEndDate", end)
+            .Call<AndroidJavaObject>("setKeySize", 2048);
+
+            var spec = builder.Call<AndroidJavaObject>("build");
+
+            var kpg = new AndroidJavaClass("java.security.KeyPairGenerator").CallStatic<AndroidJavaObject>("getInstance", "RSA", "AndroidKeyStore");
+
+            kpg.Call("initialize", spec);
+            kpg.Call<AndroidJavaObject>("generateKeyPair");
+        }
+
+        private static AndroidJavaObject GetKeyStore()
+        {
+            var ks = new AndroidJavaClass("java.security.KeyStore").CallStatic<AndroidJavaObject>("getInstance", "AndroidKeyStore");
+            ks.Call("load", (AndroidJavaObject)null);
+            return ks;
         }
     }
 }

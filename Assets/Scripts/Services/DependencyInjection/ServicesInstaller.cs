@@ -29,6 +29,7 @@ namespace Assets.Scripts.Services.Implementations.Extensions
             Container.Bind<IUnitsService>().To<UnitsService>().AsSingle();
             Container.Bind<IBuildsService>().To<BuildsService>().AsSingle();
             Container.Bind<IBattlePreparationsService>().To<BattlePreparationsService>().AsSingle();
+            Container.Bind<IATBService>().To<ATBService>().AsSingle();
         }
     }
 }

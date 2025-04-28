@@ -18,7 +18,7 @@ namespace Assets.Scripts.Services.Implementations
                 gameType: GameType.Duel);
 
             var firstPlayer = new PlayerBattleData(
-                id: null,
+                id: 1,
                 sessionId: null,
                 buildId: Guid.Parse("2927a215-549b-496a-afd8-8163ec85970a"),
                 countMissedMoves: 0,
@@ -29,7 +29,7 @@ namespace Assets.Scripts.Services.Implementations
             gameSession.Players.Add(firstPlayer);
 
             var secondPlayer = new PlayerBattleData(
-                id: null,
+                id: 2,
                 sessionId: null,
                 buildId: Guid.Parse("5777e8cb-5bbf-4496-a06c-fe5ddcb89e96"),
                 countMissedMoves: 0,

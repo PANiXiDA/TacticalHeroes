@@ -62,6 +62,8 @@ namespace Assets.Scripts.Domain.Entities.Models
         {
             return new DomainUnit(
                 id: Guid.NewGuid(),
+                name: entity.Name,
+                description: entity.Description,
                 attack: entity.Attack,
                 defence: entity.Defence,
                 fullHealth: entity.Health,
@@ -73,9 +75,11 @@ namespace Assets.Scripts.Domain.Entities.Models
                 arrows: entity.Arrows,
                 morale: entity.Morale,
                 luck: entity.Luck,
-                count: 1,
-                abilities: Ability.MapToDomains(entity.Abilities),
-                effects: new List<DomainEffect>());
+                count: 1)
+            {
+                Abilities = Ability.MapToDomains(entity.Abilities),
+                Effects = new List<DomainEffect>()
+            };
         }
 
         public static List<DomainUnit> MapToDomains(List<Unit> entities)

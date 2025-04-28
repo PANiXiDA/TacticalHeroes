@@ -19,13 +19,13 @@ public sealed class GridsPresenter : MonoBehaviour
     private const float DefaultPanelInsetPx = 0f;
 
     [Header("Tile Prefabs")]
-    [SerializeField] private TileView grassPrefab;
-    [SerializeField] private TileView mountainPrefab;
-    [SerializeField] private TileView lakePrefab;
+    [SerializeField] private TileView _grassPrefab;
+    [SerializeField] private TileView _mountainPrefab;
+    [SerializeField] private TileView _lakePrefab;
 
     [Header("UI‑элементы (нужны для адаптивного размера сетки)")]
-    [SerializeField] private RectTransform leftPanel;
-    [SerializeField] private RectTransform rightPanel;
+    [SerializeField] private RectTransform _leftPanel;
+    [SerializeField] private RectTransform _rightPanel;
 
     public UniTask WhenReady => _ready.Task;
     private readonly UniTaskCompletionSource _ready = new();
@@ -59,9 +59,9 @@ public sealed class GridsPresenter : MonoBehaviour
         {
             var prefab = tile.Terrain switch
             {
-                TerrainType.Mountain => mountainPrefab,
-                TerrainType.Lake => lakePrefab,
-                _ => grassPrefab
+                TerrainType.Mountain => _mountainPrefab,
+                TerrainType.Lake => _lakePrefab,
+                _ => _grassPrefab
             };
 
             var inst = Instantiate(prefab, _gridContainer);
@@ -79,9 +79,9 @@ public sealed class GridsPresenter : MonoBehaviour
 
     private void FitAndPositionGrid(Vector2Int gridSize)
     {
-        var canvas = leftPanel.GetComponentInParent<Canvas>();
-        float leftPx = leftPanel.rect.width * canvas.scaleFactor;
-        float rightPx = rightPanel.rect.width * canvas.scaleFactor;
+        var canvas = _leftPanel.GetComponentInParent<Canvas>();
+        float leftPx = _leftPanel.rect.width * canvas.scaleFactor;
+        float rightPx = _rightPanel.rect.width * canvas.scaleFactor;
 
         float bottomPx = DefaultPanelInsetPx;
         float topPx = DefaultPanelInsetPx;

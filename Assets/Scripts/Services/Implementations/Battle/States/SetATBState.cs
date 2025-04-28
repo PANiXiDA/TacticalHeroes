@@ -1,0 +1,38 @@
+﻿using System.Linq;
+
+using Assets.Scripts.Common.Enumerations;
+using Assets.Scripts.Infrastructure.Models;
+using Assets.Scripts.Services.Interfaces.Battle.States;
+using Assets.Scripts.Services.Interfaces.Battle;
+using Cysharp.Threading.Tasks;
+using R3;
+using Assets.Scripts.GameEngine.Domain.Core;
+using System.Collections.Generic;
+
+namespace Assets.Scripts.Services.Implementations.Battle.States
+{
+    public sealed class SetATBState : IGameState
+    {
+        private readonly IATBService _atbService;
+
+        public SetATBState(IATBService gridService)
+        {
+            _atbService = gridService;
+        }
+
+        public async UniTask<GameState?> EnterAsync(GameSession gameSession)
+        {
+            var gameObjects = new List<GameObject>();
+            gameObjects.AddRange(gameSession.RoundState.Units);
+            gameObjects.AddRange(gameSession.RoundState.Heroes);
+
+            var atbTask = _atbService.OnAtbGenerated.FirstAsync();
+            _atbService.SetAtb(gameObjects);
+            var atb = await atbTask;
+            gameSession.RoundState.ATB = atb.ToList();
+            return null;
+        }
+
+        public void Exit() { }
+    }
+}

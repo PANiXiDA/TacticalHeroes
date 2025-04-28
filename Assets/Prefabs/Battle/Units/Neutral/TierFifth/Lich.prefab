@@ -52,6 +52,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -74,14 +77,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1493722999
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: -380785584, guid: fe9846c7ea28685498b183346369e71a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 0.8, y: 1}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -95,6 +98,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6123699380187873245}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -118,23 +122,23 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.4, y: 0.86}
-    newSize: {x: 0.8, y: 1}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
 --- !u!95 &4261549734538747020
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -148,6 +152,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -162,35 +167,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6123699380187873245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8d5492b2ddd7fa45adb7d7e62ed30f4, type: 3}
+  m_Script: {fileID: 11500000, guid: c6931a0482aaa3c4fa364d5024a810b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitName: "\u0424\u0430\u0443\u0441\u0442"
-  OccupiedTile: {fileID: 0}
-  Side: 1
-  Faction: 0
-  Tier: 4
-  UnitAttack: 15
-  UnitDefence: 10
-  UnitFullHealth: 50
-  UnitMinDamage: 15
-  UnitMaxDamage: 30
-  UnitInitiative: 11
-  UnitSpeed: 5
-  UnitCount: 15
-  UnitAdditionalDefence: 0
-  UnitCurrentHealth: 1000
-  UnitMorale: 0
-  UnitLuck: 0
-  UnitFailedMorale: 0
-  UnitSuccessfulMorale: 0
-  UnitFailedLuck: 0
-  UnitSuccessfulLuck: 0
-  UnitProbabilityMorale: 0
-  UnitProbabilityLuck: 0
-  abilities: 010000000400000005000000
-  animator: {fileID: 4261549734538747020}
-  UnitResponse: 1
-  UnitATB: 0
-  UnitTime: 0
-  isBusy: 0
+  _sprite: {fileID: 1729041353165111942}
+  _animator: {fileID: 4261549734538747020}

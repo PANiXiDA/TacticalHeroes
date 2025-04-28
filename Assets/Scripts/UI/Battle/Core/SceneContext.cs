@@ -11,6 +11,7 @@ namespace Assets.Scripts.UI.Battle.Core
             Container.Bind<EntryPoint>().FromComponentInHierarchy().AsSingle();
             Container.Bind<GridsPresenter>().FromComponentInHierarchy().AsSingle();
             Container.Bind<SpawnsPresenter>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<ATBPresenter>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

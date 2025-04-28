@@ -18,19 +18,13 @@ namespace Assets.Scripts.UI.Battle.Views
         [SerializeField] private SpriteRenderer _sprite;
         [SerializeField] private Animator _animator;
 
-        public string Name { get; private set; }
-        public string Description { get; private set; }
         public PlayerSide Side { get; private set; }
         public Unit Data { get; private set; }
 
         public void Init(
-            string name,
-            string description,
             PlayerSide side,
             Unit unit)
         {
-            Name = name;
-            Description = description;
             Side = side;
             Data = unit;
         }

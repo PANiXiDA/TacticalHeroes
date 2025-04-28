@@ -20,20 +20,25 @@ namespace Assets.Scripts.Services.Implementations.Battle.States
             _battlePreparationsService = battlePreparationsService;
         }
 
-        public async UniTask<GameState?> EnterAsync(GameSession s)
+        public async UniTask<GameState?> EnterAsync(GameSession gameSession)
         {
-            var gridIndex = s.RoundState.Grid.ToDictionary(t => (t.X, t.Y));
+            var gridIndex = gameSession.RoundState.Grid.ToDictionary(tile => (tile.X, tile.Y));
 
-            var tasks = s.Players.Select(p =>
-                _battlePreparationsService.LoadFromBuildAsync(p.BuildId, p.Side, p.TeamNumber, s.RoundState.Grid));
+            var tasks = gameSession.Players.Select(player =>
+                _battlePreparationsService.LoadFromBuildAsync(
+                    player.Id,
+                    player.BuildId,
+                    player.Side,
+                    player.TeamNumber,
+                    gameSession.RoundState.Grid));
 
             var results = await UniTask.WhenAll(tasks);
 
-            for (int i = 0; i < s.Players.Count; i++)
+            for (int i = 0; i < gameSession.Players.Count; i++)
             {
                 var wrappers = results[i];
 
-                s.Players[i].Units = wrappers.Select(w => w.Unit).ToList();
+                gameSession.Players[i].Units = wrappers.Select(wrapper => wrapper.Unit).ToList();
 
                 foreach (var wrapper in wrappers)
                 {
@@ -42,7 +47,9 @@ namespace Assets.Scripts.Services.Implementations.Battle.States
                 }
             }
 
-            return null;
+            gameSession.RoundState.Units = results.SelectMany(wrappers => wrappers.Select(w => w.Unit)).ToList();
+
+            return GameState.SetATB;
         }
 
         public void Exit() { }

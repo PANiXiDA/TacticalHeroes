@@ -20,6 +20,8 @@ namespace Assets.Scripts.GameEngine.Domain
 
         public Unit(
             Guid id,
+            string name,
+            string description,
             int attack,
             int defence,
             int fullHealth,
@@ -32,8 +34,7 @@ namespace Assets.Scripts.GameEngine.Domain
             int morale,
             int luck,
             int count,
-            List<Ability> abilities,
-            List<Effect> effects) : base(id, attack, defence, minDamage, maxDamage, initiative, morale, luck)
+            int? ownerId = null) : base(id, name, description, attack, defence, minDamage, maxDamage, initiative, morale, luck, ownerId)
         {
             CurrentInitiative = initiative;
             FullHealth = fullHealth;
@@ -41,9 +42,7 @@ namespace Assets.Scripts.GameEngine.Domain
             Speed = speed;
             Range = range;
             Arrows = arrows;
-            Count = count;
-            Abilities = abilities;
-            Effects = effects;
+            Count = count;;
         }
     }
 }

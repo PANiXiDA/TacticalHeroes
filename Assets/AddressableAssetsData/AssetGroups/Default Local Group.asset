@@ -20,14 +20,24 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f0d74369545a0f438d50ab459b6d859
+    m_Address: Prefabs/Units/Cyclop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 12b7dd55311d5134da55ef8de8d6a34d
-    m_Address: Swordsman_Avatar
+    m_Address: Sprites/Avatars/Swordsman
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1419cea1d001eb24a8aaf1f05098bbea
     m_Address: Prefabs/Units/Bear
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14f3565d4a4b7514ca61e6107659079c
+    m_Address: Prefabs/Units/Lich
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -53,7 +63,7 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3358968e4d5244448a2b99f4e1575004
-    m_Address: Elf_Avatar
+    m_Address: Sprites/Avatars/Elf
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
@@ -65,18 +75,28 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ae6eb21efb0dc64d839abc58f0c4ff2
-    m_Address: Orc_Avatar
+    m_Address: Sprites/Avatars/Orc
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4122da180cb1750439245fab2d800d7b
+    m_Address: Prefabs/Units/Druid
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a278766f34f2a048b504d11f227dadf
-    m_Address: Assets/Sprites/Units/Neutral/TierFirst/Halfling/Halfling_Avatar.asset
+    m_Address: Sprites/Avatars/Halfling
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ab1535bc5eb3824aade7e19ca230fa6
+    m_Address: Prefabs/Units/Paladin
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52b2bb1e052ed974c9de21665b758fab
     m_Address: Prefabs/Units/Paladin
     m_ReadOnly: 0
     m_SerializedLabels: []
@@ -87,13 +107,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55a137c5a1c353041b699acc8f326a14
+    m_Address: Prefabs/Units/Pikeman
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 59bfd745bb20c804fac6379122ad1429
     m_Address: Prefabs/Units/Roc
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a5068f2ad68bbe489751f50fcdcf879
-    m_Address: Paladin_Avatar
+    m_Address: Sprites/Avatars/Paladin
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
@@ -108,13 +133,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 644d1453c7bff324fa1cf4518dccd27d
+    m_Address: Prefabs/Units/Goblin
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7247b9c1031699b42b9fbf1694bbd914
     m_Address: Prefabs/Units/Dragon
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7274f6bcee402af40ab73402e545ca24
+    m_Address: Prefabs/Units/Bear
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72ba9ba1303e09d4092c340833be2c4a
+    m_Address: Prefabs/Units/Elf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 72c0e72e7269b7c439a1dd187de902c4
     m_Address: Prefabs/Units/Cyclop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7642fbdd0e5b18c479c7aa73e05ee8a3
+    m_Address: Prefabs/Units/MinotaurKing
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -124,19 +169,19 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e65de96bfa686e409a21d50b8412747
-    m_Address: Ogr_Avatar
+    m_Address: Sprites/Avatars/Ogr
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 81bb5987312d7fa4d8c9a941c575b67d
-    m_Address: AncientBehemoth_Avatar
+    m_Address: Sprites/Avatars/AncientBehemoth
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86a14bea3119f2d48a9604f99f9a3005
-    m_Address: Griffin_Avatar
+    m_Address: Sprites/Avatars/Griffin
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
@@ -148,16 +193,26 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 88d584a059555b944a3b5fbb6d76fa8b
-    m_Address: Behemoth_Avatar
+    m_Address: Sprites/Avatars/Bear
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89d160995f538fe45a30ec06068c8162
+    m_Address: Prefabs/Units/Roc
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9251c82b3c4183a4d8b944592f80a92b
-    m_Address: Titan_Avatar
+    m_Address: Sprites/Avatars/Titan
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92bb0c63606e1424aaceb02d1b5fee30
+    m_Address: Prefabs/Units/Sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d12298b50ecd4b4daa432b53dc9c504
     m_Address: Prefabs/Units/Griffin
@@ -171,13 +226,23 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a7080c42d6e5b844e8eedc332e39a0c3
-    m_Address: Boar_Avatar
+    m_Address: Sprites/Avatars/Boar
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a73ae890415226745b9486a9e6fa8bdd
     m_Address: Prefabs/Units/Elf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7f6d0d19b26f84489c5157d917d1283
+    m_Address: Prefabs/Units/WolfRider
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a985bdb3eedb0a846a5e813ed66e3d7c
+    m_Address: Prefabs/Units/AncientBehemoth
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -191,6 +256,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b20cf1b54995ba54587106fe9a33ebcf
+    m_Address: Prefabs/Units/Griffin
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4246491e8421ed40a277015e47427cc
+    m_Address: Prefabs/Units/Swordsman
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6610c063b6e5b14b92b856123d3d910
     m_Address: LeagueIcons/GrandMaster
     m_ReadOnly: 0
@@ -198,16 +273,21 @@ MonoBehaviour:
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b68a168741d8ebe4b81fb055eed5bbe8
-    m_Address: Lich_Avatar
+    m_Address: Sprites/Avatars/Lich
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b8d3a2b7d7dcfce4caf9b0a3a871074e
-    m_Address: Roc_Avatar
+    m_Address: Sprites/Avatars/Roc
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c924ac65ca6dad94baa45cd6778c9156
+    m_Address: Prefabs/Units/Dragon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ca72345a7d57bb642b11ef0aa83efcba
     m_Address: LeagueIcons/Master
@@ -226,18 +306,33 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d626a823b28dc9c4c96ef274287a0879
-    m_Address: Goblin_Avatar
+    m_Address: Sprites/Avatars/Goblin
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d695c6c6b160e1748934c826dca3f661
+    m_Address: Prefabs/Units/Ogr
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d87874eb6202fbe4387278b12808b421
     m_Address: Prefabs/Units/Ogr
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0712dcab0b34ec4d8476f154ff8ec61
+    m_Address: Prefabs/Units/Cavalry
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e120485ff4be4dd49bbd035b1ca29605
+    m_Address: Prefabs/Units/Titan
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e6e00c4da6e506f4688aec66d3c3985f
-    m_Address: Dragon_Avatar
+    m_Address: Sprites/Avatars/Dragon
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
@@ -247,38 +342,53 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef25bbae3fd4c6345a22df484b78995d
+    m_Address: Prefabs/Units/Orc
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1cbfee72246a9f4188bf76099a9d16c
-    m_Address: Sprite_Avatar
+    m_Address: Sprites/Avatars/Sprite
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f3a83cfd333261740baed0efc58d56a7
-    m_Address: Druid_Avatar
+    m_Address: Sprites/Avatars/Druid
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f59316a46e343e84d8333c7ec02c2252
+    m_Address: Prefabs/Units/Halfling
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f7852336461a1a24f8644502ab0a9e20
-    m_Address: WolfRider_Avatar
+    m_Address: Sprites/Avatars/WolfRider
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f828b64795a36d3499a11e848196ecc9
-    m_Address: Cavalry_Avatar
+    m_Address: Sprites/Avatars/Cavalry
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8af02e197e6f0d4382e39f0c2c62223
-    m_Address: MinotaurKing_Avatar
+    m_Address: Sprites/Avatars/MinotaurKing
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa17f05d7aec3134bab60e5a9ada39a2
+    m_Address: Prefabs/Units/Boar
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc66e7a31c61a3543b5c4d4a0b9312d6
-    m_Address: Cyclop_Avatar
+    m_Address: Sprites/Avatars/Cyclop
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars
@@ -289,7 +399,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fdc9b5675473f7644a09686d5ec43857
-    m_Address: Pikeman_Avatar
+    m_Address: Sprites/Avatars/Pikeman
     m_ReadOnly: 0
     m_SerializedLabels:
     - UnitAvatars

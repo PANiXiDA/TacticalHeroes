@@ -49,6 +49,8 @@ namespace Assets.Scripts.Domain.Entities.Models
         {
             return new DomainHero(
                 id: Guid.NewGuid(),
+                name: entity.Name,
+                description: entity.Description,
                 attack: entity.Attack,
                 defence: entity.Defence,
                 minDamage: entity.MinDamage,

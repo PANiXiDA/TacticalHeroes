@@ -31,6 +31,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
         }
 
         public async UniTask<IReadOnlyList<UnitWrapper>> LoadFromBuildAsync(
+            int? playerId,
             Guid buildId,
             PlayerSide side,
             int teamNumber,
@@ -52,13 +53,12 @@ namespace Assets.Scripts.Services.Implementations.Battle
                 occupiedTiles.Add(tile);
 
                 var unitWrapper = new UnitWrapper(
-                    name: unit.Name,
-                    description: unit.Description,
                     side: side,
                     teamNumber: teamNumber,
                     tileX: tile.X,
                     tileY: tile.Y);
                 unitWrapper.Unit = Unit.MapToDomain(unit);
+                unitWrapper.Unit.OwnerId = playerId;
                 unitWrappers.Add(unitWrapper);
             }
 
