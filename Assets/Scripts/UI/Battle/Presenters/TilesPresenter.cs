@@ -25,15 +25,29 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private void OnEnable()
         {
+            CacheComponents();
+            BindStreams();
+            SetupDesktopHover();
+            SetupMobileHover();
+            SetupClick();
+        }
+
+        private void OnDestroy() => _disposables.Dispose();
+
+        private void CacheComponents()
+        {
             _input = GetComponent<TileInput>();
             _view = GetComponent<TileView>();
+        }
 
+        private void BindStreams()
+        {
             _battleTurnsService.OnTurnStarted
-                .Subscribe(currentActiveGameObjectId => _view.ActiveGameObjectHighlight(currentActiveGameObjectId == _view.Data.OccupiedUnitId))
+                .Subscribe(id => _view.ActiveGameObjectHighlight(id == _view.Data.OccupiedUnitId))
                 .AddTo(_disposables);
 
             _movementsService.OnReachableTilesReceived
-                .Select(tiles => tiles.Contains(_view.Data))
+                .Select(list => list.Contains(_view.Data))
                 .DistinctUntilChanged()
                 .Subscribe(flag =>
                 {
@@ -41,12 +55,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
                     _view.TileForMoveHighlight(flag);
                 })
                 .AddTo(_disposables);
-
-            SetupDesktopHover();
-            SetupMobileHover();
         }
-
-        private void OnDestroy() => _disposables.Dispose();
 
         private void SetupDesktopHover()
         {
@@ -71,5 +80,14 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 .Subscribe(_ => _view.SelectedTileHighlight(false))
                 .AddTo(_disposables);
         }
+
+        private void SetupClick()
+        {
+            _input.OnClick
+                .Where(_ => _isReachable)
+                .Subscribe(_ => _movementsService.GetPathAsync(_view.Data).Forget())
+                .AddTo(_disposables);
+        }
+
     }
 }

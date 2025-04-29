@@ -13,6 +13,8 @@ namespace Assets.Scripts.Services.Interfaces.Battle
     public interface IMovementsService
     {
         Observable<IReadOnlyList<Tile>> OnReachableTilesReceived { get; }
+        Observable<IReadOnlyList<Tile>> OnPathComputed { get; }
         UniTask GetReachableTilesAsync(List<Tile> grid, Unit unit);
+        UniTask GetPathAsync(Tile targetTile);
     }
 }

@@ -3,6 +3,8 @@ using Assets.Scripts.GameEngine.DTO.Enums;
 
 using UnityEngine;
 
+using Zenject;
+
 namespace Assets.Scripts.UI.Battle.Views
 {
     public sealed class UnitView : MonoBehaviour
@@ -18,16 +20,8 @@ namespace Assets.Scripts.UI.Battle.Views
         [SerializeField] private SpriteRenderer _sprite;
         [SerializeField] private Animator _animator;
 
-        public PlayerSide Side { get; private set; }
-        public Unit Data { get; private set; }
-
-        public void Init(
-            PlayerSide side,
-            Unit unit)
-        {
-            Side = side;
-            Data = unit;
-        }
+        [Inject] public Unit Data { get; private set; }
+        [Inject] public PlayerSide Side { get; private set; }
 
         public void PlayMoveAnimation() => _animator.Play(MoveAnimationName);
         public void PlayTopMeleeAttackAnimation() => _animator.Play(TopMeleeAttackAnimationName);

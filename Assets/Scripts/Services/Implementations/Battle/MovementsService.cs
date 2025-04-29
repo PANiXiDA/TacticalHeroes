@@ -10,17 +10,24 @@ using Cysharp.Threading.Tasks;
 
 using R3;
 
+using UnityEngine;
+
 using Unit = Assets.Scripts.GameEngine.Domain.Unit;
 
 namespace Assets.Scripts.Services.Implementations.Battle
 {
     public sealed class MovementsService : IMovementsService
     {
+        private List<Tile> _grid;
+        private Unit _currentActiveUnit;
+
         private readonly IPathFinderCalculator _pathFinderCalculator;
 
         private readonly ReplaySubject<IReadOnlyList<Tile>> _reachableTilesReceived = new(1);
+        private readonly Subject<IReadOnlyList<Tile>> _pathComputed = new();
 
         public Observable<IReadOnlyList<Tile>> OnReachableTilesReceived => _reachableTilesReceived.AsObservable();
+        public Observable<IReadOnlyList<Tile>> OnPathComputed => _pathComputed.AsObservable();
 
         public MovementsService(IPathFinderCalculator pathFinderCalculator)
         {
@@ -38,10 +45,46 @@ namespace Assets.Scripts.Services.Implementations.Battle
                 start: startTile);
 
             var reachableTiles = _pathFinderCalculator.GetReachableTiles(context).Where(tile => tile != startTile).ToList();
-
             _reachableTilesReceived.OnNext(reachableTiles);
 
+            SetCache(grid, unit);
+
             return UniTask.CompletedTask;
+        }
+
+        public UniTask GetPathAsync(Tile targetTile)
+        {
+            var startTile = _grid.First(tile => tile.OccupiedUnitId == _currentActiveUnit.Id);
+
+            var context = new PathfindingContext(
+                moveRange: _currentActiveUnit.Speed,
+                ignoringObstacles: _currentActiveUnit.Abilities.Any(ability => ability.Type == AbilityType.Fly),
+                grid: _grid,
+                start: startTile,
+                target: targetTile);
+
+            var path = _pathFinderCalculator.GetPath(context);
+
+            UpdateOccupiedTile(startTile, targetTile);
+
+            _pathComputed.OnNext(path);
+
+            return UniTask.CompletedTask;
+        }
+
+        private void SetCache(List<Tile> grid, Unit unit)
+        {
+            _grid = grid;
+            _currentActiveUnit = unit;
+        }
+
+        private void UpdateOccupiedTile(Tile oldTile, Tile newTile)
+        {
+            oldTile.OccupiedUnitId = null;
+            oldTile.IsWalkable = true;
+
+            newTile.OccupiedUnitId = _currentActiveUnit.Id;
+            newTile.IsWalkable = false;
         }
     }
 }

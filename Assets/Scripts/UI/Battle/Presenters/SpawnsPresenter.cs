@@ -19,12 +19,12 @@ namespace Assets.Scripts.UI.Battle.Presenters
     {
         private const string AddressablePrefix = "Prefabs/Units";
 
-        [SerializeField] GridsPresenter _grid;
-
-        private readonly CompositeDisposable _disposables = new();
+        [Inject] GridsPresenter _grid;
 
         [Inject] private readonly DiContainer _container;
         [Inject] private readonly IBattlePreparationsService _battlePreparationsService;
+
+        private readonly CompositeDisposable _disposables = new();
 
         private void OnEnable()
         {
@@ -42,10 +42,9 @@ namespace Assets.Scripts.UI.Battle.Presenters
             foreach (var unitWrapper in unitWrappers)
             {
                 var prefab = await Addressables.LoadAssetAsync<GameObject>($"{AddressablePrefix}/{unitWrapper.Unit.Name}");
-                var view = _container.InstantiatePrefabForComponent<UnitView>(prefab);
-                view.Init(unitWrapper.Side,unitWrapper.Unit);
+                var view = _container.InstantiatePrefabForComponent<UnitView>(prefab, null, new object[] { unitWrapper.Unit, unitWrapper.Side });
 
-                var tileView = _grid.GetView(unitWrapper.TileX, unitWrapper.TileY);
+                var tileView = _grid.GetTile(unitWrapper.TileX, unitWrapper.TileY);
                 view.transform.SetParent(tileView.transform.parent, false);
                 view.transform.position = tileView.transform.position;
                 view.Flip(view.Side == PlayerSide.Right);

@@ -33,10 +33,11 @@ public sealed class GridsPresenter : MonoBehaviour
     private Transform _gridContainer;
 
     private readonly Dictionary<(int, int), TileView> _tiles = new();
-    private readonly CompositeDisposable _disposables = new();
 
     [Inject] private readonly DiContainer _container;
     [Inject] private readonly IGridsService _gridService;
+
+    private readonly CompositeDisposable _disposables = new();
 
     private void OnEnable()
     {
@@ -100,5 +101,5 @@ public sealed class GridsPresenter : MonoBehaviour
         _gridContainer.position = worldBL + new Vector3((worldW / gridSize.x) * HalfCellOffset, (worldH / gridSize.y) * HalfCellOffset, DefaultZPosition);
     }
 
-    public TileView GetView(int x, int y) => _tiles.TryGetValue((x, y), out var v) ? v : null;
+    public TileView GetTile(int x, int y) => _tiles.TryGetValue((x, y), out var tile) ? tile : null;
 }
