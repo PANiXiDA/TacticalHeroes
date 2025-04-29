@@ -49,7 +49,11 @@ namespace Assets.Scripts.Services.Implementations.Battle
 
             foreach(var unit in build.Units)
             {
+                var domainUnit = Unit.MapToDomain(unit);
+
                 var tile = GetFreeTile(grid, occupiedTiles, side);
+                tile.OccupiedUnitId = domainUnit.Id;
+                tile.IsWalkable = false;
                 occupiedTiles.Add(tile);
 
                 var unitWrapper = new UnitWrapper(
@@ -57,7 +61,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
                     teamNumber: teamNumber,
                     tileX: tile.X,
                     tileY: tile.Y);
-                unitWrapper.Unit = Unit.MapToDomain(unit);
+                unitWrapper.Unit = domainUnit;
                 unitWrapper.Unit.OwnerId = playerId;
                 unitWrapper.Unit.Count = build.UnitIdsAndCounts[unit.Id];
                 unitWrappers.Add(unitWrapper);

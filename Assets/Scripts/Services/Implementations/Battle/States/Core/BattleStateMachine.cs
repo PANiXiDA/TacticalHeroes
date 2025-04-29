@@ -25,7 +25,9 @@ namespace Assets.Scripts.Services.Implementations.Battle.States.Core
             GameSession gameSession,
             IGridsService gridService,
             IBattlePreparationsService spawnersService,
-            IATBService atbService)
+            IATBService atbService,
+            IBattleTurnsService battleTurnsService,
+            IMovementsService movementsService)
         {
             _gameSession = gameSession;
 
@@ -34,6 +36,7 @@ namespace Assets.Scripts.Services.Implementations.Battle.States.Core
                 { GameState.GenerateGrid, new GenerateGridState(gridService) },
                 { GameState.Spawn, new SpawnState(spawnersService) },
                 { GameState.SetATB, new SetATBState(atbService) },
+                { GameState.StartTurn, new StartTurnState(battleTurnsService, movementsService) },
             };
         }
 

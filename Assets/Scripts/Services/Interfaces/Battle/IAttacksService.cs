@@ -1,0 +1,6 @@
+﻿namespace Assets.Scripts.Services.Interfaces.Battle
+{
+    public interface IAttacksService
+    {
+    }
+}

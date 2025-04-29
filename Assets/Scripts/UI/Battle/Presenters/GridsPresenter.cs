@@ -35,6 +35,7 @@ public sealed class GridsPresenter : MonoBehaviour
     private readonly Dictionary<(int, int), TileView> _tiles = new();
     private readonly CompositeDisposable _disposables = new();
 
+    [Inject] private readonly DiContainer _container;
     [Inject] private readonly IGridsService _gridService;
 
     private void OnEnable()
@@ -64,10 +65,9 @@ public sealed class GridsPresenter : MonoBehaviour
                 _ => _grassPrefab
             };
 
-            var inst = Instantiate(prefab, _gridContainer);
-            inst.transform.localPosition = new Vector3(tile.X, tile.Y, DefaultZPosition);
-            inst.Init(tile);
-            _tiles[(tile.X, tile.Y)] = inst;
+            var view = _container.InstantiatePrefabForComponent<TileView>(prefab, _gridContainer, new object[] { tile });
+            view.transform.localPosition = new Vector3(tile.X, tile.Y, DefaultZPosition);
+            _tiles[(tile.X, tile.Y)] = view;
         }
 
         var gridSize = new Vector2Int(tiles.Max(t => t.X) + GridIndexOffset, tiles.Max(t => t.Y) + GridIndexOffset);

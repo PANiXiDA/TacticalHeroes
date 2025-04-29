@@ -1,5 +1,6 @@
 <linker>
   <assembly fullname="UI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Assets.Scripts.UI.Battle.Presenters.UnitsPresenter" preserve="all" />
     <type fullname="Assets.Scripts.UI.Battle.Views.UnitView" preserve="all" />
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">

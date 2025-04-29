@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2284001236124146218}
   - component: {fileID: 1637102958700070127}
   - component: {fileID: -3118512591358692737}
+  - component: {fileID: -5487532686004568661}
   m_Layer: 6
   m_Name: Pikeman
   m_TagString: Untagged
@@ -172,3 +173,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: -8951632383051845945}
   _animator: {fileID: 1637102958700070127}
+--- !u!114 &-5487532686004568661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5753724649882916116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbf44732aa27314380526d0cbe9e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -15,9 +15,9 @@ namespace Assets.Scripts.Services.Implementations.Battle.States
     {
         private readonly IATBService _atbService;
 
-        public SetATBState(IATBService gridService)
+        public SetATBState(IATBService atbService)
         {
-            _atbService = gridService;
+            _atbService = atbService;
         }
 
         public async UniTask<GameState?> EnterAsync(GameSession gameSession)
@@ -30,7 +30,7 @@ namespace Assets.Scripts.Services.Implementations.Battle.States
             _atbService.SetAtb(gameObjects);
             var atb = await atbTask;
             gameSession.RoundState.ATB = atb.ToList();
-            return null;
+            return GameState.StartTurn;
         }
 
         public void Exit() { }

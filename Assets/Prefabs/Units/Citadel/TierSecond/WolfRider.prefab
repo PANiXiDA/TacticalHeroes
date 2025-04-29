@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4321522497757436688}
   - component: {fileID: -4152468541956137369}
   - component: {fileID: 1263770342090532256}
+  - component: {fileID: 3896722112348621051}
   m_Layer: 6
   m_Name: WolfRider
   m_TagString: Untagged
@@ -172,3 +173,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 4618917664544890905}
   _animator: {fileID: -4152468541956137369}
+--- !u!114 &3896722112348621051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2794451077619243094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbf44732aa27314380526d0cbe9e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

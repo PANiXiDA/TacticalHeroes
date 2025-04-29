@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3119083028486405673}
   - component: {fileID: -7478336960519414308}
   - component: {fileID: 1030443113625600589}
+  - component: {fileID: 5345321517945756790}
   m_Layer: 6
   m_Name: Cyclop
   m_TagString: Untagged
@@ -128,7 +129,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.42, y: 0.84}
+    oldSize: {x: 0.31, y: 0.71}
     newSize: {x: 1.5, y: 1.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
@@ -172,3 +173,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 2074039608776843864}
   _animator: {fileID: -7478336960519414308}
+--- !u!114 &5345321517945756790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5344355523834744237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbf44732aa27314380526d0cbe9e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

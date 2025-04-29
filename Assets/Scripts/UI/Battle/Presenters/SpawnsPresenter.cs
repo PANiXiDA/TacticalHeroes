@@ -23,6 +23,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private readonly CompositeDisposable _disposables = new();
 
+        [Inject] private readonly DiContainer _container;
         [Inject] private readonly IBattlePreparationsService _battlePreparationsService;
 
         private void OnEnable()
@@ -40,17 +41,14 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
             foreach (var unitWrapper in unitWrappers)
             {
-                var gameObject = await Addressables.LoadAssetAsync<GameObject>($"{AddressablePrefix}/{unitWrapper.Unit.Name}");
-                var view = Instantiate(gameObject).GetComponent<UnitView>();
-                view.Init(
-                    side: unitWrapper.Side,
-                    unitWrapper.Unit);
+                var prefab = await Addressables.LoadAssetAsync<GameObject>($"{AddressablePrefix}/{unitWrapper.Unit.Name}");
+                var view = _container.InstantiatePrefabForComponent<UnitView>(prefab);
+                view.Init(unitWrapper.Side,unitWrapper.Unit);
 
                 var tileView = _grid.GetView(unitWrapper.TileX, unitWrapper.TileY);
                 view.transform.SetParent(tileView.transform.parent, false);
                 view.transform.position = tileView.transform.position;
                 view.Flip(view.Side == PlayerSide.Right);
-                tileView.Data.OccupiedUnitId = unitWrapper.Unit.Id;
             }
         }
     }

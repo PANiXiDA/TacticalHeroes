@@ -2,6 +2,10 @@
 using Assets.Scripts.UI.Battle.Views;
 using UnityEngine;
 using R3;
+using Assets.Scripts.Services.Interfaces.Battle;
+using Zenject;
+using System.Linq;
+using Cysharp.Threading.Tasks;
 
 namespace Assets.Scripts.UI.Battle.Presenters
 {
@@ -12,12 +16,31 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private TileInput _input;
         private TileView _view;
 
+        private bool _isReachable;
+
+        [Inject] private readonly IBattleTurnsService _battleTurnsService;
+        [Inject] private readonly IMovementsService _movementsService;
+
         private readonly CompositeDisposable _disposables = new();
 
-        private void Start()
+        private void OnEnable()
         {
             _input = GetComponent<TileInput>();
             _view = GetComponent<TileView>();
+
+            _battleTurnsService.OnTurnStarted
+                .Subscribe(currentActiveGameObjectId => _view.ActiveGameObjectHighlight(currentActiveGameObjectId == _view.Data.OccupiedUnitId))
+                .AddTo(_disposables);
+
+            _movementsService.OnReachableTilesReceived
+                .Select(tiles => tiles.Contains(_view.Data))
+                .DistinctUntilChanged()
+                .Subscribe(flag =>
+                {
+                    _isReachable = flag;
+                    _view.TileForMoveHighlight(flag);
+                })
+                .AddTo(_disposables);
 
             SetupDesktopHover();
             SetupMobileHover();
@@ -28,7 +51,8 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private void SetupDesktopHover()
         {
             _input.OnEnter
-                .Subscribe(_ => _view.SelectedTileHighlight(true))
+                .Where(_ => _isReachable)
+                .Subscribe(_ => _view.SelectedTileHighlight(_isReachable))
                 .AddTo(_disposables);
 
             _input.OnExit
@@ -39,7 +63,8 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private void SetupMobileHover()
         {
             _input.OnDown
-                .Subscribe(_ => _view.SelectedTileHighlight(true))
+                .Where(_ => _isReachable)
+                .Subscribe(_ => _view.SelectedTileHighlight(_isReachable))
                 .AddTo(_disposables);
 
             _input.OnUp

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2373995122724418533}
   - component: {fileID: 5403648080207631511}
   - component: {fileID: 3904972983792616281}
+  - component: {fileID: 8459363026992961430}
   m_Layer: 6
   m_Name: Griffin
   m_TagString: Untagged
@@ -172,3 +173,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 7303603333203726022}
   _animator: {fileID: 5403648080207631511}
+--- !u!114 &8459363026992961430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015877884075562234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbf44732aa27314380526d0cbe9e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6418775472517717658}
   - component: {fileID: 1986504707264567658}
   - component: {fileID: -7380443537531052306}
+  - component: {fileID: 9040157436467231336}
   m_Layer: 6
   m_Name: Ogr
   m_TagString: Untagged
@@ -172,3 +173,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 7433836548910071285}
   _animator: {fileID: 1986504707264567658}
+--- !u!114 &9040157436467231336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4004642148676691803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbf44732aa27314380526d0cbe9e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -82,8 +82,7 @@ namespace Assets.Scripts.GameEngine.Implementations
                     int neighborX = current.X + movementVector.X;
                     int neighborY = current.Y + movementVector.Y;
 
-                    if (!gridDict.TryGetValue((neighborX, neighborY), out var
-                        neighbor))
+                    if (!gridDict.TryGetValue((neighborX, neighborY), out var neighbor))
                     {
                         continue;
                     }

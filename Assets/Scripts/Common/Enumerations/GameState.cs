@@ -6,8 +6,10 @@ namespace Assets.Scripts.Common.Enumerations
         GenerateGrid = 1,
         Spawn = 2,
         SetATB = 3,
-        PlayerTurn = 4,
-        EnemyTurn = 5,
-        GameOver = 6
+        StartTurn = 4,
+        WaitAction = 5,
+        ApplyAction = 6,
+        CheckBattleEnd = 7,
+        BattleEnd = 8
     }
 }
