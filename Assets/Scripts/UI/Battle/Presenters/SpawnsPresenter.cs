@@ -31,12 +31,17 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private void OnEnable()
         {
+            BindStreams();
+        }
+
+        private void OnDestroy() => _disposables.Dispose();
+
+        private void BindStreams()
+        {
             _battlePreparationsService.OnUnitsLoaded
                 .Subscribe(units => SpawnUnits(units).Forget())
                 .AddTo(_disposables);
         }
-
-        private void OnDestroy() => _disposables.Dispose();
 
         private async UniTask SpawnUnits(IReadOnlyList<UnitWrapper> unitWrappers)
         {
@@ -60,15 +65,14 @@ namespace Assets.Scripts.UI.Battle.Presenters
                     var handle = handles[i];
                     var prefab = handle.Result;
 
+                    var tileView = _grid.GetTile(wrapper.TileX, wrapper.TileY);
+
                     var view = _container.InstantiatePrefabForComponent<UnitView>(
                         prefab,
-                        null,
+                        tileView.transform,
                         new object[] { wrapper.Unit, wrapper.Side }
                     );
 
-                    var tileView = _grid.GetTile(wrapper.TileX, wrapper.TileY);
-                    view.transform.SetParent(tileView.transform.parent, false);
-                    view.transform.position = tileView.transform.position;
                     view.Flip(wrapper.Side == PlayerSide.Right);
 
                     Addressables.Release(handle);

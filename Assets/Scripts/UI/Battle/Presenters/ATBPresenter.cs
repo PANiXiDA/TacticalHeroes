@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using Assets.Scripts.Common.Helpers;
 using Assets.Scripts.Domain.DTO.Models;
 using Assets.Scripts.Services.Interfaces.Battle;
 using Assets.Scripts.UI.Battle.Views;
@@ -36,6 +37,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         [Inject] private readonly DiContainer _container;
         [Inject] private readonly IATBService _atbService;
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
+        [Inject] private readonly IPlayerColorsService _playerColorsService;
 
         private void OnEnable()
         {
@@ -59,23 +61,10 @@ namespace Assets.Scripts.UI.Battle.Presenters
         {
             foreach (var item in items)
             {
-                var color = GetColorForPlayer(item.PlayerId);
+                var color = _playerColorsService.GetRgb24(item.PlayerId).ToColor();
                 var view = _container.InstantiatePrefabForComponent<ATBItemView>(_atbItemPrefab, _atbContainer, new object[] { item, color });
                 _atb.Add(view);
             }
-        }
-
-        private Color GetColorForPlayer(int playerId)
-        {
-            if (_colorsByPlayer.TryGetValue(playerId, out var color))
-            {
-                return color;
-            }
-
-            int index = _colorsByPlayer.Count % _palette.Length;
-            color = _palette[index];
-            _colorsByPlayer[playerId] = color;
-            return color;
         }
 
         private void RemoveAtbItem(Guid atbItemId)

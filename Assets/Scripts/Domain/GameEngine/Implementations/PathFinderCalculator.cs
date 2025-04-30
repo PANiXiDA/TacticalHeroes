@@ -31,6 +31,10 @@ namespace Assets.Scripts.GameEngine.Implementations
             {
                 throw new ArgumentException("Target must be provided for IsReachable.");
             }
+            if (context.Target.IsWalkable || context.Target.OccupiedUnitId.HasValue)
+            {
+                return false;
+            }
 
             var searchResult = PerformSearch(context);
 
@@ -49,7 +53,7 @@ namespace Assets.Scripts.GameEngine.Implementations
             var searchResult = PerformSearch(modifiedContext);
 
             return searchResult.Distances
-                .Where(kvp => kvp.Value <= context.MoveRange && kvp.Value < double.MaxValue)
+                .Where(kvp => kvp.Value <= context.MoveRange && kvp.Value < double.MaxValue && kvp.Key.IsWalkable && !kvp.Key.OccupiedUnitId.HasValue)
                 .Select(kvp => kvp.Key)
                 .ToList();
         }

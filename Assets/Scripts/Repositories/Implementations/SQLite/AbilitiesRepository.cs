@@ -40,18 +40,25 @@ namespace Assets.Scripts.Repositories.Implementations.SQLite
 
             if (searchParams.UnitId.HasValue)
             {
-                var abilityIds = _db.Table<UnitAndAbilityScope>()
-                    .Where(scope => scope.UnitId == searchParams.UnitId.Value)
-                    .Select(scope => scope.AbilityId)
-                    .ToList();
+                var scopes = _db
+                  .Table<UnitAndAbilityScope>()
+                  .Where(s => s.UnitId == searchParams.UnitId.Value)
+                  .ToList();
+
+                var abilityIds = scopes
+                  .Select(s => s.AbilityId)
+                  .ToList();
 
                 dbObjects = dbObjects.Where(ability => abilityIds.Contains(ability.Id));
             }
             if (searchParams.HeroId.HasValue)
             {
-                var abilityIds = _db.Table<HeroAndAbilityScope>()
+                var scopes = _db.Table<HeroAndAbilityScope>()
                     .Where(scope => scope.HeroId == searchParams.HeroId.Value)
-                    .Select(scope => scope.AbilityId)
+                    .ToList();
+
+                var abilityIds = scopes
+                    .Select(s => s.AbilityId)
                     .ToList();
 
                 dbObjects = dbObjects.Where(ability => abilityIds.Contains(ability.Id));

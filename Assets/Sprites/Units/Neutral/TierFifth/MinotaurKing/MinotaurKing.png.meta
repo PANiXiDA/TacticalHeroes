@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MinotaurKing_Stay_0
+      name: MinotaurKing
       rect:
         serializedVersion: 2
         x: 6
@@ -897,6 +897,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      MinotaurKing: -1775241312
       MinotaurKing_10: 564194084
       MinotaurKing_100: 1903680561
       MinotaurKing_101: 6073549
@@ -1012,7 +1013,6 @@ TextureImporter:
       MinotaurKing_Move_4: 2143305273
       MinotaurKing_Move_5: 1842714336
       MinotaurKing_Move_6: -65140338
-      MinotaurKing_Stay_0: -1775241312
       MinotaurKing_Stay_1: 694345865
       MinotaurKing_Stay_2: -1015214624
       MinotaurKing_Stay_3: 1137797554

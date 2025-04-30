@@ -24,6 +24,7 @@ namespace Assets.Scripts.Services.Implementations.Extensions
             Container.Bind<IGameSessionsFactory>().To<GameSessionsFactory>().AsSingle();
             Container.Bind<GameSession>().FromMethod(ctx => ctx.Container.Resolve<IGameSessionsFactory>().CreateDefault());
 
+            Container.Bind<IPlayerColorsService>().To<PlayerColorsService>().AsSingle();
             Container.Bind<IBattleStateMachine>().To<BattleStateMachine>().AsSingle();
             Container.Bind<IGridsService>().To<GridsService>().AsSingle();
             Container.Bind<IUnitsService>().To<UnitsService>().AsSingle();

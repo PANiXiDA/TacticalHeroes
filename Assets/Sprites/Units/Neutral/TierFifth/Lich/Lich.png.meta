@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lich_Stay_0
+      name: Lich
       rect:
         serializedVersion: 2
         x: 9
@@ -1161,6 +1161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Lich: -380785584
       Lich_10: 706346465
       Lich_103: -1351797771
       Lich_104: -1493585971
@@ -1334,7 +1335,6 @@ TextureImporter:
       Lich_Move_5: -406909954
       Lich_Move_6: -119998254
       Lich_Move_7: -1519544810
-      Lich_Stay_0: -380785584
       Lich_Stay_1: 76010691
       Lich_Stay_2: -793684343
       Lich_Stay_3: -72311733

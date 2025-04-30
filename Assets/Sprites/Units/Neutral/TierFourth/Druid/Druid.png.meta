@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Druid_Stay_0
+      name: Druid
       rect:
         serializedVersion: 2
         x: 7
@@ -1073,6 +1073,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Druid: -731139172
       Druid_10: -102001669
       Druid_100: -956057702
       Druid_101: 878750294
@@ -1216,7 +1217,6 @@ TextureImporter:
       Druid_Move_7: -1853735618
       Druid_Move_8: 600563711
       Druid_Move_9: 852131857
-      Druid_Stay_0: -731139172
       Druid_Stay_1: -469549392
       Druid_Stay_2: -313525937
       Druid_Stay_3: -174735105

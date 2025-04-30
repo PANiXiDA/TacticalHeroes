@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Titan_Stay_0
+      name: Titan
       rect:
         serializedVersion: 2
         x: 7
@@ -1271,6 +1271,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Titan: -74464226
       Titan_10: -1889409273
       Titan_100: 1257539887
       Titan_107: 848448444
@@ -1399,7 +1400,6 @@ TextureImporter:
       Titan_RangeAttack_3: -839746736
       Titan_RangeAttack_4: -2026205927
       Titan_RangeAttack_5: 363923460
-      Titan_Stay_0: -74464226
       Titan_Stay_1: -1787060220
       Titan_Stay_2: -679682727
       Titan_Stay_3: 1473122696

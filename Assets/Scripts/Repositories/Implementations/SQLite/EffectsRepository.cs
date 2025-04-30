@@ -33,9 +33,12 @@ namespace Assets.Scripts.Repositories.Implementations.SQLite
 
             if (searchParams.AbilityId.HasValue)
             {
-                var effectIds = _db.Table<AbilityAndEffectScope>()
+                var scopes = _db.Table<AbilityAndEffectScope>()
                     .Where(scope => scope.AbilityId == searchParams.AbilityId.Value)
-                    .Select(scope => scope.EffectId)
+                    .ToList();
+
+                var effectIds = scopes
+                    .Select(s => s.EffectId)
                     .ToList();
 
                 dbObjects = dbObjects.Where(effect => effectIds.Contains(effect.Id));

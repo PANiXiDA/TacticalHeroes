@@ -7,9 +7,7 @@ using SQLite4Unity3d;
 using UnityEngine;
 using Assets.Scripts.Repositories.Models;
 using System.Text.RegularExpressions;
-using UnityEngine.AddressableAssets;
 using Cysharp.Threading.Tasks;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using Assets.Scripts.Common.Constants;
 
 namespace Assets.Scripts.Repositories.Implementations.SQLite.Core

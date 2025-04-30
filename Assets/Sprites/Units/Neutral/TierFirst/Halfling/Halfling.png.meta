@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -1522,7 +1522,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Halfling_Stay_13
+      name: Halfling
       rect:
         serializedVersion: 2
         x: 899
@@ -1843,6 +1843,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Halfling: -586177598
       Halfling_106: 491964985
       Halfling_107: 669277126
       Halfling_108: 1550646673
@@ -1992,7 +1993,6 @@ TextureImporter:
       Halfling_Stay_10: 481062724
       Halfling_Stay_11: 1313425421
       Halfling_Stay_12: 2070601773
-      Halfling_Stay_13: -586177598
       Halfling_Stay_2: -221295129
       Halfling_Stay_3: 301432360
       Halfling_Stay_4: -23827449

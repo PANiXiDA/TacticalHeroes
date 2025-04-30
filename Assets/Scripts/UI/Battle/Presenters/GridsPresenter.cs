@@ -41,12 +41,17 @@ public sealed class GridsPresenter : MonoBehaviour
 
     private void OnEnable()
     {
+        BindStreams();
+    }
+
+    private void OnDestroy() => _disposables.Dispose();
+
+    private void BindStreams()
+    {
         _gridService.OnGridGenerated
             .Subscribe(tiles => GenerateGrid(tiles).Forget())
             .AddTo(_disposables);
     }
-
-    private void OnDestroy() => _disposables.Dispose();
 
     private async UniTask GenerateGrid(IReadOnlyList<Tile> tiles)
     {

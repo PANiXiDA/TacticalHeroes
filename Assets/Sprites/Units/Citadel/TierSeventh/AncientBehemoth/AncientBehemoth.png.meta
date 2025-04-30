@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AncientBehemoth_Stay_0
+      name: AncientBehemoth
       rect:
         serializedVersion: 2
         x: 44
@@ -1337,6 +1337,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      AncientBehemoth: 1456604038
       AncientBehemoth_100: -1067320647
       AncientBehemoth_101: 2118801022
       AncientBehemoth_102: 1243018267
@@ -1481,7 +1482,6 @@ TextureImporter:
       AncientBehemoth_Move_7: -1708169997
       AncientBehemoth_Move_8: 1210976552
       AncientBehemoth_Move_9: -551985955
-      AncientBehemoth_Stay_0: 1456604038
       AncientBehemoth_Stay_1: -984650153
       AncientBehemoth_Stay_2: 953990300
       AncientBehemoth_Stay_3: -1288369293
