@@ -7,6 +7,8 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
+using Zenject;
+
 namespace Assets.Scripts.UI.Battle.Views
 {
     public sealed class ATBItemView : MonoBehaviour
@@ -17,16 +19,30 @@ namespace Assets.Scripts.UI.Battle.Views
         [SerializeField] private Image _avatar;
         [SerializeField] private TextMeshProUGUI _countText;
 
-        public async UniTask Init(ATBItem atbItem, Color color)
-        {
-            _frame.color = color;
-            _avatar.sprite = await Addressables.LoadAssetAsync<Sprite>($"{AddressablePrefix}/{atbItem.Name}");
+        [Inject] public ATBItem Data { get; private set; }
+        [Inject] public Color FrameColor { get; private set; }
 
-            if (atbItem.Count.HasValue)
+        private void OnEnable()
+        {
+            LoadAsync().Forget();
+        }
+
+        private void OnDestroy()
+        {
+            Addressables.Release(_avatar.sprite);
+        }
+
+        private async UniTaskVoid LoadAsync()
+        {
+            _frame.color = FrameColor;
+
+            var sprite = await Addressables.LoadAssetAsync<Sprite>($"{AddressablePrefix}/{Data.Name}");
+            _avatar.sprite = sprite;
+
+            if (Data.Count.HasValue)
             {
-                _countText.text = atbItem.Count.Value.ToString();
+                _countText.text = Data.Count.Value.ToString();
             }
         }
     }
-
 }

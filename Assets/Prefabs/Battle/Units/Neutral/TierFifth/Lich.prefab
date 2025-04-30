@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -9165681022567556989}
   - component: {fileID: 4261549734538747020}
   - component: {fileID: -3568245931418224617}
+  - component: {fileID: -5190511668469504193}
   m_Layer: 6
   m_Name: Lich
   m_TagString: Untagged
@@ -172,3 +173,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 1729041353165111942}
   _animator: {fileID: 4261549734538747020}
+--- !u!114 &-5190511668469504193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123699380187873245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbf44732aa27314380526d0cbe9e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

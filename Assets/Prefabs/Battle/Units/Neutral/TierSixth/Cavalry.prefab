@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 570023975632574126}
   - component: {fileID: 7801936213664737474}
   - component: {fileID: -3663854118247705231}
+  - component: {fileID: 1139931445095984727}
   m_Layer: 6
   m_Name: Cavalry
   m_TagString: Untagged
@@ -172,3 +173,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 7703590369198458271}
   _animator: {fileID: 7801936213664737474}
+--- !u!114 &1139931445095984727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000305132044395308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbf44732aa27314380526d0cbe9e9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

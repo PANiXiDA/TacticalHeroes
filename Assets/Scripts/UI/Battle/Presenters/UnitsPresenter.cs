@@ -22,11 +22,8 @@ namespace Assets.Scripts.UI.Battle.Presenters
     {
         private UnitView _view;
 
-        private bool _isActive;
-
         [Inject] private GridsPresenter _grid;
 
-        [Inject] private readonly IBattleTurnsService _battleTurnsService;
         [Inject] private readonly IMovementsService _movementsService;
 
         private readonly CompositeDisposable _disposables = new();
@@ -46,16 +43,9 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private void BindStreams()
         {
-            _battleTurnsService.OnTurnStarted
-                .Subscribe(id =>
-                {
-                    _isActive = _view.Data.Id == id;
-                })
-                .AddTo(_disposables);
-
             _movementsService.OnPathComputed
-                .Where(_ => _isActive)
-                .Subscribe(path => Move(path))
+                .Where(path => path.UnitId == _view.Data.Id)
+                .Subscribe(path => Move(path.Tiles))
                 .AddTo(_disposables);
         }
 

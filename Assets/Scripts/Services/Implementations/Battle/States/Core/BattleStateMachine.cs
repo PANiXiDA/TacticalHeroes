@@ -27,7 +27,8 @@ namespace Assets.Scripts.Services.Implementations.Battle.States.Core
             IBattlePreparationsService spawnersService,
             IATBService atbService,
             IBattleTurnsService battleTurnsService,
-            IMovementsService movementsService)
+            IMovementsService movementsService,
+            IAttacksService attacksService)
         {
             _gameSession = gameSession;
 
@@ -37,6 +38,10 @@ namespace Assets.Scripts.Services.Implementations.Battle.States.Core
                 { GameState.Spawn, new SpawnState(spawnersService) },
                 { GameState.SetATB, new SetATBState(atbService) },
                 { GameState.StartTurn, new StartTurnState(battleTurnsService, movementsService) },
+                { GameState.WaitAction, new WaitActionState(movementsService, attacksService) },
+                { GameState.ApplyAction, new ApplyActionState(battleTurnsService) },
+                { GameState.CheckBattleEnd, new CheckBattleEndState() },
+                { GameState.BattleEnd, new BattleEndState() },
             };
         }
 

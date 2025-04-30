@@ -43,7 +43,10 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private void BindStreams()
         {
             _battleTurnsService.OnTurnStarted
-                .Subscribe(id => _view.ActiveGameObjectHighlight(id == _view.Data.OccupiedUnitId))
+                .Subscribe(id =>
+                {
+                    _view.ActiveGameObjectHighlight(id == _view.Data.OccupiedUnitId);
+                })
                 .AddTo(_disposables);
 
             _movementsService.OnReachableTilesReceived

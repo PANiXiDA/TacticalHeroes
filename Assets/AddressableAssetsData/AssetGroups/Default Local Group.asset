@@ -390,7 +390,8 @@ MonoBehaviour:
   - m_GUID: fc66e7a31c61a3543b5c4d4a0b9312d6
     m_Address: Sprites/Avatars/Cyclop
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UnitAvatars
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc92f3c2c40f26147ac2e951b9019b05
     m_Address: Prefabs/Units/MinotaurKing

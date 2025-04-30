@@ -53,6 +53,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
                 int? count = (obj as Unit)?.Count;
 
                 return new ATBItem(
+                    id: obj.Id,
                     name: obj.Name,
                     playerId: obj.OwnerId.GetValueOrDefault(),
                     count: count);

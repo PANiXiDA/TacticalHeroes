@@ -19,10 +19,13 @@ namespace Assets.Scripts.Services.Implementations.Battle
         private readonly IATBCalculator _atbCalculator;
 
         private readonly ReplaySubject<Guid> _turnStarted = new(1);
+        private readonly Subject<Guid> _turnEnded = new();
 
+        private Guid _currentActiveUnitId;
         private List<GameEntity> _nextAtb = new();
 
         public Observable<Guid> OnTurnStarted => _turnStarted.AsObservable();
+        public Observable<Guid> OnTurnEnded => _turnEnded.AsObservable();
 
         public BattleTurnsService(IATBCalculator atbCalculator)
         {
@@ -42,7 +45,8 @@ namespace Assets.Scripts.Services.Implementations.Battle
             });
 
             _turnStarted.OnNext(result.NextGameObjectId);
-            _nextAtb = result.UpdatedATBState;
+
+            SetCache(result.NextGameObjectId, result.UpdatedATBState);
 
             return UniTask.CompletedTask;
         }
@@ -52,7 +56,15 @@ namespace Assets.Scripts.Services.Implementations.Battle
             gameHistory.Add(roundState);
             roundState.ATB = _nextAtb;
 
+            _turnEnded.OnNext(_currentActiveUnitId);
+
             return UniTask.CompletedTask;
+        }
+
+        private void SetCache(Guid unitId, List<GameEntity> atb)
+        {
+            _currentActiveUnitId = unitId;
+            _nextAtb = atb;
         }
     }
 }

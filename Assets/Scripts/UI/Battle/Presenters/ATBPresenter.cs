@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 using Assets.Scripts.Domain.DTO.Models;
 using Assets.Scripts.Services.Interfaces.Battle;
@@ -31,26 +33,34 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private readonly List<ATBItemView> _atb = new();
         private readonly Dictionary<int, Color> _colorsByPlayer = new();
 
+        [Inject] private readonly DiContainer _container;
         [Inject] private readonly IATBService _atbService;
+        [Inject] private readonly IBattleTurnsService _battleTurnsService;
 
         private void OnEnable()
         {
-            _atbService.OnTurnOrderGenerated
-                .Subscribe(turnOrder => SetAtb(turnOrder).Forget())
-                .AddTo(_disposables);
+            BindStreams();
         }
 
         private void OnDestroy() => _disposables.Dispose();
 
-        private async UniTask SetAtb(IReadOnlyList<ATBItem> items)
+        private void BindStreams()
+        {
+            _atbService.OnTurnOrderGenerated
+                .Subscribe(turnOrder => SetAtb(turnOrder))
+                .AddTo(_disposables);
+
+            _battleTurnsService.OnTurnEnded
+                .Subscribe(id => RemoveAtbItem(id))
+                .AddTo(_disposables);
+        }
+
+        private void SetAtb(IReadOnlyList<ATBItem> items)
         {
             foreach (var item in items)
             {
                 var color = GetColorForPlayer(item.PlayerId);
-
-                var view = Instantiate(_atbItemPrefab, _atbContainer);
-                await view.Init(item, color);
-
+                var view = _container.InstantiatePrefabForComponent<ATBItemView>(_atbItemPrefab, _atbContainer, new object[] { item, color });
                 _atb.Add(view);
             }
         }
@@ -66,6 +76,13 @@ namespace Assets.Scripts.UI.Battle.Presenters
             color = _palette[index];
             _colorsByPlayer[playerId] = color;
             return color;
+        }
+
+        private void RemoveAtbItem(Guid atbItemId)
+        {
+            var view = _atb.FirstOrDefault(atbItem => atbItem.Data.Id == atbItemId);
+            _atb.Remove(view);
+            Destroy(view.gameObject);
         }
     }
 }

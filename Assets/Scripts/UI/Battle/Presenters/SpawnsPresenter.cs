@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 using Assets.Scripts.Domain.DTO.Wrappers;
 using Assets.Scripts.GameEngine.DTO.Enums;
@@ -6,10 +7,12 @@ using Assets.Scripts.Services.Interfaces.Battle;
 using Assets.Scripts.UI.Battle.Views;
 
 using Cysharp.Threading.Tasks;
+
 using R3;
 
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 using Zenject;
 
@@ -39,15 +42,37 @@ namespace Assets.Scripts.UI.Battle.Presenters
         {
             await _grid.WhenReady;
 
-            foreach (var unitWrapper in unitWrappers)
+            var handles = new List<AsyncOperationHandle<GameObject>>(unitWrappers.Count);
             {
-                var prefab = await Addressables.LoadAssetAsync<GameObject>($"{AddressablePrefix}/{unitWrapper.Unit.Name}");
-                var view = _container.InstantiatePrefabForComponent<UnitView>(prefab, null, new object[] { unitWrapper.Unit, unitWrapper.Side });
+                foreach (var unitWrapper in unitWrappers)
+                {
+                    var handle = Addressables.LoadAssetAsync<GameObject>(
+                        $"{AddressablePrefix}/{unitWrapper.Unit.Name}"
+                    );
+                    handles.Add(handle);
+                }
 
-                var tileView = _grid.GetTile(unitWrapper.TileX, unitWrapper.TileY);
-                view.transform.SetParent(tileView.transform.parent, false);
-                view.transform.position = tileView.transform.position;
-                view.Flip(view.Side == PlayerSide.Right);
+                await UniTask.WhenAll(handles.Select(handle => handle.ToUniTask()));
+
+                for (int i = 0; i < unitWrappers.Count; i++)
+                {
+                    var wrapper = unitWrappers[i];
+                    var handle = handles[i];
+                    var prefab = handle.Result;
+
+                    var view = _container.InstantiatePrefabForComponent<UnitView>(
+                        prefab,
+                        null,
+                        new object[] { wrapper.Unit, wrapper.Side }
+                    );
+
+                    var tileView = _grid.GetTile(wrapper.TileX, wrapper.TileY);
+                    view.transform.SetParent(tileView.transform.parent, false);
+                    view.transform.position = tileView.transform.position;
+                    view.Flip(wrapper.Side == PlayerSide.Right);
+
+                    Addressables.Release(handle);
+                }
             }
         }
     }

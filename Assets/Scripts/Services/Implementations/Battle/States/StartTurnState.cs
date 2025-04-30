@@ -43,7 +43,7 @@ namespace Assets.Scripts.Services.Implementations.Battle.States
                 _movementsService.GetReachableTilesAsync(gameSession.RoundState.Grid, unit).Forget();
             }
 
-            return null;
+            return GameState.WaitAction;
         }
 
         public void Exit() { }

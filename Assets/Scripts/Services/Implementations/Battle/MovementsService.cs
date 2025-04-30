@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using Assets.Scripts.Domain.DTO.Models;
 using Assets.Scripts.GameEngine.Domain.Enums;
 using Assets.Scripts.GameEngine.DTO.PathFinderCalculator;
 using Assets.Scripts.GameEngine.Interfaces;
@@ -9,8 +10,6 @@ using Assets.Scripts.Services.Interfaces.Battle;
 using Cysharp.Threading.Tasks;
 
 using R3;
-
-using UnityEngine;
 
 using Unit = Assets.Scripts.GameEngine.Domain.Unit;
 
@@ -24,10 +23,10 @@ namespace Assets.Scripts.Services.Implementations.Battle
         private readonly IPathFinderCalculator _pathFinderCalculator;
 
         private readonly ReplaySubject<IReadOnlyList<Tile>> _reachableTilesReceived = new(1);
-        private readonly Subject<IReadOnlyList<Tile>> _pathComputed = new();
+        private readonly Subject<MovementPath> _pathComputed = new();
 
         public Observable<IReadOnlyList<Tile>> OnReachableTilesReceived => _reachableTilesReceived.AsObservable();
-        public Observable<IReadOnlyList<Tile>> OnPathComputed => _pathComputed.AsObservable();
+        public Observable<MovementPath> OnPathComputed => _pathComputed.AsObservable();
 
         public MovementsService(IPathFinderCalculator pathFinderCalculator)
         {
@@ -67,7 +66,8 @@ namespace Assets.Scripts.Services.Implementations.Battle
 
             UpdateOccupiedTile(startTile, targetTile);
 
-            _pathComputed.OnNext(path);
+            var movementPath = new MovementPath(_currentActiveUnit.Id, path);
+            _pathComputed.OnNext(movementPath);
 
             return UniTask.CompletedTask;
         }
