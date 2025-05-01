@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using Assets.Scripts.Domain.DTO.Models;
@@ -24,9 +25,13 @@ namespace Assets.Scripts.Services.Implementations.Battle
 
         private readonly ReplaySubject<IReadOnlyList<Tile>> _reachableTilesReceived = new(1);
         private readonly Subject<MovementPath> _pathComputed = new();
+        private readonly Subject<Guid> _movementCompleted = new();
+
+        private readonly Dictionary<Guid, UniTaskCompletionSource> _moveSources = new();
 
         public Observable<IReadOnlyList<Tile>> OnReachableTilesReceived => _reachableTilesReceived.AsObservable();
         public Observable<MovementPath> OnPathComputed => _pathComputed.AsObservable();
+        public Observable<Guid> OnMovementCompleted => _movementCompleted.AsObservable();
 
         public MovementsService(IPathFinderCalculator pathFinderCalculator)
         {
@@ -51,8 +56,14 @@ namespace Assets.Scripts.Services.Implementations.Battle
             return UniTask.CompletedTask;
         }
 
-        public UniTask GetPathAsync(Tile targetTile)
+        public UniTask MoveAsync(Tile targetTile)
         {
+            if (_moveSources.ContainsKey(_currentActiveUnit.Id))
+            {
+                return _moveSources[_currentActiveUnit.Id].Task;
+            }
+            _reachableTilesReceived.OnNext(Array.Empty<Tile>());
+
             var startTile = _grid.First(tile => tile.OccupiedUnitId == _currentActiveUnit.Id);
 
             var context = new PathfindingContext(
@@ -69,7 +80,21 @@ namespace Assets.Scripts.Services.Implementations.Battle
             var movementPath = new MovementPath(_currentActiveUnit.Id, path);
             _pathComputed.OnNext(movementPath);
 
-            return UniTask.CompletedTask;
+            var task = new UniTaskCompletionSource();
+            _moveSources[_currentActiveUnit.Id] = task;
+
+            return task.Task;
+        }
+
+        public void NotifyMovementCompleted(Guid unitId)
+        {
+            if (_moveSources.TryGetValue(unitId, out var task))
+            {
+                task.TrySetResult();
+                _moveSources.Remove(unitId);
+            }
+
+            _movementCompleted.OnNext(unitId);
         }
 
         private void SetCache(List<Tile> grid, Unit unit)

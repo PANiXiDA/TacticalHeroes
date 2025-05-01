@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using Assets.Scripts.Domain.DTO.Models;
 using Assets.Scripts.GameEngine.DTO.PathFinderCalculator;
@@ -15,7 +16,9 @@ namespace Assets.Scripts.Services.Interfaces.Battle
     {
         Observable<IReadOnlyList<Tile>> OnReachableTilesReceived { get; }
         Observable<MovementPath> OnPathComputed { get; }
+        Observable<Guid> OnMovementCompleted { get; }
         UniTask GetReachableTilesAsync(List<Tile> grid, Unit unit);
-        UniTask GetPathAsync(Tile targetTile);
+        UniTask MoveAsync(Tile targetTile);
+        void NotifyMovementCompleted(Guid unitId);
     }
 }

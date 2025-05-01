@@ -27,8 +27,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         {
             CacheComponents();
             BindStreams();
-            SetupDesktopHover();
-            SetupMobileHover();
+            SetupHover();
             SetupClick();
         }
 
@@ -43,7 +42,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private void BindStreams()
         {
             _battleTurnsService.OnTurnStarted
-                .Subscribe(id => _view.ActiveGameObjectHighlight(id == _view.Data.OccupiedUnitId))
+                .Subscribe(currentActiveGameObject => _view.ActiveGameObjectHighlight(currentActiveGameObject.Id == _view.Data.OccupiedUnitId))
                 .AddTo(_disposables);
 
             _movementsService.OnReachableTilesReceived
@@ -57,7 +56,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 .AddTo(_disposables);
         }
 
-        private void SetupDesktopHover()
+        private void SetupHover()
         {
             _input.OnEnter
                 .Where(_ => _isReachable)
@@ -69,25 +68,12 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 .AddTo(_disposables);
         }
 
-        private void SetupMobileHover()
-        {
-            _input.OnDown
-                .Where(_ => _isReachable)
-                .Subscribe(_ => _view.SelectedTileHighlight(_isReachable))
-                .AddTo(_disposables);
-
-            _input.OnUp
-                .Subscribe(_ => _view.SelectedTileHighlight(false))
-                .AddTo(_disposables);
-        }
-
         private void SetupClick()
         {
             _input.OnClick
                 .Where(_ => _isReachable)
-                .Subscribe(_ => _movementsService.GetPathAsync(_view.Data).Forget())
+                .Subscribe(_ => _movementsService.MoveAsync(_view.Data).Forget())
                 .AddTo(_disposables);
         }
-
     }
 }

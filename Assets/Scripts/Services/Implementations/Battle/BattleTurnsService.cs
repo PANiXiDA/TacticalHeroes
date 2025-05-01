@@ -6,7 +6,6 @@ using Assets.Scripts.Services.Interfaces.Battle;
 
 using R3;
 
-using System;
 using Cysharp.Threading.Tasks;
 using Assets.Scripts.GameEngine.DTO.ATBCalculator;
 using Assets.Scripts.GameEngine.Domain.Core;
@@ -18,14 +17,14 @@ namespace Assets.Scripts.Services.Implementations.Battle
     {
         private readonly IATBCalculator _atbCalculator;
 
-        private readonly ReplaySubject<Guid> _turnStarted = new(1);
-        private readonly Subject<Guid> _turnEnded = new();
+        private readonly ReplaySubject<GameObject> _turnStarted = new(1);
+        private readonly Subject<GameObject> _turnEnded = new();
 
-        private Guid _currentActiveUnitId;
+        private GameObject _currentActiveGameObject;
         private List<GameEntity> _nextAtb = new();
 
-        public Observable<Guid> OnTurnStarted => _turnStarted.AsObservable();
-        public Observable<Guid> OnTurnEnded => _turnEnded.AsObservable();
+        public Observable<GameObject> OnTurnStarted => _turnStarted.AsObservable();
+        public Observable<GameObject> OnTurnEnded => _turnEnded.AsObservable();
 
         public BattleTurnsService(IATBCalculator atbCalculator)
         {
@@ -44,9 +43,9 @@ namespace Assets.Scripts.Services.Implementations.Battle
                 CurrentATBState = atb
             });
 
-            _turnStarted.OnNext(result.NextGameObjectId);
+            SetCache(gameObjects.FirstOrDefault(item => item.Id == result.NextGameObjectId), result.UpdatedATBState);
 
-            SetCache(result.NextGameObjectId, result.UpdatedATBState);
+            _turnStarted.OnNext(_currentActiveGameObject);
 
             return UniTask.CompletedTask;
         }
@@ -56,14 +55,14 @@ namespace Assets.Scripts.Services.Implementations.Battle
             gameHistory.Add(roundState);
             roundState.ATB = _nextAtb;
 
-            _turnEnded.OnNext(_currentActiveUnitId);
+            _turnEnded.OnNext(_currentActiveGameObject);
 
             return UniTask.CompletedTask;
         }
 
-        private void SetCache(Guid unitId, List<GameEntity> atb)
+        private void SetCache(GameObject gameObject, List<GameEntity> atb)
         {
-            _currentActiveUnitId = unitId;
+            _currentActiveGameObject = gameObject;
             _nextAtb = atb;
         }
     }

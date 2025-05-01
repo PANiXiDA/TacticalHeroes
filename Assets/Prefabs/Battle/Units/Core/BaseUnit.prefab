@@ -374,6 +374,7 @@ GameObject:
   - component: {fileID: 5370533235504420483}
   - component: {fileID: -6896997698985624179}
   - component: {fileID: -8512827365759168765}
+  - component: {fileID: 5252194593359577074}
   m_Layer: 6
   m_Name: BaseUnit
   m_TagString: Untagged
@@ -496,7 +497,7 @@ BoxCollider2D:
     drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 0.1}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!95 &5370533235504420483
 Animator:
@@ -536,6 +537,7 @@ MonoBehaviour:
   _animator: {fileID: 5370533235504420483}
   _countImage: {fileID: 5939191862101757790}
   _countText: {fileID: 2557017526694176521}
+  _swordPrefab: {fileID: 1850158429349682739, guid: bd5126daa39532d4682a2783d20e1d3f, type: 3}
 --- !u!114 &-8512827365759168765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,4 +550,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbf44732aa27314380526d0cbe9e9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 5
+--- !u!114 &5252194593359577074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8577861606763823382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5272f429026af47bbda9276b527410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

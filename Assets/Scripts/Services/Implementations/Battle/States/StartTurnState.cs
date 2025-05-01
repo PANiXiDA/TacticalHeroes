@@ -36,8 +36,7 @@ namespace Assets.Scripts.Services.Implementations.Battle.States
 
             _battleTurnsService.StartNextTurnAsync(gameObjects, gameSession.RoundState.ATB).Forget();
 
-            var gameObjectId = await _battleTurnsService.OnTurnStarted.FirstAsync();
-            var currentActiveGameObject = gameObjects.First(gameObject => gameObject.Id == gameObjectId);
+            var currentActiveGameObject = await _battleTurnsService.OnTurnStarted.FirstAsync();
             if (currentActiveGameObject is Unit unit)
             {
                 _movementsService.GetReachableTilesAsync(gameSession.RoundState.Grid, unit).Forget();

@@ -8,6 +8,7 @@ using Assets.Scripts.GameEngine.DTO.PathFinderCalculator;
 using Assets.Scripts.Services.Interfaces.Battle;
 using Assets.Scripts.UI.Battle.Views;
 using Cysharp.Threading.Tasks;
+using System;
 
 public sealed class GridsPresenter : MonoBehaviour
 {
@@ -107,4 +108,9 @@ public sealed class GridsPresenter : MonoBehaviour
     }
 
     public TileView GetTile(int x, int y) => _tiles.TryGetValue((x, y), out var tile) ? tile : null;
+
+    public TileView GetTile(Guid unitId)
+    {
+        return _tiles.Values.FirstOrDefault(tile => tile.Data.OccupiedUnitId == unitId);
+    }
 }

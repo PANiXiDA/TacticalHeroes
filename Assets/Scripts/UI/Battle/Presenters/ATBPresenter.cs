@@ -23,16 +23,8 @@ namespace Assets.Scripts.UI.Battle.Presenters
         [SerializeField] private ATBItemView _atbItemPrefab;
 
         private readonly CompositeDisposable _disposables = new();
-        private readonly Color[] _palette =
-        {
-            Color.red,
-            Color.blue,
-            Color.yellow,
-            Color.green,
-        };
 
         private readonly List<ATBItemView> _atb = new();
-        private readonly Dictionary<int, Color> _colorsByPlayer = new();
 
         [Inject] private readonly DiContainer _container;
         [Inject] private readonly IATBService _atbService;
@@ -53,7 +45,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 .AddTo(_disposables);
 
             _battleTurnsService.OnTurnEnded
-                .Subscribe(id => RemoveAtbItem(id))
+                .Subscribe(currentActiveGameObject => RemoveAtbItem(currentActiveGameObject.Id))
                 .AddTo(_disposables);
         }
 

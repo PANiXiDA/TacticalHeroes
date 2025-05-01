@@ -65,13 +65,14 @@ namespace Assets.Scripts.UI.Battle.Presenters
                     var handle = handles[i];
                     var prefab = handle.Result;
 
-                    var tileView = _grid.GetTile(wrapper.TileX, wrapper.TileY);
-
                     var view = _container.InstantiatePrefabForComponent<UnitView>(
                         prefab,
-                        tileView.transform,
+                        transform,
                         new object[] { wrapper.Unit, wrapper.Side }
                     );
+
+                    var tileView = _grid.GetTile(wrapper.TileX, wrapper.TileY);
+                    view.transform.position = tileView.transform.position;
 
                     view.Flip(wrapper.Side == PlayerSide.Right);
 

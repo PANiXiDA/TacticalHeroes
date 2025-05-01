@@ -13,8 +13,8 @@ namespace Assets.Scripts.Services.Interfaces.Battle
 {
     public interface IBattleTurnsService
     {
-        Observable<Guid> OnTurnStarted { get; }
-        Observable<Guid> OnTurnEnded { get; }
+        Observable<GameObject> OnTurnStarted { get; }
+        Observable<GameObject> OnTurnEnded { get; }
         UniTask StartNextTurnAsync(List<GameObject> gameObjects, List<GameEntity> atb);
         UniTask CompleteTurnAsync(RoundState roundState, List<RoundState> gameHistory);
     }

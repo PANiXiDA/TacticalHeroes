@@ -24,9 +24,14 @@ namespace Assets.Scripts.Services.Implementations.Battle.States
 
         public async UniTask<GameState?> EnterAsync(GameSession gameSession)
         {
-           return await Observable.Merge(
-                _movementsService.OnPathComputed.Select(_ => GameState.ApplyAction),
-                _attacksService.OnAttackDone.Select(_ => GameState.ApplyAction))
+            return await Observable.Merge(
+                    _movementsService.OnMovementCompleted.Do(_ =>
+                        gameSession.RoundState.LastCommand = CommandType.Move)
+                        .Select(_ => GameState.ApplyAction),
+
+                    _attacksService.OnAttackDone.Do(_ =>
+                        gameSession.RoundState.LastCommand = CommandType.Attack)
+                        .Select(_ => GameState.ApplyAction))
                 .FirstAsync();
         }
 
