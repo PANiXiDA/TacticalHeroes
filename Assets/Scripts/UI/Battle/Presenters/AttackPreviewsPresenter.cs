@@ -13,6 +13,9 @@ using UnityEngine;
 
 using Zenject;
 
+using DomainGameObject = Assets.Scripts.GameEngine.Domain.Core.GameObject;
+using Unit = Assets.Scripts.GameEngine.Domain.Unit;
+
 namespace Assets.Scripts.UI.Battle.Presenters
 {
     public sealed class AttackPreviewsPresenter : MonoBehaviour
@@ -23,15 +26,16 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         [Inject] private GridsPresenter _grid;
         [Inject] private IMovementsService _movementsService;
+        [Inject] private IBattleTurnsService _battleTurnsService;
 
         private readonly CompositeDisposable _disposables = new();
 
         private enum WeaponType { Melee, Ranged, BrokenRanged }
         private readonly Dictionary<WeaponType, GameObject> _pool = new();
 
+        private DomainGameObject _currentActiveGameObject;
         private TileView _currentHighlightedTile;
         private HashSet<Tile> _reachableTiles;
-
 
         private void OnEnable()
         {
@@ -40,6 +44,8 @@ namespace Assets.Scripts.UI.Battle.Presenters
         }
 
         private void OnDestroy() => _disposables.Dispose();
+
+        public TileView GetHighlightedTile() => _currentHighlightedTile;
 
         private void PreloadPreviewInstances()
         {
@@ -55,8 +61,16 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private void BindStreams()
         {
+            _battleTurnsService.OnTurnStarted
+                .Subscribe(currentActiveGameObject => _currentActiveGameObject = currentActiveGameObject)
+                .AddTo(_disposables);
+
             _movementsService.OnReachableTilesReceived
-                .Subscribe(reachableTiles => _reachableTiles = reachableTiles.ToHashSet())
+                .Subscribe(reachableTiles =>
+                {
+                    _reachableTiles = reachableTiles.ToHashSet();
+                    AddCurrentActiveGameObjectTile();
+                })
                 .AddTo(_disposables);
         }
 
@@ -126,6 +140,15 @@ namespace Assets.Scripts.UI.Battle.Presenters
             weaponGameObject.SetActive(true);
         }
 
+        private void AddCurrentActiveGameObjectTile()
+        {
+            if (_currentActiveGameObject != null && _currentActiveGameObject is Unit unit)
+            {
+                var tile = _grid.GetTile(unit.Id);
+                _reachableTiles.Add(tile.Data);
+            }
+        }
+
         private bool TryGetAttackOrigin(
             Guid unitId,
             Vector2 pointerWorldPosition,
@@ -167,7 +190,5 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
             return true;
         }
-
-        public TileView GetHighlightedTile() => _currentHighlightedTile;
     }
 }

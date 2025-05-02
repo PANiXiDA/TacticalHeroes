@@ -30,6 +30,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         [Inject] private readonly IATBService _atbService;
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
         [Inject] private readonly IPlayerColorsService _playerColorsService;
+        [Inject] private readonly IAttacksService _attacksService;
 
         private void OnEnable()
         {
@@ -45,7 +46,11 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 .AddTo(_disposables);
 
             _battleTurnsService.OnTurnEnded
-                .Subscribe(currentActiveGameObject => RemoveAtbItem(currentActiveGameObject.Id))
+                .Subscribe(currentActiveGameObject => RemoveATBItem(currentActiveGameObject.Id))
+                .AddTo(_disposables);
+
+            _attacksService.OnAttackDone
+                .Subscribe(attackEvent => AttackDone(attackEvent))
                 .AddTo(_disposables);
         }
 
@@ -59,11 +64,43 @@ namespace Assets.Scripts.UI.Battle.Presenters
             }
         }
 
-        private void RemoveAtbItem(Guid atbItemId)
+        private void AttackDone(AttackEvent attackEvent)
+        {
+            if (attackEvent.Defender.Count > 0)
+            {
+                UpdateUnitCountInATB(attackEvent.Defender.Id);
+            }
+            else
+            {
+                RemoveUnitFromATB(attackEvent.Defender.Id);
+            }
+        }
+
+        private void UpdateUnitCountInATB(Guid unitId)
+        {
+            _atb.Where(view => view.Data.Id == unitId)
+                .ToList()
+                .ForEach(view => view.UpdateCount());
+        }
+
+        private void RemoveATBItem(Guid atbItemId)
         {
             var view = _atb.FirstOrDefault(atbItem => atbItem.Data.Id == atbItemId);
             _atb.Remove(view);
             Destroy(view.gameObject);
+        }
+
+        private void RemoveUnitFromATB(Guid unitId)
+        {
+            _atb.RemoveAll(view =>
+            {
+                if (view.Data.Id == unitId)
+                {
+                    Destroy(view.gameObject);
+                    return true;
+                }
+                return false;
+            });
         }
     }
 }

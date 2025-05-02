@@ -27,10 +27,9 @@ namespace Assets.Scripts.UI.Battle.Views
             LoadAsync().Forget();
         }
 
-        private void OnDestroy()
-        {
-            Addressables.Release(_avatar.sprite);
-        }
+        private void OnDestroy() => Addressables.Release(_avatar.sprite);
+
+        public void UpdateCount() => _countText.text = Data.Count.ToString();
 
         private async UniTaskVoid LoadAsync()
         {

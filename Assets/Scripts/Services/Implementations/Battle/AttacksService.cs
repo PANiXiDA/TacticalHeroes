@@ -35,7 +35,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
             var damageModifier = 1;
             var count = 1;
 
-            if (attacker is Unit unit)
+            if (attacker is Unit unit && targetTile.IsWalkable && !targetTile.OccupiedUnitId.HasValue)
             {
                 await _movementsService.MoveAsync(targetTile);
                 count = unit.Count;

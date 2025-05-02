@@ -2,7 +2,6 @@
 using System.Linq;
 
 using Assets.Scripts.Domain.DTO.Wrappers;
-using Assets.Scripts.GameEngine.DTO.Enums;
 using Assets.Scripts.Services.Interfaces.Battle;
 using Assets.Scripts.UI.Battle.Views;
 
@@ -73,8 +72,6 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
                     var tileView = _grid.GetTile(wrapper.TileX, wrapper.TileY);
                     view.transform.position = tileView.transform.position;
-
-                    view.Flip(wrapper.Side == PlayerSide.Right);
 
                     Addressables.Release(handle);
                 }

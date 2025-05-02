@@ -11,6 +11,8 @@ using Assets.Scripts.GameEngine.DTO.ATBCalculator;
 using Assets.Scripts.GameEngine.Domain.Core;
 using Assets.Scripts.Domain.DTO.Models;
 
+using Unit = Assets.Scripts.GameEngine.Domain.Unit;
+
 namespace Assets.Scripts.Services.Implementations.Battle
 {
     public sealed class BattleTurnsService : IBattleTurnsService
@@ -53,6 +55,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
         public UniTask CompleteTurnAsync(RoundState roundState, List<RoundState> gameHistory)
         {
             gameHistory.Add(roundState);
+            RemoveDeadUnits(roundState.Units);
             roundState.ATB = _nextAtb;
 
             _turnEnded.OnNext(_currentActiveGameObject);
@@ -64,6 +67,12 @@ namespace Assets.Scripts.Services.Implementations.Battle
         {
             _currentActiveGameObject = gameObject;
             _nextAtb = atb;
+        }
+
+        private void RemoveDeadUnits(List<Unit> units)
+        {
+            _nextAtb.RemoveAll(atbItem => units.Any(unit => unit.Id == atbItem.GameEntityId && unit.Count <= 0));
+            units.RemoveAll(unit => unit.Count <= 0);
         }
     }
 }
