@@ -4,7 +4,7 @@
     {
         Move = 0,
         Attack = 1,
-        Defence = 2,
+        Defense = 2,
         Wait = 3,
         UseAbility = 4,
         UseMagic = 5

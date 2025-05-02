@@ -7,6 +7,8 @@ using Assets.Scripts.GameEngine.DTO.ATBCalculator;
 using Assets.Scripts.GameEngine.Interfaces;
 using Assets.Scripts.Services.Interfaces.Battle;
 
+using Cysharp.Threading.Tasks;
+
 using R3;
 
 using Unit = Assets.Scripts.GameEngine.Domain.Unit;
@@ -61,5 +63,10 @@ namespace Assets.Scripts.Services.Implementations.Battle
 
             _turnOrderGenerated.OnNext(atbItems);
         }
+
+        //public UniTask WaitAsync()
+        //{
+
+        //}
     }
 }

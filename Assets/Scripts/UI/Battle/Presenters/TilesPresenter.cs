@@ -18,6 +18,8 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private bool _isReachable;
 
+        [Inject] private readonly TileInfoPresenter _tileInfoPresenter;
+
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
         [Inject] private readonly IMovementsService _movementsService;
 
@@ -67,8 +69,16 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 .Subscribe(_ => _view.SelectedTileHighlight(_isReachable))
                 .AddTo(_disposables);
 
+            _input.OnEnter
+                .Subscribe(_ => _tileInfoPresenter.ShowCoordinates(_view.Data.X, _view.Data.Y))
+                .AddTo(_disposables);
+
             _input.OnExit
-                .Subscribe(_ => _view.SelectedTileHighlight(false))
+                .Subscribe(_ => 
+                { 
+                    _view.SelectedTileHighlight(false);
+                    _tileInfoPresenter.ClearInfo();
+                })
                 .AddTo(_disposables);
         }
 

@@ -13,6 +13,7 @@ namespace Assets.Scripts.UI.Battle.Core
             Container.Bind<SpawnsPresenter>().FromComponentInHierarchy().AsSingle();
             Container.Bind<ATBPresenter>().FromComponentInHierarchy().AsSingle();
             Container.Bind<AttackPreviewsPresenter>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<TileInfoPresenter>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

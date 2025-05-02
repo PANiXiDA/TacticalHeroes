@@ -76,7 +76,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         {
             _input.OnMove
                 .Where(_ => IsEnemyTarget())
-                .Subscribe(evt => OnHover(evt))
+                .Subscribe(evt => HandleHover(evt))
                 .AddTo(_disposables);
 
             _input.OnExit
@@ -88,7 +88,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         {
             _input.OnClick
                 .Where(_ => IsEnemyTarget())
-                .Subscribe(_ => OnClick().Forget())
+                .Subscribe(_ => HandleClick().Forget())
                 .AddTo(_disposables);
         }
 
@@ -97,7 +97,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
             return _currentActiveGameObject.OwnerId != _view.Data.OwnerId;
         }
 
-        private void OnHover(PointerEventData evt)
+        private void HandleHover(PointerEventData evt)
         {
             var worldPos = Camera.main.ScreenToWorldPoint(evt.position);
 
@@ -111,7 +111,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
             }
         }
 
-        private async UniTaskVoid OnClick()
+        private async UniTaskVoid HandleClick()
         {
             var tileView = _attackPreviews.GetHighlightedTile();
             if (tileView == null)
