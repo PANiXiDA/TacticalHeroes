@@ -7,7 +7,7 @@ namespace Assets.Scripts.Domain.DTO.Models
         public Guid Id { get; }
         public string Name { get; }
         public int PlayerId { get; }
-        public int? Count { get; }
+        public int? Count { get; set; }
 
         public ATBItem(
             Guid id,

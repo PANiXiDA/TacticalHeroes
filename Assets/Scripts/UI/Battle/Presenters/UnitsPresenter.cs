@@ -114,6 +114,11 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private async UniTaskVoid OnClick()
         {
             var tileView = _attackPreviews.GetHighlightedTile();
+            if (tileView == null)
+            {
+                return;
+            }
+
             await _attacksService.MeleeAttackAsync(_currentActiveGameObject, _view.Data, tileView.Data);
         }
 

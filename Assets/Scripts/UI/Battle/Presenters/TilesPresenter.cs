@@ -54,6 +54,10 @@ namespace Assets.Scripts.UI.Battle.Presenters
                     _view.TileForMoveHighlight(flag);
                 })
                 .AddTo(_disposables);
+
+            _movementsService.OnPathComputed
+                .Subscribe(_ => _view.ActiveGameObjectHighlight(false))
+                .AddTo(_disposables);
         }
 
         private void SetupHover()

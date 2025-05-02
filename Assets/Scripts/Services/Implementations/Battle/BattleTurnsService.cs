@@ -12,6 +12,7 @@ using Assets.Scripts.GameEngine.Domain.Core;
 using Assets.Scripts.Domain.DTO.Models;
 
 using Unit = Assets.Scripts.GameEngine.Domain.Unit;
+using Assets.Scripts.GameEngine.DTO.PathFinderCalculator;
 
 namespace Assets.Scripts.Services.Implementations.Battle
 {
@@ -54,8 +55,9 @@ namespace Assets.Scripts.Services.Implementations.Battle
 
         public UniTask CompleteTurnAsync(RoundState roundState, List<RoundState> gameHistory)
         {
-            gameHistory.Add(roundState);
             RemoveDeadUnits(roundState.Units);
+            ClearGridFromDeadUnits(roundState.Grid, roundState.Units);
+            gameHistory.Add(roundState);
             roundState.ATB = _nextAtb;
 
             _turnEnded.OnNext(_currentActiveGameObject);
@@ -73,6 +75,18 @@ namespace Assets.Scripts.Services.Implementations.Battle
         {
             _nextAtb.RemoveAll(atbItem => units.Any(unit => unit.Id == atbItem.GameEntityId && unit.Count <= 0));
             units.RemoveAll(unit => unit.Count <= 0);
+        }
+
+        private void ClearGridFromDeadUnits(List<Tile> grid, List<Unit> units)
+        {
+            foreach (var tile in grid)
+            {
+                if (tile.OccupiedUnitId.HasValue && !units.Any(unit => unit.Id == tile.OccupiedUnitId.Value))
+                {
+                    tile.OccupiedUnitId = null;
+                    tile.IsWalkable = true;
+                }
+            }
         }
     }
 }

@@ -34,8 +34,7 @@ namespace Assets.Scripts.GameEngine.Implementations
 
         public List<GameEntity> ShiftATBPosition(ATBPositionShiftContext request)
         {
-            var unitState = request.CurrentATBState.First(state => state.GameEntityId ==
-                request.UnitId);
+            var unitState = request.CurrentATBState.First(state => state.GameEntityId == request.UnitId);
             unitState.Position += unitState.Position * request.ShiftFactor;
 
             return request.CurrentATBState;
@@ -110,8 +109,7 @@ namespace Assets.Scripts.GameEngine.Implementations
             List<GameEntity> currentStates,
             List<UnitFinishingTime> finishingTimes)
         {
-            var nextUnit = finishingTimes.OrderBy(finishingTime =>
-                finishingTime.FinishingTime).First();
+            var nextUnit = finishingTimes.OrderBy(finishingTime => finishingTime.FinishingTime).First();
             double minTime = nextUnit.FinishingTime;
 
             foreach (var unit in gameEntityInitiatives)

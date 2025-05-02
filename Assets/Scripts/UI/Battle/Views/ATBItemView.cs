@@ -29,7 +29,11 @@ namespace Assets.Scripts.UI.Battle.Views
 
         private void OnDestroy() => Addressables.Release(_avatar.sprite);
 
-        public void UpdateCount() => _countText.text = Data.Count.ToString();
+        public void UpdateCount(int newCount)
+        {
+            Data.Count = newCount;
+            _countText.text = Data.Count.ToString();
+        }
 
         private async UniTaskVoid LoadAsync()
         {

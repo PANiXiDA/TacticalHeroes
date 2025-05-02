@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 4199099215343466019}
   - component: {fileID: 3552310954962310262}
   m_Layer: 6
-  m_Name: Count
+  m_Name: CountContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -535,9 +535,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sprite: {fileID: 2811682684797233478}
   _animator: {fileID: 5370533235504420483}
+  _collider2D: {fileID: 4923172565694928977}
+  _countContainer: {fileID: 3552310954962310262}
   _countImage: {fileID: 5939191862101757790}
   _countText: {fileID: 2557017526694176521}
-  _swordPrefab: {fileID: 1850158429349682739, guid: bd5126daa39532d4682a2783d20e1d3f, type: 3}
 --- !u!114 &-8512827365759168765
 MonoBehaviour:
   m_ObjectHideFlags: 0

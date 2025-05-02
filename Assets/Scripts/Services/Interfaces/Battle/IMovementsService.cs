@@ -18,7 +18,7 @@ namespace Assets.Scripts.Services.Interfaces.Battle
         Observable<MovementPath> OnPathComputed { get; }
         Observable<Guid> OnMovementCompleted { get; }
         UniTask GetReachableTilesAsync(List<Tile> grid, Unit unit);
-        UniTask MoveAsync(Tile targetTile);
+        UniTask MoveAsync(Tile targetTile, bool publishEvent = true);
         void NotifyMovementCompleted(Guid unitId);
     }
 }

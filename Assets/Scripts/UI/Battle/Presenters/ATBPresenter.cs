@@ -68,7 +68,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         {
             if (attackEvent.Defender.Count > 0)
             {
-                UpdateUnitCountInATB(attackEvent.Defender.Id);
+                UpdateUnitCountInATB(attackEvent.Defender.Id, attackEvent.Defender.Count);
             }
             else
             {
@@ -76,11 +76,11 @@ namespace Assets.Scripts.UI.Battle.Presenters
             }
         }
 
-        private void UpdateUnitCountInATB(Guid unitId)
+        private void UpdateUnitCountInATB(Guid unitId, int newCount)
         {
             _atb.Where(view => view.Data.Id == unitId)
                 .ToList()
-                .ForEach(view => view.UpdateCount());
+                .ForEach(view => view.UpdateCount(newCount));
         }
 
         private void RemoveATBItem(Guid atbItemId)

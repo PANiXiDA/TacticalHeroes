@@ -32,7 +32,9 @@ namespace Assets.Scripts.UI.Battle.Views
 
         [SerializeField] private SpriteRenderer _sprite;
         [SerializeField] private Animator _animator;
+        [SerializeField] private Collider2D _collider2D;
 
+        [SerializeField] private SpriteRenderer _countContainer;
         [SerializeField] private SpriteRenderer _countImage;
         [SerializeField] private TMP_Text _countText;
 
@@ -107,6 +109,8 @@ namespace Assets.Scripts.UI.Battle.Views
             Face(transform.position, opponentPosition);
             PlayDeathAnimation();
             HideCount();
+            DecrementSortingOrder();
+            _collider2D.enabled = false;
 
             await WaitEndAnimationAsync();
             ResetFace();
@@ -155,8 +159,9 @@ namespace Assets.Scripts.UI.Battle.Views
         private void SetCount(int count) => _countText.text = count.ToString();
         private void HideCount()
         {
-            _countImage.enabled = false;
-            _countText.enabled = false;
+            _countContainer.gameObject.SetActive(false);
+            _countImage.gameObject.SetActive(false);
+            _countText.gameObject.SetActive(false);
         }
 
         private float CalculateMovementDuration(Vector3[] path)

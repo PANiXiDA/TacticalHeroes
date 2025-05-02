@@ -37,7 +37,9 @@ namespace Assets.Scripts.Services.Implementations.Battle
 
             if (attacker is Unit unit && targetTile.IsWalkable && !targetTile.OccupiedUnitId.HasValue)
             {
-                await _movementsService.MoveAsync(targetTile);
+                await _movementsService.MoveAsync(
+                    targetTile: targetTile,
+                    publishEvent: false);
                 count = unit.Count;
             }
 

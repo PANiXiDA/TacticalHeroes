@@ -28,6 +28,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
         private readonly Subject<Guid> _movementCompleted = new();
 
         private readonly Dictionary<Guid, UniTaskCompletionSource> _moveSources = new();
+        private readonly Dictionary<Guid, bool> _publishFlags = new();
 
         public Observable<IReadOnlyList<Tile>> OnReachableTilesReceived => _reachableTilesReceived.AsObservable();
         public Observable<MovementPath> OnPathComputed => _pathComputed.AsObservable();
@@ -56,7 +57,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
             return UniTask.CompletedTask;
         }
 
-        public UniTask MoveAsync(Tile targetTile)
+        public UniTask MoveAsync(Tile targetTile, bool publishEvent = true)
         {
             if (_moveSources.ContainsKey(_currentActiveUnit.Id))
             {
@@ -83,6 +84,8 @@ namespace Assets.Scripts.Services.Implementations.Battle
             var task = new UniTaskCompletionSource();
             _moveSources[_currentActiveUnit.Id] = task;
 
+            _publishFlags[_currentActiveUnit.Id] = publishEvent;
+
             return task.Task;
         }
 
@@ -94,7 +97,11 @@ namespace Assets.Scripts.Services.Implementations.Battle
                 _moveSources.Remove(unitId);
             }
 
-            _movementCompleted.OnNext(unitId);
+            if (_publishFlags.TryGetValue(unitId, out var publish) && publish)
+            {
+                _movementCompleted.OnNext(unitId);
+            }
+            _publishFlags.Remove(unitId);
         }
 
         private void SetCache(List<Tile> grid, Unit unit)
