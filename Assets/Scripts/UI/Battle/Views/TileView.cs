@@ -1,7 +1,5 @@
 ﻿using Assets.Scripts.GameEngine.DTO.PathFinderCalculator;
 
-using TMPro;
-
 using UnityEngine;
 
 using Zenject;

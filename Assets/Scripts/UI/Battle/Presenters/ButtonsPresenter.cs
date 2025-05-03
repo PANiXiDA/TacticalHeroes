@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Common.Enumerations;
+using Assets.Scripts.Services.Interfaces.Battle;
 using Assets.Scripts.UI.Battle.Inputs;
 using Assets.Scripts.UI.Battle.Views;
 
@@ -6,12 +7,16 @@ using R3;
 
 using UnityEngine;
 
+using Zenject;
+
 namespace Assets.Scripts.UI.Battle.Presenters
 {
     [RequireComponent(typeof(ButtonInput))]
     [RequireComponent(typeof(ButtonView))]
     public sealed class ButtonsPresenter : MonoBehaviour
     {
+        [Inject] private readonly IButtonStatesService _buttonStatesService;
+
         private readonly CompositeDisposable _disposables = new();
 
         private ButtonInput _input;
@@ -20,7 +25,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private void OnEnable()
         {
             CacheComponents();
-            SetupClick();
+            BindStreams();
         }
 
         private void OnDestroy() => _disposables.Dispose();
@@ -31,16 +36,22 @@ namespace Assets.Scripts.UI.Battle.Presenters
             _view = GetComponent<ButtonView>();
         }
 
-        private void SetupClick()
+        private void BindStreams()
         {
             _input.OnClick
-                .Subscribe(_ => HandleClick(_view.GetButtonType))
+                .Subscribe(_ => HandleClick(_view.GetButtonType()))
+                .AddTo(_disposables);
+
+            _buttonStatesService.OnStateChanged
+                .Where(item => item.Type == _view.GetButtonType())
+                .Subscribe(item => _view.SetActive(item.IsActive))
                 .AddTo(_disposables);
         }
 
-        private void HandleClick(BattleButtonType type)
+        private void HandleClick(BattleButtonType buttonType)
         {
-            switch (type)
+            _buttonStatesService.Toggle(buttonType);
+            switch (buttonType)
             {
                 case BattleButtonType.Exit: break;
                 case BattleButtonType.Info: break;

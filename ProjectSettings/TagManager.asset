@@ -53,5 +53,8 @@ TagManager:
   - name: Menu
     uniqueID: 2623934803
     locked: 0
+  - name: Canvas
+    uniqueID: 574347757
+    locked: 0
   m_RenderingLayers:
   - Default

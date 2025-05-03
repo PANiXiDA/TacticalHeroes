@@ -6,6 +6,7 @@ using Assets.Scripts.Services.Interfaces.Battle;
 using Zenject;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using Assets.Scripts.Common.Enumerations;
 
 namespace Assets.Scripts.UI.Battle.Presenters
 {
@@ -22,6 +23,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
         [Inject] private readonly IMovementsService _movementsService;
+        [Inject] private readonly IButtonStatesService _buttonStatesService;
 
         private readonly CompositeDisposable _disposables = new();
 
@@ -65,7 +67,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private void SetupHover()
         {
             _input.OnEnter
-                .Where(_ => _isReachable)
+                .Where(_ => _isReachable && !IsInfoClicked())
                 .Subscribe(_ => _view.SelectedTileHighlight(_isReachable))
                 .AddTo(_disposables);
 
@@ -85,9 +87,11 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private void SetupClick()
         {
             _input.OnClick
-                .Where(_ => _isReachable)
+                .Where(_ => _isReachable && !IsInfoClicked())
                 .Subscribe(_ => _movementsService.MoveAsync(_view.Data).Forget())
                 .AddTo(_disposables);
         }
+
+        private bool IsInfoClicked() => _buttonStatesService.IsActive(BattleButtonType.Info);
     }
 }

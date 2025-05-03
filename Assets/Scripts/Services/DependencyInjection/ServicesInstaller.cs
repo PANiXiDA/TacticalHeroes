@@ -34,6 +34,7 @@ namespace Assets.Scripts.Services.Implementations.Extensions
             Container.Bind<IAttacksService>().To<AttacksService>().AsSingle();
             Container.Bind<IMovementsService>().To<MovementsService>().AsSingle();
             Container.Bind<IBattleTurnsService>().To<BattleTurnsService>().AsSingle();
+            Container.Bind<IButtonStatesService>().To<ButtonStatesService>().AsSingle();
         }
     }
 }

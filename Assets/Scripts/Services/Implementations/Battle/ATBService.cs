@@ -63,10 +63,5 @@ namespace Assets.Scripts.Services.Implementations.Battle
 
             _turnOrderGenerated.OnNext(atbItems);
         }
-
-        //public UniTask WaitAsync()
-        //{
-
-        //}
     }
 }

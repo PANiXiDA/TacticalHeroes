@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using Assets.Scripts.Common.Enumerations;
 using Assets.Scripts.Domain.DTO.Models;
 using Assets.Scripts.GameEngine.Domain.Enums;
 using Assets.Scripts.GameEngine.DTO.PathFinderCalculator;
@@ -26,9 +27,11 @@ namespace Assets.Scripts.UI.Battle.Presenters
     [RequireComponent(typeof(UnitView))]
     public sealed class UnitsPresenter : MonoBehaviour
     {
-        [Inject] private GridsPresenter _grid;
-        [Inject] private AttackPreviewsPresenter _attackPreviews;
+        [Inject] private readonly GridsPresenter _grid;
+        [Inject] private readonly AttackPreviewsPresenter _attackPreviews;
+        [Inject] private readonly UnitInfoPresenter _unitInfo;
 
+        [Inject] private readonly IButtonStatesService _buttonStatesService;
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
         [Inject] private readonly IMovementsService _movementsService;
         [Inject] private readonly IAttacksService _attacksService;
@@ -46,6 +49,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
             BindStreams();
             SetupHover();
             SetupClick();
+            SetupInfo();
         }
 
         private void OnDestroy() => _disposables.Dispose();
@@ -75,7 +79,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private void SetupHover()
         {
             _input.OnMove
-                .Where(_ => IsEnemyTarget())
+                .Where(_ => IsEnemyTarget() && !IsInfoClicked())
                 .Subscribe(evt => HandleHover(evt))
                 .AddTo(_disposables);
 
@@ -87,15 +91,21 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private void SetupClick()
         {
             _input.OnClick
-                .Where(_ => IsEnemyTarget())
+                .Where(button => button == PointerEventData.InputButton.Left && IsEnemyTarget() && !IsInfoClicked())
                 .Subscribe(_ => HandleClick().Forget())
                 .AddTo(_disposables);
         }
 
-        private bool IsEnemyTarget()
+        private void SetupInfo()
         {
-            return _currentActiveGameObject.OwnerId != _view.Data.OwnerId;
+            _input.OnClick
+                .Where(button => button == PointerEventData.InputButton.Right || IsInfoClicked())
+                .Subscribe(_ => _unitInfo.Show(_view.Data))
+                .AddTo(_disposables);
         }
+
+        private bool IsEnemyTarget() => _currentActiveGameObject.OwnerId != _view.Data.OwnerId;
+        private bool IsInfoClicked() => _buttonStatesService.IsActive(BattleButtonType.Info);
 
         private void HandleHover(PointerEventData evt)
         {
