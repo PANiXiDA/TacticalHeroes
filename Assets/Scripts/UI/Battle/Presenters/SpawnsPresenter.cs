@@ -28,6 +28,8 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private readonly CompositeDisposable _disposables = new();
 
+        private readonly List<UnitView> _views = new();
+
         private void OnEnable()
         {
             BindStreams();
@@ -40,6 +42,10 @@ namespace Assets.Scripts.UI.Battle.Presenters
             _battlePreparationsService.OnUnitsLoaded
                 .Subscribe(units => SpawnUnits(units).Forget())
                 .AddTo(_disposables);
+
+            _grid.OnGridScaleChanged
+                 .Subscribe(gridScale => _views.ForEach(v => v.transform.localScale = new Vector3(gridScale.x, gridScale.y, 1)))
+                 .AddTo(_disposables);
         }
 
         private async UniTask SpawnUnits(IReadOnlyList<UnitWrapper> unitWrappers)
@@ -72,6 +78,8 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
                     var tileView = _grid.GetTile(wrapper.TileX, wrapper.TileY);
                     view.transform.position = tileView.transform.position;
+                    view.transform.localScale = new Vector3(_grid.GridScale.x, _grid.GridScale.y, 1);
+                    _views.Add(view);
 
                     Addressables.Release(handle);
                 }
