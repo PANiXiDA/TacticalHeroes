@@ -15,7 +15,9 @@ namespace Assets.Scripts.Services.Interfaces.Battle
     {
         Observable<Guid> OnMovementCompleted { get; }
         Observable<AttackEvent> OnAttackDone { get; }
+        Observable<Guid> OnDefenceDone { get; }
         UniTask MoveAsync(Tile targetTile);
         UniTask MeleeAttackAsync(Unit defender, Tile targetTile);
+        UniTask DefenceAsync();
     }
 }

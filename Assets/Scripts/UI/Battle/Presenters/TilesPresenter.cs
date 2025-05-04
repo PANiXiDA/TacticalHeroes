@@ -7,6 +7,7 @@ using Zenject;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using Assets.Scripts.Common.Enumerations;
+using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.UI.Battle.Presenters
 {
@@ -88,7 +89,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private void SetupClick()
         {
             _input.OnClick
-                .Where(_ => _isReachable && !IsInfoClicked())
+                .Where(button => button == PointerEventData.InputButton.Left && _isReachable && !IsInfoClicked())
                 .Subscribe(_ => _battleActionsFacade.MoveAsync(_view.Data).Forget())
                 .AddTo(_disposables);
         }

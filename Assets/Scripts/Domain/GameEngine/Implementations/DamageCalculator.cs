@@ -18,7 +18,7 @@ namespace Assets.Scripts.GameEngine.Implementations
                 + _random.NextDouble() * (context.AttackerMaxDamage - context.AttackerMinDamage)
                 + Epsilon;
 
-            int delta = context.AttackerAttack - context.DefenderDefense;
+            int delta = context.AttackerAttack - context.DefenderDefence;
             double multiplier = Math.Pow(MinimalStatsModifier
                 + StatsModifierCoefficient * Math.Abs(delta), Math.Sign(delta));
 

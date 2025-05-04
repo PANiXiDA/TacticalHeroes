@@ -5,6 +5,8 @@ using Assets.Scripts.Services.Interfaces.Battle;
 
 using Cysharp.Threading.Tasks;
 
+using Assets.Scripts.Domain.GameEngine.DTO.Extensions;
+
 using Unit = Assets.Scripts.GameEngine.Domain.Unit;
 
 namespace Assets.Scripts.Services.Implementations.Battle
@@ -30,17 +32,17 @@ namespace Assets.Scripts.Services.Implementations.Battle
             await _movementsService.MoveAsync(targetTile, attacker);
 
             var damageContext = new DamageContext(
-                attackerAttack: attacker.Attack,
-                attackerMinDamage: attacker.MinDamage,
-                attackerMaxDamage: attacker.MaxDamage,
+                attackerAttack: attacker.EffectiveAttack(),
+                attackerMinDamage: attacker.EffectiveMinDamage(),
+                attackerMaxDamage: attacker.EffectiveMaxDamage(),
                 attackerCount: count,
-                defenderDefense: defender.Defence,
+                defenderDefence: defender.EffectiveDefence(),
                 damageModifier: damageModifier);
             var damage = _damageCalculator.CalculateDamage(damageContext);
 
             var defenderTakeDamageContext = new DefenderTakeDamageContext(
                 defenderCurrentHealth: defender.CurrentHealth,
-                defenderFullHealth: defender.FullHealth,
+                defenderFullHealth: defender.EffectiveHealth(),
                 defenderCount: defender.Count,
                 attackerDamage: damage);
             var damageResult = _damageCalculator.ComputeCasualties(defenderTakeDamageContext);

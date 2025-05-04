@@ -31,11 +31,7 @@ namespace Assets.Scripts.Domain.Entities.Models
 
         public static DomainEffect MapToDomain(Effect entity)
         {
-            return new DomainEffect(
-                type: entity.Type,
-                value:  entity.Value,
-                duration: entity.Duration,
-                parameters: entity.Parameters);
+            return null; // TODO: переписать нормально, если текущая реализация эффекта сработает
         }
 
         public static List<DomainEffect> MapToDomains(List<Effect> entities)

@@ -13,12 +13,14 @@ using Assets.Scripts.Domain.DTO.Models;
 
 using Unit = Assets.Scripts.GameEngine.Domain.Unit;
 using Assets.Scripts.GameEngine.DTO.PathFinderCalculator;
+using System;
 
 namespace Assets.Scripts.Services.Implementations.Battle
 {
     public sealed class BattleTurnsService : IBattleTurnsService
     {
         private readonly IATBCalculator _atbCalculator;
+        private readonly IBuffsDebuffsService _buffsDebuffsService;
 
         private readonly ReplaySubject<GameObject> _turnStarted = new(1);
         private readonly Subject<GameObject> _turnEnded = new();
@@ -29,9 +31,12 @@ namespace Assets.Scripts.Services.Implementations.Battle
         public Observable<GameObject> OnTurnStarted => _turnStarted.AsObservable();
         public Observable<GameObject> OnTurnEnded => _turnEnded.AsObservable();
 
-        public BattleTurnsService(IATBCalculator atbCalculator)
+        public BattleTurnsService(
+            IATBCalculator atbCalculator,
+            IBuffsDebuffsService buffsDebuffsService)
         {
             _atbCalculator = atbCalculator;
+            _buffsDebuffsService = buffsDebuffsService;
         }
 
         public UniTask StartNextTurnAsync(List<GameObject> gameObjects, List<GameEntity> atb)
@@ -46,6 +51,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
                 CurrentATBState = atb
             });
 
+            _buffsDebuffsService.TickAllEffects(gameObjects.OfType<Unit>().ToList(), result.DeltaTime);
             SetCache(gameObjects.FirstOrDefault(item => item.Id == result.NextGameObjectId), result.UpdatedATBState);
 
             _turnStarted.OnNext(_currentActiveGameObject);
@@ -66,6 +72,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
         }
 
         public GameObject GetCurrentActiveGameObject() => _currentActiveGameObject;
+        public double GetGameObjectAtbPosition(Guid id) => _nextAtb.FirstOrDefault(item => item.GameEntityId == id).Position;
 
         private void SetCache(GameObject gameObject, List<GameEntity> atb)
         {

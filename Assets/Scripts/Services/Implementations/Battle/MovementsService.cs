@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Assets.Scripts.Domain.DTO.Models;
+using Assets.Scripts.Domain.GameEngine.DTO.Extensions;
 using Assets.Scripts.GameEngine.Domain.Enums;
 using Assets.Scripts.GameEngine.DTO.PathFinderCalculator;
 using Assets.Scripts.GameEngine.Interfaces;
@@ -43,7 +44,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
             var startTile = grid.First(tile => tile.OccupiedUnitId == unit.Id);
 
             var context = new PathfindingContext(
-                moveRange: unit.Speed,
+                moveRange: unit.EffectiveSpeed(),
                 ignoringObstacles: unit.Abilities.Any(ability => ability.Type == AbilityType.Fly),
                 grid: grid,
                 start: startTile);
@@ -66,7 +67,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
             var startTile = grid.First(tile => tile.OccupiedUnitId == unit.Id);
 
             var context = new PathfindingContext(
-                moveRange: unit.Speed,
+                moveRange: unit.EffectiveSpeed(),
                 ignoringObstacles: unit.Abilities.Any(ability => ability.Type == AbilityType.Fly),
                 grid: grid,
                 start: startTile,

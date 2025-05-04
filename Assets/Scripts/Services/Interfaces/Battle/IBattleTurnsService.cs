@@ -18,5 +18,6 @@ namespace Assets.Scripts.Services.Interfaces.Battle
         UniTask StartNextTurnAsync(List<GameObject> gameObjects, List<GameEntity> atb);
         UniTask CompleteTurnAsync(RoundState roundState, List<RoundState> gameHistory);
         GameObject GetCurrentActiveGameObject();
+        double GetGameObjectAtbPosition(Guid id);
     }
 }

@@ -11,6 +11,8 @@ using Cysharp.Threading.Tasks;
 
 using R3;
 
+using Assets.Scripts.Domain.GameEngine.DTO.Extensions;
+
 using Unit = Assets.Scripts.GameEngine.Domain.Unit;
 
 namespace Assets.Scripts.Services.Implementations.Battle
@@ -35,7 +37,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
             var byId = gameObjects.ToDictionary(gameObject => gameObject.Id);
 
             var initiatives = gameObjects
-                .Select(gameObject => new GameEntityInitiative(gameObject.Id, gameObject.Initiative))
+                .Select(gameObject => new GameEntityInitiative(gameObject.Id, (gameObject as Unit)?.EffectiveInitiative() ?? gameObject.Initiative))
                 .ToList();
 
             var atb = _atbCalculator.SetStartingPosition(initiatives);

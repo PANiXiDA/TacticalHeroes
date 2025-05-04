@@ -16,6 +16,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
     public sealed class ButtonsPresenter : MonoBehaviour
     {
         [Inject] private readonly IButtonStatesService _buttonStatesService;
+        [Inject] private readonly IBattleActionsFacade _battleActionsFacade;
 
         private readonly CompositeDisposable _disposables = new();
 
@@ -53,13 +54,21 @@ namespace Assets.Scripts.UI.Battle.Presenters
             _buttonStatesService.Toggle(buttonType);
             switch (buttonType)
             {
-                case BattleButtonType.Exit: break;
-                case BattleButtonType.Info: break;
-                case BattleButtonType.Wait: break;
-                case BattleButtonType.Defense: break;
-                case BattleButtonType.UseAbility: break;
-                case BattleButtonType.OpenMagicBook: break;
-                case BattleButtonType.MeleeAttack: break;
+                case BattleButtonType.Exit:
+                    break;
+                case BattleButtonType.Info:
+                    break;
+                case BattleButtonType.Wait:
+                    break;
+                case BattleButtonType.Defence:
+                    _battleActionsFacade.DefenceAsync();
+                    break;
+                case BattleButtonType.UseAbility:
+                    break;
+                case BattleButtonType.OpenMagicBook:
+                    break;
+                case BattleButtonType.MeleeAttack:
+                    break;
             }
         }
     }

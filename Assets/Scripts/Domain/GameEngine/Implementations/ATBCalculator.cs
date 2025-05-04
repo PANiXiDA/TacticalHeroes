@@ -9,6 +9,10 @@ namespace Assets.Scripts.GameEngine.Implementations
 {
     public class ATBCalculator : IATBCalculator
     {
+        private const int StartPosition = 0;
+        private const int EndPosition = 100;
+        private const int MaxStartPosition = 15;
+
         private readonly Random _random;
 
         public ATBCalculator()
@@ -25,7 +29,7 @@ namespace Assets.Scripts.GameEngine.Implementations
                 startingPositions.Add(new GameEntity
                 {
                     GameEntityId = unit.GameEntityId,
-                    Position = _random.NextDouble() * 15
+                    Position = _random.NextDouble() * MaxStartPosition
                 });
             }
 
@@ -51,7 +55,8 @@ namespace Assets.Scripts.GameEngine.Implementations
             return new ATBNextTurnResult
             {
                 NextGameObjectId = nextUnit.UnitId,
-                UpdatedATBState = context.CurrentATBState
+                UpdatedATBState = context.CurrentATBState,
+                DeltaTime = nextUnit.FinishingTime
             };
         }
 
@@ -90,8 +95,8 @@ namespace Assets.Scripts.GameEngine.Implementations
             foreach (var unit in gameEntityInitiatives)
             {
                 var state = currentStates.First(currentState => currentState.GameEntityId == unit.GameEntityId);
-                double time = unit.Initiative > 0
-                    ? (100 - state.Position) / unit.Initiative
+                double time = unit.Initiative > StartPosition
+                    ? (EndPosition - state.Position) / unit.Initiative
                     : double.PositiveInfinity;
 
                 finishingTimes.Add(new UnitFinishingTime
@@ -119,7 +124,7 @@ namespace Assets.Scripts.GameEngine.Implementations
             }
 
             var nextUnitState = currentStates.First(state => state.GameEntityId == nextUnit.UnitId);
-            nextUnitState.Position -= 100;
+            nextUnitState.Position -= EndPosition;
 
             return nextUnit;
         }

@@ -7,5 +7,6 @@ namespace Assets.Scripts.GameEngine.DTO.ATBCalculator
     {
         public Guid NextGameObjectId { get; set; }
         public List<GameEntity> UpdatedATBState { get; set; }
+        public double DeltaTime { get; set; }
     }
 }

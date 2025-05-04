@@ -1,24 +1,26 @@
-﻿using Assets.Scripts.GameEngine.Domain.Enums;
+﻿using System.Collections.Generic;
+
+using Assets.Scripts.Domain.GameEngine.Domain.Core;
+using Assets.Scripts.GameEngine.Domain.Enums;
 
 namespace Assets.Scripts.GameEngine.Domain
 {
     public class Effect
     {
-        public EffectType Type { get; set; }
-        public double Value { get; set; }
-        public double Duration { get; set; }
-        public string Parameters { get; set; }
+        public EffectType Type { get; }
+        public double Duration { get; private set; }
+        public IReadOnlyList<StatModifier> Modifiers { get; }
 
         public Effect(
             EffectType type,
-            double value,
             double duration,
-            string parameters)
+            IReadOnlyList<StatModifier> modifiers)
         {
             Type = type;
-            Value = value;
             Duration = duration;
-            Parameters = parameters;
+            Modifiers = modifiers;
         }
+
+        public void Tick(double delta) => Duration -= delta;
     }
 }
