@@ -11,25 +11,21 @@ namespace Assets.Scripts.Services.Implementations.Battle.States
 {
     public sealed class WaitActionState : IGameState
     {
-        private readonly IMovementsService _movementsService;
-        private readonly IAttacksService _attacksService;
+        private readonly IBattleActionsFacade _battleActionsFacade;
 
-        public WaitActionState(
-            IMovementsService movementsService,
-            IAttacksService attacksService)
+        public WaitActionState(IBattleActionsFacade battleActionsFacade)
         {
-            _movementsService = movementsService;
-            _attacksService = attacksService;
+            _battleActionsFacade = battleActionsFacade;
         }
 
         public async UniTask<GameState?> EnterAsync(GameSession gameSession)
         {
             return await Observable.Merge(
-                    _movementsService.OnMovementCompleted.Do(_ =>
+                    _battleActionsFacade.OnMovementCompleted.Do(_ =>
                         gameSession.RoundState.LastCommand = CommandType.Move)
                         .Select(_ => GameState.ApplyAction),
 
-                    _attacksService.OnAttackDone.Do(_ =>
+                    _battleActionsFacade.OnAttackDone.Do(_ =>
                         gameSession.RoundState.LastCommand = CommandType.Attack)
                         .Select(_ => GameState.ApplyAction))
                 .FirstAsync();

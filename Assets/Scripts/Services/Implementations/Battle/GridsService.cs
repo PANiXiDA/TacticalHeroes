@@ -13,6 +13,8 @@ namespace Assets.Scripts.Services.Implementations.Battle
         private readonly IGridGenerator _generator;
         private readonly Subject<IReadOnlyList<Tile>> _gridGenerated = new();
 
+        private List<Tile> _grid = new();
+
         public Observable<IReadOnlyList<Tile>> OnGridGenerated => _gridGenerated.AsObservable();
 
         public GridsService(IGridGenerator generator)
@@ -24,6 +26,15 @@ namespace Assets.Scripts.Services.Implementations.Battle
         {
             var tiles = _generator.GenerateGrid(type);
             _gridGenerated.OnNext(tiles);
+
+            SetCache(tiles);
+        }
+
+        public List<Tile> GetGrid() => _grid;
+
+        private void SetCache(List<Tile> grid)
+        {
+            _grid = grid;
         }
     }
 }

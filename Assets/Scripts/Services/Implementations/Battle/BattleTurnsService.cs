@@ -65,6 +65,8 @@ namespace Assets.Scripts.Services.Implementations.Battle
             return UniTask.CompletedTask;
         }
 
+        public GameObject GetCurrentActiveGameObject() => _currentActiveGameObject;
+
         private void SetCache(GameObject gameObject, List<GameEntity> atb)
         {
             _currentActiveGameObject = gameObject;

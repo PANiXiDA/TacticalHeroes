@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Domain.DTO.Models;
-using Assets.Scripts.GameEngine.Domain.Core;
 using Assets.Scripts.GameEngine.DTO.PathFinderCalculator;
 
 using Cysharp.Threading.Tasks;
@@ -12,7 +11,6 @@ namespace Assets.Scripts.Services.Interfaces.Battle
 {
     public interface IAttacksService
     {
-        Observable<AttackEvent> OnAttackDone { get; }
-        UniTask MeleeAttackAsync(GameObject attacker, Unit defender, Tile targetTile);
+        UniTask MeleeAttackAsync(Unit attacker, Unit defender, Tile targetTile);
     }
 }

@@ -24,6 +24,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
         [Inject] private readonly IMovementsService _movementsService;
         [Inject] private readonly IButtonStatesService _buttonStatesService;
+        [Inject] private readonly IBattleActionsFacade _battleActionsFacade;
 
         private readonly CompositeDisposable _disposables = new();
 
@@ -88,7 +89,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         {
             _input.OnClick
                 .Where(_ => _isReachable && !IsInfoClicked())
-                .Subscribe(_ => _movementsService.MoveAsync(_view.Data).Forget())
+                .Subscribe(_ => _battleActionsFacade.MoveAsync(_view.Data).Forget())
                 .AddTo(_disposables);
         }
 

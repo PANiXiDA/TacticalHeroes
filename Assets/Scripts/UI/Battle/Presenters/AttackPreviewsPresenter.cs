@@ -13,7 +13,6 @@ using UnityEngine;
 
 using Zenject;
 
-using DomainGameObject = Assets.Scripts.GameEngine.Domain.Core.GameObject;
 using Unit = Assets.Scripts.GameEngine.Domain.Unit;
 
 namespace Assets.Scripts.UI.Battle.Presenters
@@ -33,7 +32,6 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private enum WeaponType { Melee, Ranged, BrokenRanged }
         private readonly Dictionary<WeaponType, GameObject> _pool = new();
 
-        private DomainGameObject _currentActiveGameObject;
         private TileView _currentHighlightedTile;
         private HashSet<Tile> _reachableTiles;
 
@@ -61,10 +59,6 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private void BindStreams()
         {
-            _battleTurnsService.OnTurnStarted
-                .Subscribe(currentActiveGameObject => _currentActiveGameObject = currentActiveGameObject)
-                .AddTo(_disposables);
-
             _movementsService.OnReachableTilesReceived
                 .Subscribe(reachableTiles =>
                 {
@@ -142,7 +136,8 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private void AddCurrentActiveGameObjectTile()
         {
-            if (_currentActiveGameObject != null && _currentActiveGameObject is Unit unit)
+            var currentActiveGameObject = _battleTurnsService.GetCurrentActiveGameObject();
+            if (currentActiveGameObject != null && currentActiveGameObject is Unit unit)
             {
                 var tile = _grid.GetTile(unit.Id);
                 _reachableTiles.Add(tile.Data);

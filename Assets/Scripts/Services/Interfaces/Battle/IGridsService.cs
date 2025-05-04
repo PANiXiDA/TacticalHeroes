@@ -11,5 +11,6 @@ namespace Assets.Scripts.Services.Interfaces.Battle
     {
         Observable<IReadOnlyList<Tile>> OnGridGenerated { get; }
         void GenerateGrid(GameType type);
+        List<Tile> GetGrid();
     }
 }

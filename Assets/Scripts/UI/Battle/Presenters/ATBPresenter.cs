@@ -30,7 +30,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         [Inject] private readonly IATBService _atbService;
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
         [Inject] private readonly IPlayerColorsService _playerColorsService;
-        [Inject] private readonly IAttacksService _attacksService;
+        [Inject] private readonly IBattleActionsFacade _battleActionsFacade;
 
         private void OnEnable()
         {
@@ -49,7 +49,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 .Subscribe(currentActiveGameObject => RemoveATBItem(currentActiveGameObject.Id))
                 .AddTo(_disposables);
 
-            _attacksService.OnAttackDone
+            _battleActionsFacade.OnAttackDone
                 .Subscribe(attackEvent => AttackDone(attackEvent))
                 .AddTo(_disposables);
         }

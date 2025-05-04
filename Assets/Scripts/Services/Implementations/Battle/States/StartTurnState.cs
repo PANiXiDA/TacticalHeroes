@@ -39,7 +39,7 @@ namespace Assets.Scripts.Services.Implementations.Battle.States
             var currentActiveGameObject = await _battleTurnsService.OnTurnStarted.FirstAsync();
             if (currentActiveGameObject is Unit unit)
             {
-                _movementsService.GetReachableTilesAsync(gameSession.RoundState.Grid, unit).Forget();
+                _movementsService.GetReachableTilesAsync(unit).Forget();
             }
 
             return GameState.WaitAction;

@@ -17,5 +17,6 @@ namespace Assets.Scripts.Services.Interfaces.Battle
         Observable<GameObject> OnTurnEnded { get; }
         UniTask StartNextTurnAsync(List<GameObject> gameObjects, List<GameEntity> atb);
         UniTask CompleteTurnAsync(RoundState roundState, List<RoundState> gameHistory);
+        GameObject GetCurrentActiveGameObject();
     }
 }

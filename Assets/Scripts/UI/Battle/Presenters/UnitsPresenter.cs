@@ -34,14 +34,12 @@ namespace Assets.Scripts.UI.Battle.Presenters
         [Inject] private readonly IButtonStatesService _buttonStatesService;
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
         [Inject] private readonly IMovementsService _movementsService;
-        [Inject] private readonly IAttacksService _attacksService;
+        [Inject] private readonly IBattleActionsFacade _battleActionsFacade;
 
         private readonly CompositeDisposable _disposables = new();
 
         private UnitInput _input;
         private UnitView _view;
-
-        private DomainGameObject _currentActiveGameObject;
 
         private void OnEnable()
         {
@@ -62,16 +60,12 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private void BindStreams()
         {
-            _battleTurnsService.OnTurnStarted
-                .Subscribe(currentActiveGameObject => _currentActiveGameObject = currentActiveGameObject)
-                .AddTo(_disposables);
-
             _movementsService.OnPathComputed
                 .Where(path => path.UnitId == _view.Data.Id)
                 .Subscribe(path => HandleMove(path.Tiles))
                 .AddTo(_disposables);
 
-            _attacksService.OnAttackDone
+            _battleActionsFacade.OnAttackDone
                 .Subscribe(attackEvent => AttackDone(attackEvent))
                 .AddTo(_disposables);
         }
@@ -104,7 +98,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 .AddTo(_disposables);
         }
 
-        private bool IsEnemyTarget() => _currentActiveGameObject.OwnerId != _view.Data.OwnerId;
+        private bool IsEnemyTarget() => _battleTurnsService.GetCurrentActiveGameObject().OwnerId != _view.Data.OwnerId;
         private bool IsInfoClicked() => _buttonStatesService.IsActive(BattleButtonType.Info);
 
         private void HandleHover(PointerEventData evt)
@@ -129,7 +123,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 return;
             }
 
-            await _attacksService.MeleeAttackAsync(_currentActiveGameObject, _view.Data, tileView.Data);
+            await _battleActionsFacade.MeleeAttackAsync(_view.Data, tileView.Data);
         }
 
         private void HandleMove(IReadOnlyList<Tile> tiles)
