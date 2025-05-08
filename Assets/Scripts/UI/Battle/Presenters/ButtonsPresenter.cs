@@ -41,27 +41,21 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private void BindStreams()
         {
-            _input.OnClick
-                .Subscribe(_ => HandleClick(_view.GetButtonType()))
-                .AddTo(_disposables);
-
             _buttonStatesService.OnStateChanged
                 .Where(item => item.Type == _view.GetButtonType())
                 .Subscribe(item => _view.SetActive(item.IsActive))
                 .AddTo(_disposables);
 
+            _input.OnClick
+                .Subscribe(_ => HandleClick(_view.GetButtonType()))
+                .AddTo(_disposables);
+
             _input.OnEnter
-              .Where(_ => _view.GetButtonType() == BattleButtonType.Wait)
-              .Subscribe(_ =>
-              {
-                  var activeGameObject = _battleTurnsService.GetCurrentActiveGameObject();
-                  _atbService.BuildWaitPreview(activeGameObjectId: activeGameObject.Id, isWait: true);
-              })
+              .Subscribe(_ => HandleEnter(_view.GetButtonType()))
               .AddTo(_disposables);
 
             _input.OnExit
-              .Where(_ => _view.GetButtonType() == BattleButtonType.Wait)
-              .Subscribe(_ => _atbService.CancelWaitPreview())
+              .Subscribe(_ => HandleExit(_view.GetButtonType()))
               .AddTo(_disposables);
         }
 
@@ -79,6 +73,51 @@ namespace Assets.Scripts.UI.Battle.Presenters
                     break;
                 case BattleButtonType.Defence:
                     _battleActionsFacade.DefenceAsync();
+                    break;
+                case BattleButtonType.UseAbility:
+                    break;
+                case BattleButtonType.OpenMagicBook:
+                    break;
+                case BattleButtonType.MeleeAttack:
+                    break;
+            }
+        }
+
+        private void HandleEnter(BattleButtonType type)
+        {
+            switch (type)
+            {
+                case BattleButtonType.Exit:
+                    break;
+                case BattleButtonType.Info:
+                    break;
+                case BattleButtonType.Wait:
+                    var active = _battleTurnsService.GetCurrentActiveGameObject();
+                    _atbService.BuildWaitPreview(activeGameObjectId: active.Id, isWait: true);
+                    break;
+                case BattleButtonType.Defence:
+                    break;
+                case BattleButtonType.UseAbility:
+                    break;
+                case BattleButtonType.OpenMagicBook:
+                    break;
+                case BattleButtonType.MeleeAttack:
+                    break;
+            }
+        }
+
+        private void HandleExit(BattleButtonType type)
+        {
+            switch (type)
+            {
+                case BattleButtonType.Exit:
+                    break;
+                case BattleButtonType.Info:
+                    break;
+                case BattleButtonType.Wait:
+                    _atbService.CancelWaitPreview();
+                    break;
+                case BattleButtonType.Defence:
                     break;
                 case BattleButtonType.UseAbility:
                     break;

@@ -29,7 +29,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
 
         private List<GameEntity> _atb = new();
 
-        private List<GameObject> _gameObject = new();
+        private readonly Dictionary<Guid, GameObject> _gameObjectsById = new();
         private List<GameEntityInitiative> _initiatives = new();
 
         public Observable<IReadOnlyList<GameEntity>> OnAtbGenerated => _atbGenerated.AsObservable();
@@ -50,12 +50,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
             var initiatives = gameObjects
                 .Select(gameObject => new GameEntityInitiative(gameObject.Id, gameObject.Initiative))
                 .ToList();
-
-            var snapshot = atb.Select(item => new GameEntity
-            {
-                GameEntityId = item.GameEntityId,
-                Position = item.Position
-            }).ToList();
+            var snapshot = CloneAtb(atb);
 
             var result = _atbCalculator.GetNextTurn(new ATBCalculationContext()
             {
@@ -97,8 +92,6 @@ namespace Assets.Scripts.Services.Implementations.Battle
 
         public void PredictNextTurns()
         {
-            var byId = _gameObject.ToDictionary(gameObject => gameObject.Id);
-
             var turnOrder = _atbCalculator.PredictNextTurns(
                 new ATBCalculationContext
                 {
@@ -107,30 +100,12 @@ namespace Assets.Scripts.Services.Implementations.Battle
                 },
                 countTurns: 300);
 
-            var atbItems = turnOrder.Select(id =>
-            {
-                var obj = byId[id];
-                int? count = (obj as Unit)?.Count;
-
-                return new ATBItem(
-                    id: obj.Id,
-                    name: obj.Name,
-                    playerId: obj.OwnerId.GetValueOrDefault(),
-                    count: count);
-            }).ToList();
-
-            _turnOrderGenerated.OnNext(atbItems);
+            _turnOrderGenerated.OnNext(CreateAtbItems(turnOrder));
         }
 
         public void BuildWaitPreview(Guid unitId, bool isWait = false, double shiftFactor = 0.5)
         {
-            var byId = _gameObject.ToDictionary(gameObject => gameObject.Id);
-
-            var snapshot = _atb.Select(item => new GameEntity
-            {
-                GameEntityId = item.GameEntityId,
-                Position = item.Position
-            }).ToList();
+            var snapshot = CloneAtb(_atb);
 
             _atbCalculator.ShiftATBPosition(new ATBPositionShiftContext
             {
@@ -148,22 +123,21 @@ namespace Assets.Scripts.Services.Implementations.Battle
                 },
                 countTurns: 300);
 
-            var atbItems = turnOrder.Select(id =>
-            {
-                var obj = byId[id];
-                int? count = (obj as Unit)?.Count;
-
-                return new ATBItem(
-                    id: obj.Id,
-                    name: obj.Name,
-                    playerId: obj.OwnerId.GetValueOrDefault(),
-                    count: count);
-            }).ToList();
-
-            _turnOrderPreview.OnNext((atbItems, unitId));
+            _turnOrderPreview.OnNext((CreateAtbItems(turnOrder), unitId));
         }
 
         public void CancelWaitPreview() => _cancelTurnOrderPreview.OnNext(R3.Unit.Default);
+
+        private List<GameEntity> CloneAtb(IReadOnlyList<GameEntity> atb)
+        {
+            var snapshot = atb.Select(item => new GameEntity
+            {
+                GameEntityId = item.GameEntityId,
+                Position = item.Position 
+            }).ToList();
+
+            return snapshot;
+        }
 
         private void SetAtbCache(List<GameEntity> atb)
         {
@@ -172,8 +146,25 @@ namespace Assets.Scripts.Services.Implementations.Battle
 
         private void SetGameObjectsCache(List<GameObject> gameObjects, List<GameEntityInitiative> initiatives)
         {
-            _gameObject = gameObjects;
             _initiatives = initiatives;
+
+            _gameObjectsById.Clear();
+            foreach (var gameObject in gameObjects)
+            {
+                _gameObjectsById[gameObject.Id] = gameObject;
+            }
+        }
+
+        private IReadOnlyList<ATBItem> CreateAtbItems(IEnumerable<Guid> order)
+        {
+            var list = new List<ATBItem>();
+            foreach (var id in order)
+            {
+                var obj = _gameObjectsById[id];
+                int? cnt = (obj as Unit)?.Count;
+                list.Add(new ATBItem(id, obj.Name, obj.OwnerId.GetValueOrDefault(), cnt));
+            }
+            return list;
         }
     }
 }

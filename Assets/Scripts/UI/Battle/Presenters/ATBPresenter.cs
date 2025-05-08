@@ -144,6 +144,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 }
                 return false;
             });
+            _cachedTurnOrder.RemoveAll(item => item.Id == unitId);
         }
     }
 }
