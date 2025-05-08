@@ -25,6 +25,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private readonly CompositeDisposable _disposables = new();
 
         private readonly List<ATBItemView> _atb = new();
+        private readonly List<ATBItem> _cachedTurnOrder = new();
 
         [Inject] private readonly DiContainer _container;
         [Inject] private readonly IATBService _atbService;
@@ -42,7 +43,20 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private void BindStreams()
         {
             _atbService.OnTurnOrderGenerated
-                .Subscribe(turnOrder => SetAtb(turnOrder))
+                .Subscribe(turnOrder =>
+                {
+                    _cachedTurnOrder.Clear();
+                    SetAtb(turnOrder);
+                    _cachedTurnOrder.AddRange(turnOrder);
+                })
+                .AddTo(_disposables);
+
+            _atbService.OnTurnOrderPreview
+                .Subscribe(tuple => SetAtb(tuple.Items, tuple.HighlightId))
+                .AddTo(_disposables);
+
+            _atbService.OnCancelTurnOrderPreview
+                .Subscribe(_ => SetAtb(_cachedTurnOrder))
                 .AddTo(_disposables);
 
             _battleTurnsService.OnTurnEnded
@@ -54,7 +68,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 .AddTo(_disposables);
         }
 
-        private void SetAtb(IReadOnlyList<ATBItem> items)
+        private void SetAtb(IReadOnlyList<ATBItem> items, Guid? highlightId = null)
         {
             foreach (var view in _atb)
             {
@@ -66,6 +80,16 @@ namespace Assets.Scripts.UI.Battle.Presenters
             {
                 var color = _playerColorsService.GetRgb24(item.PlayerId).ToColor();
                 var view = _container.InstantiatePrefabForComponent<ATBItemView>(_atbItemPrefab, _atbContainer, new object[] { item, color });
+
+                if (highlightId.HasValue && item.Id == highlightId.Value)
+                {
+                    view.SetHighlight(true);
+                }
+                else
+                {
+                    view.SetHighlight(false);
+                }
+
                 _atb.Add(view);
             }
         }
@@ -84,15 +108,28 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private void UpdateUnitCountInATB(Guid unitId, int newCount)
         {
-            _atb.Where(view => view.Data.Id == unitId)
+            _atb
+                .Where(view => view.Data.Id == unitId)
                 .ToList()
                 .ForEach(view => view.UpdateCount(newCount));
+
+            _cachedTurnOrder
+                .Where(item => item.Id == unitId)
+                .ToList()
+                .ForEach(item => item.Count = newCount);
         }
 
         private void RemoveATBItem(Guid atbItemId)
         {
             var view = _atb.FirstOrDefault(atbItem => atbItem.Data.Id == atbItemId);
             _atb.Remove(view);
+
+            int index = _cachedTurnOrder.FindIndex(item => item.Id == atbItemId);
+            if (index >= 0)
+            {
+                _cachedTurnOrder.RemoveAt(index);
+            }
+
             Destroy(view.gameObject);
         }
 

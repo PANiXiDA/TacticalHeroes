@@ -17,6 +17,8 @@ namespace Assets.Scripts.UI.Battle.Presenters
     {
         [Inject] private readonly IButtonStatesService _buttonStatesService;
         [Inject] private readonly IBattleActionsFacade _battleActionsFacade;
+        [Inject] private readonly IBattleTurnsService _battleTurnsService;
+        [Inject] private readonly IATBService _atbService;
 
         private readonly CompositeDisposable _disposables = new();
 
@@ -47,6 +49,20 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 .Where(item => item.Type == _view.GetButtonType())
                 .Subscribe(item => _view.SetActive(item.IsActive))
                 .AddTo(_disposables);
+
+            _input.OnEnter
+              .Where(_ => _view.GetButtonType() == BattleButtonType.Wait)
+              .Subscribe(_ =>
+              {
+                  var activeGameObject = _battleTurnsService.GetCurrentActiveGameObject();
+                  _atbService.BuildWaitPreview(activeGameObjectId: activeGameObject.Id, isWait: true);
+              })
+              .AddTo(_disposables);
+
+            _input.OnExit
+              .Where(_ => _view.GetButtonType() == BattleButtonType.Wait)
+              .Subscribe(_ => _atbService.CancelWaitPreview())
+              .AddTo(_disposables);
         }
 
         private void HandleClick(BattleButtonType buttonType)

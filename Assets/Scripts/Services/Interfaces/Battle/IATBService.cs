@@ -13,11 +13,15 @@ namespace Assets.Scripts.Services.Interfaces.Battle
     {
         Observable<IReadOnlyList<GameEntity>> OnAtbGenerated { get; }
         Observable<IReadOnlyList<ATBItem>> OnTurnOrderGenerated { get; }
+        Observable<(IReadOnlyList<ATBItem> Items, Guid HighlightId)> OnTurnOrderPreview { get; }
+        Observable<R3.Unit> OnCancelTurnOrderPreview { get; }
         double GetGameObjectAtbPosition(Guid id);
         List<GameEntity> GetAtb();
-        void SetAtb(List<GameObject> gameObjects);
         ATBNextTurnResult GetNextTurn(List<GameObject> gameObjects, List<GameEntity> atb);
+        void SetAtb(List<GameObject> gameObjects);
         void UpdateAtb(Guid activeGameObjectId, bool isWait = false, double shiftFactor = 0.5);
         void PredictNextTurns();
+        void BuildWaitPreview(Guid activeGameObjectId, bool isWait = false, double shiftFactor = 0.5);
+        void CancelWaitPreview();
     }
 }

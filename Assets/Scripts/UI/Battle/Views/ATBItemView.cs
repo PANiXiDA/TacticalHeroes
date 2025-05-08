@@ -18,6 +18,7 @@ namespace Assets.Scripts.UI.Battle.Views
         [SerializeField] private Image _frame;
         [SerializeField] private Image _avatar;
         [SerializeField] private TextMeshProUGUI _countText;
+        [SerializeField] private Image _highlight;
 
         [Inject] public ATBItem Data { get; private set; }
         [Inject] public Color FrameColor { get; private set; }
@@ -28,6 +29,8 @@ namespace Assets.Scripts.UI.Battle.Views
         }
 
         private void OnDestroy() => Addressables.Release(_avatar.sprite);
+
+        public void SetHighlight(bool flag) => _highlight.gameObject.SetActive(flag);
 
         public void UpdateCount(int newCount)
         {

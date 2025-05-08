@@ -20,7 +20,7 @@ namespace Assets.Scripts.Services.Implementations
             var firstPlayer = new PlayerBattleData(
                 id: 1,
                 sessionId: null,
-                buildId: Guid.Parse("f6bfec27-6fae-4e47-80f8-e8185f237d1a"),
+                buildId: Guid.Parse("2927a215-549b-496a-afd8-8163ec85970a"),
                 countMissedMoves: 0,
                 side: PlayerSide.Left,
                 teamNumber: 1,
@@ -31,7 +31,7 @@ namespace Assets.Scripts.Services.Implementations
             var secondPlayer = new PlayerBattleData(
                 id: 2,
                 sessionId: null,
-                buildId: Guid.Parse("89e84c39-f2b4-440a-9bf0-99a693960065"),
+                buildId: Guid.Parse("5777e8cb-5bbf-4496-a06c-fe5ddcb89e96"),
                 countMissedMoves: 0,
                 side: PlayerSide.Right,
                 teamNumber: 2,
