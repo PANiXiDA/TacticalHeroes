@@ -22,7 +22,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
         private readonly IBuffsDebuffsService _buffsDebuffsService;
 
         private readonly ReplaySubject<GameObject> _turnStarted = new(1);
-        private readonly Subject<GameObject> _turnEnded = new();
+        private readonly ReplaySubject<GameObject> _turnEnded = new(1);
 
         private GameObject _currentActiveGameObject;
 

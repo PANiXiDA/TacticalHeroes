@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Assets.Scripts.Repositories.DependencyInjection
 {
-    public class RepositoriesInstaller : MonoInstaller
+    public sealed class RepositoriesInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {

@@ -22,10 +22,10 @@ namespace Assets.Scripts.Services.Implementations.Battle
     {
         private readonly IATBCalculator _atbCalculator;
 
-        private readonly Subject<IReadOnlyList<GameEntity>> _atbGenerated = new();
-        private readonly Subject<IReadOnlyList<ATBItem>> _turnOrderGenerated = new();
-        private readonly Subject<(IReadOnlyList<ATBItem> Items, Guid HighlightId)> _turnOrderPreview = new();
-        private readonly Subject<R3.Unit> _cancelTurnOrderPreview = new();
+        private readonly ReplaySubject<IReadOnlyList<GameEntity>> _atbGenerated = new(1);
+        private readonly ReplaySubject<IReadOnlyList<ATBItem>> _turnOrderGenerated = new(1);
+        private readonly ReplaySubject<(IReadOnlyList<ATBItem> Items, Guid HighlightId)> _turnOrderPreview = new(1);
+        private readonly ReplaySubject<R3.Unit> _cancelTurnOrderPreview = new(1);
 
         private List<GameEntity> _atb = new();
 

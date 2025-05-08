@@ -1,0 +1,50 @@
+﻿using Assets.Scripts.Common.Enumerations;
+using Assets.Scripts.Domain.StateMachine.Interfaces;
+using Assets.Scripts.Domain.StateMachine.Interfaces.States;
+using Assets.Scripts.Infrastructure.Models;
+using Cysharp.Threading.Tasks;
+using R3;
+using System.Collections.Generic;
+
+namespace Assets.Scripts.Domain.StateMachine.Implementations
+{
+    public sealed class BattleStateMachine : IBattleStateMachine
+    {
+        private readonly IReadOnlyDictionary<GameState, IGameState> _states;
+        private readonly GameSession _gameSession;
+
+        private readonly CompositeDisposable _disposables = new();
+
+        public GameState Current { get; private set; }
+
+        public BattleStateMachine(
+            GameSession session,
+            IReadOnlyDictionary<GameState, IGameState> states)
+        {
+            _gameSession = session;
+            _states = states;
+        }
+
+        public void Dispose() => _disposables.Dispose();
+
+        public async UniTask ChangeStateAsync(GameState next)
+        {
+            if (Current == next)
+            {
+                return;
+            }
+            if (_states.TryGetValue(Current, out var cur))
+            {
+                cur.Exit();
+            }
+
+            Current = next;
+
+            var nextState = await _states[Current].EnterAsync(_gameSession);
+            if (nextState.HasValue)
+            {
+                await ChangeStateAsync(nextState.Value);
+            }
+        }
+    }
+}

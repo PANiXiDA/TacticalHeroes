@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Assets.Scripts.UI.Battle.Core
 {
-    public class SceneContext : MonoInstaller
+    public sealed class SceneContext : MonoInstaller
     {
         public override void InstallBindings()
         {
@@ -18,6 +18,7 @@ namespace Assets.Scripts.UI.Battle.Core
             Container.Bind<AttackPreviewsPresenter>().FromComponentInHierarchy().AsSingle();
             Container.Bind<TileInfoPresenter>().FromComponentInHierarchy().AsSingle();
             Container.Bind<UnitInfoPresenter>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<SurrenderPresenter>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

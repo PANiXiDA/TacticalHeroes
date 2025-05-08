@@ -1,5 +1,5 @@
 using Assets.Scripts.Common.Enumerations;
-using Assets.Scripts.Services.Interfaces.Battle.States.Core;
+using Assets.Scripts.Domain.StateMachine.Interfaces;
 
 using UnityEngine;
 

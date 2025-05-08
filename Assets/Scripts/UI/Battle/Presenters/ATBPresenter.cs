@@ -38,7 +38,11 @@ namespace Assets.Scripts.UI.Battle.Presenters
             BindStreams();
         }
 
-        private void OnDestroy() => _disposables.Dispose();
+        private void OnDestroy()
+        {
+            _disposables.Dispose();
+            _cachedTurnOrder.Clear();
+        }
 
         private void BindStreams()
         {

@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Assets.Scripts.GameEngine.DI
 {
-    public class GameEngineInstaller : MonoInstaller
+    public sealed class GameEngineInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {

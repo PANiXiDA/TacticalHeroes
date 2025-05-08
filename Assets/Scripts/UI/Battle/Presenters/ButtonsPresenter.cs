@@ -20,6 +20,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
         [Inject] private readonly IATBService _atbService;
         [Inject] private readonly KeyboardInput _keyboardInput;
+        [Inject] private readonly SurrenderPresenter _surrenderPresenter;
 
         private readonly CompositeDisposable _disposables = new();
 
@@ -73,6 +74,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
             switch (buttonType)
             {
                 case BattleButtonType.Exit:
+                    _surrenderPresenter.Show();
                     break;
                 case BattleButtonType.Info:
                     break;

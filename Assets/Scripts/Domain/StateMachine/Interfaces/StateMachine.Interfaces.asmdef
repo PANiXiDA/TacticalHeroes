@@ -1,0 +1,18 @@
+{
+    "name": "StateMachine.Interfaces",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d5f401bdc197e654493f62592cacd760",
+        "GUID:2b5a14cbc214dd147bf012db5fda1084",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

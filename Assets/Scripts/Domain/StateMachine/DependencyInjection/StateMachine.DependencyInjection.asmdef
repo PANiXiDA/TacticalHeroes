@@ -1,0 +1,19 @@
+{
+    "name": "StateMachine.DependencyInjection",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f13eedd031f834d4db3e9027842c9c55",
+        "GUID:7f80bd92b76d0d44eb53359476152618",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:d5f401bdc197e654493f62592cacd760"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

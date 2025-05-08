@@ -5,6 +5,7 @@ using TMPro;
 
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 
 using Zenject;
@@ -23,12 +24,20 @@ namespace Assets.Scripts.UI.Battle.Views
         [Inject] public ATBItem Data { get; private set; }
         [Inject] public Color FrameColor { get; private set; }
 
+        private AsyncOperationHandle<Sprite>? _handle;
+
         private void OnEnable()
         {
             LoadAsync().Forget();
         }
 
-        private void OnDestroy() => Addressables.Release(_avatar.sprite);
+        private void OnDestroy()
+        {
+            if (_handle.HasValue)
+            {
+                Addressables.Release(_handle.Value);
+            }
+        }
 
         public void SetHighlight(bool flag) => _highlight.gameObject.SetActive(flag);
 
@@ -40,11 +49,18 @@ namespace Assets.Scripts.UI.Battle.Views
 
         private async UniTaskVoid LoadAsync()
         {
+            var cansellationToken = this.GetCancellationTokenOnDestroy();
+
             _frame.color = FrameColor;
 
-            var sprite = await Addressables.LoadAssetAsync<Sprite>($"{AddressablePrefix}/{Data.Name}");
-            _avatar.sprite = sprite;
+            _handle = Addressables.LoadAssetAsync<Sprite>($"{AddressablePrefix}/{Data.Name}");
+            var sprite = await _handle.Value.WithCancellation(cansellationToken);
+            if (cansellationToken.IsCancellationRequested)
+            {
+                return;
+            }
 
+            _avatar.sprite = sprite;
             if (Data.Count.HasValue)
             {
                 _countText.text = Data.Count.Value.ToString();
