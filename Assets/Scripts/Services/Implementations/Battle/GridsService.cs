@@ -4,7 +4,11 @@ using Assets.Scripts.GameEngine.Interfaces;
 using Assets.Scripts.Services.Interfaces.Battle;
 using R3;
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
+
+using UnityEngine;
 
 namespace Assets.Scripts.Services.Implementations.Battle
 {
@@ -31,6 +35,16 @@ namespace Assets.Scripts.Services.Implementations.Battle
         }
 
         public List<Tile> GetGrid() => _grid;
+
+        public Tile GetTile(Guid unitId) => _grid.FirstOrDefault(tile => tile.OccupiedUnitId == unitId);
+
+        public int GetDistance(Tile a, Tile b)
+        {
+            int dx = Mathf.Abs(a.X - b.X);
+            int dy = Mathf.Abs(a.Y - b.Y);
+
+            return Mathf.CeilToInt(Mathf.Sqrt(dx * dx + dy * dy));
+        }
 
         private void SetCache(List<Tile> grid)
         {

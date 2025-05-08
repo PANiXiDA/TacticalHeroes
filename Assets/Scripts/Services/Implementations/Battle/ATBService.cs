@@ -43,6 +43,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
         }
 
         public double GetGameObjectAtbPosition(Guid id) => _atb.FirstOrDefault(item => item.GameEntityId == id).Position;
+        public bool TryGetGameObject(Guid id, out GameObject gameObject) => _gameObjectsById.TryGetValue(id, out gameObject);
         public List<GameEntity> GetAtb() => _atb;
 
         public ATBNextTurnResult GetNextTurn(List<GameObject> gameObjects, List<GameEntity> atb)

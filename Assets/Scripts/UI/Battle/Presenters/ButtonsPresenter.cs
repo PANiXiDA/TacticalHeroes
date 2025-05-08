@@ -19,6 +19,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         [Inject] private readonly IBattleActionsFacade _battleActionsFacade;
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
         [Inject] private readonly IATBService _atbService;
+        [Inject] private readonly KeyboardInput _keyboardInput;
 
         private readonly CompositeDisposable _disposables = new();
 
@@ -41,6 +42,13 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private void BindStreams()
         {
+            if (_view.GetButtonType() == BattleButtonType.MeleeAttack)
+            {
+                _keyboardInput.OnShiftHeld
+                    .Subscribe(held => _buttonStatesService.Set(BattleButtonType.MeleeAttack, held))
+                    .AddTo(_disposables);
+            }
+
             _buttonStatesService.OnStateChanged
                 .Where(item => item.Type == _view.GetButtonType())
                 .Subscribe(item => _view.SetActive(item.IsActive))

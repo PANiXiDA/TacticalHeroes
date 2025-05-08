@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using Assets.Scripts.GameEngine.DTO.Enums;
 using Assets.Scripts.GameEngine.DTO.PathFinderCalculator;
@@ -12,5 +13,7 @@ namespace Assets.Scripts.Services.Interfaces.Battle
         Observable<IReadOnlyList<Tile>> OnGridGenerated { get; }
         void GenerateGrid(GameType type);
         List<Tile> GetGrid();
+        Tile GetTile(Guid unitId);
+        int GetDistance(Tile a, Tile b);
     }
 }

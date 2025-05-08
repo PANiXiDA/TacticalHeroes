@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using Assets.Scripts.Common.Enumerations;
@@ -18,7 +19,6 @@ using UnityEngine.EventSystems;
 
 using Zenject;
 
-using DomainGameObject = Assets.Scripts.GameEngine.Domain.Core.GameObject;
 using Unit = Assets.Scripts.GameEngine.Domain.Unit;
 
 namespace Assets.Scripts.UI.Battle.Presenters
@@ -35,6 +35,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
         [Inject] private readonly IMovementsService _movementsService;
         [Inject] private readonly IBattleActionsFacade _battleActionsFacade;
+        [Inject] private readonly IATBService _atbService;
 
         private readonly CompositeDisposable _disposables = new();
 
@@ -101,13 +102,81 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private bool IsEnemyTarget() => _battleTurnsService.GetCurrentActiveGameObject().OwnerId != _view.Data.OwnerId;
         private bool IsInfoClicked() => _buttonStatesService.IsActive(BattleButtonType.Info);
 
+        private bool CanMakeRangedAttack(Unit unit)
+        {
+            var isMeleeForced = _buttonStatesService.IsActive(BattleButtonType.MeleeAttack);
+            if (isMeleeForced)
+            {
+                return false;
+            }
+
+            var isRangedUnit = unit.Abilities.Any(ability => ability.Type == AbilityType.Archer);
+            if (!isRangedUnit)
+            {
+                return false;
+            }
+
+            if (!unit.Arrows.HasValue || unit.Arrows <= 0)
+            {
+                return false;
+            }
+
+            var tile = _grid.GetTile(unit.Id);
+            var hasMeleeEnemyNeighbour = _grid
+                .GetNeighbours(tile.Data.X, tile.Data.Y)
+                .Select(tile => tile.Data.OccupiedUnitId)
+                .Where(id => id != Guid.Empty && id.HasValue)
+                .Select(id =>
+                {
+                    _atbService.TryGetGameObject(id.Value, out var obj);
+                    return obj as Unit;
+                })
+                .Where(adjacentUnit => adjacentUnit != null)
+                .Any(adjacentUnit => adjacentUnit.OwnerId != unit.OwnerId);
+            if (hasMeleeEnemyNeighbour)
+            {
+                return false;
+            }
+
+
+            return true;
+        }
+
+        private bool IsDirectShoot(Unit attacker, Unit defender)
+        {
+            if (!attacker.Range.HasValue)
+            {
+                return false;
+            }
+
+            var attackerTile = _grid.GetTile(attacker.Id);
+            var defenderTile = _grid.GetTile(defender.Id);
+
+            var distance = _grid.GetDistance(attackerTile.Data, defenderTile.Data);
+
+            return attacker.Range.Value >= distance;
+        }
+
         private void HandleHover(PointerEventData evt)
         {
             var worldPos = Camera.main.ScreenToWorldPoint(evt.position);
 
-            if (_view.Data.Abilities.Any(ability => ability.Type == AbilityType.Archer))
+            var activeGameObject = _battleTurnsService.GetCurrentActiveGameObject();
+            var isRangeAttack = activeGameObject switch
             {
-                _attackPreviews.PreviewRangedAttack(_view.Data.Id, worldPos);
+                Unit unit => CanMakeRangedAttack(unit),
+                _ => true
+            };
+
+            if (isRangeAttack)
+            {
+                var directShot = activeGameObject switch
+                {
+                    Unit unit => IsDirectShoot(unit, _view.Data),
+                    _ => true
+                };
+
+                _attackPreviews.PreviewRangedAttack(_view.Data.Id, worldPos, directShot);
             }
             else
             {
@@ -117,13 +186,24 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private async UniTaskVoid HandleClick()
         {
-            var tileView = _attackPreviews.GetHighlightedTile();
-            if (tileView == null)
-            {
-                return;
-            }
+            var attacker = _battleTurnsService.GetCurrentActiveGameObject();
 
-            await _battleActionsFacade.MeleeAttackAsync(_view.Data, tileView.Data);
+            bool canRange = attacker is Unit rangedUnit && CanMakeRangedAttack(rangedUnit);
+
+            if (canRange)
+            {
+                await _battleActionsFacade.RangeAttackAsync(_view.Data);
+            }
+            else
+            {
+                var tileView = _attackPreviews.GetHighlightedTile();
+                if (tileView == null)
+                {
+                    return;
+                }
+
+                await _battleActionsFacade.MeleeAttackAsync(_view.Data, tileView.Data);
+            }
         }
 
         private void HandleMove(IReadOnlyList<Tile> tiles)

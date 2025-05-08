@@ -55,13 +55,12 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 .AddTo(_disposables);
 
             _globalInput.OnClick
-                .Subscribe(_ => TryHidePanels())
+                .Subscribe(click => TryHidePanels(click.ScreenPos))
                 .AddTo(_disposables);
         }
 
-        private void TryHidePanels()
+        private void TryHidePanels(Vector2 screenPos)
         {
-            Vector2 screenPos = Input.mousePosition;
             Camera cam = _canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _canvas.worldCamera;
 
             bool insideInfo = RectTransformUtility.RectangleContainsScreenPoint((RectTransform)_infoInput.transform, screenPos, cam);

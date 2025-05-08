@@ -49,6 +49,36 @@ public sealed class GridsPresenter : MonoBehaviour
 
     private void OnDestroy() => _disposables.Dispose();
 
+    public TileView GetTile(int x, int y) => _tiles.TryGetValue((x, y), out var tile) ? tile : null;
+    public TileView GetTile(Guid unitId) => _tiles.Values.FirstOrDefault(tile => tile.Data.OccupiedUnitId == unitId);
+    public int GetDistance(Tile a, Tile b) => _gridService.GetDistance(a, b);
+
+    public List<TileView> GetNeighbours(int x, int y, bool includeDiagonals = true)
+    {
+        var offsets = includeDiagonals
+            ? new (int dx, int dy)[]
+            {
+                ( 1,  0), ( 1, -1), ( 0, -1), (-1, -1),
+                (-1,  0), (-1,  1), ( 0,  1), ( 1,  1)
+            }
+            : new (int dx, int dy)[]
+            {
+                ( 1, 0), ( 0, -1), (-1, 0), ( 0, 1)
+            };
+
+        var neighbours = new List<TileView>();
+
+        foreach (var (dx, dy) in offsets)
+        {
+            if (_tiles.TryGetValue((x + dx, y + dy), out var neighbour))
+            {
+                neighbours.Add(neighbour);
+            }
+        }
+
+        return neighbours;
+    }
+
     private void BindStreams()
     {
         _gridService.OnGridGenerated
@@ -108,12 +138,5 @@ public sealed class GridsPresenter : MonoBehaviour
         _gridContainer.localScale = new Vector3(worldW / gridSize.x, worldH / gridSize.y, DefaultScaleZ);
         _gridContainer.position = worldBL + new Vector3((worldW / gridSize.x) * HalfCellOffset, (worldH / gridSize.y) * HalfCellOffset, DefaultZPosition);
         OnGridScaleChanged.OnNext(_gridContainer.localScale);
-    }
-
-    public TileView GetTile(int x, int y) => _tiles.TryGetValue((x, y), out var tile) ? tile : null;
-
-    public TileView GetTile(Guid unitId)
-    {
-        return _tiles.Values.FirstOrDefault(tile => tile.Data.OccupiedUnitId == unitId);
     }
 }

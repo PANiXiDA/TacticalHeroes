@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.UI.Battle.Presenters;
+﻿using Assets.Scripts.UI.Battle.Inputs;
+using Assets.Scripts.UI.Battle.Presenters;
 
 using Zenject;
 
@@ -10,6 +11,7 @@ namespace Assets.Scripts.UI.Battle.Core
         {
             Container.Bind<EntryPoint>().FromComponentInHierarchy().AsSingle();
             Container.Bind<GlobalInput>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<KeyboardInput>().FromComponentInHierarchy().AsSingle();
             Container.Bind<GridsPresenter>().FromComponentInHierarchy().AsSingle();
             Container.Bind<SpawnsPresenter>().FromComponentInHierarchy().AsSingle();
             Container.Bind<ATBPresenter>().FromComponentInHierarchy().AsSingle();

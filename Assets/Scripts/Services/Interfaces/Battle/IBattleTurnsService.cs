@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using Assets.Scripts.Domain.DTO.Models;
 using Assets.Scripts.GameEngine.Domain.Core;

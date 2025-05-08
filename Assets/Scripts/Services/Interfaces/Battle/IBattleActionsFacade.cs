@@ -19,6 +19,7 @@ namespace Assets.Scripts.Services.Interfaces.Battle
         Observable<Guid> OnWaitDone { get; }
         UniTask MoveAsync(Tile targetTile);
         UniTask MeleeAttackAsync(Unit defender, Tile targetTile);
+        UniTask RangeAttackAsync(Unit defender);
         UniTask DefenceAsync();
         UniTask WaitAsync();
     }

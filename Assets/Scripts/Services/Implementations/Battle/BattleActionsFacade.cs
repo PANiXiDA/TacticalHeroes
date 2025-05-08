@@ -73,6 +73,14 @@ namespace Assets.Scripts.Services.Implementations.Battle
             return;
         }
 
+        public async UniTask RangeAttackAsync(Unit defender)
+        {
+            var currentActiveGameObject = _battleTurnsService.GetCurrentActiveGameObject();
+            await _attacksService.RangeAttackAsync(currentActiveGameObject, defender);
+            var attackEvent = new AttackEvent(currentActiveGameObject, defender);
+            _attackDone.OnNext(attackEvent);
+        }
+
         public UniTask DefenceAsync()
         {
             var currentActiveGameObject = _battleTurnsService.GetCurrentActiveGameObject();

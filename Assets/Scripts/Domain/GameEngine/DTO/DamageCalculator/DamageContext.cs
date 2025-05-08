@@ -7,7 +7,7 @@
         public int AttackerMaxDamage { get; set; }
         public int AttackerCount { get; set; }
         public int DefenderDefence { get; set; }
-        public int DamageModifier { get; set; }
+        public double DamageModifier { get; set; }
 
         public DamageContext(
             int attackerAttack,
@@ -15,7 +15,7 @@
             int attackerMaxDamage,
             int attackerCount,
             int defenderDefence,
-            int damageModifier)
+            double damageModifier)
         {
             AttackerAttack = attackerAttack;
             AttackerMinDamage = attackerMinDamage;

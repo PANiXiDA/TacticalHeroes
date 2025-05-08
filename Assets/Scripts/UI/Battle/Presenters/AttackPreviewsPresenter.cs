@@ -90,8 +90,8 @@ namespace Assets.Scripts.UI.Battle.Presenters
         public void PreviewRangedAttack(Guid unitId, Vector2 pointerWorldPosition, bool directShot = false)
         {
             var weaponType = directShot
-                ? WeaponType.BrokenRanged
-                : WeaponType.Ranged;
+                ? WeaponType.Ranged
+                : WeaponType.BrokenRanged;
 
             PreviewAttack(unitId, pointerWorldPosition, weaponType);
         }
@@ -111,13 +111,15 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 }
             }
 
-            if (!TryGetAttackOrigin(unitId, pointerWorldPosition, out var tileView, out var orientation))
+            var isRangeAttack = weaponType != WeaponType.Melee;
+
+            if (!TryGetAttackOrigin(unitId, pointerWorldPosition, isRangeAttack, out var tileView, out var orientation))
             {
                 Hide();
                 return;
             }
 
-            if (_currentHighlightedTile != tileView)
+            if (_currentHighlightedTile != tileView && !isRangeAttack)
             {
                 if (_currentHighlightedTile != null)
                 {
@@ -147,6 +149,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private bool TryGetAttackOrigin(
             Guid unitId,
             Vector2 pointerWorldPosition,
+            bool isRangeAttack,
             out TileView tileView,
             out AttackOrientation orientation)
         {
@@ -163,7 +166,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
             })
             {
                 var neighbourTile = _grid.GetTile(tx + dx, ty + dy);
-                if (neighbourTile != null && _reachableTiles.Contains(neighbourTile.Data))
+                if (neighbourTile != null && (_reachableTiles.Contains(neighbourTile.Data) || isRangeAttack))
                 {
                     candidates.Add((dx, dy, neighbourTile));
                 }

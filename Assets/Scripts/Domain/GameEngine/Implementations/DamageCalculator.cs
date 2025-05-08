@@ -19,8 +19,7 @@ namespace Assets.Scripts.GameEngine.Implementations
                 + Epsilon;
 
             int delta = context.AttackerAttack - context.DefenderDefence;
-            double multiplier = Math.Pow(MinimalStatsModifier
-                + StatsModifierCoefficient * Math.Abs(delta), Math.Sign(delta));
+            double multiplier = Math.Pow(MinimalStatsModifier + StatsModifierCoefficient * Math.Abs(delta), Math.Sign(delta));
 
             int damageOneObject = Convert.ToInt32(baseRandomDamage * multiplier);
             int damageManyObjects = context.AttackerCount * damageOneObject;
@@ -30,40 +29,17 @@ namespace Assets.Scripts.GameEngine.Implementations
             return finalDamage;
         }
 
-        public DamageResult ComputeCasualties(DefenderTakeDamageContext context)
+        public DamageResult ComputeCasualties(DefenderTakeDamageContext ctx)
         {
-            int damageLeft = context.AttackerDamage;
-            int deadUnits = 0;
-            int remainingHealth = 0;
+            int totalHpBeforeAttack = ctx.DefenderCurrentHealth + (ctx.DefenderCount - 1) * ctx.DefenderFullHealth;
+            int totalHpAfterAttack = Math.Max(totalHpBeforeAttack - ctx.AttackerDamage, 0);
 
-            if (damageLeft >= context.DefenderCurrentHealth)
-            {
-                damageLeft -= context.DefenderCurrentHealth;
-                deadUnits++;
-            }
-            else
-            {
-                remainingHealth = context.DefenderCurrentHealth - damageLeft;
-                damageLeft = 0;
-            }
+            int survivingUnits = (totalHpAfterAttack + ctx.DefenderFullHealth - 1) / ctx.DefenderFullHealth;
+            int deadUnits = ctx.DefenderCount - survivingUnits;
 
-            if (damageLeft > 0)
-            {
-                int fullUnitDeaths = damageLeft / context.DefenderFullHealth;
-                deadUnits += fullUnitDeaths;
-                damageLeft %= context.DefenderFullHealth;
-            }
-
-            int survivingUnits = Math.Max(context.DefenderCount - deadUnits, 0);
-
-            if (survivingUnits > 0)
-            {
-                remainingHealth = context.DefenderFullHealth - damageLeft;
-            }
-            else
-            {
-                remainingHealth = 0;
-            }
+            int remainingHealth = survivingUnits > 0
+                ? totalHpAfterAttack - (survivingUnits - 1) * ctx.DefenderFullHealth
+                : 0;
 
             return new DamageResult(
                 deadUnits: deadUnits,
@@ -71,5 +47,6 @@ namespace Assets.Scripts.GameEngine.Implementations
                 remainingHealth: remainingHealth
             );
         }
+
     }
 }

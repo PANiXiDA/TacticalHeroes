@@ -14,8 +14,9 @@ namespace Assets.Scripts.Services.Interfaces.Battle
         Observable<IReadOnlyList<GameEntity>> OnAtbGenerated { get; }
         Observable<IReadOnlyList<ATBItem>> OnTurnOrderGenerated { get; }
         Observable<(IReadOnlyList<ATBItem> Items, Guid HighlightId)> OnTurnOrderPreview { get; }
-        Observable<R3.Unit> OnCancelTurnOrderPreview { get; }
+        Observable<Unit> OnCancelTurnOrderPreview { get; }
         double GetGameObjectAtbPosition(Guid id);
+        bool TryGetGameObject(Guid id, out GameObject gameObject);
         List<GameEntity> GetAtb();
         ATBNextTurnResult GetNextTurn(List<GameObject> gameObjects, List<GameEntity> atb);
         void SetAtb(List<GameObject> gameObjects);
