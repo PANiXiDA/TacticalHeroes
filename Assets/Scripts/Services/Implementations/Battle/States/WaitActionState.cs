@@ -31,6 +31,10 @@ namespace Assets.Scripts.Services.Implementations.Battle.States
 
                     _battleActionsFacade.OnDefenceDone.Do(_ =>
                         gameSession.RoundState.LastCommand = CommandType.Defence)
+                        .Select(_ => GameState.ApplyAction),
+
+                    _battleActionsFacade.OnWaitDone.Do(_ =>
+                        gameSession.RoundState.LastCommand = CommandType.Wait)
                         .Select(_ => GameState.ApplyAction))
                 .FirstAsync();
         }

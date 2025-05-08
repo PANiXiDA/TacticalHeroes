@@ -56,6 +56,12 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         private void SetAtb(IReadOnlyList<ATBItem> items)
         {
+            foreach (var view in _atb)
+            {
+                Destroy(view.gameObject);
+            }
+            _atb.Clear();
+
             foreach (var item in items)
             {
                 var color = _playerColorsService.GetRgb24(item.PlayerId).ToColor();

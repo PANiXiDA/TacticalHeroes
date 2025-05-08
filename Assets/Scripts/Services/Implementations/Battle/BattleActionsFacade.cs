@@ -22,25 +22,30 @@ namespace Assets.Scripts.Services.Implementations.Battle
         private readonly IMovementsService _movementsService;
         private readonly IAttacksService _attacksService;
         private readonly IBuffsDebuffsService _buffsDebuffsService;
+        private readonly IATBService _atbService;
 
         private readonly Subject<Guid> _movementCompleted = new();
         private readonly Subject<AttackEvent> _attackDone = new();
         private readonly Subject<Guid> _defenceDone = new();
+        private readonly Subject<Guid> _waitDone = new();
 
         public Observable<Guid> OnMovementCompleted => _movementCompleted.AsObservable();
         public Observable<AttackEvent> OnAttackDone => _attackDone.AsObservable();
         public Observable<Guid> OnDefenceDone => _defenceDone.AsObservable();
+        public Observable<Guid> OnWaitDone => _waitDone.AsObservable();
 
         public BattleActionsFacade(
             IBattleTurnsService battleTurnsService,
             IMovementsService movementsService,
             IAttacksService attacksService,
-            IBuffsDebuffsService buffsDebuffsService)
+            IBuffsDebuffsService buffsDebuffsService,
+            IATBService atbService)
         {
             _battleTurnsService = battleTurnsService;
             _movementsService = movementsService;
             _attacksService = attacksService;
             _buffsDebuffsService = buffsDebuffsService;
+            _atbService = atbService;
         }
 
         public async UniTask MoveAsync(Tile targetTile)
@@ -73,11 +78,22 @@ namespace Assets.Scripts.Services.Implementations.Battle
             var currentActiveGameObject = _battleTurnsService.GetCurrentActiveGameObject();
             if (currentActiveGameObject is Unit unit)
             {
-                var position = _battleTurnsService.GetGameObjectAtbPosition(unit.Id);
+                var position = _atbService.GetGameObjectAtbPosition(unit.Id);
                 var duration = (EndPosition - position) / unit.EffectiveInitiative();
                 _buffsDebuffsService.AddDefenceEffect(unit, duration);
             }
             _defenceDone.OnNext(currentActiveGameObject.Id);
+
+            return UniTask.CompletedTask;
+        }
+
+        public UniTask WaitAsync()
+        {
+            var currentActiveGameObject = _battleTurnsService.GetCurrentActiveGameObject();
+            _atbService.UpdateAtb(
+                activeGameObjectId: currentActiveGameObject.Id,
+                isWait: true);
+            _waitDone.OnNext(currentActiveGameObject.Id);
 
             return UniTask.CompletedTask;
         }

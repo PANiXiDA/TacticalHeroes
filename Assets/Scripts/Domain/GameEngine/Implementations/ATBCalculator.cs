@@ -38,8 +38,16 @@ namespace Assets.Scripts.GameEngine.Implementations
 
         public List<GameEntity> ShiftATBPosition(ATBPositionShiftContext request)
         {
-            var unitState = request.CurrentATBState.First(state => state.GameEntityId == request.UnitId);
-            unitState.Position += unitState.Position * request.ShiftFactor;
+            var unitState = request.CurrentATBState.First(state => state.GameEntityId == request.GameObjectId);
+
+            if (request.IsWait)
+            {
+                unitState.Position += (EndPosition - unitState.Position) * request.ShiftFactor;
+            }
+            else
+            {
+                unitState.Position += unitState.Position * request.ShiftFactor;
+            }
 
             return request.CurrentATBState;
         }

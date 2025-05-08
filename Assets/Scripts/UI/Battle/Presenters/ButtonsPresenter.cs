@@ -59,6 +59,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 case BattleButtonType.Info:
                     break;
                 case BattleButtonType.Wait:
+                    _battleActionsFacade.WaitAsync();
                     break;
                 case BattleButtonType.Defence:
                     _battleActionsFacade.DefenceAsync();

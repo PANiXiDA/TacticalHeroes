@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-using Assets.Scripts.GameEngine.Interfaces;
 using Assets.Scripts.Services.Interfaces.Battle;
 
 using R3;
@@ -13,46 +12,39 @@ using Assets.Scripts.Domain.DTO.Models;
 
 using Unit = Assets.Scripts.GameEngine.Domain.Unit;
 using Assets.Scripts.GameEngine.DTO.PathFinderCalculator;
-using System;
+using Assets.Scripts.Common.Enumerations;
 
 namespace Assets.Scripts.Services.Implementations.Battle
 {
     public sealed class BattleTurnsService : IBattleTurnsService
     {
-        private readonly IATBCalculator _atbCalculator;
+        private readonly IATBService _atbService;
         private readonly IBuffsDebuffsService _buffsDebuffsService;
 
         private readonly ReplaySubject<GameObject> _turnStarted = new(1);
         private readonly Subject<GameObject> _turnEnded = new();
 
         private GameObject _currentActiveGameObject;
-        private List<GameEntity> _nextAtb = new();
 
         public Observable<GameObject> OnTurnStarted => _turnStarted.AsObservable();
         public Observable<GameObject> OnTurnEnded => _turnEnded.AsObservable();
 
         public BattleTurnsService(
-            IATBCalculator atbCalculator,
+            IATBService atbService,
             IBuffsDebuffsService buffsDebuffsService)
         {
-            _atbCalculator = atbCalculator;
+            _atbService = atbService;
             _buffsDebuffsService = buffsDebuffsService;
         }
 
+        public GameObject GetCurrentActiveGameObject() => _currentActiveGameObject;
+
         public UniTask StartNextTurnAsync(List<GameObject> gameObjects, List<GameEntity> atb)
         {
-            var initiatives = gameObjects
-                .Select(gameObject => new GameEntityInitiative(gameObject.Id, gameObject.Initiative))
-                .ToList();
-
-            var result = _atbCalculator.GetNextTurn(new ATBCalculationContext()
-            {
-                GameEntitiesInitiatives = initiatives,
-                CurrentATBState = atb
-            });
+            var result = _atbService.GetNextTurn(gameObjects, atb);
 
             _buffsDebuffsService.TickAllEffects(gameObjects.OfType<Unit>().ToList(), result.DeltaTime);
-            SetCache(gameObjects.FirstOrDefault(item => item.Id == result.NextGameObjectId), result.UpdatedATBState);
+            SetCache(gameObjects.FirstOrDefault(item => item.Id == result.NextGameObjectId));
 
             _turnStarted.OnNext(_currentActiveGameObject);
 
@@ -64,25 +56,26 @@ namespace Assets.Scripts.Services.Implementations.Battle
             RemoveDeadUnits(roundState.Units);
             ClearGridFromDeadUnits(roundState.Grid, roundState.Units);
             gameHistory.Add(roundState);
-            roundState.ATB = _nextAtb;
+            roundState.ATB = _atbService.GetAtb();
 
             _turnEnded.OnNext(_currentActiveGameObject);
+
+            if (roundState.LastCommand == CommandType.Wait)
+            {
+                _atbService.PredictNextTurns();
+            }
 
             return UniTask.CompletedTask;
         }
 
-        public GameObject GetCurrentActiveGameObject() => _currentActiveGameObject;
-        public double GetGameObjectAtbPosition(Guid id) => _nextAtb.FirstOrDefault(item => item.GameEntityId == id).Position;
-
-        private void SetCache(GameObject gameObject, List<GameEntity> atb)
+        private void SetCache(GameObject gameObject)
         {
             _currentActiveGameObject = gameObject;
-            _nextAtb = atb;
         }
 
         private void RemoveDeadUnits(List<Unit> units)
         {
-            _nextAtb.RemoveAll(atbItem => units.Any(unit => unit.Id == atbItem.GameEntityId && unit.Count <= 0));
+            _atbService.GetAtb().RemoveAll(atbItem => units.Any(unit => unit.Id == atbItem.GameEntityId && unit.Count <= 0));
             units.RemoveAll(unit => unit.Count <= 0);
         }
 
