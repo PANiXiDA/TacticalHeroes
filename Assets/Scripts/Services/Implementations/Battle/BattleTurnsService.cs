@@ -46,7 +46,9 @@ namespace Assets.Scripts.Services.Implementations.Battle
             _buffsDebuffsService.TickAllEffects(gameObjects.OfType<Unit>().ToList(), result.DeltaTime);
             SetCache(gameObjects.FirstOrDefault(item => item.Id == result.NextGameObjectId));
 
-            _turnStarted.OnNext(_currentActiveGameObject);
+            UpdateCurrentActiveGameObjectStats(GetCurrentActiveGameObject());
+
+            _turnStarted.OnNext(GetCurrentActiveGameObject());
 
             return UniTask.CompletedTask;
         }
@@ -58,7 +60,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
             gameHistory.Add(roundState);
             roundState.ATB = _atbService.GetAtb();
 
-            _turnEnded.OnNext(_currentActiveGameObject);
+            _turnEnded.OnNext(GetCurrentActiveGameObject());
 
             if (roundState.LastCommand == CommandType.Wait)
             {
@@ -71,6 +73,14 @@ namespace Assets.Scripts.Services.Implementations.Battle
         private void SetCache(GameObject gameObject)
         {
             _currentActiveGameObject = gameObject;
+        }
+
+        private void UpdateCurrentActiveGameObjectStats(GameObject gameObject)
+        {
+            if (gameObject is Unit unit)
+            {
+                unit.HasResponseMeleeAttack = true;
+            }
         }
 
         private void RemoveDeadUnits(List<Unit> units)

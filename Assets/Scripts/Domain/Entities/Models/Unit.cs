@@ -75,6 +75,7 @@ namespace Assets.Scripts.Domain.Entities.Models
                 arrows: entity.Arrows,
                 morale: entity.Morale,
                 luck: entity.Luck,
+                hasResponseMeleeAttack: true,
                 count: 1)
             {
                 Abilities = Ability.MapToDomains(entity.Abilities),

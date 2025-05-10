@@ -7,13 +7,19 @@ namespace Assets.Scripts.Domain.DTO.Models
     {
         public GameObject Attacker { get; }
         public Unit Defender { get; }
+        public int Damage { get; set; }
+        public int Deaths { get; set; }
 
         public AttackEvent(
             GameObject attacker,
-            Unit defender)
+            Unit defender,
+            int damage,
+            int deaths)
         {
             Attacker = attacker;
             Defender = defender;
+            Damage = damage;
+            Deaths = deaths;
         }
     }
 }

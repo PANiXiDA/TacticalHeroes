@@ -34,6 +34,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         [Inject] private readonly IButtonStatesService _buttonStatesService;
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
         [Inject] private readonly IMovementsService _movementsService;
+        [Inject] private readonly IAttacksService _attacksService;
         [Inject] private readonly IBattleActionsFacade _battleActionsFacade;
         [Inject] private readonly IATBService _atbService;
 
@@ -66,8 +67,8 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 .Subscribe(path => HandleMove(path.Tiles))
                 .AddTo(_disposables);
 
-            _battleActionsFacade.OnAttackDone
-                .Subscribe(attackEvent => AttackDone(attackEvent))
+            _attacksService.OnAttackPrepared
+                .Subscribe(attackEvent => AttackDone(attackEvent).Forget())
                 .AddTo(_disposables);
         }
 
@@ -218,37 +219,47 @@ namespace Assets.Scripts.UI.Battle.Presenters
             }).Forget();
         }
 
-        private void AttackDone(AttackEvent attackEvent)
+        private async UniTask AttackDone(List<AttackEvent> attackEvents)
         {
-            if (attackEvent.Attacker.Id == _view.Data.Id)
+            var rootId = attackEvents.First().Attacker.Id;
+
+            foreach (var attackEvent in attackEvents)
             {
-                HandleAttack(attackEvent.Defender);
+                if (attackEvent.Attacker.Id == _view.Data.Id)
+                {
+                    await HandleAttack(attackEvent.Defender);
+                }
+                if (attackEvent.Defender.Id == _view.Data.Id && attackEvent.Attacker is Unit attacker)
+                {
+                    await HandleDefend(attacker);
+                }
             }
-            if (attackEvent.Defender.Id == _view.Data.Id && attackEvent.Attacker is Unit attacker)
+
+            if (_view.Data.Id == rootId)
             {
-                HandleDefend(attacker);
+                _attacksService.NotifyAttackCompleted(rootId);
             }
         }
 
-        private void HandleAttack(Unit defender)
+        private async UniTask HandleAttack(Unit defender)
         {
             var defenderTile = _grid.GetTile(defender.Id);
             var defenderPosition = defenderTile.transform.position;
-            _view.AttackAsync(defenderPosition).Forget();
+            await _view.AttackAsync(defenderPosition);
         }
 
-        private void HandleDefend(Unit attacker)
+        private async UniTask HandleDefend(Unit attacker)
         {
             var attackerTile = _grid.GetTile(attacker.Id);
             var attackerPosition = attackerTile.transform.position;
             
             if (_view.Data.Count > 0)
             {
-                _view.TakeDamageAsync(attackerPosition).Forget();
+                await _view.TakeDamageAsync(attackerPosition);
             }
             else
             {
-                _view.DeathAsync(attackerPosition).Forget();
+                await _view.DeathAsync(attackerPosition);
             }
         }
     }

@@ -9,7 +9,18 @@ namespace Assets.Scripts.Services.Implementations
 {
     public class GameSessionsFactory : IGameSessionsFactory
     {
-        public GameSessionsFactory() { }
+        private static readonly Guid[] AvailableBuildIds = new[]
+        {
+            Guid.Parse("2927a215-549b-496a-afd8-8163ec85970a"),
+            Guid.Parse("5777e8cb-5bbf-4496-a06c-fe5ddcb89e96"),
+        };
+
+        private Random _random;
+
+        public GameSessionsFactory()
+        {
+            _random = new Random();
+        }
 
         public GameSession CreateDefault()
         {
@@ -20,7 +31,7 @@ namespace Assets.Scripts.Services.Implementations
             var firstPlayer = new PlayerBattleData(
                 id: 1,
                 sessionId: null,
-                buildId: Guid.Parse("2927a215-549b-496a-afd8-8163ec85970a"),
+                buildId: GetRandomBuildId(),
                 countMissedMoves: 0,
                 side: PlayerSide.Left,
                 teamNumber: 1,
@@ -31,7 +42,7 @@ namespace Assets.Scripts.Services.Implementations
             var secondPlayer = new PlayerBattleData(
                 id: 2,
                 sessionId: null,
-                buildId: Guid.Parse("5777e8cb-5bbf-4496-a06c-fe5ddcb89e96"),
+                buildId: GetRandomBuildId(),
                 countMissedMoves: 0,
                 side: PlayerSide.Right,
                 teamNumber: 2,
@@ -40,6 +51,12 @@ namespace Assets.Scripts.Services.Implementations
             gameSession.Players.Add(secondPlayer);
 
             return gameSession;
+        }
+
+        private Guid GetRandomBuildId()
+        {
+            int index = _random.Next(AvailableBuildIds.Length);
+            return AvailableBuildIds[index];
         }
     }
 }

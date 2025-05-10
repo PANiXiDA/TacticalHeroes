@@ -29,6 +29,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
         [Inject] private readonly DiContainer _container;
         [Inject] private readonly IATBService _atbService;
+        [Inject] private readonly IAttacksService _attacksService;
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
         [Inject] private readonly IPlayerColorsService _playerColorsService;
         [Inject] private readonly IBattleActionsFacade _battleActionsFacade;
@@ -38,11 +39,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
             BindStreams();
         }
 
-        private void OnDestroy()
-        {
-            _disposables.Dispose();
-            _cachedTurnOrder.Clear();
-        }
+        private void OnDestroy() => _disposables.Dispose();
 
         private void BindStreams()
         {
@@ -67,7 +64,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 .Subscribe(currentActiveGameObject => RemoveATBItem(currentActiveGameObject.Id))
                 .AddTo(_disposables);
 
-            _battleActionsFacade.OnAttackDone
+            _attacksService.OnAttackPrepared
                 .Subscribe(attackEvent => AttackDone(attackEvent))
                 .AddTo(_disposables);
         }
@@ -98,15 +95,18 @@ namespace Assets.Scripts.UI.Battle.Presenters
             }
         }
 
-        private void AttackDone(AttackEvent attackEvent)
+        private void AttackDone(List<AttackEvent> attackEvents)
         {
-            if (attackEvent.Defender.Count > 0)
+            foreach (var attackEvent in attackEvents)
             {
-                UpdateUnitCountInATB(attackEvent.Defender.Id, attackEvent.Defender.Count);
-            }
-            else
-            {
-                RemoveUnitFromATB(attackEvent.Defender.Id);
+                if (attackEvent.Defender.Count > 0)
+                {
+                    UpdateUnitCountInATB(attackEvent.Defender.Id, attackEvent.Defender.Count);
+                }
+                else
+                {
+                    RemoveUnitFromATB(attackEvent.Defender.Id);
+                }
             }
         }
 

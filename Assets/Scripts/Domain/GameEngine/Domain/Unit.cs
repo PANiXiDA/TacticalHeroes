@@ -17,6 +17,8 @@ namespace Assets.Scripts.GameEngine.Domain
         public int? Range { get; set; }
         public int? Arrows { get; set; }
         public int Count { get; set; }
+        public bool HasResponseMeleeAttack { get; set; }
+        public bool HasResponseRangeAttack { get; set; }
 
         public List<Ability> Abilities { get; set; }
         public List<Effect> Effects { get; set; }
@@ -37,6 +39,8 @@ namespace Assets.Scripts.GameEngine.Domain
             int morale,
             int luck,
             int count,
+            bool hasResponseMeleeAttack,
+            bool hasResponseRangeAttack = false,
             int? ownerId = null) : base(id, name, description, attack, defence, minDamage, maxDamage, initiative, morale, luck, ownerId)
         {
             CurrentInitiative = initiative;
@@ -45,7 +49,8 @@ namespace Assets.Scripts.GameEngine.Domain
             Speed = speed;
             Range = range;
             Arrows = arrows;
-            Count = count;;
+            Count = count;
+            HasResponseMeleeAttack = hasResponseMeleeAttack;
         }
 
         public StatValue GetStatValue(StatType statType)

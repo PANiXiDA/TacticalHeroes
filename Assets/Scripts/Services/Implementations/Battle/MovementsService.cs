@@ -13,6 +13,8 @@ using Cysharp.Threading.Tasks;
 
 using R3;
 
+using UnityEditor.Experimental.GraphView;
+
 using Unit = Assets.Scripts.GameEngine.Domain.Unit;
 
 namespace Assets.Scripts.Services.Implementations.Battle
@@ -55,11 +57,12 @@ namespace Assets.Scripts.Services.Implementations.Battle
             return UniTask.CompletedTask;
         }
 
-        public UniTask MoveAsync(Tile targetTile, Unit unit)
+        public async UniTask MoveAsync(Tile targetTile, Unit unit)
         {
             if (_moveSources.ContainsKey(unit.Id))
             {
-                return _moveSources[unit.Id].Task;
+                await _moveSources[unit.Id].Task;
+                return;
             }
             _reachableTilesReceived.OnNext(Array.Empty<Tile>());
 
@@ -74,16 +77,10 @@ namespace Assets.Scripts.Services.Implementations.Battle
                 target: targetTile);
 
             var path = _pathFinderCalculator.GetPath(context);
-
             UpdateOccupiedTile(startTile, targetTile, unit);
+            await AwaitAnimationsAsync(unit.Id, path);
 
-            var movementPath = new MovementPath(unit.Id, path);
-            _pathComputed.OnNext(movementPath);
-
-            var task = new UniTaskCompletionSource();
-            _moveSources[unit.Id] = task;
-
-            return task.Task;
+            return;
         }
 
         public void NotifyMovementCompleted(Guid unitId)
@@ -93,6 +90,17 @@ namespace Assets.Scripts.Services.Implementations.Battle
                 task.TrySetResult();
                 _moveSources.Remove(unitId);
             }
+        }
+
+        private UniTask AwaitAnimationsAsync(Guid unitId, List<Tile> path)
+        {
+            var movementPath = new MovementPath(unitId, path);
+            _pathComputed.OnNext(movementPath);
+
+            var task = new UniTaskCompletionSource();
+            _moveSources[unitId] = task;
+
+            return task.Task;
         }
 
         private void UpdateOccupiedTile(Tile oldTile, Tile newTile, Unit unit)

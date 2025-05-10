@@ -1,6 +1,5 @@
 ﻿using System;
 
-using Assets.Scripts.Domain.DTO.Models;
 using Assets.Scripts.GameEngine.DTO.PathFinderCalculator;
 using Assets.Scripts.Services.Interfaces.Battle;
 
@@ -25,12 +24,12 @@ namespace Assets.Scripts.Services.Implementations.Battle
         private readonly IATBService _atbService;
 
         private readonly Subject<Guid> _movementCompleted = new();
-        private readonly Subject<AttackEvent> _attackDone = new();
+        private readonly Subject<Guid> _attackDone = new();
         private readonly Subject<Guid> _defenceDone = new();
         private readonly Subject<Guid> _waitDone = new();
 
         public Observable<Guid> OnMovementCompleted => _movementCompleted.AsObservable();
-        public Observable<AttackEvent> OnAttackDone => _attackDone.AsObservable();
+        public Observable<Guid> OnAttackDone => _attackDone.AsObservable();
         public Observable<Guid> OnDefenceDone => _defenceDone.AsObservable();
         public Observable<Guid> OnWaitDone => _waitDone.AsObservable();
 
@@ -66,8 +65,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
             if (currentActiveGameObject is Unit attacker)
             {
                 await _attacksService.MeleeAttackAsync(attacker, defender, targetTile);
-                var attackEvent = new AttackEvent(attacker, defender);
-                _attackDone.OnNext(attackEvent);
+                _attackDone.OnNext(currentActiveGameObject.Id);
             }
 
             return;
@@ -77,8 +75,9 @@ namespace Assets.Scripts.Services.Implementations.Battle
         {
             var currentActiveGameObject = _battleTurnsService.GetCurrentActiveGameObject();
             await _attacksService.RangeAttackAsync(currentActiveGameObject, defender);
-            var attackEvent = new AttackEvent(currentActiveGameObject, defender);
-            _attackDone.OnNext(attackEvent);
+            _attackDone.OnNext(currentActiveGameObject.Id);
+
+            return;
         }
 
         public UniTask DefenceAsync()

@@ -70,7 +70,7 @@ namespace Assets.Scripts.UI.Battle.Views
                 });
         }
 
-        public async UniTaskVoid AttackAsync(Vector3 opponentPosition)
+        public async UniTask AttackAsync(Vector3 opponentPosition)
         {
             Face(transform.position, opponentPosition);
 
@@ -94,7 +94,7 @@ namespace Assets.Scripts.UI.Battle.Views
             ResetFace();
         }
 
-        public async UniTaskVoid TakeDamageAsync(Vector3 opponentPosition)
+        public async UniTask TakeDamageAsync(Vector3 opponentPosition)
         {
             Face(transform.position, opponentPosition);
             SetCount(Data.Count);
@@ -104,7 +104,7 @@ namespace Assets.Scripts.UI.Battle.Views
             ResetFace();
         }
 
-        public async UniTaskVoid DeathAsync(Vector3 opponentPosition)
+        public async UniTask DeathAsync(Vector3 opponentPosition)
         {
             Face(transform.position, opponentPosition);
             PlayDeathAnimation();
@@ -145,7 +145,8 @@ namespace Assets.Scripts.UI.Battle.Views
 
         private async UniTask WaitEndAnimationAsync()
         {
-            await UniTask.WaitUntil(() =>_animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f);
+            var token = this.GetCancellationTokenOnDestroy();
+            await UniTask.WaitUntil(() => _animator == null || _animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f, cancellationToken: token);
         }
 
         private void Face(Vector3 fromPos, Vector3 toPos)
