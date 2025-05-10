@@ -9,6 +9,12 @@ namespace Assets.Scripts.Services.Implementations
 {
     public class GameSessionsFactory : IGameSessionsFactory
     {
+        private static readonly Guid[] TestBuildIds = new[]
+        {
+            Guid.Parse("f6bfec27-6fae-4e47-80f8-e8185f237d1a"),
+            Guid.Parse("89e84c39-f2b4-440a-9bf0-99a693960065"),
+        };
+
         private static readonly Guid[] AvailableBuildIds = new[]
         {
             Guid.Parse("2927a215-549b-496a-afd8-8163ec85970a"),
@@ -30,6 +36,7 @@ namespace Assets.Scripts.Services.Implementations
 
             var firstPlayer = new PlayerBattleData(
                 id: 1,
+                nickName: "PANiXiDA",
                 sessionId: null,
                 buildId: GetRandomBuildId(),
                 countMissedMoves: 0,
@@ -41,6 +48,7 @@ namespace Assets.Scripts.Services.Implementations
 
             var secondPlayer = new PlayerBattleData(
                 id: 2,
+                nickName: "Bot",
                 sessionId: null,
                 buildId: GetRandomBuildId(),
                 countMissedMoves: 0,

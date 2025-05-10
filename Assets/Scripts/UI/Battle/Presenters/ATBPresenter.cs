@@ -32,7 +32,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         [Inject] private readonly IAttacksService _attacksService;
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
         [Inject] private readonly IPlayerColorsService _playerColorsService;
-        [Inject] private readonly IBattleActionsFacade _battleActionsFacade;
+        [Inject] private readonly ISurrenderService _surrenderService;
 
         private void OnEnable()
         {
@@ -66,6 +66,10 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
             _attacksService.OnAttackPrepared
                 .Subscribe(attackEvent => AttackDone(attackEvent))
+                .AddTo(_disposables);
+
+            _surrenderService.OnSurrenderUnitsGot
+                .Subscribe(surrenderUnitIds => RemoveUnitsBatch(surrenderUnitIds))
                 .AddTo(_disposables);
         }
 
@@ -121,6 +125,14 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 .Where(item => item.Id == unitId)
                 .ToList()
                 .ForEach(item => item.Count = newCount);
+        }
+
+        private void RemoveUnitsBatch(List<Guid> unitIds)
+        {
+            foreach (var id in unitIds)
+            {
+                RemoveUnitFromATB(id);
+            }
         }
 
         private void RemoveATBItem(Guid atbItemId)

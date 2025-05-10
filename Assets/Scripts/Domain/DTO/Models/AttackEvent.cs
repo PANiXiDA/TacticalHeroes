@@ -9,17 +9,20 @@ namespace Assets.Scripts.Domain.DTO.Models
         public Unit Defender { get; }
         public int Damage { get; set; }
         public int Deaths { get; set; }
+        public bool IsRangeAttack { get; }
 
         public AttackEvent(
             GameObject attacker,
             Unit defender,
             int damage,
-            int deaths)
+            int deaths,
+            bool isRangeAttack)
         {
             Attacker = attacker;
             Defender = defender;
             Damage = damage;
             Deaths = deaths;
+            IsRangeAttack = isRangeAttack;
         }
     }
 }

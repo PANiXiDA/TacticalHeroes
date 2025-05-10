@@ -9,6 +9,7 @@ namespace Assets.Scripts.Infrastructure.Models
     public class PlayerBattleData
     {
         public int? Id { get; set; }
+        public string NickName { get; set; }
         public Guid? SessionId { get; set; }
         public Guid BuildId { get; set; }
         public int CountMissedMoves { get; set; }
@@ -22,6 +23,7 @@ namespace Assets.Scripts.Infrastructure.Models
 
         public PlayerBattleData(
             int? id,
+            string nickName,
             Guid? sessionId,
             Guid buildId,
             int countMissedMoves,
@@ -31,6 +33,7 @@ namespace Assets.Scripts.Infrastructure.Models
             int columnsToDeployment)
         {
             Id = id;
+            NickName = nickName;
             SessionId = sessionId;
             BuildId = buildId;
             CountMissedMoves = countMissedMoves;

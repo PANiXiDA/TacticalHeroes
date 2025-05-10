@@ -70,24 +70,31 @@ namespace Assets.Scripts.UI.Battle.Views
                 });
         }
 
-        public async UniTask AttackAsync(Vector3 opponentPosition)
+        public async UniTask AttackAsync(Vector3 opponentPosition, bool isRangeAttack)
         {
             Face(transform.position, opponentPosition);
 
             float yDiff = opponentPosition.y - transform.position.y;
             const float eps = 0.01f;
 
-            if (Mathf.Abs(yDiff) < eps)
+            if (isRangeAttack)
             {
-                PlayFrontMeleeAttackAnimation();
-            }
-            else if (yDiff > 0)
-            {
-                PlayTopMeleeAttackAnimation();
+                PlayRangeAttackAnimation();
             }
             else
             {
-                PlayBottomMeleeAttackAnimation();
+                if (Mathf.Abs(yDiff) < eps)
+                {
+                    PlayFrontMeleeAttackAnimation();
+                }
+                else if (yDiff > 0)
+                {
+                    PlayTopMeleeAttackAnimation();
+                }
+                else
+                {
+                    PlayBottomMeleeAttackAnimation();
+                }
             }
 
             await WaitEndAnimationAsync();

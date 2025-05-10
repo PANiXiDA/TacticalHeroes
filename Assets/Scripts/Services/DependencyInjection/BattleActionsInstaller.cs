@@ -20,6 +20,8 @@ namespace Assets.Scripts.Services.DependencyInjection
             Container.Bind<IBattleTurnsService>().To<BattleTurnsService>().AsSingle();
             Container.Bind<IButtonStatesService>().To<ButtonStatesService>().AsSingle();
             Container.Bind<IBuffsDebuffsService>().To<BuffsDebuffsService>().AsSingle();
+            Container.Bind<IBattleEndService>().To<BattleEndService>().AsSingle();
+            Container.Bind<ISurrenderService>().To<SurrenderService>().AsSingle();
         }
     }
 }

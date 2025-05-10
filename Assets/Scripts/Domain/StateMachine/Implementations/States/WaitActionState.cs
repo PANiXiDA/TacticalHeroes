@@ -33,7 +33,12 @@ namespace Assets.Scripts.Domain.StateMachine.Implementations.States
 
                     _battleActionsFacade.OnWaitDone.Do(_ =>
                         gameSession.RoundState.LastCommand = CommandType.Wait)
-                        .Select(_ => GameState.ApplyAction))
+                        .Select(_ => GameState.ApplyAction),
+
+                    _battleActionsFacade.OnSurrenderDone.Do(_ =>
+                        gameSession.RoundState.LastCommand = CommandType.Surrender)
+                        .Select(_ => GameState.ApplyAction)
+                    )
                 .FirstAsync();
         }
 

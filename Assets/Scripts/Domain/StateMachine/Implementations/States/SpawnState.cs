@@ -11,10 +11,14 @@ namespace Assets.Scripts.Domain.StateMachine.Implementations.States
     public class SpawnState : IGameState
     {
         private readonly IBattlePreparationsService _battlePreparationsService;
+        private readonly ISurrenderService _surrenderService;
 
-        public SpawnState(IBattlePreparationsService battlePreparationsService)
+        public SpawnState(
+            IBattlePreparationsService battlePreparationsService,
+            ISurrenderService surrenderService)
         {
             _battlePreparationsService = battlePreparationsService;
+            _surrenderService = surrenderService;
         }
 
         public async UniTask<GameState?> EnterAsync(GameSession gameSession)
@@ -44,7 +48,9 @@ namespace Assets.Scripts.Domain.StateMachine.Implementations.States
                 }
             }
 
-            gameSession.RoundState.Units = results.SelectMany(wrappers => wrappers.Select(w => w.Unit)).ToList();
+            gameSession.RoundState.Units = results.SelectMany(wrappers => wrappers.Select(wrapper => wrapper.Unit)).ToList();
+
+            _surrenderService.SetPlayersCache(gameSession.Players);
 
             return GameState.SetATB;
         }

@@ -19,6 +19,7 @@ namespace Assets.Scripts.UI.Battle.Core
             Container.Bind<TileInfoPresenter>().FromComponentInHierarchy().AsSingle();
             Container.Bind<UnitInfoPresenter>().FromComponentInHierarchy().AsSingle();
             Container.Bind<SurrenderPresenter>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<BattleEndPresenter>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

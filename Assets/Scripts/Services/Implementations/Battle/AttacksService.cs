@@ -72,7 +72,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
 
                 UpdateDefenderStats(defender, damageResult);
 
-                _attackEventsCache.Add(new AttackEvent(attacker, defender, damage, damageResult.DeadUnits));
+                _attackEventsCache.Add(new AttackEvent(attacker, defender, damage, damageResult.DeadUnits, false));
 
                 if (_attackCalculator.HasResponseMeleeAttack(defender, isResponseAttack))
                 {
@@ -96,11 +96,12 @@ namespace Assets.Scripts.Services.Implementations.Battle
                 await _attackSources[attacker.Id].Task;
                 return;
             }
-
             if (!_gameObjectValidation.IsValidArcher(attacker))
             {
                 return;
             }
+
+            _movementsService.ClearReachableTiles();
 
             var countAttacks = isResponseAttack ? 1 : _attackCalculator.GetCountRangeAttacks(attacker);
 
@@ -114,7 +115,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
                 UpdateAttackerArrows(attacker);
                 UpdateDefenderStats(defender, damageResult);
 
-                _attackEventsCache.Add(new AttackEvent(attacker, defender, damage, damageResult.DeadUnits));
+                _attackEventsCache.Add(new AttackEvent(attacker, defender, damage, damageResult.DeadUnits, true));
 
                 if (_attackCalculator.HasResponseRangeAttack(defender, isResponseAttack) && attacker is Unit unit)
                 {

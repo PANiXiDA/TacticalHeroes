@@ -16,10 +16,12 @@ namespace Assets.Scripts.Services.Interfaces.Battle
         Observable<Guid > OnAttackDone { get; }
         Observable<Guid> OnDefenceDone { get; }
         Observable<Guid> OnWaitDone { get; }
+        Observable<Guid> OnSurrenderDone { get; }
         UniTask MoveAsync(Tile targetTile);
         UniTask MeleeAttackAsync(Unit defender, Tile targetTile);
         UniTask RangeAttackAsync(Unit defender);
         UniTask DefenceAsync();
         UniTask WaitAsync();
+        UniTask SurrenderAsync();
     }
 }

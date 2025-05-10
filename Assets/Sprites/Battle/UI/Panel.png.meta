@@ -136,15 +136,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Panel_0
+      name: FirstPanel
       rect:
         serializedVersion: 2
-        x: 58
-        y: 58
-        width: 557
-        height: 366
+        x: 62
+        y: 61
+        width: 543
+        height: 360
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -158,15 +158,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Panel_1
+      name: SecondPanel
       rect:
         serializedVersion: 2
-        x: 666
-        y: 56
-        width: 555
-        height: 368
+        x: 674
+        y: 61
+        width: 537
+        height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -193,8 +193,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Panel_0: 1168972900
-      Panel_1: 1610433040
+      FirstPanel: 1168972900
+      SecondPanel: 1610433040
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

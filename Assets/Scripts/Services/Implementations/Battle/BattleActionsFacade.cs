@@ -22,29 +22,34 @@ namespace Assets.Scripts.Services.Implementations.Battle
         private readonly IAttacksService _attacksService;
         private readonly IBuffsDebuffsService _buffsDebuffsService;
         private readonly IATBService _atbService;
+        private readonly ISurrenderService _surrenderService;
 
         private readonly Subject<Guid> _movementCompleted = new();
         private readonly Subject<Guid> _attackDone = new();
         private readonly Subject<Guid> _defenceDone = new();
         private readonly Subject<Guid> _waitDone = new();
+        private readonly Subject<Guid> _surrenderDone = new();
 
         public Observable<Guid> OnMovementCompleted => _movementCompleted.AsObservable();
         public Observable<Guid> OnAttackDone => _attackDone.AsObservable();
         public Observable<Guid> OnDefenceDone => _defenceDone.AsObservable();
         public Observable<Guid> OnWaitDone => _waitDone.AsObservable();
+        public Observable<Guid> OnSurrenderDone => _surrenderDone.AsObservable();
 
         public BattleActionsFacade(
             IBattleTurnsService battleTurnsService,
             IMovementsService movementsService,
             IAttacksService attacksService,
             IBuffsDebuffsService buffsDebuffsService,
-            IATBService atbService)
+            IATBService atbService,
+            ISurrenderService surrenderService)
         {
             _battleTurnsService = battleTurnsService;
             _movementsService = movementsService;
             _attacksService = attacksService;
             _buffsDebuffsService = buffsDebuffsService;
             _atbService = atbService;
+            _surrenderService = surrenderService;
         }
 
         public async UniTask MoveAsync(Tile targetTile)
@@ -103,6 +108,15 @@ namespace Assets.Scripts.Services.Implementations.Battle
             _waitDone.OnNext(currentActiveGameObject.Id);
 
             return UniTask.CompletedTask;
+        }
+
+        public async UniTask SurrenderAsync()
+        {
+            var currentActiveGameObject = _battleTurnsService.GetCurrentActiveGameObject();
+            await _surrenderService.SurrenderAsync(currentActiveGameObject.Id);
+            _surrenderDone.OnNext(currentActiveGameObject.Id);
+
+            return;
         }
     }
 }

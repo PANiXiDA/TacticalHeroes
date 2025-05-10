@@ -13,8 +13,6 @@ using Cysharp.Threading.Tasks;
 
 using R3;
 
-using UnityEditor.Experimental.GraphView;
-
 using Unit = Assets.Scripts.GameEngine.Domain.Unit;
 
 namespace Assets.Scripts.Services.Implementations.Battle
@@ -40,6 +38,8 @@ namespace Assets.Scripts.Services.Implementations.Battle
             _gridsService = gridsService;
         }
 
+        public void ClearReachableTiles() => _reachableTilesReceived.OnNext(Array.Empty<Tile>());
+
         public UniTask GetReachableTilesAsync(Unit unit)
         {
             var grid = _gridsService.GetGrid();
@@ -64,7 +64,7 @@ namespace Assets.Scripts.Services.Implementations.Battle
                 await _moveSources[unit.Id].Task;
                 return;
             }
-            _reachableTilesReceived.OnNext(Array.Empty<Tile>());
+            ClearReachableTiles();
 
             var grid = _gridsService.GetGrid();
             var startTile = grid.First(tile => tile.OccupiedUnitId == unit.Id);

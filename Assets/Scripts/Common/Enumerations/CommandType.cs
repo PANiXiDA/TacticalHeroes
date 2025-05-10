@@ -7,6 +7,7 @@
         Defence = 2,
         Wait = 3,
         UseAbility = 4,
-        UseMagic = 5
+        UseMagic = 5,
+        Surrender = 6
     }
 }

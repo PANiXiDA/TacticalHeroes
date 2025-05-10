@@ -9,6 +9,7 @@ using Assets.Scripts.GameEngine.Domain;
 using TMPro;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.UI.Battle.Views
 {
@@ -16,7 +17,7 @@ namespace Assets.Scripts.UI.Battle.Views
     {
         [SerializeField] private GameObject _container;
 
-        [SerializeField] private GameObject _infoPanel;
+        [SerializeField] private Image _infoPanel;
 
         [SerializeField] private TextMeshProUGUI _name;
         [SerializeField] private TextMeshProUGUI _attack;
@@ -31,7 +32,7 @@ namespace Assets.Scripts.UI.Battle.Views
         [SerializeField] private TextMeshProUGUI _luck;
         [SerializeField] private TextMeshProUGUI _abilities;
 
-        [SerializeField] private GameObject _effectsPanel;
+        [SerializeField] private Image _effectsPanel;
 
         [SerializeField] private TextMeshProUGUI _effectTypes;
         [SerializeField] private TextMeshProUGUI _effectModifiers;
@@ -44,7 +45,7 @@ namespace Assets.Scripts.UI.Battle.Views
 
         public void ShowInfo(Unit unit)
         {
-            _effectsPanel.SetActive(false);
+            _effectsPanel.gameObject.SetActive(false);
 
             _name.text = unit.Name;
             _attack.text = unit.GetStatValue(StatType.Attack).Display;
@@ -59,12 +60,12 @@ namespace Assets.Scripts.UI.Battle.Views
             _luck.text = unit.GetStatValue(StatType.Luck).Display;
             _abilities.text = string.Join(", ",unit.Abilities.Select(ability => ability.Type.GetDisplayName()));
 
-            _infoPanel.SetActive(true);
+            _infoPanel.gameObject.SetActive(true);
         }
 
         public void ShowEffects(Unit unit)
         {
-            _infoPanel.SetActive(false);
+            _infoPanel.gameObject.SetActive(false);
 
             var colType = new StringBuilder();
             var colEff = new StringBuilder();
@@ -87,13 +88,13 @@ namespace Assets.Scripts.UI.Battle.Views
             _effectModifiers.text = colEff.ToString().TrimEnd();
             _effectDurations.text = colTime.ToString().TrimEnd();
 
-            _effectsPanel.SetActive(true);
+            _effectsPanel.gameObject.SetActive(true);
         }
 
         public void Hide()
         {
-            _infoPanel.SetActive(false);
-            _effectsPanel.SetActive(false);
+            _infoPanel.gameObject.SetActive(false);
+            _effectsPanel.gameObject.SetActive(false);
         }
 
         private static string FormatModifier(StatModifier modifier)

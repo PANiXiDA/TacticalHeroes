@@ -16,6 +16,7 @@ namespace Assets.Scripts.Services.Interfaces.Battle
     {
         Observable<IReadOnlyList<Tile>> OnReachableTilesReceived { get; }
         Observable<MovementPath> OnPathComputed { get; }
+        void ClearReachableTiles();
         UniTask GetReachableTilesAsync(Unit unit);
         UniTask MoveAsync(Tile targetTile, Unit unit);
         void NotifyMovementCompleted(Guid unitId);

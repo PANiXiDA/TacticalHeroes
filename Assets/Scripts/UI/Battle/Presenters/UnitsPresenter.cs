@@ -37,6 +37,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         [Inject] private readonly IAttacksService _attacksService;
         [Inject] private readonly IBattleActionsFacade _battleActionsFacade;
         [Inject] private readonly IATBService _atbService;
+        [Inject] private readonly ISurrenderService _surrenderService;
 
         private readonly CompositeDisposable _disposables = new();
 
@@ -81,6 +82,11 @@ namespace Assets.Scripts.UI.Battle.Presenters
 
             _input.OnExit
                 .Subscribe(_ => _attackPreviews.Hide())
+                .AddTo(_disposables);
+
+            _surrenderService.OnSurrenderUnitsGot
+                .Where(ids => ids.Contains(_view.Data.Id))
+                .Subscribe(_ => HandleSurrenderDeath().Forget())
                 .AddTo(_disposables);
         }
 
@@ -207,18 +213,6 @@ namespace Assets.Scripts.UI.Battle.Presenters
             }
         }
 
-        private void HandleMove(IReadOnlyList<Tile> tiles)
-        {
-            var path = tiles
-                .Select(t => _grid.GetTile(t.X, t.Y).transform.position)
-                .ToArray();
-
-            _view.MoveAsync(path, () =>
-            {
-                _movementsService.NotifyMovementCompleted(_view.Data.Id);
-            }).Forget();
-        }
-
         private async UniTask AttackDone(List<AttackEvent> attackEvents)
         {
             var rootId = attackEvents.First().Attacker.Id;
@@ -227,7 +221,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
             {
                 if (attackEvent.Attacker.Id == _view.Data.Id)
                 {
-                    await HandleAttack(attackEvent.Defender);
+                    await HandleAttack(attackEvent.Defender, attackEvent.IsRangeAttack);
                 }
                 if (attackEvent.Defender.Id == _view.Data.Id && attackEvent.Attacker is Unit attacker)
                 {
@@ -241,11 +235,23 @@ namespace Assets.Scripts.UI.Battle.Presenters
             }
         }
 
-        private async UniTask HandleAttack(Unit defender)
+        private void HandleMove(IReadOnlyList<Tile> tiles)
+        {
+            var path = tiles
+                .Select(t => _grid.GetTile(t.X, t.Y).transform.position)
+                .ToArray();
+
+            _view.MoveAsync(path, () =>
+            {
+                _movementsService.NotifyMovementCompleted(_view.Data.Id);
+            }).Forget();
+        }
+
+        private async UniTask HandleAttack(Unit defender, bool isRangeAttack)
         {
             var defenderTile = _grid.GetTile(defender.Id);
             var defenderPosition = defenderTile.transform.position;
-            await _view.AttackAsync(defenderPosition);
+            await _view.AttackAsync(defenderPosition, isRangeAttack);
         }
 
         private async UniTask HandleDefend(Unit attacker)
@@ -261,6 +267,11 @@ namespace Assets.Scripts.UI.Battle.Presenters
             {
                 await _view.DeathAsync(attackerPosition);
             }
+        }
+
+        private async UniTask HandleSurrenderDeath()
+        {
+            await _view.DeathAsync(transform.position);
         }
     }
 }

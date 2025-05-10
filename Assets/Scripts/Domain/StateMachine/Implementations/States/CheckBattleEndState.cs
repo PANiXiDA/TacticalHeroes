@@ -17,7 +17,7 @@ namespace Assets.Scripts.Domain.StateMachine.Implementations.States
                 .GroupBy(player => player.Side)
                 .ToDictionary(
                     group => group.Key,
-                    group => group.Sum(player => player.Units?.Count ?? 0)
+                    group => group.Sum(player => player.Units?.Sum(unit => unit.Count) ?? 0)
                 );
 
             var sideWithNoUnits = unitsBySide

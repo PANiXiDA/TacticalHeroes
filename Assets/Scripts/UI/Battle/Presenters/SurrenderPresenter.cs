@@ -1,10 +1,11 @@
-﻿using Assets.Scripts.Common.Constants;
+﻿using Assets.Scripts.Services.Interfaces.Battle;
 using Assets.Scripts.UI.Battle.Inputs;
 using Assets.Scripts.UI.Battle.Views;
 using R3;
 
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
+using Zenject;
 
 namespace Assets.Scripts.UI.Battle.Presenters
 {
@@ -12,6 +13,8 @@ namespace Assets.Scripts.UI.Battle.Presenters
     [RequireComponent(typeof(SurrenderView))]
     public sealed class SurrenderPresenter : MonoBehaviour
     {
+        [Inject] private readonly IBattleActionsFacade _battleActionsFacade;
+
         private readonly CompositeDisposable _disposables = new();
 
         private SurrenderInput _input;
@@ -37,7 +40,11 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private void BindStreams()
         {
             _input.OnYes
-              .Subscribe(_ => SceneManager.LoadScene(SceneConstants.MenuScene))
+              .Subscribe(_ => 
+              {
+                  _battleActionsFacade.SurrenderAsync();
+                  Hide();
+              })
               .AddTo(_disposables);
 
             _input.OnNo
