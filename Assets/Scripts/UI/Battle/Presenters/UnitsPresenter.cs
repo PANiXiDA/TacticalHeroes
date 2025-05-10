@@ -30,6 +30,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
         [Inject] private readonly GridsPresenter _grid;
         [Inject] private readonly AttackPreviewsPresenter _attackPreviews;
         [Inject] private readonly UnitInfoPresenter _unitInfo;
+        [Inject] private readonly DamagePopupPresenter _damagePopupPresenter;
 
         [Inject] private readonly IButtonStatesService _buttonStatesService;
         [Inject] private readonly IBattleTurnsService _battleTurnsService;
@@ -225,6 +226,7 @@ namespace Assets.Scripts.UI.Battle.Presenters
                 }
                 if (attackEvent.Defender.Id == _view.Data.Id && attackEvent.Attacker is Unit attacker)
                 {
+                    ShowDamagePopup(attackEvent);
                     await HandleDefend(attacker);
                 }
             }
@@ -272,6 +274,13 @@ namespace Assets.Scripts.UI.Battle.Presenters
         private async UniTask HandleSurrenderDeath()
         {
             await _view.DeathAsync(transform.position);
+        }
+
+        private void ShowDamagePopup(AttackEvent attackEvent)
+        {
+            Vector3 worldPos = transform.position + Vector3.up;
+            Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPos);
+            _damagePopupPresenter.CreateDamagePopup(attackEvent, screenPos);
         }
     }
 }

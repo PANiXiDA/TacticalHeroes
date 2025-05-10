@@ -20,6 +20,7 @@ namespace Assets.Scripts.UI.Battle.Core
             Container.Bind<UnitInfoPresenter>().FromComponentInHierarchy().AsSingle();
             Container.Bind<SurrenderPresenter>().FromComponentInHierarchy().AsSingle();
             Container.Bind<BattleEndPresenter>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<DamagePopupPresenter>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

@@ -1,4 +1,4 @@
-# Install script for directory: D:/Repository/TacticalHeroes/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/main/cpp
+# Install script for directory: D:/Repository/TacticalHeroes/Library/PramData/AndroidApplicationController/Cache/com.OldStrategy.TacticalHeroes/gradle-project/unityLibrary/src/main/cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
